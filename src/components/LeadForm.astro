@@ -19,6 +19,7 @@ interface Props {
 
 const { formType, button, fields, id } = Astro.props;
 const webhookUrl = import.meta.env.PUBLIC_N8N_WEBHOOK_URL || '';
+const zaloPhone = import.meta.env.PUBLIC_ZALO_PHONE || '';
 const FANPAGE_URL = 'https://www.facebook.com/share/1DkFspwMnu/';
 ---
 
@@ -26,6 +27,7 @@ const FANPAGE_URL = 'https://www.facebook.com/share/1DkFspwMnu/';
   id={id}
   data-lead-form={formType}
   data-webhook={webhookUrl}
+  data-zalo={zaloPhone}
   data-fanpage={FANPAGE_URL}
   class="mx-auto max-w-xl rounded-2xl bg-card border border-line p-8 space-y-5"
   novalidate
@@ -67,10 +69,27 @@ const FANPAGE_URL = 'https://www.facebook.com/share/1DkFspwMnu/';
 </form>
 
 <script>
+  const SUBMIT_EVENTS: Record<string, string> = {
+    'join-99k': 'submit_99k_form',
+    'careers-headpt': 'submit_headpt_form',
+    'invest-spv': 'submit_spv_form',
+  };
+
+  function track(event: string, params: Record<string, string> = {}) {
+    window.dispatchEvent(new CustomEvent('grow:track', { detail: { event, ...params } }));
+  }
+
   function bindLeadForms() {
     document.querySelectorAll<HTMLFormElement>('form[data-lead-form]').forEach((form) => {
       if (form.dataset.bound) return;
       form.dataset.bound = '1';
+
+      form.addEventListener('focusin', (e) => {
+        if (form.dataset.started) return;
+        if (!(e.target instanceof HTMLInputElement) && !(e.target instanceof HTMLSelectElement)) return;
+        form.dataset.started = '1';
+        track('form_start', { form_type: form.dataset.leadForm || '' });
+      });
 
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -93,7 +112,12 @@ const FANPAGE_URL = 'https://www.facebook.com/share/1DkFspwMnu/';
           if (msg) {
             msg.classList.remove('hidden');
             msg.classList.add('text-secondary');
-            msg.innerHTML = `Hệ thống đang bận — bạn nhắn trực tiếp <a class="underline text-primary" href="${form.dataset.fanpage}" target="_blank" rel="noopener">Fanpage Grow Fitness</a> để được giữ chỗ ngay nhé!`;
+            const zalo = form.dataset.zalo;
+            if (zalo) {
+              msg.innerHTML = `Bạn chưa mất chỗ đâu, hệ thống chỉ đang bận chút thôi — <a class="underline text-primary" href="https://zalo.me/${zalo}" target="_blank" rel="noopener">💬 Nhắn Zalo chị Liên ngay</a> để được giữ chỗ liền tay nhé!`;
+            } else {
+              msg.innerHTML = `Hệ thống đang bận — bạn nhắn trực tiếp <a class="underline text-primary" href="${form.dataset.fanpage}" target="_blank" rel="noopener">Fanpage Grow Fitness</a> để được giữ chỗ ngay nhé!`;
+            }
           }
         };
 
@@ -104,11 +128,14 @@ const FANPAGE_URL = 'https://www.facebook.com/share/1DkFspwMnu/';
         }
 
         if (btn) btn.disabled = true;
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), 3000);
         try {
           const res = await fetch(webhook, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload),
+            signal: controller.signal,
           });
           if (!res.ok) throw new Error(String(res.status));
           form.querySelectorAll('input, select, button').forEach((el) => ((el as HTMLInputElement).disabled = true));
@@ -117,9 +144,12 @@ const FANPAGE_URL = 'https://www.facebook.com/share/1DkFspwMnu/';
             msg.classList.add('text-primary');
             msg.textContent = '✅ Đã nhận thông tin! Đội ngũ Grow sẽ liên hệ Zalo của bạn trong vòng 24h.';
           }
+          const eventName = SUBMIT_EVENTS[form.dataset.leadForm || ''];
+          if (eventName) track(eventName, { form_type: form.dataset.leadForm || '' });
         } catch {
           fail();
         } finally {
+          clearTimeout(timer);
           if (btn) btn.disabled = false;
         }
       });

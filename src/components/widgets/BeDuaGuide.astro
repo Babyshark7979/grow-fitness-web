@@ -50,7 +50,7 @@ const qrUrl = '/images/QR_Gemini_Gem.png';
   <div
     class="flex flex-col sm:flex-row items-center justify-center gap-6 bg-dark/60 p-6 rounded-2xl border border-line/50"
   >
-    <div class="bg-white p-2 rounded-xl shadow-lg">
+    <div class="bg-white p-2 rounded-xl shadow-lg" data-qr-be-dua>
       <img src={qrUrl} alt="Mã QR Trợ Lý AI Bé Dứa" class="w-32 h-32" />
     </div>
     <div class="text-center sm:text-left">
@@ -63,9 +63,25 @@ const qrUrl = '/images/QR_Gemini_Gem.png';
         target="_blank"
         rel="noopener noreferrer"
         class="btn-primary inline-block text-sm px-6 py-2.5 rounded-full font-semibold"
+        data-qr-be-dua
       >
         🚀 Bấm Vào Đây Để Chat Với Bé Dứa →
       </a>
     </div>
   </div>
 </section>
+
+<script>
+  function bindBeDuaQr() {
+    document.querySelectorAll<HTMLElement>('[data-qr-be-dua]').forEach((el) => {
+      if (el.dataset.bound) return;
+      el.dataset.bound = '1';
+      el.addEventListener('click', () => {
+        window.dispatchEvent(new CustomEvent('grow:track', { detail: { event: 'click_qr_be_dua' } }));
+      });
+    });
+  }
+
+  bindBeDuaQr();
+  document.addEventListener('astro:page-load', bindBeDuaQr);
+</script>

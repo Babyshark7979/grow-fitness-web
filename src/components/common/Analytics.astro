@@ -55,6 +55,7 @@ const pixelId = import.meta.env.PUBLIC_META_PIXEL_ID || '';
 {
   pixelId && (
     <script is:inline define:vars={{ pixelId }}>
+      /* eslint-disable @typescript-eslint/no-unused-expressions, prefer-spread */
       !(function (f, b, e, v, n, t, s) {
         if (f.fbq) return;
         n = f.fbq = function () {
