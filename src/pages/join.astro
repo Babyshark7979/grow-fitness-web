@@ -145,6 +145,45 @@ const schedule = [
     </div>
   </section>
 
+  <!-- Gallery phòng tập S109 ******** -->
+
+  <section class="px-4 py-16 sm:px-6 mx-auto max-w-6xl">
+    <div class="mb-10 text-center">
+      <p class="text-base font-semibold uppercase tracking-wide text-primary mb-2">Ảnh thật — không render</p>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold tracking-tight text-white">
+        Không Gian Phòng Tập S109 Ocean Park 1
+      </h2>
+      <p class="mt-3 text-muted">Private Gym dành riêng cho nữ — nhìn tận mắt trước khi đặt chỗ.</p>
+    </div>
+    <div class="grid gap-6 sm:grid-cols-2">
+      {
+        [
+          {
+            src: '/images/hero-lienn.png',
+            alt: 'Chị Liên — Founder Grow Fitness tại phòng tập S109 Ocean Park 1',
+            caption: 'Chị Liên — Founder & HLV trưởng Grow Fitness',
+          },
+          {
+            src: '/images/Lienhero.png',
+            alt: 'Không gian tập luyện thực tế tại Grow Fitness S109 Ocean Park 1',
+            caption: 'Không gian tập luyện riêng tư tại S109 Ocean Park 1',
+          },
+        ].map((photo) => (
+          <figure class="overflow-hidden rounded-2xl border border-line bg-card">
+            <img
+              src={photo.src}
+              alt={photo.alt}
+              loading="lazy"
+              decoding="async"
+              class="w-full h-72 sm:h-80 object-cover object-top transition duration-300 hover:scale-105"
+            />
+            <figcaption class="px-5 py-4 text-sm text-muted">{photo.caption}</figcaption>
+          </figure>
+        ))
+      }
+    </div>
+  </section>
+
   <!-- Form đăng ký 99K ************** -->
 
   <section class="px-4 py-16 sm:px-6 mx-auto max-w-6xl">
