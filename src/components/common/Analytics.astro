@@ -6,6 +6,38 @@ const partytown = !!ANALYTICS?.vendors?.googleAnalytics?.partytown;
 const scriptType = partytown ? 'text/partytown' : undefined;
 const gtmId = import.meta.env.PUBLIC_GTM_ID || '';
 const pixelId = import.meta.env.PUBLIC_META_PIXEL_ID || '';
+
+const gtmSnippet = gtmId
+  ? `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${gtmId}');`
+  : '';
+
+const pixelSnippet = pixelId
+  ? `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','${pixelId}');fbq('track','PageView');`
+  : '';
+
+const trackSnippet =
+  gtmId || pixelId
+    ? `
+window.addEventListener('grow:track', function (e) {
+  var detail = (e && e.detail) || {};
+  var name = detail.event;
+  if (!name) return;
+  var params = {};
+  for (var k in detail) {
+    if (k !== 'event') params[k] = detail[k];
+  }
+  if (window.dataLayer) {
+    var row = { event: name };
+    for (var p in params) row[p] = params[p];
+    window.dataLayer.push(row);
+  }
+  if (window.fbq) window.fbq('trackCustom', name, params);
+});
+if (location.pathname.indexOf('/invest') === 0 || location.pathname.indexOf('spv') !== -1) {
+  window.dispatchEvent(new CustomEvent('grow:track', { detail: { event: 'view_spv_article' } }));
+}
+`
+    : '';
 ---
 
 {id && <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${id}`} type={scriptType} />}
@@ -22,22 +54,7 @@ const pixelId = import.meta.env.PUBLIC_META_PIXEL_ID || '';
   }
 </script>
 
-{
-  gtmId && (
-    <script is:inline define:vars={{ gtmId }}>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != 'dataLayer' ? '&l=' + l : '';
-        j.async = true;
-        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, 'script', 'dataLayer', gtmId);
-    </script>
-  )
-}
+{gtmId && <script is:inline set:html={gtmSnippet} />}
 {
   gtmId && (
     <noscript>
@@ -52,31 +69,7 @@ const pixelId = import.meta.env.PUBLIC_META_PIXEL_ID || '';
   )
 }
 
-{
-  pixelId && (
-    <script is:inline define:vars={{ pixelId }}>
-      /* eslint-disable @typescript-eslint/no-unused-expressions, prefer-spread */
-      !(function (f, b, e, v, n, t, s) {
-        if (f.fbq) return;
-        n = f.fbq = function () {
-          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
-        };
-        if (!f._fbq) f._fbq = n;
-        n.push = n;
-        n.loaded = !0;
-        n.version = '2.0';
-        n.queue = [];
-        t = b.createElement(e);
-        t.async = !0;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s);
-      })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', pixelId);
-      fbq('track', 'PageView');
-    </script>
-  )
-}
+{pixelId && <script is:inline set:html={pixelSnippet} />}
 {
   pixelId && (
     <noscript>
@@ -91,27 +84,4 @@ const pixelId = import.meta.env.PUBLIC_META_PIXEL_ID || '';
   )
 }
 
-{
-  (gtmId || pixelId) && (
-    <script is:inline>
-      window.addEventListener('grow:track', function (e) {
-        var detail = (e && e.detail) || {};
-        var name = detail.event;
-        if (!name) return;
-        var params = {};
-        for (var k in detail) {
-          if (k !== 'event') params[k] = detail[k];
-        }
-        if (window.dataLayer) {
-          var row = { event: name };
-          for (var p in params) row[p] = params[p];
-          window.dataLayer.push(row);
-        }
-        if (window.fbq) window.fbq('trackCustom', name, params);
-      });
-      if (location.pathname.indexOf('/invest') === 0 || location.pathname.indexOf('spv') !== -1) {
-        window.dispatchEvent(new CustomEvent('grow:track', { detail: { event: 'view_spv_article' } }));
-      }
-    </script>
-  )
-}
+{(gtmId || pixelId) && <script is:inline set:html={trackSnippet} />}
