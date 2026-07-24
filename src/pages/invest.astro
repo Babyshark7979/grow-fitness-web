@@ -5,9 +5,9 @@ import Features from '~/components/widgets/Features.astro';
 import LeadForm from '~/components/LeadForm.astro';
 
 const metadata = {
-  title: 'Đầu Tư SPV 200M — Chuỗi Private Gym Không Pha Loãng Cổ Phần',
+  title: 'Góp Vốn Mở Cơ Sở Grow Fitness — Chia Doanh Thu Rõ Ràng',
   description:
-    'Góp vốn SPV 200 triệu theo từng cơ sở độc lập. Lợi nhuận chia trực tiếp từ doanh thu RBF và có hợp đồng mua lại Buyback rõ ràng.',
+    'Mỗi suất góp vốn 200 triệu cho một cơ sở cụ thể. Nhà đầu tư nhận phần chia doanh thu và có điều khoản mua lại rõ ràng.',
 };
 ---
 
@@ -18,23 +18,23 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Nhận Hồ Sơ SPV 200M',
+        text: 'Nhận Hồ Sơ Đầu Tư',
         href: '#form-spv',
         icon: 'tabler:file-analytics',
       },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=2070&q=80',
-      alt: 'Cơ hội góp vốn SPV 200M mở cơ sở Grow Fitness',
+      alt: 'Cơ hội góp vốn mở cơ sở Grow Fitness',
     }}
   >
     <Fragment slot="title">
-      Đầu Tư SPV 200M/Suất — <span class="text-accent">Tài Trợ Doanh Thu RBF & Đòn Bẩy Buyback</span>
+      Góp Vốn Mở <span class="text-accent">Cơ Sở Grow Fitness</span> — Tiền Đi Đúng Nơi, Doanh Thu Chia Rõ
     </Fragment>
 
     <Fragment slot="subtitle">
-      Góp vốn theo từng cơ sở độc lập. Nhận dòng tiền chia trực tiếp từ doanh thu,
-      <span class="font-semibold text-white">không sợ mua phải cái tủ lạnh thiu và có hợp đồng mua lại 100% rõ ràng.</span>
+      Mỗi suất 200 triệu gắn với một cơ sở cụ thể. Bạn biết tiền dùng vào đâu,
+      <span class="font-semibold text-white">nhận bao nhiêu và khi nào có thể rút.</span>
     </Fragment>
   </Hero>
 
@@ -42,23 +42,23 @@ const metadata = {
 
   <Features
     tagline="Cách dòng tiền vận hành"
-    title="3 Trụ Cột Cho Nhà Đầu Tư SPV"
-    subtitle="Dòng tiền minh bạch, quản trị bằng CFO Dashboard Tab 5 và đòn bẩy Buyback."
+    title="3 Điều Nhà Đầu Tư Cần Biết"
+    subtitle="Hiểu rõ tiền đi đâu, lợi nhuận đến từ đâu và cách rút vốn."
     columns={3}
     items={[
       {
-        title: '🏢 Góp vốn SPV 200M độc lập',
-        description: 'Mỗi suất 200 triệu chỉ dùng cho 1 cơ sở cụ thể. Nhà đầu tư nhận phần chia trực tiếp từ doanh thu RBF.',
+        title: '🏢 Góp vốn theo từng cơ sở',
+        description: 'Mỗi suất 200 triệu chỉ dùng cho một cơ sở. Nhà đầu tư nhận phần chia trực tiếp từ doanh thu của cơ sở đó.',
         icon: 'tabler:building-bank',
       },
       {
-        title: '🔄 Hợp đồng Buyback mua lại',
-        description: 'Công ty mẹ giữ 100% sở hữu lâu dài, có điều khoản mua lại suất SPV đúng hạn và rõ ràng.',
+        title: '🔄 Có điều khoản mua lại',
+        description: 'Hồ sơ ghi rõ khi nào Grow được mua lại phần góp vốn và cách tính số tiền.',
         icon: 'tabler:refresh',
       },
       {
-        title: '📈 Biên lợi nhuận O2O 90%',
-        description: 'Bánh răng Offline kéo khách ➔ AI Bé Dứa & Skool Online nhân bản doanh thu cao vượt trội.',
+        title: '📈 Nhiều nguồn doanh thu',
+        description: 'Phòng tập, tư vấn dinh dưỡng và nội dung trực tuyến cùng tạo doanh thu để cơ sở bền hơn.',
         icon: 'tabler:chart-arrows-vertical',
       },
     ]}
@@ -69,20 +69,20 @@ const metadata = {
   <section id="form-spv" class="px-4 py-16 sm:px-6 mx-auto max-w-3xl border-t border-line">
     <div class="mb-10 text-center">
       <p class="text-base font-semibold uppercase tracking-wide text-primary mb-2">Hồ sơ tài chính minh bạch</p>
-      <h2 class="font-heading text-3xl font-bold tracking-tight text-white mb-2">Yêu Cầu Hồ Sơ Góp Vốn SPV 200M</h2>
-      <p class="text-gray-400 text-sm">Điền thông tin bên dưới để Ban quản trị quỹ gửi bản thẩm định dòng tiền RBF cơ sở.</p>
+      <h2 class="font-heading text-3xl font-bold tracking-tight text-white mb-2">Đăng Ký Nhận Hồ Sơ Đầu Tư</h2>
+      <p class="text-gray-400 text-sm">Điền thông tin để nhận số liệu tài chính và lịch trao đổi trực tiếp.</p>
     </div>
 
     <LeadForm
       id="form-invest-spv"
       formType="invest-spv"
-      button="Nhận Hồ Sơ SPV 200M Ngay"
+      button="Nhận Hồ Sơ Đầu Tư"
       fields={[
         { name: 'ho_ten', label: 'Họ và Tên', placeholder: 'VD: Lê Hoàng Nam' },
         { name: 'so_dien_thoai', label: 'Số Điện Thoại (Zalo)', type: 'tel', placeholder: 'VD: 0903 111 222' },
         {
           name: 'so_suat',
-          label: 'Dự kiến số suất SPV quan tâm',
+          label: 'Số suất bạn quan tâm',
           type: 'select',
           options: ['1 suất (200 triệu)', '2-3 suất (400 - 600 triệu)', 'Trên 3 suất (Đầu tư cả cơ sở)'],
         },

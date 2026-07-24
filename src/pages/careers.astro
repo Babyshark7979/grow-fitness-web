@@ -5,9 +5,9 @@ import Features from '~/components/widgets/Features.astro';
 import LeadForm from '~/components/LeadForm.astro';
 
 const metadata = {
-  title: 'Thoát Kiếp Bác Xe Ôm Công Nghệ — Làm Chủ Mảnh Đất Tự Quản 30M',
+  title: 'Tuyển Quản Lý Phòng Tập — Cùng Grow Xây Cơ Sở',
   description:
-    'Cơ hội dành cho Head PT làm chủ mảnh đất tự quản 30M, giữ 90% lợi nhuận thặng dư và sở hữu cổ phần ảo Phantom Stock 12T.',
+    'Không cần kinh nghiệm quản lý. Grow đào tạo từ đầu để bạn có cơ hội đạt thu nhập 15–30 triệu mỗi tháng.',
 };
 ---
 
@@ -18,23 +18,22 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Nộp Hồ Sơ Head PT',
+        text: 'Tôi Muốn Thử',
         href: '#form-headpt',
         icon: 'tabler:send',
       },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=2070&q=80',
-      alt: 'Làm chủ cơ sở Private Gym tại Grow Fitness',
+      alt: 'Quản lý phòng tập tại Grow Fitness',
     }}
   >
     <Fragment slot="title">
-      Thoát Kiếp <span class="text-accent">"Bác Xe Ôm Công Nghệ"</span> — Làm Chủ Mảnh Đất Tự Quản 30M
+      Không cần kinh nghiệm. <span class="text-accent">Chỉ cần bạn thích kiếm tiền và dám học.</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Cầm chìa khóa vận hành cơ sở Private Gym Nữ 5 sao. Giữ 90% lợi nhuận vượt khoán 30M và
-      <span class="font-semibold text-white">sở hữu Cổ phần ảo Phantom Stock 12 tháng.</span>
+      Grow đào tạo từ đầu để bạn biết chăm khách, xây đội ngũ và quản lý một phòng tập dành riêng cho nữ.
     </Fragment>
   </Hero>
 
@@ -42,57 +41,81 @@ const metadata = {
 
   <Features
     tagline="Quyền lợi rõ ràng"
-    title="4 Lý Do Head PT Nên Chọn Grow Fitness"
-    subtitle="Không còn bị cai thầu chăn bò vắt chanh bỏ vỏ hay lo cướp khách cày số."
+    title="4 Lý Do Gia Nhập Grow"
+    subtitle="Biết rõ mình được gì, học gì và có thể tiến xa đến đâu."
     columns={2}
     items={[
       {
-        title: '💰 Giữ 90% lợi nhuận vượt khoán',
-        description: 'Sau mức chi phí vận hành 30 triệu/tháng, bạn và đội ngũ giữ 90% phần thặng dư. Làm nhiều hưởng nhiều.',
+        title: '💰 Thu nhập tăng theo năng lực',
+        description: 'Mục tiêu 15–30 triệu mỗi tháng sau 3 tháng đào tạo, tùy kết quả thực tế.',
         icon: 'tabler:cash',
       },
       {
-        title: '📈 Cổ phần ảo Phantom Stock 12T',
-        description: 'Đồng hành đủ 12 tháng và vận hành cơ sở tốt, bạn được trao cổ phần gắn chặt với dòng tiền cơ sở trọn đời.',
+        title: '🚀 Có đường lên quản lý',
+        description: 'Không chỉ đứng lớp. Bạn được học cách chăm khách, xây đội ngũ và vận hành một cơ sở.',
         icon: 'tabler:trending-up',
       },
       {
-        title: '🤖 AI Bé Dứa gánh 80% vận hành',
-        description: 'AI tự động nhắc lịch, chăm sóc khách, bán gia hạn. Bạn chỉ tập trung nâng tầm nghề nghiệp.',
+        title: '✨ Trở thành phiên bản tốt hơn',
+        description: 'Rèn sự tự tin, kỷ luật, cách giao tiếp và hình ảnh của một người dẫn dắt.',
         icon: 'tabler:robot',
       },
       {
-        title: '🛡️ Văn hóa văn minh — Không cướp khách',
-        description: 'Môi trường làm việc nhân văn, quy trình hệ thống hóa 100%, bảo vệ thu nhập và danh dự người làm nghề.',
+        title: '🎓 Có người đào tạo từ đầu',
+        description: 'Được cầm tay chỉ việc theo từng bước; chưa biết quản lý vẫn có thể bắt đầu.',
         icon: 'tabler:shield-check',
       },
     ]}
   />
 
+  <!-- Thu nhập ********************** -->
+
+  <section class="px-4 py-16 sm:px-6 mx-auto max-w-4xl">
+    <div
+      class="rounded-3xl border border-primary/40 bg-card p-8 text-center shadow-[0_0_35px_rgba(255,46,136,0.12)] md:p-12"
+    >
+      <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">Thu nhập rõ ràng</p>
+      <h2 class="font-heading text-3xl font-bold text-white md:text-5xl">15–30 triệu/tháng</h2>
+      <p class="mt-4 text-muted">Mục tiêu sau 3 tháng đào tạo, phụ thuộc vào năng lực và kết quả làm việc thực tế.</p>
+    </div>
+  </section>
+
+  <!-- Quy trình ********************* -->
+
+  <section class="px-4 py-16 sm:px-6 mx-auto max-w-5xl">
+    <div class="mb-10 text-center">
+      <p class="mb-2 text-sm font-semibold uppercase tracking-wider text-primary">3 bước bắt đầu</p>
+      <h2 class="font-heading text-3xl font-bold text-white md:text-4xl">Đơn Giản, Không Vòng Vo</h2>
+    </div>
+    <div class="grid gap-5 md:grid-cols-3">
+      {
+        ['1. Nhắn Tin', '2. Phỏng Vấn', '3. Bắt Đầu'].map((step) => (
+          <div class="rounded-2xl border border-line bg-card p-7 text-center font-heading text-xl font-bold text-white">
+            {step}
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
   <!-- Form Ứng tuyển ******************* -->
 
   <section id="form-headpt" class="px-4 py-16 sm:px-6 mx-auto max-w-3xl border-t border-line">
     <div class="mb-10 text-center">
-      <p class="text-base font-semibold uppercase tracking-wide text-primary mb-2">Gia nhập đội ngũ làm chủ</p>
-      <h2 class="font-heading text-3xl font-bold tracking-tight text-white mb-2">Đăng Ký Phỏng Vấn Head PT Cơ Sở</h2>
-      <p class="text-gray-400 text-sm">Điền thông tin bên dưới để Ban điều hành xếp lịch trao đổi mô hình tự quản 30M.</p>
+      <p class="text-base font-semibold uppercase tracking-wide text-primary mb-2">Cho mình một cơ hội</p>
+      <h2 class="font-heading text-3xl font-bold tracking-tight text-white mb-2">Đăng Ký Thử Sức</h2>
+      <p class="text-gray-400 text-sm">Để lại tên và số điện thoại, Grow sẽ gọi trao đổi rõ công việc.</p>
     </div>
 
     <LeadForm
-      id="form-careers-headpt"
+      id="form-headpt"
       formType="careers-headpt"
-      button="Nộp Hồ Sơ Head PT Ngay"
+      button="Tôi Muốn Thử"
       fields={[
-        { name: 'ho_ten', label: 'Họ và Tên', placeholder: 'VD: Trần Văn Nam' },
-        { name: 'so_dien_thoai', label: 'Số Điện Thoại (Zalo)', type: 'tel', placeholder: 'VD: 0988 777 666' },
-        {
-          name: 'kinh_nghiem',
-          label: 'Kinh nghiệm huấn luyện',
-          type: 'select',
-          options: ['Dưới 1 năm', '1 - 3 năm', 'Trên 3 năm (Head PT / Manager)'],
-        },
+        { name: 'ho_ten', label: 'Họ và tên', placeholder: 'VD: Nguyễn Thu Hà' },
+        { name: 'so_dien_thoai', label: 'Số điện thoại (Zalo)', type: 'tel', placeholder: 'VD: 0912 345 678' },
       ]}
-      disclaimer="Bằng việc nộp hồ sơ, bạn đồng ý trao đổi bảo mật mô hình khoán tự quản 30M cùng Grow."
+      disclaimer="Bằng việc gửi thông tin này, bạn đồng ý để Grow Fitness liên hệ trực tiếp qua Zalo hoặc điện thoại."
     />
   </section>
 </Layout>
