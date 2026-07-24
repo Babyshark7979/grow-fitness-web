@@ -4,6 +4,7 @@ import Hero from '~/components/widgets/Hero.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import BeDuaGuide from '~/components/widgets/BeDuaGuide.astro';
+import VideoPlayer from '~/components/widgets/VideoPlayer.astro';
 
 const metadata = {
   title: 'Grow Fitness — Hệ Điều Hành Fitness Cá Nhân Đầu Tiên Tại Việt Nam',
@@ -25,8 +26,8 @@ const metadata = {
       { text: 'Tìm Hiểu Mô Hình', href: '#architecture' },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=2070&q=80',
-      alt: 'Grow Fitness — Private Gym nữ với AI huấn luyện viên',
+      src: '/images/hero-lienn.png',
+      alt: 'Chị Liên — Founder Grow Fitness tại phòng tập S109 Ocean Park',
     }}
   >
     <Fragment slot="title">
@@ -39,6 +40,16 @@ const metadata = {
       >
     </Fragment>
   </Hero>
+
+  <!-- Video Motion Graphic ********** -->
+
+  <VideoPlayer
+    src="/images/video_motion_graphic.mp4"
+    poster="/images/Lienhero.png"
+    tagline="Xem 60 giây hiểu ngay"
+    title="Grow Fitness vận hành như thế nào?"
+    subtitle="Motion graphic mô hình Hệ Điều Hành Fitness — Private Gym Nữ + AI HLV 24/7."
+  />
 
   <!-- AI Simulation — khung chat Bé Dứa ********* -->
 

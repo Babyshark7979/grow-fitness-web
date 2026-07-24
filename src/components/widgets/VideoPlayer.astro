@@ -1,0 +1,40 @@
+---
+// Video Player dùng chung — nhúng video tự host trong public/.
+// Autoplay tắt tiếng + loop (chuẩn motion graphic), có nút bật tiếng của trình duyệt.
+interface Props {
+  src: string;
+  poster?: string;
+  title?: string;
+  subtitle?: string;
+  tagline?: string;
+}
+
+const { src, poster, title, subtitle, tagline } = Astro.props;
+---
+
+<section class="px-4 py-16 sm:px-6 mx-auto max-w-6xl">
+  {
+    (title || tagline) && (
+      <div class="mb-10 text-center">
+        {tagline && <p class="text-base font-semibold uppercase tracking-wide text-primary mb-2">{tagline}</p>}
+        {title && <h2 class="font-heading text-3xl md:text-4xl font-bold tracking-tight text-white">{title}</h2>}
+        {subtitle && <p class="mt-3 text-muted max-w-2xl mx-auto">{subtitle}</p>}
+      </div>
+    )
+  }
+  <div class="mx-auto max-w-4xl overflow-hidden rounded-2xl border border-line bg-card shadow-2xl">
+    <video
+      class="w-full h-auto block"
+      src={src}
+      poster={poster}
+      autoplay
+      muted
+      loop
+      playsinline
+      controls
+      preload="metadata"
+    >
+      Trình duyệt của bạn không hỗ trợ video. <a class="text-primary underline" href={src}>Tải video tại đây</a>.
+    </video>
+  </div>
+</section>
