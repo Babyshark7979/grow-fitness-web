@@ -1,0 +1,31 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Tuyển dụng',
+  description: 'Gia nhập đội ngũ Grow Fitness — cùng xây dựng mô hình AI Private Gym đầu tiên.',
+};
+---
+
+<Layout metadata={metadata}>
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Liên hệ với chúng tôi',
+        href: '/contact',
+        icon: 'tabler:mail',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Cùng xây tương lai của <span class="text-accent">fitness</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Grow Fitness đang tìm những người tin rằng công nghệ có thể thay đổi cách con người rèn luyện. Các vị trí tuyển
+      dụng sẽ được cập nhật tại đây — trong lúc chờ, cứ chủ động liên hệ.
+    </Fragment>
+  </CallToAction>
+</Layout>

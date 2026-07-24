@@ -1,0 +1,62 @@
+---
+import '@fontsource-variable/inter';
+import '@fontsource/anton';
+import '@fontsource/montserrat/400.css';
+import '@fontsource/montserrat/500.css';
+import '@fontsource/montserrat/600.css';
+import '@fontsource/montserrat/700.css';
+
+// Grow Fitness brand — Neon Pink on near-black
+// primary  #FF2E88  Neon Pink
+// secondary #FF5AA5 Hot Pink
+// dark     #0A0A0A  Background
+// card     #1A1A1D  Card bg (utility bg-card in tailwind.css)
+// border   #39393F  Border (utility border-border in tailwind.css)
+// Fonts: Anton (heading) · Montserrat (body) · Inter (fallback)
+---
+
+<style is:inline>
+  :root {
+    --aw-font-sans: 'Montserrat', 'Inter Variable';
+    --aw-font-serif: 'Montserrat', 'Inter Variable';
+    --aw-font-heading: 'Anton', 'Montserrat';
+
+    --aw-color-primary: rgb(255 46 136); /* #FF2E88 */
+    --aw-color-secondary: rgb(255 90 165); /* #FF5AA5 */
+    --aw-color-accent: rgb(255 46 136); /* #FF2E88 */
+
+    --aw-color-text-heading: rgb(255 255 255);
+    --aw-color-text-default: rgb(255 255 255);
+    --aw-color-text-muted: rgb(255 255 255 / 66%);
+
+    --aw-color-bg-page: rgb(10 10 10); /* #0A0A0A */
+    --aw-color-bg-page-dark: rgb(10 10 10);
+
+    ::selection {
+      background-color: rgb(255 46 136);
+      color: rgb(10 10 10);
+    }
+  }
+
+  .dark {
+    --aw-font-sans: 'Montserrat', 'Inter Variable';
+    --aw-font-serif: 'Montserrat', 'Inter Variable';
+    --aw-font-heading: 'Anton', 'Montserrat';
+
+    --aw-color-primary: rgb(255 46 136);
+    --aw-color-secondary: rgb(255 90 165);
+    --aw-color-accent: rgb(255 46 136);
+
+    --aw-color-text-heading: rgb(255 255 255);
+    --aw-color-text-default: rgb(255 255 255);
+    --aw-color-text-muted: rgb(255 255 255 / 66%);
+
+    --aw-color-bg-page: rgb(10 10 10);
+    --aw-color-bg-page-dark: rgb(10 10 10);
+
+    ::selection {
+      background-color: rgb(255 46 136);
+      color: rgb(10 10 10);
+    }
+  }
+</style>

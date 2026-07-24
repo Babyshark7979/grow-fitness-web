@@ -1,0 +1,131 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import Steps from '~/components/widgets/Steps.astro';
+
+const metadata = {
+  title: 'Grow Fitness — Hệ điều hành fitness cá nhân của bạn',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero ************************** -->
+
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Đặt chỗ pre-sale',
+        href: '/join',
+        icon: 'tabler:flame',
+      },
+      { text: 'Tìm hiểu thêm', href: '#usp' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Grow Fitness — private gym với AI huấn luyện viên',
+    }}
+  >
+    <Fragment slot="title">
+      Grow Fitness — <span class="text-accent">Hệ điều hành fitness</span> cá nhân của bạn
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Private gym + AI huấn luyện viên 24/7. <span class="font-semibold text-white">Không bỏ lỡ một ngày tập nào.</span>
+    </Fragment>
+  </Hero>
+
+  <!-- Timeline ********************** -->
+
+  <Steps
+    title="Hành trình Grow Fitness"
+    tagline="Timeline"
+    items={[
+      {
+        title: '2022 — <span class="font-medium">Phòng nhỏ chung cư</span>',
+        description: 'Khởi đầu từ một phòng tập nhỏ trong chung cư, phục vụ nhóm khách đầu tiên tin tưởng.',
+        icon: 'tabler:home',
+      },
+      {
+        title: '2024 — <span class="font-medium">Xuống mặt đất, mở rộng</span>',
+        description: 'Chuyển xuống mặt bằng riêng, mở rộng không gian và trang thiết bị chuyên nghiệp.',
+        icon: 'tabler:building',
+      },
+      {
+        title: '2026 — <span class="font-medium">AI Private Gym</span>',
+        description: 'Ra mắt mô hình private gym vận hành bởi AI — huấn luyện viên ảo đồng hành 24/7.',
+        icon: 'tabler:robot',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=2075&q=80',
+      alt: 'Không gian Grow Fitness',
+    }}
+  />
+
+  <!-- USP *************************** -->
+
+  <Features
+    id="usp"
+    tagline="Vì sao khác biệt"
+    title="Ba lý do Grow Fitness thay đổi cách bạn tập"
+    columns={3}
+    items={[
+      {
+        title: 'Private Gym',
+        description: 'Không gian riêng tư, không đông đúc, không phán xét — chỉ bạn và mục tiêu của bạn.',
+        icon: 'tabler:lock',
+      },
+      {
+        title: 'AI HLV 24/7',
+        description: 'Huấn luyện viên ảo nhắc lịch, theo dõi tiến độ và điều chỉnh giáo án mọi lúc, mọi nơi.',
+        icon: 'tabler:robot',
+      },
+      {
+        title: 'Hệ thống thay ý chí',
+        description: 'Bạn không cần nghị lực phi thường — hệ thống được thiết kế để bạn không thể bỏ cuộc.',
+        icon: 'tabler:settings-bolt',
+      },
+    ]}
+  />
+
+  <!-- CTA split ********************* -->
+
+  <section class="px-4 py-16 sm:px-6 mx-auto max-w-6xl">
+    <div class="mb-10 text-center">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold tracking-tight text-white">Bạn thuộc về đâu?</h2>
+    </div>
+    <div class="grid gap-6 md:grid-cols-3">
+      <a
+        href="/join"
+        class="group rounded-2xl bg-card border border-line p-8 text-center transition hover:border-primary hover:-translate-y-1"
+      >
+        <div class="text-4xl mb-4">💪</div>
+        <h3 class="font-heading text-xl text-white mb-2">Tôi muốn tập</h3>
+        <p class="text-muted mb-4">Đặt chỗ pre-sale, bắt đầu hành trình cùng AI HLV.</p>
+        <span class="font-semibold text-primary group-hover:text-secondary">Đặt chỗ ngay →</span>
+      </a>
+      <a
+        href="/careers"
+        class="group rounded-2xl bg-card border border-line p-8 text-center transition hover:border-primary hover:-translate-y-1"
+      >
+        <div class="text-4xl mb-4">🚀</div>
+        <h3 class="font-heading text-xl text-white mb-2">Tôi muốn làm việc</h3>
+        <p class="text-muted mb-4">Gia nhập đội ngũ xây dựng tương lai của fitness.</p>
+        <span class="font-semibold text-primary group-hover:text-secondary">Xem vị trí →</span>
+      </a>
+      <a
+        href="/invest"
+        class="group rounded-2xl bg-card border border-line p-8 text-center transition hover:border-primary hover:-translate-y-1"
+      >
+        <div class="text-4xl mb-4">📈</div>
+        <h3 class="font-heading text-xl text-white mb-2">Tôi muốn đầu tư</h3>
+        <p class="text-muted mb-4">Đồng hành cùng mô hình AI Private Gym đầu tiên.</p>
+        <span class="font-semibold text-primary group-hover:text-secondary">Tìm hiểu →</span>
+      </a>
+    </div>
+  </section>
+</Layout>

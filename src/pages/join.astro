@@ -1,0 +1,147 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Đặt chỗ pre-sale',
+  description:
+    'Lần đầu tiên có AI theo bạn từng bước — không bỏ lỡ một ngày nào. Chỉ còn 20 slot pre-sale tại Grow Fitness.',
+};
+
+const pains = [
+  {
+    icon: '😮‍💨',
+    text: 'Đăng ký phòng gym rồi... bỏ sau 2 tuần',
+  },
+  {
+    icon: '🫥',
+    text: 'Không ai nhắc, không ai theo dõi, không thấy tiến bộ',
+  },
+  {
+    icon: '❓',
+    text: 'Tập một mình không biết đúng hay sai',
+  },
+];
+
+const proofs = [
+  {
+    name: '[Tên]',
+    result: '[Kết quả sau X tuần]',
+    quote: '[Quote ngắn]',
+  },
+  {
+    name: '[Tên]',
+    result: '[Kết quả sau X tuần]',
+    quote: '[Quote ngắn]',
+  },
+  {
+    name: '[Tên]',
+    result: '[Kết quả sau X tuần]',
+    quote: '[Quote ngắn]',
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <!-- Section 1 — Hero ************** -->
+
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Đặt chỗ ngay',
+        href: '#dat-cho',
+        icon: 'tabler:calendar-heart',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Phụ nữ tập luyện tại Grow Fitness',
+    }}
+  >
+    <Fragment slot="title">
+      Lần đầu tiên có <span class="text-accent">AI theo bạn từng bước</span> — không bỏ lỡ một ngày nào
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Private gym dành cho phụ nữ + huấn luyện viên AI đồng hành 24/7. Bạn chỉ cần xuất hiện — phần còn lại đã có hệ
+      thống lo.
+    </Fragment>
+  </Hero>
+
+  <!-- Section 2 — Pain ************** -->
+
+  <section class="px-4 py-16 sm:px-6 mx-auto max-w-6xl">
+    <div class="mb-10 text-center">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold tracking-tight text-white">Nghe quen không?</h2>
+    </div>
+    <div class="grid gap-6 md:grid-cols-3">
+      {
+        pains.map((pain) => (
+          <div class="rounded-2xl bg-card border border-line p-8 text-center">
+            <div class="text-4xl mb-4">{pain.icon}</div>
+            <p class="text-lg font-medium text-white">“{pain.text}”</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Section 3 — Solution ********** -->
+
+  <section class="px-4 py-16 sm:px-6 mx-auto max-w-4xl text-center">
+    <p class="text-base font-semibold uppercase tracking-wide text-primary mb-3">Giải pháp</p>
+    <h2 class="font-heading text-3xl md:text-5xl font-bold tracking-tight text-white leading-tight">
+      AI huấn luyện viên ảo 24/7
+    </h2>
+    <p class="mt-6 text-xl text-muted">
+      Nhắc lịch tập, theo dõi tiến độ, <span class="text-white font-semibold">không bỏ lỡ một buổi nào</span>. Ý chí của
+      bạn không cần gồng — hệ thống đã gồng thay bạn.
+    </p>
+  </section>
+
+  <!-- Section 4 — Social proof ****** -->
+
+  <section class="px-4 py-16 sm:px-6 mx-auto max-w-6xl">
+    <div class="mb-10 text-center">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold tracking-tight text-white">Họ đã thay đổi</h2>
+    </div>
+    <div class="grid gap-6 md:grid-cols-3">
+      {
+        proofs.map((proof) => (
+          <div class="rounded-2xl bg-card border border-line p-8">
+            <p class="text-lg text-white italic mb-6">“{proof.quote}”</p>
+            <p class="font-heading text-primary">{proof.name}</p>
+            <p class="text-sm text-muted">{proof.result}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Section 5 — Urgency *********** -->
+
+  <div id="dat-cho">
+    <CallToAction
+      actions={[
+        {
+          variant: 'primary',
+          text: 'Đặt chỗ ngay',
+          href: '/contact',
+          icon: 'tabler:calendar-heart',
+        },
+      ]}
+    >
+      <Fragment slot="title">
+        Chỉ còn <span class="text-accent">20 slot</span> pre-sale
+      </Fragment>
+
+      <Fragment slot="subtitle">
+        Ưu đãi dành riêng cho những người đặt chỗ sớm nhất — giá pre-sale sẽ không quay lại sau khai trương. Giữ chỗ
+        ngay hôm nay, bắt đầu khi bạn sẵn sàng.
+      </Fragment>
+    </CallToAction>
+  </div>
+</Layout>
