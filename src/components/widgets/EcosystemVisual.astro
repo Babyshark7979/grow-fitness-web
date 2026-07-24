@@ -1,0 +1,38 @@
+---
+interface Props {
+  image: string;
+  title?: string;
+  subtitle?: string;
+  tagline?: string;
+}
+
+const { image, title, subtitle, tagline } = Astro.props;
+---
+
+<section class="mx-auto max-w-6xl px-4 py-16 sm:px-6" aria-labelledby="grow-ecosystem-title">
+  {
+    (title || tagline) && (
+      <div class="mb-10 text-center">
+        {tagline && <p class="mb-2 text-base font-semibold uppercase tracking-wide text-primary">{tagline}</p>}
+        {title && (
+          <h2 id="grow-ecosystem-title" class="font-heading text-3xl font-bold tracking-tight text-white md:text-4xl">
+            {title}
+          </h2>
+        )}
+        {subtitle && <p class="mx-auto mt-3 max-w-2xl text-muted">{subtitle}</p>}
+      </div>
+    )
+  }
+
+  <figure class="mx-auto max-w-5xl overflow-hidden rounded-2xl border border-line bg-card shadow-2xl">
+    <img
+      src={image}
+      width="1672"
+      height="941"
+      loading="lazy"
+      decoding="async"
+      alt="Hệ sinh thái Grow Fitness kết nối phòng tập nữ, AI Bé Dứa, Bếp Healthy, cộng đồng và theo dõi tiến bộ."
+      class="block h-auto w-full"
+    />
+  </figure>
+</section>
