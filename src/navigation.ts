@@ -63,9 +63,6 @@ export const footerData = {
   ],
   socialLinks: [
     { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://www.facebook.com/share/1DkFspwMnu/' },
-    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
-    { ariaLabel: 'YouTube', icon: 'tabler:brand-youtube', href: '#' },
-    { ariaLabel: 'TikTok', icon: 'tabler:brand-tiktok', href: '#' },
   ],
   footNote: `
     <span class="text-muted">📍 Tòa S109 - 01S10, Vinhomes Ocean Park 1, Gia Lâm, Hà Nội · Private Gym dành riêng cho nữ<br/>© 2026 Grow Fitness · Hệ Điều Hành Fitness Cá Nhân Đầu Tiên Tại Việt Nam</span>

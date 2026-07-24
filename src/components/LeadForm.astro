@@ -43,6 +43,7 @@ const FANPAGE_URL = 'https://www.facebook.com/share/1DkFspwMnu/';
 
 <form
   id={id}
+  method="post"
   data-lead-form={formType}
   data-webhook={webhookUrl}
   data-zalo={zaloPhone}
@@ -152,6 +153,22 @@ const FANPAGE_URL = 'https://www.facebook.com/share/1DkFspwMnu/';
         });
       }
 
+      const currentFormType = () => {
+        const typeSelectName = form.dataset.typeSelect;
+        const typeMapRaw = form.dataset.typeMap;
+        if (typeSelectName && typeMapRaw) {
+          try {
+            const typeMap = JSON.parse(typeMapRaw) as Record<string, { form_type: string }>;
+            const sel = form.querySelector<HTMLSelectElement>(`[name="${typeSelectName}"]`);
+            const rule = sel ? typeMap[sel.value] : undefined;
+            if (rule) return rule.form_type;
+          } catch {
+            /* dùng mặc định */
+          }
+        }
+        return form.dataset.leadForm || '';
+      };
+
       form.addEventListener('focusin', (e) => {
         if (form.dataset.started) return;
         if (
@@ -161,7 +178,7 @@ const FANPAGE_URL = 'https://www.facebook.com/share/1DkFspwMnu/';
         )
           return;
         form.dataset.started = '1';
-        track('form_start', { form_type: form.dataset.leadForm || '' });
+        track('form_start', { form_type: currentFormType() });
       });
 
       form.addEventListener('submit', async (e) => {
@@ -181,6 +198,20 @@ const FANPAGE_URL = 'https://www.facebook.com/share/1DkFspwMnu/';
           payload[key] = String(value);
         });
         delete payload.dong_y;
+
+        // Chuẩn hoá + kiểm SĐT tại chỗ: báo đúng lỗi cho khách thay vì "hệ thống bận"
+        if (payload.so_dien_thoai) {
+          const phone = payload.so_dien_thoai.replace(/[\s.\-()]/g, '').replace(/^\+?84/, '0');
+          if (!/^0\d{9}$/.test(phone)) {
+            if (msg) {
+              msg.classList.remove('hidden');
+              msg.classList.add('text-secondary');
+              msg.textContent = '📱 Số điện thoại chưa đúng (cần 10 số, bắt đầu bằng 0) — bạn kiểm tra lại giúp nhé!';
+            }
+            return;
+          }
+          payload.so_dien_thoai = phone;
+        }
 
         // Form đa phễu (vd /contact): form_type + trường chi tiết quyết định bởi lựa chọn của khách
         const typeSelectName = form.dataset.typeSelect;
@@ -222,7 +253,7 @@ const FANPAGE_URL = 'https://www.facebook.com/share/1DkFspwMnu/';
 
         if (btn) btn.disabled = true;
         const controller = new AbortController();
-        const timer = setTimeout(() => controller.abort(), 3000);
+        const timer = setTimeout(() => controller.abort(), 8000);
         try {
           const res = await fetch(webhook, {
             method: 'POST',
@@ -243,9 +274,9 @@ const FANPAGE_URL = 'https://www.facebook.com/share/1DkFspwMnu/';
           if (eventName) track(eventName, { form_type: payload.form_type });
         } catch {
           fail();
+          if (btn) btn.disabled = false;
         } finally {
           clearTimeout(timer);
-          if (btn) btn.disabled = false;
         }
       });
     });

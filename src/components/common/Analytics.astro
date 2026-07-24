@@ -31,7 +31,10 @@ window.addEventListener('grow:track', function (e) {
     for (var p in params) row[p] = params[p];
     window.dataLayer.push(row);
   }
-  if (window.fbq) window.fbq('trackCustom', name, params);
+  if (window.fbq) {
+    window.fbq('trackCustom', name, params);
+    if (name.indexOf('submit_') === 0) window.fbq('track', 'Lead', params);
+  }
 });
 if (location.pathname.indexOf('/invest') === 0 || location.pathname.indexOf('spv') !== -1) {
   window.dispatchEvent(new CustomEvent('grow:track', { detail: { event: 'view_spv_article' } }));
