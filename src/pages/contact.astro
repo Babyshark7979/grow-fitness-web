@@ -5,74 +5,75 @@ import ContactUs from '~/components/widgets/Contact.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 
 const metadata = {
-  title: 'Contact',
+  title: 'Liên Hệ — Grow Fitness',
 };
 ---
 
 <Layout metadata={metadata}>
   <!-- HeroText Widget ******************* -->
 
-  <HeroText tagline="Contact" title="Let's Connect!" />
+  <HeroText tagline="Liên hệ" title="Kết Nối Cùng Grow Fitness!" />
 
   <ContactUs
     id="form"
-    title="Drop us a message today!"
-    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
+    title="Gửi tin nhắn cho chúng tôi!"
+    subtitle="Bạn có thắc mắc về lịch tập, gói 99K hoặc mô hình đầu tư SPV? Hãy để lại thông tin, đội ngũ CSKH sẽ hỗ trợ bạn ngay lập tức."
     inputs={[
       {
         type: 'text',
         name: 'name',
-        label: 'Name',
+        label: 'Họ và Tên',
       },
       {
-        type: 'email',
-        name: 'email',
-        label: 'Email',
+        type: 'text',
+        name: 'phone',
+        label: 'Số Điện Thoại (Zalo)',
       },
     ]}
     textarea={{
-      label: 'Message',
+      label: 'Nhu cầu cần hỗ trợ',
     }}
     disclaimer={{
       label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
+        'Bằng việc gửi form này, bạn đồng ý để Grow Fitness liên hệ tư vấn trực tiếp qua Zalo/Điện thoại.',
     }}
-    description="Our support team typically responds within 24 business hours."
+    description="Đội ngũ CSKH hỗ trợ phản hồi trong vòng 5–15 phút."
   />
 
   <!-- Features2 Widget ************** -->
 
   <Features2
-    title="We are here to help!"
+    title="Kênh Hỗ Trợ Trực Tiếp"
     items={[
       {
-        title: 'General support',
-        description: `Chat with us for inquiries related to account management, website navigation, payment issues, accessing purchased templates or general questions about the website's functionality.`,
+        title: 'Tập luyện & Gói 99K',
+        description: 'Tư vấn lịch tập nhóm GroupX nữ, Gym Private 1-1 và đăng ký gói Khám Phá 3 buổi 99K.',
+        icon: 'tabler:flame',
       },
       {
-        title: 'Contact sales',
-        description:
-          'Chat with us for questions about purchases, customization options, licensing for commercial use, inquiries about specific template, etc.',
+        title: 'Tuyển dụng Head PT',
+        description: 'Giải đáp cơ chế khoán 30M, giữ 90% lợi nhuận và cổ phần ảo Phantom Stock 12 tháng.',
+        icon: 'tabler:briefcase',
       },
       {
-        title: 'Technical support',
-        description:
-          'Chat with us when facing issues like template installation, problems editing difficulties, compatibility issues with software or download errors, or other technical challenges related to using the templates.',
+        title: 'Đầu tư SPV 200M',
+        description: 'Nhận hồ sơ minh bạch RBF 200M/suất và điều khoản mua lại Buyback.',
+        icon: 'tabler:chart-dots',
       },
       {
-        title: 'Phone',
-        description: '+1 (234) 567-890',
+        title: 'Zalo Hotline',
+        description: 'Liên hệ chị Diệu Liên (COO)',
         icon: 'tabler:headset',
       },
       {
-        title: 'Email',
-        description: 'contact@support.com',
-        icon: 'tabler:mail',
+        title: 'Địa Chỉ Cơ Sở 1',
+        description: 'Tòa S109 - 01S10, Vinhomes Ocean Park 1, Gia Lâm, Hà Nội (Private Gym cho Nữ)',
+        icon: 'tabler:map-pin',
       },
       {
-        title: 'Location',
-        description: '1234 Lorem Ipsum St, 12345, Miami, EEUU',
-        icon: 'tabler:map-pin',
+        title: 'Giờ Hoạt Động',
+        description: 'Thứ 2 – Thứ 6 (Nghỉ T7 & CN) · Ca Sáng (6h-9h) · Ca Chiều Tối (17h-19h30)',
+        icon: 'tabler:clock',
       },
     ]}
   />
