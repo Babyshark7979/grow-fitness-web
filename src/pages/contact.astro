@@ -1,7 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
-import ContactUs from '~/components/widgets/Contact.astro';
+import LeadForm from '~/components/LeadForm.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 
 const metadata = {
@@ -14,30 +14,43 @@ const metadata = {
 
   <HeroText tagline="Liên hệ" title="Kết Nối Cùng Grow Fitness!" />
 
-  <ContactUs
-    id="form"
-    title="Gửi tin nhắn cho chúng tôi!"
-    subtitle="Bạn có thắc mắc về lịch tập, gói 99K hoặc mô hình đầu tư SPV? Hãy để lại thông tin, đội ngũ CSKH sẽ hỗ trợ bạn ngay lập tức."
-    inputs={[
-      {
-        type: 'text',
-        name: 'name',
-        label: 'Họ và Tên',
-      },
-      {
-        type: 'text',
-        name: 'phone',
-        label: 'Số Điện Thoại (Zalo)',
-      },
-    ]}
-    textarea={{
-      label: 'Nhu cầu cần hỗ trợ',
-    }}
-    disclaimer={{
-      label: 'Bằng việc gửi form này, bạn đồng ý để Grow Fitness liên hệ tư vấn trực tiếp qua Zalo/Điện thoại.',
-    }}
-    description="Đội ngũ CSKH hỗ trợ phản hồi trong vòng 5–15 phút."
-  />
+  <section class="px-4 py-8 sm:px-6 mx-auto max-w-6xl">
+    <div class="mb-10 text-center">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold tracking-tight text-white">Gửi tin nhắn cho chúng tôi!</h2>
+      <p class="mt-3 text-muted max-w-2xl mx-auto">
+        Bạn có thắc mắc về lịch tập, gói 99K hoặc mô hình đầu tư SPV? Hãy để lại thông tin, đội ngũ CSKH sẽ hỗ trợ bạn
+        ngay lập tức.
+      </p>
+    </div>
+    <LeadForm
+      id="form"
+      formType="join-99k"
+      button="Gửi thông tin"
+      fields={[
+        { name: 'ho_ten', label: 'Họ và Tên', placeholder: 'VD: Nguyễn Thu Hà' },
+        { name: 'so_dien_thoai', label: 'Số Điện Thoại (Zalo)', type: 'tel', placeholder: 'VD: 0912 345 678' },
+        {
+          name: 'quan_tam',
+          label: 'Bạn quan tâm điều gì?',
+          type: 'select',
+          options: ['Tập luyện & Gói 99K', 'Ứng tuyển Head PT', 'Đầu tư SPV 200M'],
+        },
+      ]}
+      textarea={{
+        name: 'nhu_cau',
+        label: 'Nhu cầu cần hỗ trợ',
+        placeholder: 'VD: Em muốn giảm mỡ bụng, tập ca tối sau giờ làm...',
+      }}
+      disclaimer="Bằng việc gửi form này, bạn đồng ý để Grow Fitness liên hệ tư vấn trực tiếp qua Zalo/Điện thoại."
+      typeSelect="quan_tam"
+      typeMap={{
+        'Tập luyện & Gói 99K': { form_type: 'join-99k', detail: 'muc_tieu' },
+        'Ứng tuyển Head PT': { form_type: 'careers-headpt', detail: 'kinh_nghiem' },
+        'Đầu tư SPV 200M': { form_type: 'invest-spv', detail: 'so_suat' },
+      }}
+    />
+    <p class="mt-4 text-center text-sm text-muted">Đội ngũ CSKH hỗ trợ phản hồi trong vòng 5–15 phút.</p>
+  </section>
 
   <!-- Features2 Widget ************** -->
 

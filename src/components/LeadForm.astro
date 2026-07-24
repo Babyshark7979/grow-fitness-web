@@ -1,7 +1,8 @@
 ---
-// Form thu lead dùng chung cho /join, /careers, /invest.
-// TASK-03 (codex): backend nhận POST JSON { form_type, ...fields, submitted_at }
-// tại URL đặt trong biến môi trường PUBLIC_N8N_WEBHOOK_URL (xem .env.example).
+// Form thu lead dùng chung cho /join, /careers, /invest, /contact.
+// Backend n8n nhận POST JSON { form_type, ...fields, submitted_at } tại PUBLIC_N8N_WEBHOOK_URL.
+// form_type hợp lệ: join-99k | careers-headpt | invest-spv. Trường chi tiết theo loại:
+// join-99k -> muc_tieu · careers-headpt -> kinh_nghiem · invest-spv -> so_suat.
 export interface LeadField {
   name: string;
   label: string;
@@ -10,14 +11,31 @@ export interface LeadField {
   placeholder?: string;
 }
 
+export interface LeadTextarea {
+  name: string;
+  label: string;
+  placeholder?: string;
+  rows?: number;
+}
+
+// Map giá trị của select (typeSelect) -> form_type gửi đi + tên trường nhận nội dung textarea
+export interface LeadTypeRule {
+  form_type: string;
+  detail?: string;
+}
+
 interface Props {
   formType: string;
   button: string;
   fields: LeadField[];
   id?: string;
+  textarea?: LeadTextarea;
+  disclaimer?: string;
+  typeSelect?: string;
+  typeMap?: Record<string, LeadTypeRule>;
 }
 
-const { formType, button, fields, id } = Astro.props;
+const { formType, button, fields, id, textarea, disclaimer, typeSelect, typeMap } = Astro.props;
 const webhookUrl = import.meta.env.PUBLIC_N8N_WEBHOOK_URL || '';
 const zaloPhone = import.meta.env.PUBLIC_ZALO_PHONE || '';
 const FANPAGE_URL = 'https://www.facebook.com/share/1DkFspwMnu/';
@@ -29,6 +47,9 @@ const FANPAGE_URL = 'https://www.facebook.com/share/1DkFspwMnu/';
   data-webhook={webhookUrl}
   data-zalo={zaloPhone}
   data-fanpage={FANPAGE_URL}
+  data-type-select={typeSelect}
+  data-type-map={typeMap ? JSON.stringify(typeMap) : undefined}
+  data-textarea-name={textarea?.name}
   class="mx-auto max-w-xl rounded-2xl bg-card border border-line p-8 space-y-5"
   novalidate
 >
@@ -63,7 +84,45 @@ const FANPAGE_URL = 'https://www.facebook.com/share/1DkFspwMnu/';
     ))
   }
 
-  <button type="submit" class="btn-primary w-full">{button}</button>
+  {
+    textarea && (
+      <div>
+        <label for={`${formType}-${textarea.name}`} class="block mb-2 font-medium text-white">
+          {textarea.label}
+        </label>
+        <textarea
+          id={`${formType}-${textarea.name}`}
+          name={textarea.name}
+          rows={textarea.rows || 4}
+          placeholder={textarea.placeholder || ''}
+          class="w-full rounded-lg bg-page border border-line px-4 py-3 text-white placeholder:text-muted focus:border-primary focus:outline-none"
+        />
+      </div>
+    )
+  }
+
+  {
+    disclaimer && (
+      <label class="flex items-start gap-3 cursor-pointer">
+        <input
+          type="checkbox"
+          name="dong_y"
+          required
+          data-disclaimer-check
+          class="mt-1 h-5 w-5 shrink-0 accent-[#FF2E88] cursor-pointer"
+        />
+        <span class="text-sm text-muted">{disclaimer}</span>
+      </label>
+    )
+  }
+
+  <button
+    type="submit"
+    disabled={!!disclaimer}
+    class="btn-primary w-full disabled:opacity-40 disabled:cursor-not-allowed"
+  >
+    {button}
+  </button>
 
   <p data-form-msg class="hidden text-center font-medium"></p>
 </form>
@@ -84,9 +143,23 @@ const FANPAGE_URL = 'https://www.facebook.com/share/1DkFspwMnu/';
       if (form.dataset.bound) return;
       form.dataset.bound = '1';
 
+      // Nút Gửi chỉ sáng khi đã tích ô đồng ý (nếu form có ô này)
+      const disclaimerCheck = form.querySelector<HTMLInputElement>('[data-disclaimer-check]');
+      const submitBtn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+      if (disclaimerCheck && submitBtn) {
+        disclaimerCheck.addEventListener('change', () => {
+          submitBtn.disabled = !disclaimerCheck.checked;
+        });
+      }
+
       form.addEventListener('focusin', (e) => {
         if (form.dataset.started) return;
-        if (!(e.target instanceof HTMLInputElement) && !(e.target instanceof HTMLSelectElement)) return;
+        if (
+          !(e.target instanceof HTMLInputElement) &&
+          !(e.target instanceof HTMLSelectElement) &&
+          !(e.target instanceof HTMLTextAreaElement)
+        )
+          return;
         form.dataset.started = '1';
         track('form_start', { form_type: form.dataset.leadForm || '' });
       });
@@ -107,6 +180,26 @@ const FANPAGE_URL = 'https://www.facebook.com/share/1DkFspwMnu/';
         new FormData(form).forEach((value, key) => {
           payload[key] = String(value);
         });
+        delete payload.dong_y;
+
+        // Form đa phễu (vd /contact): form_type + trường chi tiết quyết định bởi lựa chọn của khách
+        const typeSelectName = form.dataset.typeSelect;
+        const typeMapRaw = form.dataset.typeMap;
+        if (typeSelectName && typeMapRaw) {
+          try {
+            const typeMap = JSON.parse(typeMapRaw) as Record<string, { form_type: string; detail?: string }>;
+            const rule = typeMap[payload[typeSelectName]];
+            if (rule) {
+              payload.form_type = rule.form_type;
+              const textareaName = form.dataset.textareaName;
+              if (rule.detail && textareaName && payload[textareaName]) {
+                payload[rule.detail] = payload[textareaName];
+              }
+            }
+          } catch {
+            /* giữ form_type mặc định */
+          }
+        }
 
         const fail = () => {
           if (msg) {
@@ -138,14 +231,16 @@ const FANPAGE_URL = 'https://www.facebook.com/share/1DkFspwMnu/';
             signal: controller.signal,
           });
           if (!res.ok) throw new Error(String(res.status));
-          form.querySelectorAll('input, select, button').forEach((el) => ((el as HTMLInputElement).disabled = true));
+          form
+            .querySelectorAll('input, select, textarea, button')
+            .forEach((el) => ((el as HTMLInputElement).disabled = true));
           if (msg) {
             msg.classList.remove('hidden', 'text-secondary');
             msg.classList.add('text-primary');
-            msg.textContent = '✅ Đã nhận thông tin! Đội ngũ Grow sẽ liên hệ Zalo của bạn trong vòng 24h.';
+            msg.textContent = '🎉 Chúc mừng — đã nhận thông tin! Đội ngũ Grow sẽ liên hệ Zalo của bạn trong vòng 24h.';
           }
-          const eventName = SUBMIT_EVENTS[form.dataset.leadForm || ''];
-          if (eventName) track(eventName, { form_type: form.dataset.leadForm || '' });
+          const eventName = SUBMIT_EVENTS[payload.form_type];
+          if (eventName) track(eventName, { form_type: payload.form_type });
         } catch {
           fail();
         } finally {
