@@ -18,8 +18,8 @@ const metadata = {
     <div class="mb-10 text-center">
       <h2 class="font-heading text-3xl md:text-4xl font-bold tracking-tight text-white">Gửi tin nhắn cho chúng tôi!</h2>
       <p class="mt-3 text-muted max-w-2xl mx-auto">
-        Bạn có thắc mắc về lịch tập, gói 99K hoặc mô hình đầu tư SPV? Hãy để lại thông tin, đội ngũ CSKH sẽ hỗ trợ bạn
-        ngay lập tức.
+        Bạn có thắc mắc về lịch tập, gói 99K hoặc cơ hội góp vốn mở cơ sở? Hãy để lại thông tin, đội ngũ Grow sẽ hỗ trợ
+        bạn ngay lập tức.
       </p>
     </div>
     <LeadForm
@@ -33,7 +33,7 @@ const metadata = {
           name: 'quan_tam',
           label: 'Bạn quan tâm điều gì?',
           type: 'select',
-          options: ['Tập luyện & Gói 99K', 'Ứng tuyển Head PT', 'Đầu tư SPV 200M'],
+          options: ['Tập luyện & Gói 99K', 'Ứng tuyển quản lý phòng tập', 'Góp vốn mở cơ sở'],
         },
       ]}
       textarea={{
@@ -41,15 +41,15 @@ const metadata = {
         label: 'Nhu cầu cần hỗ trợ',
         placeholder: 'VD: Em muốn giảm mỡ bụng, tập ca tối sau giờ làm...',
       }}
-      disclaimer="Bằng việc gửi form này, bạn đồng ý để Grow Fitness liên hệ tư vấn trực tiếp qua Zalo/Điện thoại."
+      disclaimer="Bằng việc gửi thông tin này, bạn đồng ý để Grow Fitness liên hệ trực tiếp qua Zalo hoặc điện thoại."
       typeSelect="quan_tam"
       typeMap={{
         'Tập luyện & Gói 99K': { form_type: 'join-99k', detail: 'muc_tieu' },
-        'Ứng tuyển Head PT': { form_type: 'careers-headpt', detail: 'kinh_nghiem' },
-        'Đầu tư SPV 200M': { form_type: 'invest-spv', detail: 'so_suat' },
+        'Ứng tuyển quản lý phòng tập': { form_type: 'careers-headpt', detail: 'kinh_nghiem' },
+        'Góp vốn mở cơ sở': { form_type: 'invest-spv', detail: 'so_suat' },
       }}
     />
-    <p class="mt-4 text-center text-sm text-muted">Đội ngũ CSKH hỗ trợ phản hồi trong vòng 5–15 phút.</p>
+    <p class="mt-4 text-center text-sm text-muted">Đội ngũ Grow phản hồi trong vòng 5–15 phút.</p>
   </section>
 
   <!-- Features2 Widget ************** -->
@@ -59,28 +59,28 @@ const metadata = {
     items={[
       {
         title: 'Tập luyện & Gói 99K',
-        description: 'Tư vấn lịch tập nhóm GroupX nữ, Gym Private 1-1 và đăng ký gói Khám Phá 3 buổi 99K.',
+        description: 'Tư vấn lớp tập nhóm cho nữ, tập riêng 1-1 và đăng ký gói Khám Phá 3 buổi 99K.',
         icon: 'tabler:flame',
       },
       {
-        title: 'Tuyển dụng Head PT',
-        description: 'Giải đáp cơ chế khoán 30M, giữ 90% lợi nhuận và cổ phần ảo Phantom Stock 12 tháng.',
+        title: 'Tuyển quản lý phòng tập',
+        description: 'Giải đáp công việc, lộ trình đào tạo, cách tính thu nhập và thưởng dài hạn.',
         icon: 'tabler:briefcase',
       },
       {
-        title: 'Đầu tư SPV 200M',
-        description: 'Nhận hồ sơ minh bạch RBF 200M/suất và điều khoản mua lại Buyback.',
+        title: 'Góp vốn mở cơ sở',
+        description: 'Nhận hồ sơ góp vốn 200 triệu mỗi suất, cách chia doanh thu và điều khoản mua lại.',
         icon: 'tabler:chart-dots',
       },
       {
         title: 'Zalo Hotline',
         description:
-          'Chị Diệu Liên (COO) — <a class="text-primary font-semibold underline" href="https://zalo.me/0962468222" target="_blank" rel="noopener">0962 468 222</a>',
+          'Chị Diệu Liên — người phụ trách vận hành — <a class="text-primary font-semibold underline" href="https://zalo.me/0962468222" target="_blank" rel="noopener">0962 468 222</a>',
         icon: 'tabler:headset',
       },
       {
         title: 'Địa Chỉ Cơ Sở 1',
-        description: 'Tòa S109 - 01S10, Vinhomes Ocean Park 1, Gia Lâm, Hà Nội (Private Gym cho Nữ)',
+        description: 'Tòa S109 - 01S10, Vinhomes Ocean Park 1, Gia Lâm, Hà Nội (phòng tập dành riêng cho nữ)',
         icon: 'tabler:map-pin',
       },
       {

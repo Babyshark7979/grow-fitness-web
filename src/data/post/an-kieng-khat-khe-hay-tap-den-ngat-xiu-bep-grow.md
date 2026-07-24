@@ -49,13 +49,13 @@ Không nhịn ăn cơm, không nhai rau luộc phát ngán — bạn vẫn đư�
 
 ---
 
-## 3. Gói Combo GroupX + Coaching Dinh Dưỡng 1-1
+## 3. Gói Tập Nhóm + Đồng Hành Dinh Dưỡng 1-1
 
 Nếu bạn muốn có một lộ trình ăn-tập chuẩn chỉnh tại **S109 Ocean Park 1**:
 
 - Được thiết kế thực đơn cá nhân hóa phù hợp với khẩu vị gia đình.
 - HLV theo sát chỉ số cân nặng và vòng eo hàng tuần.
-- Kết hợp các lớp tập GroupX nữ sôi động để đốt mỡ tự nhiên.
+- Kết hợp các lớp tập nhóm nữ sôi động để đốt mỡ tự nhiên.
 
 ---
 
@@ -67,4 +67,4 @@ _Đọc thêm bài viết liên quan:_
 
 - _[Quét mã QR kết nối Trợ lý AI Bé Dứa miễn phí ngay hôm nay](/)_
 - _[Tại sao đau vai gáy không nên cố tập tạ nặng?](/dau-vai-gay-dung-tap-ta-nang-hay-tha-long)_
-- _[Xem Bảng giá niêm yết các gói tập GroupX & Coaching 1-1](/join)_
+- _[Xem bảng giá niêm yết các gói tập nhóm và đồng hành dinh dưỡng 1-1](/join)_

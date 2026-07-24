@@ -7,7 +7,7 @@ import BeDuaGuide from '~/components/widgets/BeDuaGuide.astro';
 import EcosystemVisual from '~/components/widgets/EcosystemVisual.astro';
 
 const metadata = {
-  title: 'Grow Fitness — Hệ Điều Hành Fitness Cá Nhân Đầu Tiên Tại Việt Nam',
+  title: 'Grow Fitness — "Bộ CV Ngoại Hình" & Trạm Tái Tạo Năng Lượng Cho Nữ',
   ignoreTitleTemplate: true,
 };
 ---
@@ -23,17 +23,16 @@ const metadata = {
         href: '/join',
         icon: 'tabler:flame',
       },
-      { text: 'Tìm Hiểu Mô Hình', href: '#architecture' },
+      { text: 'Tìm Hiểu Mô Hình SPV', href: '/invest' },
     ]}
   >
     <Fragment slot="title">
-      Grow Fitness — <span class="text-accent">Hệ Điều Hành Fitness</span> Cá Nhân Đầu Tiên Tại Việt Nam
+      Grow Fitness — <span class="text-accent">"Bộ CV Ngoại Hình" & Trạm Tái Tạo Năng Lượng</span> Cho Nữ
     </Fragment>
 
     <Fragment slot="subtitle">
-      Private Gym Nữ + AI Huấn Luyện Viên 24/7. <span class="font-semibold text-white"
-        >Không bỏ lỡ một ngày tập nào.</span
-      >
+      Giải tỏa đau vai gáy do chốt đơn, dâng cơm calo chuẩn tận miệng và sở hữu vóc dáng tự tin chốt deal tỷ đồng —
+      <span class="font-semibold text-white">mà không cần nhịn ăn hay gồng mình kỷ luật.</span>
     </Fragment>
   </Hero>
 
@@ -41,18 +40,18 @@ const metadata = {
 
   <EcosystemVisual
     image="/images/grow-fitness-ecosystem.webp"
-    tagline="Một hệ sinh thái — chăm bạn mỗi ngày"
-    title="Tập đúng. Ăn đúng. Tự chủ hơn."
-    subtitle="Private Gym Nữ, AI Bé Dứa 24/7, Bếp Healthy và cộng đồng cùng đưa bạn tới tiến bộ thật."
+    tagline="Chấm dứt thói quen ăn rác & mệt mỏi vai gáy"
+    title="Không còn tự ti mỡ bụng khi mặc vest dẫn khách VIP."
+    subtitle="Phòng tập Private Nữ 5 sao riêng tư 100%, AI Bé Dứa sạc pin cơ thể 24/7 và Bếp Grow dâng cơm calo chuẩn tận nhà."
   />
 
   <!-- AI Simulation — khung chat Bé Dứa ********* -->
 
   <section class="px-4 py-16 sm:px-6 mx-auto max-w-6xl">
     <div class="mb-10 text-center">
-      <p class="text-base font-semibold uppercase tracking-wide text-primary mb-2">AI đồng hành thật</p>
+      <p class="text-base font-semibold uppercase tracking-wide text-primary mb-2">Đồng hành 24/7 · Không bỏ rơi khách hàng</p>
       <h2 class="font-heading text-3xl md:text-4xl font-bold tracking-tight text-white">
-        Bé Dứa — AI HLV không cho bạn bỏ cuộc
+        AI Bé Dứa — Trợ lý sạc pin cơ thể & nhắc lịch ăn đúng mỗi ngày
       </h2>
     </div>
 
@@ -64,20 +63,19 @@ const metadata = {
             <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-lg">🍍</div>
             <div>
               <p class="font-semibold text-white leading-tight">Bé Dứa</p>
-              <p class="text-xs text-primary">AI Huấn Luyện Viên · online</p>
+              <p class="text-xs text-primary">Trợ lý sức khỏe · Đã kết nối HRV</p>
             </div>
           </div>
           <!-- hội thoại -->
           <div class="space-y-3 px-4 py-5 text-sm">
             <div class="max-w-[85%] rounded-2xl rounded-tl-sm bg-card border border-line px-4 py-3 text-white">
-              Hôm nay 18:30 lịch tập Mông-Đùi tại S109 Ocean Park. Bạn chưa check-in?
+              Hôm nay 18:30 có ca tập xả stress Mông–Đùi tại S109 Ocean Park 1. Bạn vừa chốt xong đơn hàng BĐS chứ?
             </div>
             <div class="ml-auto max-w-[85%] rounded-2xl rounded-tr-sm bg-primary px-4 py-3 text-white">
-              Hôm nay công ty nhiều việc quá Bé Dứa ơi...
+              Hôm nay họp liên tục mệt quá, cổ vai gáy nhức mỏi không nhúc nhích nổi Bé Dứa ơi...
             </div>
             <div class="max-w-[85%] rounded-2xl rounded-tl-sm bg-card border border-line px-4 py-3 text-white">
-              Hệ thống đã tự dời lịch sang ca 6h sáng mai và điều chỉnh giảm 15% tạ để bạn không bị rách cơ. Đừng để lỡ
-              2 ngày liên tiếp nhé!
+              Bé Dứa đã dời ca tập sang bài giãn cơ phó giao cảm + gửi 1 suất cơm Bếp Grow chuẩn calo đến tận nơi. Đừng để axit stress tàn phá nhan sắc nhé!
             </div>
           </div>
         </div>
@@ -85,124 +83,120 @@ const metadata = {
     </div>
   </section>
 
-  <!-- Hướng dẫn dùng Trợ lý AI Bé Dứa & QR Code -->
-  <BeDuaGuide />
-
-  <!-- Bộ môn tập luyện ************** -->
+  <!-- Bốn trụ cột giải pháp ********** -->
 
   <Features2
-    title="Các Bộ Môn Tập Luyện"
-    subtitle="Đa dạng lớp cho mọi mục tiêu — từ đốt mỡ tới phục hồi."
-    tagline="Showcase"
-    columns={3}
+    tagline="Giải pháp 4 trong 1"
+    title="Hệ Sinh Thái Chăm Sóc Vóc Dáng Toàn Diện"
+    subtitle="Kết hợp trải nghiệm Offline 5 sao và công nghệ AI đòn bẩy"
     items={[
       {
-        title: 'Step cơ bản & nâng cao',
-        description: 'Đốt calo nhịp điệu trên bục step — vui, dễ vào, hiệu quả cao.',
-        icon: 'tabler:stairs',
+        title: '🧘 Private Gym Nữ 5 Sao',
+        description: 'Không gian tập riêng tư 100%, không lo bị soi xét hay chèo kéo mua thẻ. HLV sửa từng động tác.',
+        icon: 'tabler:woman',
       },
       {
-        title: 'Dance Fitness & Aerobic',
-        description: 'Vừa nhảy vừa siết dáng theo nhạc — quên luôn là đang tập.',
-        icon: 'tabler:music',
+        title: '🍍 AI Bé Dứa Đo Pin Cơ Thể',
+        description: 'Theo dõi chỉ số phục hồi HRV, nhắc lịch tập và tự động điều chỉnh tạ theo mức năng lượng trong ngày.',
+        icon: 'tabler:device-watch-stats',
       },
       {
-        title: 'HIIT / Tabata / Cardio',
-        description: 'Đốt mỡ cường độ cao ngắt quãng — tối đa hiệu quả trong 45 phút.',
-        icon: 'tabler:flame',
+        title: '🥗 Bếp Grow Calo Chuẩn',
+        description: 'Giải quyết triệt để sự lười nấu nướng. Dâng bữa ăn Healthy chuẩn vị ngon đến tận tay.',
+        icon: 'tabler:salad',
       },
       {
-        title: 'Bodyweight & Kháng lực tạ nhẹ',
-        description: 'Săn chắc toàn thân với chính trọng lượng cơ thể và tạ nhẹ an toàn.',
-        icon: 'tabler:barbell',
-      },
-      {
-        title: 'Core - Bụng - Eo',
-        description: 'Chuyên sâu vùng trung tâm — eo thon, bụng phẳng, lưng khoẻ.',
-        icon: 'tabler:target',
-      },
-      {
-        title: 'Giãn cơ phục hồi (Yoga, Pilates)',
-        description: 'Thả lỏng, kéo giãn, phục hồi — để cơ thể sẵn sàng cho buổi sau.',
-        icon: 'tabler:yoga',
-      },
-      {
-        title: 'Group Gym — Mô Hình Mới Từ Mỹ',
-        description:
-          'Tập gym theo nhóm nhỏ có coach dẫn dắt trực tiếp — hiệu quả như PT 1-1, tinh thần như lớp nhóm. Mô hình nhập khẩu từ các studio hàng đầu nước Mỹ.',
-        icon: 'tabler:users-group',
+        title: '💎 Cộng Đồng Nữ Tinh Hoa',
+        description: 'Kết nối networking cùng tệp Nữ Doanh Nhân và Nữ Sale BĐS hàng đầu tại Ocean Park 1.',
+        icon: 'tabler:users',
       },
     ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-transparent"></div>
-    </Fragment>
-  </Features2>
+  />
 
-  <!-- Timeline ********************** -->
+  <!-- Kiến trúc Flywheel ********** -->
 
-  <div id="architecture">
-    <Steps
-      title="Hành trình 3 mốc của Grow Fitness"
-      tagline="Timeline"
-      items={[
-        {
-          title: '2022 — <span class="font-medium">Phòng nhỏ chung cư</span>',
-          description: 'Mô hình tập luyện 1:1 cá nhân hóa sơ khai.',
-          icon: 'tabler:home',
-        },
-        {
-          title: '2024 — <span class="font-medium">Xuống mặt bằng riêng (Ocean Park 1)</span>',
-          description: 'Mở rộng không gian chuyên nghiệp dành riêng cho nữ.',
-          icon: 'tabler:building',
-        },
-        {
-          title: '2026 — <span class="font-medium">AI Private Gym</span>',
-          description: 'Tích hợp Hệ điều hành AI HLV 24/7 & Quản trị tự động.',
-          icon: 'tabler:robot',
-        },
-      ]}
-      image={{
-        src: 'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=2075&q=80',
-        alt: 'Không gian Grow Fitness Ocean Park',
-      }}
-    />
-  </div>
-
-  <!-- Split CTA — 3 phễu ************ -->
-
-  <section class="px-4 py-16 sm:px-6 mx-auto max-w-6xl">
-    <div class="mb-10 text-center">
-      <h2 class="font-heading text-3xl md:text-4xl font-bold tracking-tight text-white">Bạn thuộc về đâu?</h2>
+  <section id="architecture" class="px-4 py-16 sm:px-6 mx-auto max-w-6xl border-t border-line">
+    <div class="mb-12 text-center">
+      <p class="text-base font-semibold uppercase tracking-wide text-primary mb-2">Hệ Điều Hành Grow Fitness</p>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+        Cỗ Máy Vận Hành AI Private Gym Đầu Tiên
+      </h2>
+      <p class="text-gray-400 max-w-3xl mx-auto">
+        Bánh răng Domino kết nối Trải nghiệm Khách Nữ 99K, HLV khoán tự quản 30M và Mô hình đầu tư SPV 200M.
+      </p>
     </div>
-    <div class="grid gap-6 md:grid-cols-3">
-      <a
-        href="/join"
-        class="group rounded-2xl bg-card border border-line p-8 text-center transition hover:border-primary hover:-translate-y-1"
-      >
-        <div class="text-4xl mb-4">🏋️</div>
-        <h3 class="font-heading text-xl text-white mb-2">Tôi Muốn Tập</h3>
-        <p class="text-muted mb-4">Trải nghiệm Khám Phá 3 buổi chỉ 99K.</p>
-        <span class="font-semibold text-primary group-hover:text-secondary">Đặt Chỗ 99K →</span>
-      </a>
-      <a
-        href="/careers"
-        class="group rounded-2xl bg-card border border-line p-8 text-center transition hover:border-primary hover:-translate-y-1"
-      >
-        <div class="text-4xl mb-4">💼</div>
-        <h3 class="font-heading text-xl text-white mb-2">Tôi Muốn Làm Việc</h3>
-        <p class="text-muted mb-4">Trở thành Head PT làm chủ cơ sở, hưởng 90% lợi nhuận vượt khoán.</p>
-        <span class="font-semibold text-primary group-hover:text-secondary">Xem Cơ Chế →</span>
-      </a>
-      <a
-        href="/invest"
-        class="group rounded-2xl bg-card border border-line p-8 text-center transition hover:border-primary hover:-translate-y-1"
-      >
-        <div class="text-4xl mb-4">📈</div>
-        <h3 class="font-heading text-xl text-white mb-2">Tôi Muốn Đầu Tư</h3>
-        <p class="text-muted mb-4">Đồng hành cùng mô hình SPV 200M & Cỗ máy Flywheel.</p>
-        <span class="font-semibold text-primary group-hover:text-secondary">Tìm Hiểu SPV →</span>
-      </a>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-card border border-line p-8 rounded-2xl flex flex-col justify-between">
+        <div>
+          <div class="text-3xl mb-4">👑</div>
+          <h3 class="text-xl font-bold text-white mb-3">Phễu Trải Nghiệm 99K</h3>
+          <p class="text-gray-400 text-sm mb-6">
+            Dành cho Khách Nữ BĐS & Doanh Nhân muốn thử nghiệm 3 buổi tập riêng tư, đo Inbody và ăn sạch.
+          </p>
+        </div>
+        <a href="/join" class="inline-flex items-center text-primary font-semibold hover:underline">
+          Khám phá gói 99K &rarr;
+        </a>
+      </div>
+
+      <div class="bg-card border border-line p-8 rounded-2xl flex flex-col justify-between">
+        <div>
+          <div class="text-3xl mb-4">🔑</div>
+          <h3 class="text-xl font-bold text-white mb-3">HLV Tự Quản 30M</h3>
+          <p class="text-gray-400 text-sm mb-6">
+            Dành cho Head PT thoát kiếp "bác xe ôm công nghệ", làm chủ mảnh đất 30M và hưởng 90% lợi nhuận.
+          </p>
+        </div>
+        <a href="/careers" class="inline-flex items-center text-primary font-semibold hover:underline">
+          Ứng tuyển Head PT &rarr;
+        </a>
+      </div>
+
+      <div class="bg-card border border-line p-8 rounded-2xl flex flex-col justify-between">
+        <div>
+          <div class="text-3xl mb-4">💼</div>
+          <h3 class="text-xl font-bold text-white mb-3">Đầu Tư SPV 200M</h3>
+          <p class="text-gray-400 text-sm mb-6">
+            Dành cho Nhà Đầu Tư muốn góp vốn từng cơ sở RBF, nhận dòng tiền minh bạch và có điều khoản buyback.
+          </p>
+        </div>
+        <a href="/invest" class="inline-flex items-center text-primary font-semibold hover:underline">
+          Hồ sơ SPV 200M &rarr;
+        </a>
+      </div>
     </div>
   </section>
+
+  <!-- Hướng dẫn Bé Dứa ********** -->
+
+  <BeDuaGuide />
+
+  <!-- CTA ******************* -->
+
+  <Steps
+    title="Bắt đầu hành trình lột xác vóc dáng ngay hôm nay"
+    tagline="Chỉ 3 bước đơn giản"
+    items={[
+      {
+        title: 'Bước 1: Đăng ký gói 99K',
+        description: 'Điền thông tin nhận ngay 3 buổi trải nghiệm Private Gym Nữ + tư vấn chỉ số Inbody.',
+        icon: 'tabler:number-1',
+      },
+      {
+        title: 'Bước 2: Kết nối AI Bé Dứa',
+        description: 'AI tự động đo nhịp sinh học, xây dựng thực đơn Bếp Grow và nhắc lịch tập phù hợp.',
+        icon: 'tabler:number-2',
+      },
+      {
+        title: 'Bước 3: Tận hưởng vóc dáng rạng rỡ',
+        description: 'Tự tin mặc vest chốt deal tỷ đồng mà không còn lo mệt mỏi hay mỡ bụng.',
+        icon: 'tabler:number-3',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Tập luyện rạng rỡ tại Grow Fitness',
+    }}
+  />
 </Layout>

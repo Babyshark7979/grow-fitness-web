@@ -60,4 +60,4 @@ _Đọc thêm bài viết liên quan:_
 
 - _[Tải Trợ lý AI Bé Dứa để được nhắc lịch sạc pin mỗi ngày](/)_
 - _[Tại sao HLV tại Grow lại chăm sóc bạn tận tụy mà không ép doanh số?](/careers)_
-- _[Giải mã mô hình SPV 200M dành cho nhà đầu tư](/invest)_
+- _[Tìm hiểu cách góp vốn 200 triệu theo từng cơ sở](/invest)_

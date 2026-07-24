@@ -60,7 +60,7 @@ Chúng tôi kiên quyết **KHÔNG BÁN** những chiếc thẻ năm đắt đ�
 Thay vì bắt bạn đánh cược hàng triệu đồng, hãy trải nghiệm **[Chương trình Khám Phá 3 buổi chỉ 99K](/join)** tại **Grow Fitness Ocean Park (Tòa S109 - 01S10)**:
 
 - 📊 **Buổi 1:** Đo chỉ số Inbody & Phân tích độ lệch tư thế 1-1 cùng HLV.
-- 🧘 **Buổi 2:** Tập thử lớp GroupX riêng tư cho nữ (Cardio / Tabata / Pilates).
+- 🧘 **Buổi 2:** Tập thử lớp nhóm riêng tư cho nữ với nhiều bài tập đốt mỡ và kéo giãn.
 - 🏋️ **Buổi 3:** Coach nắn chuẩn kỹ thuật form tập, tư vấn dinh dưỡng thực tế.
 
 > **Cam kết của Grow Fitness:** Sau 3 buổi, nếu bạn thấy không hợp — vui vẻ chia tay. Cam kết tuyệt đối **KHÔNG CHÈO KÉO** hợp đồng dài hạn!

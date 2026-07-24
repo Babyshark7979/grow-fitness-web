@@ -9,7 +9,7 @@ Vui lòng đọc kỹ các điều khoản dưới đây trước khi sử dụn
 
 ## 1. Về Grow Fitness
 
-Grow Fitness là phòng tập Private Gym dành riêng cho nữ, vận hành cùng trợ lý AI, tại Tòa S109 - 01S10, Vinhomes Ocean Park 1, Gia Lâm, Hà Nội. Website này cung cấp thông tin dịch vụ, bảng giá và tiếp nhận đăng ký tư vấn.
+Grow Fitness là phòng tập dành riêng cho nữ, có trợ lý Bé Dứa đồng hành, tại Tòa S109 - 01S10, Vinhomes Ocean Park 1, Gia Lâm, Hà Nội. Website này cung cấp thông tin dịch vụ, bảng giá và tiếp nhận đăng ký tư vấn.
 
 ## 2. Đăng ký & gói dịch vụ
 

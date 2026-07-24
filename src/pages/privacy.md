@@ -9,7 +9,7 @@ Grow Fitness tôn trọng quyền riêng tư của bạn. Chính sách này gi�
 
 ## 1. Dữ liệu chúng tôi thu thập
 
-Khi bạn điền form trên website (đăng ký 99K, ứng tuyển Head PT, tư vấn đầu tư), chúng tôi thu thập:
+Khi bạn gửi thông tin trên website (đăng ký 99K, ứng tuyển quản lý phòng tập, tư vấn đầu tư), chúng tôi thu thập:
 
 - Họ và tên
 - Số điện thoại (Zalo)

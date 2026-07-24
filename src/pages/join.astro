@@ -1,59 +1,51 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-
 import Hero from '~/components/widgets/Hero.astro';
 import LeadForm from '~/components/LeadForm.astro';
 
 const metadata = {
-  title: 'Khám Phá Grow Fitness 3 Buổi Chỉ 99K',
+  title: 'Khám Phá Grow Fitness 3 Buổi Chỉ 99K — Ocean Park 1',
   description:
-    'Đừng lãng phí hàng triệu đồng mua thẻ năm rồi bỏ! Gói Khám Phá 99K tại Ocean Park 1: Đo Inbody + GroupX + Coach nắn form 1-1, cam kết không chèo kéo thẻ tập.',
+    'Gói Khám Phá 99K tại Ocean Park 1: Đo Inbody, xả stress vai gáy, tập nhóm nữ 100% riêng tư và nhận thực đơn calo chuẩn, cam kết không chèo kéo mua thẻ.',
 };
 
 const priceList = [
   {
     emoji: '🎁',
-    name: 'Gói Khám Phá Grow',
+    name: 'Gói Khám Phá Grow 99K',
     price: '99.000đ',
     unit: '/ 3 ngày',
-    detail: 'Đo Inbody + GroupX + Coach nắn form 1-1',
+    detail: 'Đo chỉ số cơ thể + Tập nhóm nữ riêng tư + HLV sửa từng động tác + Cơm Bếp Grow',
     highlight: true,
   },
-  { emoji: '🧘', name: 'GroupX Nữ', price: 'từ 599.000đ', unit: '/ 21 ngày', detail: 'Lớp nhóm nữ đủ bộ môn' },
+  {
+    emoji: '🧘',
+    name: 'Lớp tập xả stress cho nữ',
+    price: 'từ 599.000đ',
+    unit: '/ 21 ngày',
+    detail: 'Nhiều ca tập linh hoạt, không gian 5 sao không bị soi xét',
+  },
   {
     emoji: '🥗',
-    name: 'Coaching Dinh Dưỡng 1-1',
+    name: 'Đồng hành dinh dưỡng Bếp Grow',
     price: 'từ 1.999.000đ',
     unit: '/ tháng',
-    detail: 'AI Bé Dứa + Coach theo sát bữa ăn',
+    detail: 'Bé Dứa + Chuyên gia dâng bữa ăn calo chuẩn tận nhà',
   },
   {
     emoji: '🔥',
-    name: 'Combo GroupX + Coaching',
+    name: 'Tập nhóm + Dinh dưỡng trọn gói',
     price: 'từ 2.999.000đ',
     unit: '/ tháng',
-    detail: 'Tập nhóm + dinh dưỡng trọn gói',
+    detail: 'Tập nhóm xả stress + Dinh dưỡng calo chuẩn trọn gói',
   },
   {
-    emoji: '💻',
-    name: 'GroupX Online + Coaching',
-    price: 'từ 1.999.000đ',
-    unit: '/ tháng',
-    detail: 'Tập online ca 5h & 17h + dinh dưỡng',
+    emoji: '🏋️',
+    name: 'Tập riêng Private 1-1',
+    price: 'từ 500.000đ',
+    unit: '/ buổi',
+    detail: 'Huấn luyện viên riêng, không gian kín đáo cho nữ doanh nhân',
   },
-  { emoji: '🏋️', name: 'Gym Private 1-1', price: 'từ 500.000đ', unit: '/ buổi', detail: 'HLV riêng, phòng riêng tư' },
-  {
-    emoji: '👑',
-    name: 'Gym Private + Coaching All-in',
-    price: 'từ 2.999.000đ',
-    unit: '/ tháng',
-    detail: 'Trọn gói cao cấp nhất',
-  },
-];
-
-const schedule = [
-  { label: 'Ca Sáng', slots: '5h–6h (Online) · 6h–7h · 8h–9h' },
-  { label: 'Ca Chiều Tối', slots: '17h–18h (Online) · 18h30–19h30' },
 ];
 ---
 
@@ -65,150 +57,100 @@ const schedule = [
       {
         variant: 'primary',
         text: 'Đăng Ký Khám Phá 99K',
-        href: '#form-99k',
-        icon: 'tabler:calendar-heart',
+        href: '#form-join',
+        icon: 'tabler:flame',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=2070&q=80',
-      alt: 'Phụ nữ tập luyện với tạ — hình minh họa',
+      src: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Khám phá gói 99K tại Grow Fitness Ocean Park 1',
     }}
   >
     <Fragment slot="title">
-      Khám Phá Grow Fitness <span class="text-accent">3 Buổi Chỉ 99K</span>
+      Chấm Dứt 90 Ngày <span class="text-accent">Ăn Rác & Đau Vai Gáy</span> Bằng 3 Buổi Trải Nghiệm 99K
     </Fragment>
 
     <Fragment slot="subtitle">
-      Đừng lãng phí hàng triệu đồng mua thẻ năm rồi bỏ! Test rủi ro cực thấp tại Ocean Park 1,
-      <span class="font-semibold text-white">cam kết không chèo kéo thẻ tập</span>.
+      Đo chỉ số Inbody, tập nhóm nữ 5 sao riêng tư 100% không bị soi xét và dâng cơm calo chuẩn tận miệng —
+      <span class="font-semibold text-white">Cam kết 100% không chèo kéo mua thẻ.</span>
     </Fragment>
   </Hero>
 
-  <!-- Bảng giá niêm yết ************* -->
+  <!-- Bảng dịch vụ ******************* -->
 
-  <section class="px-4 py-16 sm:px-6 mx-auto max-w-6xl">
-    <div class="mb-10 text-center">
-      <p class="text-base font-semibold uppercase tracking-wide text-primary mb-2">Minh bạch giá</p>
-      <h2 class="font-heading text-3xl md:text-4xl font-bold tracking-tight text-white">
-        Bảng Giá Niêm Yết Chính Thức
+  <section class="px-4 py-16 sm:px-6 mx-auto max-w-5xl">
+    <div class="mb-12 text-center">
+      <p class="text-base font-semibold uppercase tracking-wide text-primary mb-2">Bảng Giá Minh Bạch</p>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+        Các Lựa Chọn Trải Nghiệm Tại Grow Fitness
       </h2>
+      <p class="text-gray-400">Không có phí ẩn. Chọn gói phù hợp với lịch làm việc của bạn.</p>
     </div>
-    <div class="grid gap-6 md:grid-cols-3">
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       {
-        priceList.map((pkg) => (
+        priceList.map((item) => (
           <div
-            class={`rounded-2xl bg-card p-8 border transition ${
-              pkg.highlight ? 'border-primary shadow-[0_0_30px_rgba(255,46,136,0.25)]' : 'border-line'
+            class={`rounded-2xl border p-6 flex flex-col justify-between ${
+              item.highlight
+                ? 'border-primary bg-card shadow-lg shadow-primary/10 relative overflow-hidden'
+                : 'border-line bg-card'
             }`}
           >
-            {pkg.highlight && (
-              <span class="mb-3 inline-block rounded-full bg-primary px-3 py-1 text-xs font-bold uppercase text-white">
-                Bắt đầu từ đây
-              </span>
+            {item.highlight && (
+              <div class="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">
+                Khuyên Chọn
+              </div>
             )}
-            <div class="text-3xl mb-3">{pkg.emoji}</div>
-            <h3 class="font-heading text-xl text-white mb-2">{pkg.name}</h3>
-            <p class="mb-2">
-              <span class="text-2xl font-bold text-primary">{pkg.price}</span>
-              <span class="text-muted"> {pkg.unit}</span>
-            </p>
-            <p class="text-muted">{pkg.detail}</p>
+            <div>
+              <div class="text-3xl mb-3">{item.emoji}</div>
+              <h3 class="text-lg font-bold text-white mb-2">{item.name}</h3>
+              <div class="flex items-baseline gap-1 mb-4">
+                <span class="text-2xl font-extrabold text-accent">{item.price}</span>
+                <span class="text-xs text-gray-400">{item.unit}</span>
+              </div>
+              <p class="text-gray-400 text-sm mb-6">{item.detail}</p>
+            </div>
+            <a
+              href="#form-join"
+              class={`w-full py-2.5 px-4 rounded-xl font-semibold text-center text-sm transition ${
+                item.highlight
+                  ? 'bg-primary text-white hover:bg-primary/90'
+                  : 'bg-page border border-line text-white hover:bg-card'
+              }`}
+            >
+              Chọn Gói Này
+            </a>
           </div>
         ))
       }
     </div>
   </section>
 
-  <!-- Địa chỉ & giờ hoạt động ******* -->
+  <!-- Lead Form Section ************** -->
 
-  <section class="px-4 py-16 sm:px-6 mx-auto max-w-6xl">
-    <div class="grid gap-6 md:grid-cols-2">
-      <div class="rounded-2xl bg-card border border-line p-8">
-        <h3 class="font-heading text-xl text-white mb-4">📍 Địa chỉ</h3>
-        <p class="text-white font-medium mb-2">Tòa S109 - 01S10, Vinhomes Ocean Park 1, Gia Lâm, Hà Nội</p>
-        <p class="text-muted">Private Gym dành riêng cho nữ — không lo ánh nhìn, không chen chúc.</p>
-      </div>
-      <div class="rounded-2xl bg-card border border-line p-8">
-        <h3 class="font-heading text-xl text-white mb-4">🕐 Lịch hoạt động</h3>
-        <p class="text-white mb-3">Thứ 2 – Thứ 6 hàng tuần <span class="text-muted">(nghỉ Thứ 7 & Chủ Nhật)</span></p>
-        <ul class="space-y-2">
-          {
-            schedule.map((s) => (
-              <li class="text-muted">
-                <span class="font-semibold text-primary">{s.label}:</span> {s.slots}
-              </li>
-            ))
-          }
-        </ul>
-        <p class="mt-3 text-sm text-muted">
-          ✨ Đặc quyền: đổi ca linh hoạt theo lịch làm việc thực tế, không bị cố định khung giờ.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Gallery phòng tập S109 ******** -->
-
-  <section class="px-4 py-16 sm:px-6 mx-auto max-w-6xl">
+  <section id="form-join" class="px-4 py-16 sm:px-6 mx-auto max-w-3xl border-t border-line">
     <div class="mb-10 text-center">
-      <p class="text-base font-semibold uppercase tracking-wide text-primary mb-2">Ảnh thật — không render</p>
-      <h2 class="font-heading text-3xl md:text-4xl font-bold tracking-tight text-white">
-        Không Gian Phòng Tập S109 Ocean Park 1
-      </h2>
-      <p class="mt-3 text-muted">Private Gym dành riêng cho nữ — nhìn tận mắt trước khi đặt chỗ.</p>
+      <p class="text-base font-semibold uppercase tracking-wide text-primary mb-2">Đăng ký giữ suất 99K</p>
+      <h2 class="font-heading text-3xl font-bold tracking-tight text-white mb-2">Nhận 3 Buổi Tập Private Nữ + Đo Inbody</h2>
+      <p class="text-gray-400 text-sm">Điền thông tin bên dưới để trợ lý xếp lịch tập xả stress tại S109 Ocean Park 1.</p>
     </div>
-    <div class="mx-auto max-w-3xl">
-      {
-        [
-          {
-            src: '/images/Lienhero.webp',
-            alt: 'Không gian tập luyện thực tế tại Grow Fitness S109 Ocean Park 1',
-            caption: 'Không gian tập luyện riêng tư tại S109 Ocean Park 1',
-          },
-        ].map((photo) => (
-          <figure class="overflow-hidden rounded-2xl border border-line bg-card">
-            <img
-              src={photo.src}
-              alt={photo.alt}
-              loading="lazy"
-              decoding="async"
-              class="w-full h-72 sm:h-80 object-cover object-top transition duration-300 hover:scale-105"
-            />
-            <figcaption class="px-5 py-4 text-sm text-muted">{photo.caption}</figcaption>
-          </figure>
-        ))
-      }
-    </div>
-  </section>
 
-  <!-- Form đăng ký 99K ************** -->
-
-  <section class="px-4 py-16 sm:px-6 mx-auto max-w-6xl">
-    <div class="mb-10 text-center">
-      <h2 class="font-heading text-3xl md:text-4xl font-bold tracking-tight text-white">Đăng Ký 99K & Nhận Tư Vấn</h2>
-      <p class="mt-3 text-muted">Điền thông tin — đội ngũ Grow gọi lại xếp lịch trong 24h.</p>
-    </div>
     <LeadForm
-      id="form-99k"
+      id="form-join-99k"
       formType="join-99k"
-      disclaimer="Bằng việc gửi form này, bạn đồng ý để Grow Fitness liên hệ tư vấn trực tiếp qua Zalo/Điện thoại."
-      button="Đăng Ký Trải Nghiệm 99K"
+      button="Đăng Ký Giữ Suất 99K Ngay"
       fields={[
-        { name: 'ho_ten', label: 'Họ và tên', placeholder: 'VD: Nguyễn Thu Hà' },
-        { name: 'so_dien_thoai', label: 'Số điện thoại (Zalo)', type: 'tel', placeholder: 'VD: 0912 345 678' },
-        {
-          name: 'khung_gio',
-          label: 'Khung giờ muốn tập',
-          type: 'select',
-          options: ['Sáng', 'Chiều tối'],
-        },
+        { name: 'ho_ten', label: 'Họ và Tên', placeholder: 'VD: Nguyễn Thu Hà' },
+        { name: 'so_dien_thoai', label: 'Số Điện Thoại (Zalo)', type: 'tel', placeholder: 'VD: 0912 345 678' },
         {
           name: 'muc_tieu',
-          label: 'Mục tiêu của bạn',
+          label: 'Mục tiêu trải nghiệm',
           type: 'select',
-          options: ['Giảm mỡ', 'Eo thon', 'Đau vai gáy'],
+          options: ['Xả stress & Vai gáy', 'Giảm mỡ bụng tự tin chốt deal', 'Tập thử 3 buổi 99K'],
         },
       ]}
+      disclaimer="Bằng việc gửi thông tin này, bạn đồng ý để Grow Fitness liên hệ qua Zalo tư vấn ca tập."
     />
   </section>
 </Layout>

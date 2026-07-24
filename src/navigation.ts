@@ -11,11 +11,11 @@ export const headerData = {
       href: getPermalink('/join'),
     },
     {
-      text: 'Tuyển Head PT',
+      text: 'Tuyển quản lý phòng tập',
       href: getPermalink('/careers'),
     },
     {
-      text: 'Đầu tư SPV',
+      text: 'Cơ hội đầu tư',
       href: getPermalink('/invest'),
     },
     {
@@ -41,10 +41,10 @@ export const footerData = {
       ],
     },
     {
-      title: 'Hệ điều hành Grow',
+      title: 'Cùng Grow phát triển',
       links: [
-        { text: 'Tuyển Head PT', href: getPermalink('/careers') },
-        { text: 'Đầu tư SPV 200M', href: getPermalink('/invest') },
+        { text: 'Tuyển quản lý phòng tập', href: getPermalink('/careers') },
+        { text: 'Góp vốn mở cơ sở', href: getPermalink('/invest') },
         { text: 'Liên hệ', href: getPermalink('/contact') },
       ],
     },
@@ -52,8 +52,8 @@ export const footerData = {
       title: 'Giờ hoạt động',
       links: [
         { text: 'Thứ 2 – Thứ 6 (nghỉ T7 & CN)', href: getPermalink('/join') },
-        { text: 'Ca sáng: 5h–6h (Online) · 6h–7h · 8h–9h', href: getPermalink('/join') },
-        { text: 'Ca chiều tối: 17h–18h (Online) · 18h30–19h30', href: getPermalink('/join') },
+        { text: 'Ca sáng: 5h–6h (trực tuyến) · 6h–7h · 8h–9h', href: getPermalink('/join') },
+        { text: 'Ca chiều tối: 17h–18h (trực tuyến) · 18h30–19h30', href: getPermalink('/join') },
       ],
     },
   ],
@@ -65,6 +65,6 @@ export const footerData = {
     { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://www.facebook.com/share/1DkFspwMnu/' },
   ],
   footNote: `
-    <span class="text-muted">📍 Tòa S109 - 01S10, Vinhomes Ocean Park 1, Gia Lâm, Hà Nội · Private Gym dành riêng cho nữ<br/>© 2026 Grow Fitness · Hệ Điều Hành Fitness Cá Nhân Đầu Tiên Tại Việt Nam</span>
+    <span class="text-muted">📍 Tòa S109 - 01S10, Vinhomes Ocean Park 1, Gia Lâm, Hà Nội · Phòng tập dành riêng cho nữ<br/>© 2026 Grow Fitness · Tập đúng · Ăn đúng · Có người đồng hành</span>
   `,
 };
