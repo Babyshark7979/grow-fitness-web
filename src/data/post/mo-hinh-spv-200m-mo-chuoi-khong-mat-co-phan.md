@@ -1,7 +1,7 @@
 ---
 publishDate: 2026-07-24T18:00:00Z
-title: "Mô hình SPV 200 triệu: Bí quyết mở 10 cơ sở gym không lo mất cổ phần công ty mẹ!"
-excerpt: "Giải thích mô hình gọi vốn SPV đơn giản như việc chia chiếc bánh pizza: Làm sao để huy động vốn mở chuỗi mà không bị nhà đầu tư nuốt chửng công ty."
+title: 'Mô hình SPV 200 triệu: Bí quyết mở 10 cơ sở gym không lo mất cổ phần công ty mẹ!'
+excerpt: 'Giải thích mô hình gọi vốn SPV đơn giản như việc chia chiếc bánh pizza: Làm sao để huy động vốn mở chuỗi mà không bị nhà đầu tư nuốt chửng công ty.'
 image: https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=2070&q=80
 category: Đầu tư & Tài chính
 tags:
@@ -25,6 +25,7 @@ Hãy cùng giải thích bằng hình ảnh **"Chiếc Bánh Pizza"** cực kỳ
 ## 1. Bài Học Chiếc Bánh Pizza Công Ty Mẹ
 
 Nếu bạn mở phòng gym theo cách truyền thống và bán cổ phần công ty mẹ:
+
 - Công ty mẹ của bạn giống như một **Chiếc Bánh Pizza lớn**.
 - Mỗi lần bạn muốn có tiền mở 1 cơ sở mới ở Ocean Park 2 hay Ocean Park 3, bạn lại cắt đi 20–30% miếng bánh Pizza đó bán cho nhà đầu tư.
 - Đến khi mở xong 5 cơ sở, bạn chỉ còn giữ lại một mẩu bánh nhỏ (20% cổ phần). Nhà đầu tư nhảy vào hội đồng quản trị, đuổi bạn ra khỏi vị trí điều hành!
@@ -52,6 +53,7 @@ Tại Grow Fitness, chúng tôi không bao giờ bán cổ phần công ty mẹ!
 ## 3. Quyền Mua Lại (Buyback): Đòn Bẩy Gom Lại 100% Đế Chế
 
 Khi cơ sở đã đi vào hoạt động trơn tru và tạo ra dòng tiền lãi đều đặn:
+
 - Grow Fitness kích hoạt **Quyền Mua Lại (Buyback Right)**.
 - Chúng tôi trả lại đủ 100% vốn ban đầu + phần tiền lời cam kết cho nhà đầu tư để mua lại toàn bộ chiếc Bánh Trứng cơ sở đó.
 - Nhà đầu tư chốt lời vui vẻ rút tiền về, còn Công ty Mẹ thu hồi trọn vẹn 100% sở hữu cơ sở!
@@ -60,9 +62,10 @@ Khi cơ sở đã đi vào hoạt động trơn tru và tạo ra dòng tiền l�
 
 ## 4. Cỗ Máy Domino 90% Lợi Nhuận
 
-Tiền ở đâu để Công ty Mẹ mua lại các cơ sở? 
+Tiền ở đâu để Công ty Mẹ mua lại các cơ sở?
 
 Đó là nhờ **Cỗ Máy Domino Online**:
+
 - Phòng tập Offline 5 sao ➔ Làm bối cảnh quay video truyền thông cực sang xịn.
 - Đẩy video lên mạng ➔ Bán các gói Coaching Dinh Dưỡng Online và cộng đồng Skool Membership trên toàn quốc.
 - Mảng Online có biên lợi nhuận khủng lên tới **90%** (vì không tốn tiền thuê nhà) ➔ Dội ngược dòng tiền dồi dào về mua đứt lại toàn bộ cổ phần các cơ sở Offline!
@@ -73,6 +76,7 @@ Tiền ở đâu để Công ty Mẹ mua lại các cơ sở?
 
 👉 **[Nhận Hồ Sơ Minh Bạch & Đăng Ký Tư Vấn SPV tại đây](/invest)**
 
-*Đọc thêm bài viết liên quan:*
-- *[Đừng dại mua một 'cái tủ lạnh thiu' khi đầu tư phòng gym](/dau-tu-phong-gym-mo-hinh-spv-200m)*
-- *[Cơ chế khoán 30M giữ 90% lợi nhuận dành cho Head PT](/careers)*
+_Đọc thêm bài viết liên quan:_
+
+- _[Đừng dại mua một 'cái tủ lạnh thiu' khi đầu tư phòng gym](/dau-tu-phong-gym-mo-hinh-spv-200m)_
+- _[Cơ chế khoán 30M giữ 90% lợi nhuận dành cho Head PT](/careers)_

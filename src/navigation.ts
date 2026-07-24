@@ -27,7 +27,7 @@ export const headerData = {
       href: getPermalink('/contact'),
     },
   ],
-  actions: [{ text: 'Khám Phá Gói 99K', href: getPermalink('/join'), variant: 'primary' }],
+  actions: [{ text: 'Khám Phá Gói 99K', href: getPermalink('/join'), variant: 'primary' as const }],
 };
 
 export const footerData = {
