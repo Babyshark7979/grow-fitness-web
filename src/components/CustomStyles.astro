@@ -1,62 +1,69 @@
 ---
 import '@fontsource-variable/inter';
-import '@fontsource/anton';
-import '@fontsource/montserrat/400.css';
-import '@fontsource/montserrat/500.css';
-import '@fontsource/montserrat/600.css';
-import '@fontsource/montserrat/700.css';
+import '@fontsource/plus-jakarta-sans/400.css';
+import '@fontsource/plus-jakarta-sans/500.css';
+import '@fontsource/plus-jakarta-sans/600.css';
+import '@fontsource/plus-jakarta-sans/700.css';
+import '@fontsource/plus-jakarta-sans/800.css';
 
-// Grow Fitness brand — Neon Pink on near-black
-// primary  #FF2E88  Neon Pink
-// secondary #FF5AA5 Hot Pink
-// dark     #0A0A0A  Background
-// card     #1A1A1D  Card bg (utility bg-card in tailwind.css)
-// border   #39393F  Border (utility border-border in tailwind.css)
-// Fonts: Anton (heading) · Montserrat (body) · Inter (fallback)
+// Grow Fitness brand — Neon Pink · Plum · Warm Gold
+// Fonts: Plus Jakarta Sans (display + body) · Inter (fallback)
 ---
 
 <style is:inline>
   :root {
-    --aw-font-sans: 'Montserrat', 'Inter Variable';
-    --aw-font-serif: 'Montserrat', 'Inter Variable';
-    --aw-font-heading: 'Anton', 'Montserrat';
+    --aw-font-sans: 'Plus Jakarta Sans', 'Inter Variable';
+    --aw-font-serif: 'Plus Jakarta Sans', 'Inter Variable';
+    --aw-font-heading: 'Plus Jakarta Sans', 'Inter Variable';
 
     --aw-color-primary: rgb(255 46 136); /* #FF2E88 */
-    --aw-color-secondary: rgb(255 90 165); /* #FF5AA5 */
-    --aw-color-accent: rgb(255 46 136); /* #FF2E88 */
+    --aw-color-secondary: rgb(255 117 174); /* #FF75AE */
+    --aw-color-accent: rgb(244 185 66); /* #F4B942 */
+    --aw-color-warm: rgb(244 185 66);
+    --aw-color-blush: rgb(255 228 239);
+    --aw-color-plum: rgb(58 18 45);
+    --aw-color-card: rgb(29 17 27);
+    --aw-color-card-highlight: rgb(47 22 39);
+    --aw-color-line: rgb(83 48 70);
 
-    --aw-color-text-heading: rgb(255 255 255);
-    --aw-color-text-default: rgb(255 255 255);
-    --aw-color-text-muted: rgb(255 255 255 / 66%);
+    --aw-color-text-heading: rgb(255 248 251);
+    --aw-color-text-default: rgb(255 244 249);
+    --aw-color-text-muted: rgb(235 211 224 / 78%);
 
-    --aw-color-bg-page: rgb(10 10 10); /* #0A0A0A */
-    --aw-color-bg-page-dark: rgb(10 10 10);
+    --aw-color-bg-page: rgb(15 9 14); /* #0F090E */
+    --aw-color-bg-page-dark: rgb(15 9 14);
 
     ::selection {
       background-color: rgb(255 46 136);
-      color: rgb(10 10 10);
+      color: rgb(15 9 14);
     }
   }
 
   .dark {
-    --aw-font-sans: 'Montserrat', 'Inter Variable';
-    --aw-font-serif: 'Montserrat', 'Inter Variable';
-    --aw-font-heading: 'Anton', 'Montserrat';
+    --aw-font-sans: 'Plus Jakarta Sans', 'Inter Variable';
+    --aw-font-serif: 'Plus Jakarta Sans', 'Inter Variable';
+    --aw-font-heading: 'Plus Jakarta Sans', 'Inter Variable';
 
     --aw-color-primary: rgb(255 46 136);
-    --aw-color-secondary: rgb(255 90 165);
-    --aw-color-accent: rgb(255 46 136);
+    --aw-color-secondary: rgb(255 117 174);
+    --aw-color-accent: rgb(244 185 66);
+    --aw-color-warm: rgb(244 185 66);
+    --aw-color-blush: rgb(255 228 239);
+    --aw-color-plum: rgb(58 18 45);
+    --aw-color-card: rgb(29 17 27);
+    --aw-color-card-highlight: rgb(47 22 39);
+    --aw-color-line: rgb(83 48 70);
 
-    --aw-color-text-heading: rgb(255 255 255);
-    --aw-color-text-default: rgb(255 255 255);
-    --aw-color-text-muted: rgb(255 255 255 / 66%);
+    --aw-color-text-heading: rgb(255 248 251);
+    --aw-color-text-default: rgb(255 244 249);
+    --aw-color-text-muted: rgb(235 211 224 / 78%);
 
-    --aw-color-bg-page: rgb(10 10 10);
-    --aw-color-bg-page-dark: rgb(10 10 10);
+    --aw-color-bg-page: rgb(15 9 14);
+    --aw-color-bg-page-dark: rgb(15 9 14);
 
     ::selection {
       background-color: rgb(255 46 136);
-      color: rgb(10 10 10);
+      color: rgb(15 9 14);
     }
   }
 </style>
