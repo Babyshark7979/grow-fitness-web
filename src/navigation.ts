@@ -7,16 +7,16 @@ export const headerData = {
       href: getPermalink('/'),
     },
     {
-      text: 'Lớp tập & Dịch vụ',
-      href: getPermalink('/services'),
+      text: 'Tập luyện & Bảng giá',
+      href: getPermalink('/join'),
     },
     {
-      text: 'Bảng giá',
-      href: getPermalink('/pricing'),
+      text: 'Tuyển Head PT',
+      href: getPermalink('/careers'),
     },
     {
-      text: 'Về chúng tôi',
-      href: getPermalink('/about'),
+      text: 'Đầu tư SPV',
+      href: getPermalink('/invest'),
     },
     {
       text: 'Blog',
@@ -27,7 +27,7 @@ export const headerData = {
       href: getPermalink('/contact'),
     },
   ],
-  actions: [{ text: 'Đặt chỗ pre-sale', href: getPermalink('/join'), variant: 'primary' }],
+  actions: [{ text: 'Khám Phá Gói 99K', href: getPermalink('/join'), variant: 'primary' }],
 };
 
 export const footerData = {
@@ -35,27 +35,25 @@ export const footerData = {
     {
       title: 'Tập luyện',
       links: [
-        { text: 'Gym & Tạ tự do', href: getPermalink('/services') },
-        { text: 'Personal Training (PT)', href: getPermalink('/services') },
-        { text: 'Group Class', href: getPermalink('/services') },
-        { text: 'Yoga & Pilates', href: getPermalink('/services') },
+        { text: 'Gói Khám Phá 99K', href: getPermalink('/join') },
+        { text: 'Bảng giá niêm yết', href: getPermalink('/join') },
+        { text: 'Blog', href: getBlogPermalink() },
       ],
     },
     {
-      title: 'Grow Fitness',
+      title: 'Hệ điều hành Grow',
       links: [
-        { text: 'Về chúng tôi', href: getPermalink('/about') },
-        { text: 'Bảng giá', href: getPermalink('/pricing') },
-        { text: 'Blog', href: getBlogPermalink() },
+        { text: 'Tuyển Head PT', href: getPermalink('/careers') },
+        { text: 'Đầu tư SPV 200M', href: getPermalink('/invest') },
         { text: 'Liên hệ', href: getPermalink('/contact') },
       ],
     },
     {
-      title: 'Hỗ trợ',
+      title: 'Giờ hoạt động',
       links: [
-        { text: 'Câu hỏi thường gặp', href: getPermalink('/#faqs') },
-        { text: 'Lịch tập', href: getPermalink('/services') },
-        { text: 'Chính sách hội viên', href: getPermalink('/terms') },
+        { text: 'Thứ 2 – Thứ 6 (nghỉ T7 & CN)', href: getPermalink('/join') },
+        { text: 'Ca sáng: 5h–6h (Online) · 6h–7h · 8h–9h', href: getPermalink('/join') },
+        { text: 'Ca chiều tối: 17h–18h (Online) · 18h30–19h30', href: getPermalink('/join') },
       ],
     },
   ],
@@ -64,12 +62,12 @@ export const footerData = {
     { text: 'Chính sách bảo mật', href: getPermalink('/privacy') },
   ],
   socialLinks: [
-    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
+    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://www.facebook.com/share/1DkFspwMnu/' },
     { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
     { ariaLabel: 'YouTube', icon: 'tabler:brand-youtube', href: '#' },
     { ariaLabel: 'TikTok', icon: 'tabler:brand-tiktok', href: '#' },
   ],
   footNote: `
-    <span class="text-muted">© 2026 Grow Fitness · Nâng tầm thể chất mỗi ngày.</span>
+    <span class="text-muted">📍 Tòa S109 - 01S10, Vinhomes Ocean Park 1, Gia Lâm, Hà Nội · Private Gym dành riêng cho nữ<br/>© 2026 Grow Fitness · Hệ Điều Hành Fitness Cá Nhân Đầu Tiên Tại Việt Nam</span>
   `,
 };

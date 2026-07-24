@@ -1,0 +1,131 @@
+---
+// Form thu lead dùng chung cho /join, /careers, /invest.
+// TASK-03 (codex): backend nhận POST JSON { form_type, ...fields, submitted_at }
+// tại URL đặt trong biến môi trường PUBLIC_N8N_WEBHOOK_URL (xem .env.example).
+export interface LeadField {
+  name: string;
+  label: string;
+  type?: 'text' | 'tel' | 'select';
+  options?: string[];
+  placeholder?: string;
+}
+
+interface Props {
+  formType: string;
+  button: string;
+  fields: LeadField[];
+  id?: string;
+}
+
+const { formType, button, fields, id } = Astro.props;
+const webhookUrl = import.meta.env.PUBLIC_N8N_WEBHOOK_URL || '';
+const FANPAGE_URL = 'https://www.facebook.com/share/1DkFspwMnu/';
+---
+
+<form
+  id={id}
+  data-lead-form={formType}
+  data-webhook={webhookUrl}
+  data-fanpage={FANPAGE_URL}
+  class="mx-auto max-w-xl rounded-2xl bg-card border border-line p-8 space-y-5"
+  novalidate
+>
+  {
+    fields.map((field) => (
+      <div>
+        <label for={`${formType}-${field.name}`} class="block mb-2 font-medium text-white">
+          {field.label}
+        </label>
+        {field.type === 'select' ? (
+          <select
+            id={`${formType}-${field.name}`}
+            name={field.name}
+            required
+            class="w-full rounded-lg bg-page border border-line px-4 py-3 text-white focus:border-primary focus:outline-none"
+          >
+            {(field.options || []).map((opt) => (
+              <option value={opt}>{opt}</option>
+            ))}
+          </select>
+        ) : (
+          <input
+            id={`${formType}-${field.name}`}
+            type={field.type || 'text'}
+            name={field.name}
+            required
+            placeholder={field.placeholder || ''}
+            class="w-full rounded-lg bg-page border border-line px-4 py-3 text-white placeholder:text-muted focus:border-primary focus:outline-none"
+          />
+        )}
+      </div>
+    ))
+  }
+
+  <button type="submit" class="btn-primary w-full">{button}</button>
+
+  <p data-form-msg class="hidden text-center font-medium"></p>
+</form>
+
+<script>
+  function bindLeadForms() {
+    document.querySelectorAll<HTMLFormElement>('form[data-lead-form]').forEach((form) => {
+      if (form.dataset.bound) return;
+      form.dataset.bound = '1';
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const msg = form.querySelector<HTMLElement>('[data-form-msg]');
+        const btn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        const payload: Record<string, string> = {
+          form_type: form.dataset.leadForm || '',
+          submitted_at: new Date().toISOString(),
+        };
+        new FormData(form).forEach((value, key) => {
+          payload[key] = String(value);
+        });
+
+        const fail = () => {
+          if (msg) {
+            msg.classList.remove('hidden');
+            msg.classList.add('text-secondary');
+            msg.innerHTML = `Hệ thống đang bận — bạn nhắn trực tiếp <a class="underline text-primary" href="${form.dataset.fanpage}" target="_blank" rel="noopener">Fanpage Grow Fitness</a> để được giữ chỗ ngay nhé!`;
+          }
+        };
+
+        const webhook = form.dataset.webhook;
+        if (!webhook) {
+          fail();
+          return;
+        }
+
+        if (btn) btn.disabled = true;
+        try {
+          const res = await fetch(webhook, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+          if (!res.ok) throw new Error(String(res.status));
+          form.querySelectorAll('input, select, button').forEach((el) => ((el as HTMLInputElement).disabled = true));
+          if (msg) {
+            msg.classList.remove('hidden', 'text-secondary');
+            msg.classList.add('text-primary');
+            msg.textContent = '✅ Đã nhận thông tin! Đội ngũ Grow sẽ liên hệ Zalo của bạn trong vòng 24h.';
+          }
+        } catch {
+          fail();
+        } finally {
+          if (btn) btn.disabled = false;
+        }
+      });
+    });
+  }
+
+  bindLeadForms();
+  document.addEventListener('astro:page-load', bindLeadForms);
+</script>

@@ -1,31 +1,97 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import LeadForm from '~/components/LeadForm.astro';
 
 const metadata = {
-  title: 'Tuyển dụng',
-  description: 'Gia nhập đội ngũ Grow Fitness — cùng xây dựng mô hình AI Private Gym đầu tiên.',
+  title: 'Tuyển Head PT — Lực Lượng Làm Chủ Vận Hành',
+  description:
+    'Grow Fitness không tuyển nhân viên giá rẻ. Head PT giữ 90% lợi nhuận vượt khoán, vesting cổ phần ảo 12 tháng, hệ thống AI giữ data.',
 };
 ---
 
 <Layout metadata={metadata}>
-  <CallToAction
+  <!-- Hero ************************** -->
+
+  <Hero
     actions={[
       {
         variant: 'primary',
-        text: 'Liên hệ với chúng tôi',
-        href: '/contact',
-        icon: 'tabler:mail',
+        text: 'Gửi Hồ Sơ Ứng Tuyển',
+        href: '#form-headpt',
+        icon: 'tabler:send',
       },
     ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Head PT tại Grow Fitness',
+    }}
   >
     <Fragment slot="title">
-      Cùng xây tương lai của <span class="text-accent">fitness</span>
+      Grow Fitness Không Tuyển Nhân Viên Giá Rẻ — <span class="text-accent"
+        >Chúng Tôi Tìm Lực Lượng Làm Chủ Vận Hành</span
+      >
     </Fragment>
 
     <Fragment slot="subtitle">
-      Grow Fitness đang tìm những người tin rằng công nghệ có thể thay đổi cách con người rèn luyện. Các vị trí tuyển
-      dụng sẽ được cập nhật tại đây — trong lúc chờ, cứ chủ động liên hệ.
+      Bạn không xin việc ở Grow — bạn tham gia xây dựng mô hình
+      <span class="font-semibold text-white">AI Private Gym chưa ai làm trước đó</span>.
     </Fragment>
-  </CallToAction>
+  </Hero>
+
+  <!-- 4 trụ cột ********************* -->
+
+  <Features
+    tagline="Cơ chế bán nền tảng"
+    title="4 Trụ Cột Dành Cho Head PT"
+    subtitle="Cơ chế thiết kế để bạn làm chủ — không phải làm thuê."
+    columns={2}
+    items={[
+      {
+        title: '💰 Giữ 90% Lợi Nhuận Vượt Khoán',
+        description: 'Cơ sở khoán 30M chi phí vận hành. Bất kỳ khoản nào vượt mốc, bạn giữ 90%.',
+        icon: 'tabler:cash',
+      },
+      {
+        title: '📈 Vesting Cổ Phần Ảo 12 Tháng',
+        description: 'Cống hiến đủ 12 tháng được chia cổ tức trọn đời cơ sở (Phantom Stock).',
+        icon: 'tabler:trending-up',
+      },
+      {
+        title: '🛡️ KPI Sinh Tồn 90M – 130M',
+        description: 'Đủ thấp để không nản chí, đủ cao để cơ sở luôn có lãi.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: '🤖 Hệ Thống AI Giữ Data',
+        description: 'Bạn tập trung chuyên môn dạy & chốt số, App Bé Dứa tự chăm sóc dinh dưỡng cho khách.',
+        icon: 'tabler:robot',
+      },
+    ]}
+  />
+
+  <!-- Form ứng tuyển **************** -->
+
+  <section class="px-4 py-16 sm:px-6 mx-auto max-w-6xl">
+    <div class="mb-10 text-center">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold tracking-tight text-white">Ứng Tuyển Head PT</h2>
+      <p class="mt-3 text-muted">Chúng tôi đọc từng hồ sơ — và chỉ gọi những người dám làm chủ.</p>
+    </div>
+    <LeadForm
+      id="form-headpt"
+      formType="careers-headpt"
+      button="Gửi Hồ Sơ Ứng Tuyển Head PT"
+      fields={[
+        { name: 'ho_ten', label: 'Họ và tên', placeholder: 'VD: Trần Quang Huy' },
+        { name: 'so_dien_thoai', label: 'Số điện thoại (Zalo)', type: 'tel', placeholder: 'VD: 0912 345 678' },
+        {
+          name: 'kinh_nghiem',
+          label: 'Kinh nghiệm (số năm / doanh số cũ cao nhất)',
+          placeholder: 'VD: 5 năm PT, doanh số cao nhất 120M/tháng',
+        },
+      ]}
+    />
+  </section>
 </Layout>

@@ -1,31 +1,93 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import LeadForm from '~/components/LeadForm.astro';
 
 const metadata = {
-  title: 'Đầu tư',
-  description: 'Đồng hành đầu tư cùng Grow Fitness — mô hình AI Private Gym đầu tiên.',
+  title: 'Đầu Tư SPV 200M — Cỗ Máy Vận Hành AI',
+  description:
+    'Mô hình SPV 200M/suất: revenue share trực tiếp, quyền mua lại cam kết, cỗ máy Domino Online. Đồng hành cùng Founder có khả năng hệ thống hóa & tự động hóa.',
 };
 ---
 
 <Layout metadata={metadata}>
-  <CallToAction
+  <!-- Hero ************************** -->
+
+  <Hero
     actions={[
       {
         variant: 'primary',
-        text: 'Liên hệ với chúng tôi',
-        href: '/contact',
-        icon: 'tabler:mail',
+        text: 'Nhận Hồ Sơ Minh Bạch SPV',
+        href: '#form-spv',
+        icon: 'tabler:file-analytics',
       },
     ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Mô hình đầu tư SPV Grow Fitness',
+    }}
   >
     <Fragment slot="title">
-      Đầu tư vào <span class="text-accent">AI Private Gym</span>
+      Đầu Tư Vào <span class="text-accent">Cỗ Máy Vận Hành AI</span> — Không Đầu Tư Phòng Gym Truyền Thống
     </Fragment>
 
     <Fragment slot="subtitle">
-      Grow Fitness đang mở vòng đồng hành cùng nhà đầu tư tin vào mô hình private gym vận hành bởi AI. Để lại thông tin
-      — chúng tôi sẽ gửi tài liệu chi tiết.
+      Mô hình SPV 200M/suất: Đồng hành cùng Founder có khả năng
+      <span class="font-semibold text-white">hệ thống hóa & tự động hóa</span>.
     </Fragment>
-  </CallToAction>
+  </Hero>
+
+  <!-- 3 module hạ tầng ************** -->
+
+  <Features
+    tagline="The Modules"
+    title="3 Mảng Hạ Tầng Kiến Trúc"
+    subtitle="Thiết kế để dòng tiền minh bạch và nhà đầu tư luôn có đường ra."
+    columns={3}
+    items={[
+      {
+        title: '🏛️ SPV Cục Bộ & Revenue Share',
+        description:
+          'Mỗi cơ sở mở mới bằng các suất 200M. NĐT chia sẻ doanh thu trực tiếp, không lo chi phí bị khai khống.',
+        icon: 'tabler:building-bank',
+      },
+      {
+        title: '🔄 Quyền Mua Lại (Buyback Right)',
+        description: 'Công ty mẹ cam kết mua lại cổ phần khi cơ sở đạt dòng tiền thặng dư ổn định.',
+        icon: 'tabler:refresh',
+      },
+      {
+        title: '🚀 Cỗ Máy Domino Online',
+        description:
+          'Lợi nhuận Offline nuôi Studio Media → Bán Coaching/Skool Online biên lợi nhuận 90% → Dội tiền mua đứt lại cổ phần cơ sở.',
+        icon: 'tabler:rocket',
+      },
+    ]}
+  />
+
+  <!-- Form tư vấn SPV *************** -->
+
+  <section class="px-4 py-16 sm:px-6 mx-auto max-w-6xl">
+    <div class="mb-10 text-center">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold tracking-tight text-white">Đăng Ký Tư Vấn SPV</h2>
+      <p class="mt-3 text-muted">Nhận hồ sơ tài chính minh bạch và lịch trao đổi trực tiếp cùng Founder.</p>
+    </div>
+    <LeadForm
+      id="form-spv"
+      formType="invest-spv"
+      button="Nhận Hồ Sơ Minh Bạch SPV"
+      fields={[
+        { name: 'ho_ten', label: 'Họ và tên', placeholder: 'VD: Lê Minh Đức' },
+        { name: 'so_dien_thoai', label: 'Số điện thoại (Zalo)', type: 'tel', placeholder: 'VD: 0912 345 678' },
+        {
+          name: 'so_suat',
+          label: 'Số suất quan tâm',
+          type: 'select',
+          options: ['1 suất (200M)', '2 suất (400M)', '3 suất trở lên (600M+)', 'Cần tư vấn thêm'],
+        },
+      ]}
+    />
+  </section>
 </Layout>
