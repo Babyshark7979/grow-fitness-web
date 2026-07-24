@@ -37,4 +37,4 @@ Tập đều đặn 3 buổi/tuần trong 6 tháng luôn hiệu quả hơn tập
 
 ---
 
-Sẵn sàng bắt đầu? [Đăng ký một buổi tập thử miễn phí](/contact) và để PT của Grow Fitness đồng hành cùng bạn.
+Sẵn sàng bắt đầu? [Đăng ký Gói Khám Phá 3 buổi chỉ 99K](/join) — đo Inbody, tập GroupX và được Coach nắn form 1-1.
