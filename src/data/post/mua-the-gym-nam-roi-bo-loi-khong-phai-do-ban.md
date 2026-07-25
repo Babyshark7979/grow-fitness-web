@@ -28,7 +28,7 @@ Nếu 100% hội viên đã mua thẻ năm đều đến tập mỗi ngày, phò
 
 Khi bạn bước vào:
 
-- Họ chốt sales bằng mọi giá để lấy hợp đồng 12–24 tháng.
+- Họ chốt ép mua thẻ bằng mọi giá để lấy hợp đồng 12–24 tháng.
 - Khi bạn đã quẹt thẻ xong, bạn trở thành "người thừa".
 - Phòng tập đông đúc, máy móc phải xếp hàng, những ánh nhìn soi xét xung quanh làm bạn rụt rè.
 - Không ai nhắc lịch, không ai hướng dẫn, bạn bơ vơ giữa một đại dương tạ sắt.
@@ -47,7 +47,7 @@ Không ai có đủ ý chí mãnh liệt để sau 8 tiếng đi làm kiệt s�
 
 Nếu muốn đi đường dài, bạn cần một **Hệ Thống Thay Ý Chí**:
 
-1. **Không gian Private dành riêng cho Nữ:** Xóa bỏ hoàn toàn cảm giác rụt rè, không chen chúc, không soi xét.
+1. **Không gian riêng tư dành riêng cho Nữ:** Xóa bỏ hoàn toàn cảm giác rụt rè, không chen chúc, không soi xét.
 2. **Khung giờ đổi ca linh hoạt:** Không ép bạn cố định ca tập. Hôm nay bận ca tối, bạn có thể tự do chuyển sang ca sáng (từ 6h–7h hoặc 8h–9h) mà không mất buổi.
 3. **Trợ lý AI Bé Dứa đồng hành 24/7:** AI sẽ không để bạn "lặng lẽ mất tích". Nếu thấy bạn nghỉ 2 ngày, hệ thống sẽ tự động dời lịch và điều chỉnh lại giáo án nhẹ nhàng hơn để bạn không bị rợp.
 
@@ -59,7 +59,7 @@ Chúng tôi kiên quyết **KHÔNG BÁN** những chiếc thẻ năm đắt đ�
 
 Thay vì bắt bạn đánh cược hàng triệu đồng, hãy trải nghiệm **[Chương trình Khám Phá 3 buổi chỉ 99K](/join)** tại **Grow Fitness Ocean Park (Tòa S109 - 01S10)**:
 
-- 📊 **Buổi 1:** Đo chỉ số Inbody & Phân tích độ lệch tư thế 1-1 cùng HLV.
+- 📊 **Buổi 1:** Đo chỉ số cơ thể (cơ & mỡ) & Phân tích độ lệch tư thế 1-1 cùng HLV.
 - 🧘 **Buổi 2:** Tập thử lớp nhóm riêng tư cho nữ với nhiều bài tập đốt mỡ và kéo giãn.
 - 🏋️ **Buổi 3:** Coach nắn chuẩn kỹ thuật form tập, tư vấn dinh dưỡng thực tế.
 

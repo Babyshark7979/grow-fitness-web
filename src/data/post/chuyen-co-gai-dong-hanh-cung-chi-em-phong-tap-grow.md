@@ -25,9 +25,9 @@ Những câu chuyện như thế, ở phòng tập Grow Fitness chúng mình g�
 
 ## 1. Công Việc Của Một "Bạn Đồng Hành" Ở Grow Là Gì?
 
-Ở nhiều nơi khác, người ta gọi vị trí này là "Sales" hay "Nhiên viên chốt hợp đồng". Nhưng ở Grow Fitness, chúng mình thích gọi đơn giản là **"Người Bạn Đồng Hành"**.
+Ở nhiều nơi khác, người ta gọi vị trí này là "Tư vấn bán hàng" hay "Nhân viên chốt hợp đồng". Nhưng ở Grow Fitness, chúng mình thích gọi đơn giản là **"Người Bạn Đồng Hành"**.
 
-Một ngày làm việc của bạn ở phòng tập không có cảnh cầm điện thoại gọi telesale dồn dập, cũng chẳng phải đưa tờ hợp đồng đắt đỏ ra ép khách mua. Công việc chỉ nhẹ nhàng thế này thôi:
+Một ngày làm việc của bạn ở phòng tập không có cảnh cầm điện thoại gọi điện gạ gẫm dồn dập, cũng chẳng phải đưa tờ hợp đồng đắt đỏ ra ép khách mua. Công việc chỉ nhẹ nhàng thế này thôi:
 
 - ☕ **Pha một ly nước ấm, ngồi lắng nghe:** Lắng nghe chị em tâm sự về nỗi khổ đau vai gáy sau giờ làm, chuyện ăn uống thất thường hay nỗi tự ti về vóc dáng.
 - 📱 **Hướng dẫn dùng Gem Bé Dứa tính calo:** Chỉ cho chị em mở ứng dụng Gemini Gem Bé Dứa trên điện thoại, chụp ảnh tấm hình bát cơm trưa là Gem tự động tính calo giúp chị em ăn ngon mà không lo béo.
