@@ -556,20 +556,39 @@
         <div class="stat"><span class="val red">440tr</span><span class="lbl">Cần sống qua</span></div>
       </div>
 
-      <!-- Allocation donut visual -->
-      <div style="background: #111; border-radius: 12px; padding: 14px; margin-top: 4px">
-        <div style="font-size: 12px; color: #888; margin-bottom: 10px">Phân bổ 200 triệu vốn</div>
-        <div class="cf-row">
-          <div class="cf-label"><span>🏗 Nâng cấp phòng</span><span class="yellow">80tr · 40%</span></div>
-          <div class="cf-bar"><div class="cf-fill" style="width: 40%; background: #d97706"></div></div>
-        </div>
-        <div class="cf-row">
-          <div class="cf-label"><span>🏋 Máy móc thiết bị</span><span class="yellow">130tr · 65%</span></div>
-          <div class="cf-bar"><div class="cf-fill" style="width: 65%; background: #f59e0b"></div></div>
-        </div>
-        <div class="cf-row" style="margin-bottom: 0">
-          <div class="cf-label"><span>🆘 Dự phòng còn lại</span><span class="red">0tr · 0%</span></div>
-          <div class="cf-bar"><div class="cf-fill" style="width: 1%; background: #e94560"></div></div>
+      <!-- SƠ ĐỒ THÁC NƯỚC DÒNG TIỀN PHÂN BỔ VỐN (CASH FLOW WATERFALL DIAGRAM) -->
+      <div style="background: #111; border: 1px solid #222; border-radius: 14px; padding: 16px; margin-top: 8px">
+        <div style="font-size: 11px; letter-spacing: 2px; color: #e94560; font-weight: 800; margin-bottom: 12px">💧 SƠ ĐỒ THÁC NƯỚC DÒNG TIỀN (VỐN ĐẦU TƯ 200 TRIỆU)</div>
+        
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <!-- TẦNG 1: NGUỒN VỐN THU VÀO -->
+          <div style="background: rgba(233, 69, 96, 0.15); border-left: 4px solid #e94560; padding: 10px; border-radius: 0 8px 8px 0; display: flex; justify-content: space-between; align-items: center">
+            <span style="font-size: 12px; font-weight: 800; color: #fff">💰 Tầng 1: Tổng Vốn Đầu Tư Đầu Vào</span>
+            <span style="font-size: 14px; font-weight: 900; color: #e94560">200.000.000đ</span>
+          </div>
+
+          <div style="text-align: center; font-size: 14px; color: #666; margin: -4px 0">↓ (Rót qua màng lọc thiết bị)</div>
+
+          <!-- TẦNG 2: XẢ THIẾT BỊ -->
+          <div style="background: rgba(245, 158, 11, 0.15); border-left: 4px solid #f59e0b; padding: 10px; border-radius: 0 8px 8px 0; display: flex; justify-content: space-between; align-items: center">
+            <span style="font-size: 12px; font-weight: 700; color: #ddd">🏋️ Tầng 2: Mua Máy Móc Thiết Bị (65%)</span>
+            <span style="font-size: 13px; font-weight: 800; color: #f59e0b">-130.000.000đ</span>
+          </div>
+
+          <div style="text-align: center; font-size: 14px; color: #666; margin: -4px 0">↓ (Rót qua màng lọc sửa sang)</div>
+
+          <!-- TẦNG 3: XẢ NÂNG CẤP -->
+          <div style="background: rgba(217, 119, 6, 0.15); border-left: 4px solid #d97706; padding: 10px; border-radius: 0 8px 8px 0; display: flex; justify-content: space-between; align-items: center">
+            <span style="font-size: 12px; font-weight: 700; color: #ddd">🏗️ Tầng 3: Nâng Cấp Mặt Bằng Phòng (40%)</span>
+            <span style="font-size: 13px; font-weight: 800; color: #d97706">-80.000.000đ</span>
+          </div>
+
+          <div style="text-align: center; font-size: 14px; color: #666; margin: -4px 0">↓ (Đổ về đáy bể dự phòng)</div>
+
+          <!-- TẦNG 4: CẠN KHÔ DỰ PHÒNG -->
+          <div style="background: rgba(239, 68, 68, 0.25); border: 1px dashed #ef4444; padding: 10px; border-radius: 8px; text-align: center">
+            <span style="font-size: 12px; font-weight: 900; color: #f87171">🆘 Tầng 4: Đáy Bể Tiền Dự Phòng Sinh Tồn ➔ KHÔ CẠN VỀ 0Đ (0%)</span>
+          </div>
         </div>
       </div>
 
@@ -754,45 +773,49 @@
 
     <div class="div"></div>
 
-    <!-- SỨC MẠNH GÓI -->
+    <!-- SỨC MẠNH GÓI (MÔ HÌNH KIM TỰ THÁP GIÁ TRỊ - VALUE STACK PYRAMID) -->
     <div class="sec">
       <div class="sec-label">Sức mạnh gói</div>
-      <div class="sec-title">Giá trị vs Giá bán</div>
-      <div style="font-size: 13px; color: #888; margin-bottom: 14px">Khách nhận được tổng cộng</div>
+      <div class="sec-title">🔺 Mô Hình Kim Tự Tháp Giá Trị Gói Founder</div>
+      <div style="font-size: 13px; color: #888; margin-bottom: 14px">Tháp chồng 5 tầng giá trị độc quyền dành cho hội viên sáng lập</div>
 
-      <div class="vstack">
-        <div class="vs-item">
-          <div class="vs-head">
-            <span class="vs-name">🏋 Tập không giới hạn 12 tháng</span><span class="vs-val">36tr</span>
-          </div>
-          <div class="vs-bar"><div class="vs-fill" style="width: 100%; background: #4ade80"></div></div>
+      <!-- PYRAMID CONTAINER -->
+      <div style="display: flex; flex-direction: column; gap: 6px; align-items: center; margin: 16px 0">
+        
+        <!-- TẦNG 5: ĐỈNH THÁP (ĐỘC QUYỀN) -->
+        <div style="width: 50%; background: linear-gradient(135deg, #451a03, #78350f); border: 1px solid #fbbf24; border-radius: 8px; padding: 8px; text-align: center; box-shadow: 0 0 10px rgba(251, 191, 36, 0.2)">
+          <span style="font-size: 10px; font-weight: 800; color: #fbbf24; display: block">👑 TẦNG 5 · ĐÍCH ĐẾN ĐỘC QUYỀN</span>
+          <span style="font-size: 11px; font-weight: 700; color: #fff">Quyền lợi Hội Viên Sáng Lập (3.000.000đ)</span>
         </div>
-        <div class="vs-item">
-          <div class="vs-head">
-            <span class="vs-name">🤖 Trợ lý AI Coach cá nhân 24/7</span><span class="vs-val">24–36tr</span>
-          </div>
-          <div class="vs-bar"><div class="vs-fill" style="width: 65%; background: #a78bfa"></div></div>
+
+        <!-- TẦNG 4: ĐÁNH GIÁ TIẾN ĐỘ -->
+        <div style="width: 62%; background: linear-gradient(135deg, #1e1b4b, #312e81); border: 1px solid #818cf8; border-radius: 8px; padding: 8px; text-align: center">
+          <span style="font-size: 10px; font-weight: 800; color: #818cf8; display: block">📊 TẦNG 4 · KIỂM SOÁT TIẾN ĐỘ</span>
+          <span style="font-size: 11px; font-weight: 700; color: #fff">Đánh giá &amp; theo dõi tiến độ hàng tháng (6.000.000đ)</span>
         </div>
-        <div class="vs-item">
-          <div class="vs-head">
-            <span class="vs-name">📋 Lộ trình tập luyện cá nhân 12 tháng</span><span class="vs-val">5tr</span>
-          </div>
-          <div class="vs-bar"><div class="vs-fill" style="width: 14%; background: #60a5fa"></div></div>
+
+        <!-- TẦNG 3: LỘ TRÌNH THIẾT KẾ -->
+        <div style="width: 74%; background: linear-gradient(135deg, #064e3b, #047857); border: 1px solid #34d399; border-radius: 8px; padding: 8px; text-align: center">
+          <span style="font-size: 10px; font-weight: 800; color: #34d399; display: block">📋 TẦNG 3 · THIẾT KẾ LỘ TRÌNH</span>
+          <span style="font-size: 11px; font-weight: 700; color: #fff">Lộ trình tập luyện cá nhân 12 tháng (5.000.000đ)</span>
         </div>
-        <div class="vs-item">
-          <div class="vs-head">
-            <span class="vs-name">📊 Đánh giá & theo dõi tiến độ hàng tháng</span><span class="vs-val">6tr</span>
-          </div>
-          <div class="vs-bar"><div class="vs-fill" style="width: 17%; background: #60a5fa"></div></div>
+
+        <!-- TẦNG 2: TRỢ LÝ TRÍ TUỆ NHÂN TẠO -->
+        <div style="width: 86%; background: linear-gradient(135deg, #2e1065, #4c1d95); border: 1px solid #a78bfa; border-radius: 8px; padding: 10px; text-align: center; box-shadow: 0 0 15px rgba(167, 139, 250, 0.2)">
+          <span style="font-size: 10px; font-weight: 800; color: #a78bfa; display: block">🤖 TẦNG 2 · ĐÒN BẨY CÔNG NGHỆ</span>
+          <span style="font-size: 12px; font-weight: 800; color: #fff">Trợ lý Trí tuệ Nhân tạo Coach cá nhân 24/7 (24.000.000đ – 36.000.000đ)</span>
         </div>
-        <div class="vs-item">
-          <div class="vs-head"><span class="vs-name">👑 Quyền lợi Hội Viên Sáng Lập</span><span class="vs-val">3tr</span></div>
-          <div class="vs-bar"><div class="vs-fill" style="width: 8%; background: #fbbf24"></div></div>
+
+        <!-- TẦNG 1: ĐÁY THÁP NỀN TẢNG -->
+        <div style="width: 100%; background: linear-gradient(135deg, #14532d, #166534); border: 2px solid #4ade80; border-radius: 10px; padding: 12px; text-align: center; box-shadow: 0 0 20px rgba(74, 222, 128, 0.25)">
+          <span style="font-size: 11px; font-weight: 900; color: #4ade80; display: block">🏋️ TẦNG 1 · NỀN TẢNG CƠ SỞ CHÍNH</span>
+          <span style="font-size: 14px; font-weight: 900; color: #fff">Tập không giới hạn 12 tháng tại phòng 5 sao (36.000.000đ)</span>
         </div>
+
       </div>
 
       <div class="save-box">
-        <div class="save-strike">Tổng giá trị: 74–86 triệu</div>
+        <div class="save-strike">Tổng giá trị tháp Kim Tự Tháp: 74–86 triệu</div>
         <div class="save-price">18 triệu</div>
         <div class="save-diff">Khách tiết kiệm <strong style="color: #4ade80">56–68 triệu</strong> · Ưu đãi đợt Sáng Lập</div>
       </div>
