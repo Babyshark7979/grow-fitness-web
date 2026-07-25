@@ -38,7 +38,7 @@ Tập gym cũng hệt như vậy! Cảm xúc hứng thú ban đầu giống như
 Tập luyện tại Grow Fitness được thiết kế dựa trên nguyên lý **Đường Rãnh Nước Trên Cát**:
 
 1. **Buổi đầu tiên đào rãnh (Gói mồi 99K):** Bạn chỉ cần bỏ ra đúng 99K cho 3 buổi tập nhẹ nhàng. Chúng tôi không ép bạn gánh tạ nặng, chỉ giúp bạn khơi thông đường rãnh vận động đầu tiên.
-2. **Nước tự chảy thành dòng (Bé Dứa AI nhắc lịch):** Khi thói quen đã được tạo, Trợ lý AI Bé Dứa sẽ đo vạch pin cơ thể (chỉ số HRV) và tự động sắp xếp ca tập phù hợp. Nước sẽ tự động chảy theo đường rãnh mà bạn không cần phải dùng sức đẩy!
+2. **Nước tự chảy thành dòng (Bé Dứa AI nhắc lịch):** Khi thói quen đã được tạo, Trợ lý AI Bé Dứa sẽ giúp bạn theo dõi vạch pin năng lượng cơ thể và tự động sắp xếp ca tập phù hợp. Nước sẽ tự động chảy theo đường rãnh mà bạn không cần phải dùng sức đẩy!
 
 ---
 
