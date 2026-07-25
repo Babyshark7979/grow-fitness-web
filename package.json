@@ -10,10 +10,12 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
+    "prebuild": "node scripts/check-banned-words.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "check": "npm run check:rejected-assets && npm run check:astro && npm run check:eslint && npm run check:prettier",
+    "check": "npm run check:banned-words && npm run check:rejected-assets && npm run check:astro && npm run check:eslint && npm run check:prettier",
+    "check:banned-words": "node scripts/check-banned-words.mjs",
     "check:rejected-assets": "node scripts/check-rejected-assets.mjs",
     "check:astro": "astro check",
     "check:eslint": "eslint .",

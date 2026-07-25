@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Rào cản vật lý trước commit của web luongdieulien.com.
+# Kích hoạt trên mỗi máy bằng: git config core.hooksPath scripts/git-hooks
+# (file này được git track — mọi máy pull về là có cùng rào cản; Vercel còn
+# lớp chặn thứ hai qua `prebuild` nên kể cả máy chưa kích hoạt hook cũng
+# không đưa được từ cấm lên production).
+
+REPO_ROOT=$(git rev-parse --show-toplevel)
+
+node "$REPO_ROOT/scripts/check-banned-words.mjs"
+if [ $? -ne 0 ]; then
+    echo ""
+    echo "❌ COMMIT BỊ CHẶN: nội dung chứa từ cấm. Sửa xong hãy commit lại."
+    exit 1
+fi
+
+exit 0

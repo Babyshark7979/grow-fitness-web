@@ -1,7 +1,7 @@
 ---
 publishDate: 2026-07-24T17:52:00Z
 title: 'Tại sao làm huấn luyện viên giỏi nhưng 30 tuổi vẫn hết tiền?'
-excerpt: 'Nếu bạn chỉ đi dạy tạ kiếm tiền giờ, bạn giống như bác xe ôm công nghệ: nghỉ chạy là hết tiền. Đây là cách để bạn tự làm chủ một cơ sở gym.'
+excerpt: 'Nếu bạn chỉ đi dạy tạ kiếm tiền giờ, bạn đang bán giờ công lấy tiền lẻ: nghỉ dạy là hết tiền. Đây là cách để bạn tự làm chủ một cơ sở gym.'
 image: https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=2070&q=80
 category: Cơ hội nghề nghiệp
 tags:
@@ -20,13 +20,13 @@ Tại sao lại như vậy? Hãy cùng giải mã bằng một hình ảnh cực
 
 ---
 
-## 1. Bài Học Bác Xe Ôm Công Nghệ: Nghỉ Chạy Là Đói!
+## 1. Bài Học Người Bán Giờ Công: Nghỉ Dạy Là Đói!
 
 Nếu bạn đi làm HLV tại các phòng gym truyền thống:
 
-- Bạn giống như một bác chạy xe ôm công nghệ.
-- Chiếc xe (mặt bằng) là của công ty.
-- Khách hàng (người đi xe) là của ứng dụng.
+- Bạn đang bán sức lao động theo giờ, đứng phòng cả ngày.
+- Mặt bằng là của công ty.
+- Khách hàng là của công ty.
 - Bạn cày lưng ra dạy 10 tiếng/ngày, nhưng công ty giữ lại hầu hết tiền, chỉ chia cho bạn một mẩu hoa hồng nhỏ.
 
 Hôm nào bạn ốm nghỉ dạy ➔ **Không có tiền.**
@@ -65,7 +65,7 @@ Bạn ngại nhất điều gì? Là phải đi chèo kéo, năn nỉ khách hà
 
 ---
 
-### Bạn Đã Sẵn Sàng Ngừng Làm "Bác Xe Ôm" Để Làm Chủ Mảnh Vườn Của Mình?
+### Bạn Đã Sẵn Sàng Ngừng "Bán Giờ Công" Để Làm Chủ Mảnh Vườn Của Mình?
 
 👉 **[Đăng ký ứng tuyển quản lý phòng tập tại đây](/careers)**
 

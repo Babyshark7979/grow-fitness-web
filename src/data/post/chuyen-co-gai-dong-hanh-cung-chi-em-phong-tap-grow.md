@@ -63,4 +63,4 @@ Hãy trở thành một phần của gia đình Grow Fitness cùng chị Diệu 
 _Đọc thêm bài viết liên quan:_
 
 - _[5 Thói quen 'Sạc Pin Năng Lượng' dành riêng cho nữ doanh nhân & Sale BĐS bận rộn](/5-thoi-quen-vang-cho-nguoi-moi-tap-gym)_
-- _[Tuổi 30 của huấn luyện viên: Thần thái làm chủ hay kiếp xe ôm công nghệ?](/tuoi-30-cua-huan-luyen-vien-lam-chu-hay-xe-om-cong-nghe)_
+- _[Tuổi 30 của huấn luyện viên: Thần thái làm chủ hay áp lực bán sức lao động?](/tuoi-30-cua-huan-luyen-vien-lam-chu-hay-xe-om-cong-nghe)_
