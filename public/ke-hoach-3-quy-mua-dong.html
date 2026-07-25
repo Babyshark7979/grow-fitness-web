@@ -1035,72 +1035,134 @@
 
     <div class="div"></div>
 
-    <!-- CÂY CHIẾN LƯỢC 10 NĂM (THE 10-YEAR STRATEGIC GROWTH TREE UI) -->
+    <!-- CÂY CHIẾN LƯỢC 10 NĂM (GRAPHICAL TREE SVG + UI) -->
     <div class="sec">
       <div class="sec-label">Tầm nhìn &amp; Định vị</div>
-      <div class="sec-title">🌳 Cây Chiến Lược 10 Năm Grow Fitness (Hành Trình Trồng Cây Trái Ngọt)</div>
-      <div style="font-size: 13px; color: #888; margin-bottom: 16px">Bức tranh trực quan dành cho chị Liên: <strong>Đất nuôi rễ · Thân cành vươn cao · Trái ngọt thu hoạch · Khiên diệt sâu bệnh</strong></div>
+      <div class="sec-title">🌳 Cây Chiến Lược 10 Năm Grow Fitness (Tạo Hình Cây Thật)</div>
+      <div style="font-size: 13px; color: #888; margin-bottom: 16px">Sơ đồ tạo hình cây xanh đại thụ với gốc rễ, thân cành, trái ngọt &amp; khiên diệt sâu bệnh</div>
 
-      <div style="background: #0d0d0d; border: 1px solid #222; border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 16px">
+      <!-- MAIN TREE GRAPHIC CONTAINER -->
+      <div style="position: relative; background: #080a0f; border: 1px solid #1e293b; border-radius: 20px; padding: 16px; overflow: hidden">
         
-        <!-- ☀️ MÔI TRƯỜNG DINH DƯỠNG & ĐẤT MẸ -->
-        <div style="background: linear-gradient(135deg, #1c1917, #292524); border: 1px dashed #78716c; border-radius: 12px; padding: 12px">
-          <div style="font-size: 10px; letter-spacing: 2px; color: #f59e0b; font-weight: 800">☀️ MÔI TRƯỜNG DINH DƯỠNG &amp; ĐẤT MẸ XUNG QUANH</div>
-          <div style="font-size: 12px; color: #e7e5e4; margin-top: 4px; line-height: 1.5">
-            • <strong>Đất dinh dưỡng:</strong> Nhu cầu phục hồi sức khỏe &amp; vóc dáng phụ nữ cao cấp Ocean Park + Thương hiệu cá nhân chị Liên.<br />
-            • <strong>Nguồn nước tưới:</strong> Dòng vốn hợp tác 200M/cơ sở có thời hạn nuôi sống giai đoạn đầu.
-          </div>
-        </div>
+        <!-- SVG TREE BACKGROUND & SKELETON -->
+        <svg viewBox="0 0 800 1050" style="width: 100%; height: auto; display: block; filter: drop-shadow(0 0 10px rgba(16,185,129,0.15))">
+          <defs>
+            <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#1e1b4b" stop-opacity="0.7"/>
+              <stop offset="50%" stop-color="#064e3b" stop-opacity="0.4"/>
+              <stop offset="100%" stop-color="#1c1917" stop-opacity="0.95"/>
+            </linearGradient>
+            <linearGradient id="trunkGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#78350f"/>
+              <stop offset="50%" stop-color="#b45309"/>
+              <stop offset="100%" stop-color="#451a03"/>
+            </linearGradient>
+            <linearGradient id="rootGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#b45309"/>
+              <stop offset="100%" stop-color="#e94560"/>
+            </linearGradient>
+          </defs>
 
-        <!-- 🍎 TRÁI NGỌT SUM SÊ (NĂM 5–10) -->
-        <div style="background: linear-gradient(135deg, #2a1b04, #453005); border: 2px solid #fbbf24; border-radius: 14px; padding: 14px; box-shadow: 0 0 15px rgba(251, 191, 36, 0.15)">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px">
-            <span style="font-size: 11px; font-weight: 900; color: #fbbf24; background: #423008; padding: 2px 8px; border-radius: 6px">🍎 TẦNG 3 · TRÁI NGỌT SUM SÊ (NĂM 5 – 10)</span>
-            <span style="font-size: 11px; color: #fde047; font-weight: 700">ĐÍCH ĐẾN TỐI THƯỢNG</span>
-          </div>
-          <div style="font-size: 15px; font-weight: 900; color: #fff; margin-bottom: 4px">👑 ĐẾ CHẾ TÀI CHÍNH CÔNG NGHỆ &amp; THÂU MUA CỔ PHẦN (BUYBACK)</div>
-          <div style="font-size: 11px; color: #fef08a; line-height: 1.6">
-            • 🏆 <strong>Thu hoạch trái ngọt (Buyback):</strong> Dội siêu lợi nhuận mảng Trực tuyến về <strong>Mua đứt 100% cổ phần</strong> các phòng tập từ nhà đầu tư.<br />
-            • 👑 <strong>Sở hữu vĩnh cửu:</strong> Giang &amp; Diệu Liên làm chủ 100% Hệ sinh thái Trực tiếp + Trực tuyến + Hào thành Dữ liệu Sức khỏe vĩnh cửu mà không tốn vốn tự có ban đầu.
-          </div>
-        </div>
+          <!-- SKY BACKGROUND -->
+          <rect x="0" y="0" width="800" height="1050" rx="20" fill="url(#skyGrad)"/>
 
-        <!-- 🌿 THÂN CÂY & CÀNH LÁ (NĂM 3–5) -->
-        <div style="background: linear-gradient(135deg, #130a24, #261547); border: 2px solid #a78bfa; border-radius: 14px; padding: 14px; box-shadow: 0 0 15px rgba(167, 139, 250, 0.15)">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px">
-            <span style="font-size: 11px; font-weight: 900; color: #a78bfa; background: #261547; padding: 2px 8px; border-radius: 6px">🌿 TẦNG 2 · THÂN CÂY &amp; CÀNH LÁ VƯƠN CAO (NĂM 3 – 5)</span>
-            <span style="font-size: 11px; color: #c4b5fd; font-weight: 700">ĐÓNG GÓI TRÍ TUỆ</span>
-          </div>
-          <div style="font-size: 15px; font-weight: 900; color: #fff; margin-bottom: 4px">⚙️ BÁN HỆ THỐNG ĐÀO TẠO &amp; CÔNG NGHỆ SỐ</div>
-          <div style="font-size: 11px; color: #ddd; line-height: 1.6">
-            • 🎓 <strong>Cành 1 — Đào Tạo HLV &amp; Quản Lý Gym:</strong> Đóng gói quy trình tự quản 55M/75% bán khóa đào tạo &amp; chuyển giao.<br />
-            • 🎥 <strong>Cành 2 — Đào Tạo Truyền Thông &amp; Nhượng Quyền:</strong> Biến phòng 5 sao thành Xưởng quay Video.<br />
-            • 🍃 <strong>Tán lá quang hợp — Ngân Hàng Sức Khỏe Số (App Bé Dứa):</strong> Định lượng vạch pin sức khỏe ➔ <strong>Lợi nhuận Trực tuyến biên 90%</strong>.
-          </div>
-        </div>
+          <!-- SOIL LINE -->
+          <path d="M 0 720 Q 400 700 800 720 L 800 1050 L 0 1050 Z" fill="#1c1917"/>
+          <line x1="0" y1="720" x2="800" y2="720" stroke="#f59e0b" stroke-width="3" stroke-dasharray="8 4"/>
 
-        <!-- 🌱 GỐC RỄ CÂY BÁM SÂU (NĂM 1–2) -->
-        <div style="background: linear-gradient(135deg, #1c080b, #3b0d14); border: 2px solid #e94560; border-radius: 14px; padding: 14px; box-shadow: 0 0 15px rgba(233, 69, 96, 0.15)">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px">
-            <span style="font-size: 11px; font-weight: 900; color: #e94560; background: #3d0c14; padding: 2px 8px; border-radius: 6px">🌱 TẦNG 1 · GỐC RỄ BÁM SÂU ĐẤT (NĂM 1 – 2)</span>
-            <span style="font-size: 11px; color: #f87171; font-weight: 700">NỀN TẢNG SINH TỒN</span>
-          </div>
-          <div style="font-size: 15px; font-weight: 900; color: #fff; margin-bottom: 4px">🏋️ VỎ PHÒNG GYM 5 SAO (BÁNH RĂNG MỒI)</div>
-          <div style="font-size: 11px; color: #ddd; line-height: 1.6">
-            • ⚓ <strong>Rễ cọc bám chắc:</strong> Khấu trừ cố định <strong>Chi phí vận hành sinh tồn 55M/tháng</strong> ➔ Cây không lo bị bật gốc.<br />
-            • 🌾 <strong>Rễ chùm tự tìm chất:</strong> HLV hưởng <strong>75%</strong> dôi dư ➔ Tự vận hành, tự nuôi sống bộ rễ.<br />
-            • 🛡️ <strong>Vỏ rễ bảo vệ:</strong> Phòng 5 sao gom Data Khách Hàng/Đối Tác &amp; Mở chuỗi SPV 200M không tốn vốn tự có.
-          </div>
-        </div>
+          <!-- CÁC RỄ CÂY MÔ HÌNH (ROOTS) -->
+          <path d="M 400 720 C 350 800, 200 850, 100 950 M 400 720 C 450 800, 600 850, 700 950 M 400 720 L 400 980 M 380 760 C 300 820, 250 900, 180 1000 M 420 760 C 500 820, 550 900, 620 1000" stroke="url(#rootGrad)" stroke-width="8" fill="none" stroke-linecap="round"/>
 
-        <!-- 🐛 THUỐC DIỆT SÂU BỆNH & THÚ PHÁ HOẠI (PEST PROTECTIVE SHIELDS) -->
-        <div style="background: rgba(220, 38, 38, 0.08); border: 1px dashed #ef4444; border-radius: 12px; padding: 12px">
-          <div style="font-size: 11px; font-weight: 900; color: #f87171; margin-bottom: 6px">🐛 PHÒNG TRỪ SÂU BỆNH &amp; THÚ PHÁ HOẠI CÂY (QUẢN TRỊ RỦI RO):</div>
-          <div style="display: flex; flex-direction: column; gap: 4px; font-size: 11px; color: #ccc">
-            <div>🐛 <strong>Sâu 1 (Khách lười đòi hoàn tiền 50%):</strong> 🛡️ <em>Thuốc trừ sâu:</em> Ràng buộc kỷ luật (Check-in 3 buổi/tuần + Báo cơm 5 ngày/tuần trên AI). Khách lười tự mất quyền đòi hoàn.</div>
-            <div>🐛 <strong>Sâu 2 (HLV lười/nghỉ cướp khách):</strong> 🛡️ <em>Thuốc trừ sâu:</em> Thưởng cổ phần ảo cống hiến 12 tháng + Data khách nằm kẹt vĩnh cửu trong App Bé Dứa.</div>
-            <div>🐛 <strong>Thú phá 3 (Suy thoái/Mùa đông vắng khách):</strong> 🛡️ <em>Thuốc trừ sâu:</em> Khóa van tự động tại màng lọc 55M Opex + Quỹ dự phòng rủi ro 15%.</div>
+          <!-- THÂN CÂY VƯƠN CAO (TRUNK) -->
+          <path d="M 370 720 Q 380 480 360 320 L 440 320 Q 420 480 430 720 Z" fill="url(#trunkGrad)" stroke="#d97706" stroke-width="2"/>
+
+          <!-- CÁC CÀNH LÁ VƯƠN RỘNG (BRANCHES) -->
+          <path d="M 370 450 Q 250 400 150 340 M 430 450 Q 550 400 650 340 M 380 340 Q 280 260 200 190 M 420 340 Q 520 260 600 190" stroke="#b45309" stroke-width="12" fill="none" stroke-linecap="round"/>
+
+          <!-- TÁN CÂY ĐẠI THỤ (CANOPY GLOBS) -->
+          <circle cx="400" cy="200" r="150" fill="#047857" opacity="0.35"/>
+          <circle cx="270" cy="240" r="120" fill="#059669" opacity="0.3"/>
+          <circle cx="530" cy="240" r="120" fill="#059669" opacity="0.3"/>
+          <circle cx="400" cy="160" r="130" fill="#10b981" opacity="0.4" stroke="#34d399" stroke-width="2"/>
+
+          <!-- QUẢ THÁI TÁO VÀNG (FRUITS) -->
+          <g transform="translate(280, 140)">
+            <circle cx="0" cy="0" r="22" fill="#fbbf24" filter="drop-shadow(0 0 10px #fbbf24)"/>
+            <text x="0" y="5" font-size="16" text-anchor="middle">🍎</text>
+          </g>
+          <g transform="translate(400, 90)">
+            <circle cx="0" cy="0" r="26" fill="#fbbf24" filter="drop-shadow(0 0 14px #fbbf24)"/>
+            <text x="0" y="6" font-size="18" text-anchor="middle">👑</text>
+          </g>
+          <g transform="translate(520, 140)">
+            <circle cx="0" cy="0" r="22" fill="#fbbf24" filter="drop-shadow(0 0 10px #fbbf24)"/>
+            <text x="0" y="5" font-size="16" text-anchor="middle">🏆</text>
+          </g>
+        </svg>
+
+        <!-- OVERLAY HTML CONTENT CARDS ANCHORED TO TREE SECTIONS -->
+        <div style="position: absolute; top: 24px; left: 24px; right: 24px; display: flex; flex-direction: column; gap: 16px">
+
+          <!-- TOP BANNER: MÔI TRƯỜNG DINH DƯỠNG & ĐẤT MẸ -->
+          <div style="background: rgba(28, 25, 23, 0.85); backdrop-filter: blur(8px); border: 1px dashed #f59e0b; border-radius: 12px; padding: 10px; text-align: center">
+            <div style="font-size: 11px; letter-spacing: 2px; color: #fbbf24; font-weight: 800">☀️ MÔI TRƯỜNG DINH DƯỠNG &amp; ĐẤT MẸ XUNG QUANH</div>
+            <div style="font-size: 11px; color: #ddd; margin-top: 2px">
+              🌱 Đất nuôi dưỡng: Nhu cầu phục hồi vóc dáng phụ nữ cao cấp Ocean Park + Thương hiệu chị Liên.<br/>
+              💧 Nguồn nước tưới: Vốn hợp tác 200M/cơ sở nuôi sống giai đoạn đầu.
+            </div>
           </div>
+
+          <!-- TẦNG QUẢ CHÍN (NĂM 5-10) OVERLAY -->
+          <div style="background: rgba(42, 27, 4, 0.88); backdrop-filter: blur(8px); border: 2px solid #fbbf24; border-radius: 14px; padding: 12px; box-shadow: 0 0 20px rgba(251, 191, 36, 0.2)">
+            <div style="display: flex; justify-content: space-between; align-items: center">
+              <span style="font-size: 11px; font-weight: 900; color: #fbbf24">🍎 TÁN CÂY &amp; QUẢ CHÍN (NĂM 5–10)</span>
+              <span style="font-size: 10px; background: #fbbf24; color: #000; font-weight: 800; padding: 2px 8px; border-radius: 10px">THU HOẠCH TRÁI NGỌT</span>
+            </div>
+            <div style="font-size: 13px; font-weight: 900; color: #fff; margin: 3px 0">👑 ĐẾ CHẾ TÀI CHÍNH CÔNG NGHỆ &amp; THÂU MUA CỔ PHẦN (BUYBACK)</div>
+            <div style="font-size: 11px; color: #fde047; line-height: 1.5">
+              • 🏆 <strong>Thu hoạch (Buyback):</strong> Dội siêu lợi nhuận mảng Trực tuyến về <strong>Mua đứt 100% cổ phần</strong> phòng tập.<br/>
+              • 👑 <strong>Sở hữu vĩnh cửu:</strong> Giang &amp; Diệu Liên làm chủ 100% Hệ sinh thái Offline + Online + Data Moat vĩnh cửu.
+            </div>
+          </div>
+
+          <!-- TẦNG THÂN & CÀNH LÁ (NĂM 3-5) OVERLAY -->
+          <div style="background: rgba(19, 10, 36, 0.88); backdrop-filter: blur(8px); border: 2px solid #a78bfa; border-radius: 14px; padding: 12px; box-shadow: 0 0 20px rgba(167, 139, 250, 0.2)">
+            <div style="display: flex; justify-content: space-between; align-items: center">
+              <span style="font-size: 11px; font-weight: 900; color: #a78bfa">🌿 THÂN CÂY &amp; CÀNH LÁ VƯƠN CAO (NĂM 3–5)</span>
+              <span style="font-size: 10px; background: #a78bfa; color: #000; font-weight: 800; padding: 2px 8px; border-radius: 10px">ĐÓNG GÓI TRÍ TUỆ</span>
+            </div>
+            <div style="font-size: 13px; font-weight: 900; color: #fff; margin: 3px 0">⚙️ BÁN HỆ THỐNG ĐÀO TẠO &amp; CÔNG NGHỆ SỐ</div>
+            <div style="font-size: 11px; color: #c4b5fd; line-height: 1.5">
+              • 🎓 <strong>Cành 1:</strong> Đào Tạo HLV &amp; Chuyển giao bí quyết khoán 55M/75%.<br/>
+              • 🎥 <strong>Cành 2:</strong> Đào Tạo Truyền Thông &amp; Nhượng Quyền Studio Video 5 sao.<br/>
+              • 🍃 <strong>Tán lá Bé Dứa:</strong> Ngân Hàng Sức Khỏe Số ➔ <strong>Lợi nhuận Trực tuyến 90%</strong>.
+            </div>
+          </div>
+
+          <!-- TẦNG GỐC RỄ (NĂM 1-2) OVERLAY -->
+          <div style="background: rgba(28, 8, 11, 0.88); backdrop-filter: blur(8px); border: 2px solid #e94560; border-radius: 14px; padding: 12px; box-shadow: 0 0 20px rgba(233, 69, 96, 0.2)">
+            <div style="display: flex; justify-content: space-between; align-items: center">
+              <span style="font-size: 11px; font-weight: 900; color: #e94560">🌱 GỐC RỄ CÂY BÁM SÂU ĐẤT (NĂM 1–2)</span>
+              <span style="font-size: 10px; background: #e94560; color: #fff; font-weight: 800; padding: 2px 8px; border-radius: 10px">NỀN TẢNG SINH TỒN</span>
+            </div>
+            <div style="font-size: 13px; font-weight: 900; color: #fff; margin: 3px 0">🏋️ VỎ PHÒNG GYM 5 SAO (BÁNH RĂNG MỒI)</div>
+            <div style="font-size: 11px; color: #fca5a5; line-height: 1.5">
+              • ⚓ <strong>Rễ cọc bám chắc:</strong> Khấu trừ cố định <strong>Chi phí vận hành sinh tồn 55M/tháng</strong> ➔ Cây không bao giờ sập.<br/>
+              • 🌾 <strong>Rễ chùm tự tìm chất:</strong> HLV hưởng <strong>75%</strong> dôi dư ➔ Tự vận hành, tự nuôi sống bộ rễ.<br/>
+              • 🛡️ <strong>Vỏ rễ bảo vệ:</strong> Gom Data Khách Hàng/Đối Tác &amp; Mở chuỗi SPV 200M không tốn vốn tự có.
+            </div>
+          </div>
+
+          <!-- BOTTOM SHIELD BANNER: THUỐC TRỪ SÂU BỆNH -->
+          <div style="background: rgba(127, 29, 29, 0.88); backdrop-filter: blur(8px); border: 1px dashed #ef4444; border-radius: 12px; padding: 10px">
+            <div style="font-size: 11px; font-weight: 900; color: #f87171; margin-bottom: 2px">🐛 PHÒNG TRỪ SÂU BỆNH &amp; THÚ PHÁ HOẠI CÂY (QUẢN TRỊ RỦI RO):</div>
+            <div style="font-size: 10px; color: #fca5a5; line-height: 1.4">
+              🐛 <strong>Sâu 1 (Khách lười đòi hoàn 50%):</strong> 🛡️ <em>Thuốc diệt sâu:</em> Ràng buộc kỷ luật (Check-in 3 buổi/tuần + Báo cơm 5 ngày/tuần trên AI).<br/>
+              🐛 <strong>Sâu 2 (HLV lười/nghỉ cướp khách):</strong> 🛡️ <em>Thuốc diệt sâu:</em> Thưởng cổ phần ảo cống hiến 12 tháng + Data kẹt vĩnh cửu trong Bé Dứa.<br/>
+              🐛 <strong>Thú phá 3 (Suy thoái/Vắng khách):</strong> 🛡️ <em>Thuốc diệt sâu:</em> Khóa van tự động tại màng lọc 55M Opex + Quỹ dự phòng 15%.
+            </div>
+          </div>
+
         </div>
 
       </div>
