@@ -42,6 +42,14 @@ for (const asset of rejected) {
   }
 }
 
+const homepagePath = path.join(root, 'src', 'pages', 'index.astro');
+const homepage = fs.readFileSync(homepagePath, 'utf8');
+const protectedEcosystemImage = '/images/grow-fitness-ecosystem-lien.webp';
+
+if (!homepage.includes(protectedEcosystemImage)) {
+  violations.push(`Homepage must keep the approved Dieu Lien ecosystem image: ${protectedEcosystemImage}`);
+}
+
 if (violations.length > 0) {
   console.error(violations.join('\n'));
   process.exit(1);
