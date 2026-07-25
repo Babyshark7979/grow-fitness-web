@@ -10,10 +10,10 @@ tags:
   - grow fitness
   - tâm sự đời thường
 author: Phạm Giang
-fact_sources: "2-OPERATION/projects/grow-fitness/tuyen-noi-dung-thu-lam-chu.md"
-reviewer: "Codex & Phạm Giang"
-approved_by: "Phạm Giang"
-approved_at: "2026-07-25T13:15:00Z"
+fact_sources: '2-OPERATION/projects/grow-fitness/tuyen-noi-dung-thu-lam-chu.md'
+reviewer: 'Codex & Phạm Giang'
+approved_by: 'Phạm Giang'
+approved_at: '2026-07-25T13:15:00Z'
 metadata:
   canonical: https://luongdieulien.com/thu-lam-chu-01-xay-he-thong-thay-vi-ban-mo-hoi
 ---
@@ -73,4 +73,3 @@ _Đọc thêm bài viết liên quan:_
 
 - _[Hệ thống thay ý chí: Làm sao để giữ vóc dáng 10 năm mà không cần nghị lực phi thường?](/he-thong-thay-y-chi-duy-tri-voc-dang)_
 - _[Tư duy làm chủ phòng gym vs cai thầu nhân sự: Tại sao 90% gym cỏ gãy cánh?](/tu-duy-lam-chu-phong-gym-vs-cai-thau)_
-

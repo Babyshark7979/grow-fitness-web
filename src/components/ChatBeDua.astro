@@ -1,0 +1,218 @@
+---
+// Khung chat Bé Dứa trên web — điều phối khách theo nhu cầu.
+// Backend: n8n (TASK-10) tại env PUBLIC_CHAT_WEBHOOK_URL — trống thì widget ẩn hoàn toàn.
+// Hợp đồng API: xem vault 2-OPERATION/projects/grow-fitness/chatbot-web-kien-thuc-va-luat.md
+const chatUrl = import.meta.env.PUBLIC_CHAT_WEBHOOK_URL || '';
+const zaloPhone = import.meta.env.PUBLIC_ZALO_PHONE || '';
+const FANPAGE_URL = 'https://www.facebook.com/share/1DkFspwMnu/';
+---
+
+{
+  chatUrl && (
+    <div id="bd-chat" data-chat-url={chatUrl} data-zalo={zaloPhone} data-fanpage={FANPAGE_URL}>
+      <button
+        id="bd-chat-toggle"
+        aria-label="Chat với Bé Dứa"
+        class="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-2xl shadow-[0_8px_30px_rgba(255,46,136,0.45)] transition hover:scale-110"
+      >
+        🍍
+      </button>
+
+      <div
+        id="bd-chat-panel"
+        class="fixed bottom-24 right-5 z-50 hidden w-[92vw] max-w-sm flex-col overflow-hidden rounded-2xl border border-line bg-page shadow-2xl"
+      >
+        <div class="flex items-center gap-3 border-b border-line bg-card px-4 py-3">
+          <div class="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-lg">🍍</div>
+          <div class="flex-1">
+            <p class="font-semibold text-white leading-tight">Bé Dứa</p>
+            <p class="text-xs text-primary">Trợ lý Grow Fitness · trả lời ngay</p>
+          </div>
+          <button id="bd-chat-close" aria-label="Đóng chat" class="text-muted hover:text-white text-xl leading-none">
+            ×
+          </button>
+        </div>
+
+        <div
+          id="bd-chat-msgs"
+          class="flex max-h-[50vh] min-h-[16rem] flex-col gap-2 overflow-y-auto px-3 py-4 text-sm"
+        />
+
+        <div id="bd-chat-chips" class="flex flex-wrap gap-2 px-3 pb-2">
+          <button class="bd-chip rounded-full border border-line bg-card px-3 py-1.5 text-xs text-white hover:border-primary">
+            Gói 99K là gì?
+          </button>
+          <button class="bd-chip rounded-full border border-line bg-card px-3 py-1.5 text-xs text-white hover:border-primary">
+            Lịch tập & giá
+          </button>
+          <button class="bd-chip rounded-full border border-line bg-card px-3 py-1.5 text-xs text-white hover:border-primary">
+            Gặp người thật
+          </button>
+        </div>
+
+        <form id="bd-chat-form" class="flex gap-2 border-t border-line bg-card p-3">
+          <input
+            id="bd-chat-input"
+            type="text"
+            maxlength="500"
+            placeholder="Nhắn cho Bé Dứa..."
+            autocomplete="off"
+            class="w-full rounded-lg border border-line bg-page px-3 py-2 text-sm text-white placeholder:text-muted focus:border-primary focus:outline-none"
+          />
+          <button type="submit" aria-label="Gửi" class="btn-primary !px-4 !py-2 text-sm">
+            Gửi
+          </button>
+        </form>
+      </div>
+    </div>
+  )
+}
+
+<script>
+  function initBeDuaChat() {
+    const root = document.getElementById('bd-chat');
+    if (!root || root.dataset.bound) return;
+    root.dataset.bound = '1';
+
+    const chatUrl = root.dataset.chatUrl || '';
+    const zalo = root.dataset.zalo || '';
+    const fanpage = root.dataset.fanpage || '';
+    const panel = document.getElementById('bd-chat-panel')!;
+    const toggle = document.getElementById('bd-chat-toggle')!;
+    const closeBtn = document.getElementById('bd-chat-close')!;
+    const msgs = document.getElementById('bd-chat-msgs')!;
+    const form = document.getElementById('bd-chat-form') as HTMLFormElement;
+    const input = document.getElementById('bd-chat-input') as HTMLInputElement;
+
+    const SS_KEY = 'bd-chat-history';
+    const sessionId =
+      sessionStorage.getItem('bd-chat-sid') || Math.random().toString(36).slice(2) + Date.now().toString(36);
+    sessionStorage.setItem('bd-chat-sid', sessionId);
+
+    type Msg = { role: 'user' | 'bot'; text: string; actions?: { label: string; href: string }[] };
+    let history: Msg[] = [];
+    try {
+      history = JSON.parse(sessionStorage.getItem(SS_KEY) || '[]');
+    } catch {
+      history = [];
+    }
+
+    function track(event: string) {
+      window.dispatchEvent(new CustomEvent('grow:track', { detail: { event } }));
+    }
+
+    function esc(s: string) {
+      const d = document.createElement('div');
+      d.textContent = s;
+      return d.innerHTML;
+    }
+
+    function render() {
+      msgs.innerHTML = history
+        .map((m) => {
+          const bubble =
+            m.role === 'user'
+              ? `<div class="ml-auto max-w-[85%] rounded-2xl rounded-tr-sm bg-primary px-3 py-2 text-white">${esc(m.text)}</div>`
+              : `<div class="max-w-[85%] rounded-2xl rounded-tl-sm bg-card border border-line px-3 py-2 text-white">${esc(m.text)}</div>`;
+          const actions = (m.actions || [])
+            .map(
+              (a) =>
+                `<a href="${esc(a.href)}" target="${a.href.startsWith('/') ? '_self' : '_blank'}" rel="noopener" class="inline-block rounded-full border border-primary px-3 py-1.5 text-xs font-semibold text-primary hover:bg-primary hover:text-white transition">${esc(a.label)}</a>`
+            )
+            .join(' ');
+          return bubble + (actions ? `<div class="flex flex-wrap gap-2 mt-1">${actions}</div>` : '');
+        })
+        .join('');
+      msgs.scrollTop = msgs.scrollHeight;
+      sessionStorage.setItem(SS_KEY, JSON.stringify(history.slice(-30)));
+    }
+
+    function pushBot(text: string, actions?: Msg['actions']) {
+      history.push({ role: 'bot', text, actions });
+      render();
+    }
+
+    function fallbackActions(): Msg['actions'] {
+      const acts: Msg['actions'] = [];
+      if (zalo) acts.push({ label: '💬 Nhắn Zalo chị Liên', href: `https://zalo.me/${zalo}` });
+      if (fanpage) acts.push({ label: '📘 Chat Messenger', href: fanpage });
+      return acts;
+    }
+
+    let busy = false;
+    async function send(text: string) {
+      if (busy || !text.trim()) return;
+      busy = true;
+      history.push({ role: 'user', text: text.trim() });
+      render();
+      track('chat_message');
+
+      const typing = document.createElement('div');
+      typing.className = 'max-w-[85%] rounded-2xl rounded-tl-sm bg-card border border-line px-3 py-2 text-muted';
+      typing.textContent = 'Bé Dứa đang gõ...';
+      msgs.appendChild(typing);
+      msgs.scrollTop = msgs.scrollHeight;
+
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 20000);
+      try {
+        const res = await fetch(chatUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            session_id: sessionId,
+            page: location.pathname,
+            message: text.trim(),
+            history: history.slice(-8),
+          }),
+          signal: controller.signal,
+        });
+        if (!res.ok) throw new Error(String(res.status));
+        const data = await res.json();
+        typing.remove();
+        pushBot(
+          data.reply || 'Mình chưa nghe rõ, bạn hỏi lại giúp mình nhé 🍍',
+          Array.isArray(data.actions) ? data.actions.slice(0, 3) : undefined
+        );
+      } catch {
+        typing.remove();
+        pushBot('Mạng hơi chậm xíu — bạn nhắn trực tiếp kênh dưới đây để được trả lời ngay nhé!', fallbackActions());
+      } finally {
+        clearTimeout(timer);
+        busy = false;
+      }
+    }
+
+    toggle.addEventListener('click', () => {
+      panel.classList.toggle('hidden');
+      panel.classList.toggle('flex');
+      if (!panel.classList.contains('hidden')) {
+        track('chat_open');
+        if (history.length === 0) {
+          pushBot('Chào bạn, mình là Bé Dứa của Grow Fitness 🍍 Bạn muốn hỏi về lịch tập, gói 99K hay điều gì nào?');
+        }
+        input.focus();
+      }
+    });
+    closeBtn.addEventListener('click', () => {
+      panel.classList.add('hidden');
+      panel.classList.remove('flex');
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const v = input.value;
+      input.value = '';
+      send(v);
+    });
+
+    document.querySelectorAll<HTMLButtonElement>('.bd-chip').forEach((chip) => {
+      chip.addEventListener('click', () => send(chip.textContent?.trim() || ''));
+    });
+
+    render();
+  }
+
+  initBeDuaChat();
+  document.addEventListener('astro:page-load', initBeDuaChat);
+</script>

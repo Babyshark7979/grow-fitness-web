@@ -1,7 +1,7 @@
 ---
 publishDate: 2026-07-25T11:45:00Z
-title: "Tuổi 30 Của Huấn Luyện Viên Thể Hình: Thần Thái Làm Chủ Hay Áp Lực Bán Sức Lao Động?"
-excerpt: "Bóc trần sự thật về nghề HLV gym truyền thống. Bí quyết thoát bẫy bán mồ hôi lấy thu nhập phập phồng để làm chủ mảnh đất tự quản 30M tại Grow Fitness."
+title: 'Tuổi 30 Của Huấn Luyện Viên Thể Hình: Thần Thái Làm Chủ Hay Áp Lực Bán Sức Lao Động?'
+excerpt: 'Bóc trần sự thật về nghề HLV gym truyền thống. Bí quyết thoát bẫy bán mồ hôi lấy thu nhập phập phồng để làm chủ mảnh đất tự quản 30M tại Grow Fitness.'
 image: https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=2070&q=80
 category: Tâm sự & Tuyển dụng
 tags:
@@ -10,10 +10,10 @@ tags:
   - phantom stock
   - grow fitness
 author: Phạm Giang & Diệu Liên
-fact_sources: "2-OPERATION/projects/grow-fitness/ma-tran-tuyen-noi-dung-3-tep-grow-fitness.md"
-reviewer: "Codex & Phạm Giang"
-approved_by: "Phạm Giang"
-approved_at: "2026-07-25T13:15:00Z"
+fact_sources: '2-OPERATION/projects/grow-fitness/ma-tran-tuyen-noi-dung-3-tep-grow-fitness.md'
+reviewer: 'Codex & Phạm Giang'
+approved_by: 'Phạm Giang'
+approved_at: '2026-07-25T13:15:00Z'
 metadata:
   canonical: https://luongdieulien.com/tuoi-30-cua-huan-luyen-vien-lam-chu-hay-xe-om-cong-nghe
 ---

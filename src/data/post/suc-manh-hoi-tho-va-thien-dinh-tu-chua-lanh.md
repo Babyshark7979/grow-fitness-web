@@ -74,4 +74,3 @@ _Đọc thêm bài viết liên quan:_
 
 - _[Tại sao đau vai gáy không nên cố tập tạ nặng?](/dau-vai-gay-dung-tap-ta-nang-hay-tha-long)_
 - _[5 thói quen 'sạc pin năng lượng' dành riêng cho nữ doanh nhân](/5-thoi-quen-vang-cho-nguoi-moi-tap-gym)_
-
