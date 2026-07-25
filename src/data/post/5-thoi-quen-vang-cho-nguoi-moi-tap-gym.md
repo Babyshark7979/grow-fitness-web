@@ -71,3 +71,8 @@ Nhiều chị em e ngại phòng gym thương mại đông đúc vì sợ bị �
 ### Bạn Đã Sẵn Sàng Trải Nghiệm Thói Quen Sống Khỏe Mới?
 
 👉 **[Đăng ký Gói Khám Phá 3 buổi chỉ 99K tại Ocean Park 1](/join)** — Đo chỉ số cơ thể, tập nhóm nữ phục hồi vai gáy và nhận thực đơn Bếp Grow chuẩn calo ngay hôm nay!
+
+_Đọc thêm bài viết liên quan:_
+
+- _[Ăn kiêng khắt khe hay tập đến ngất xỉu? Bí quyết 'Ăn Ngon Dáng Đẹp' cùng Bé Dứa](/an-kieng-khat-khe-hay-tap-den-ngat-xiu-bep-grow)_
+- _[Tại sao đau vai gáy không nên cố tập tạ nặng?](/dau-vai-gay-dung-tap-ta-nang-hay-tha-long)_

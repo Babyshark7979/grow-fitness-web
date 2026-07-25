@@ -68,4 +68,10 @@ Thiền không phải là điều gì cao siêu hay phải ngồi gò gẫm đau
 
 Hãy lắng nghe hơi thở của mình mỗi ngày. Đừng lo lắng về tuổi tác hay những áp lực bên ngoài, vì từng nhịp thở đúng đang âm thầm tưới mát và nuôi dưỡng bạn trở nên khỏe mạnh, an yên và tràn đầy sức sống mỗi ngày!
 
-👉 **[Khám phá thêm phương pháp phục hồi sức khỏe và đo vạch pin cơ thể cùng AI Bé Dứa tại đây](/)**
+👉 **[Khám phá thêm phương pháp phục hồi sức khỏe và đo vạch pin cơ thể cùng AI Bé Dứa tại đây](/join)**
+
+_Đọc thêm bài viết liên quan:_
+
+- _[Tại sao đau vai gáy không nên cố tập tạ nặng?](/dau-vai-gay-dung-tap-ta-nang-hay-tha-long)_
+- _[5 thói quen 'sạc pin năng lượng' dành riêng cho nữ doanh nhân](/5-thoi-quen-vang-cho-nguoi-moi-tap-gym)_
+

@@ -26,7 +26,7 @@ Hãy cùng giải thích bằng hình ảnh **"Chăn Bò" vs "Trồng Cây"** c�
 
 Quản lý gym theo kiểu truyền thống được gọi là mô hình **"Cai thầu chăn bò"**:
 
-- Chủ phòng gym đóng vai người chăn bò, suốt ngày cầm gậy đứng đằng sau vụt: _"Tháng này phải chốt 50 triệu! Tuần này phải nhấc điện thoại telesale 100 cuộc!"_
+- Chủ phòng gym đóng vai người chăn bò, suốt ngày cầm gậy đứng đằng sau vụt: _"Tháng này phải chốt 50 triệu! Tuần này phải nhấc điện thoại gọi điện gạ gẫm dồn dập 100 cuộc!"_
 - PT đi làm trong cảm giác bị đè nén, soi xét và hứa lèo.
 - Đến khi PT đã tích đủ tay nghề và có tệp khách quen ➔ Họ sẽ ngay lập tức **nhảy rào bỏ trốn** (kéo khách sang phòng khác hoặc dạy chui).
 
