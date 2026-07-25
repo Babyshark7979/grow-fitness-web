@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){
+  var stored = sessionStorage.getItem('gf_auth');
+  if(stored !== '678999'){
+    var pw = prompt('🔒 Tài liệu nội bộ Grow Fitness\nNhập mật khẩu để tiếp tục:');
+    if(pw !== '678999'){
+      document.documentElement.innerHTML = '<body style="background:#000;color:#fff;font-family:sans-serif;display:flex;height:100vh;align-items:center;justify-content:center;text-align:center"><div><div style="font-size:48px">🔒</div><div style="margin-top:12px;font-size:16px;color:#888">Sai mật khẩu. Vui lòng thử lại.</div></div></body>';
+      return;
+    }
+    sessionStorage.setItem('gf_auth','678999');
+  }
+})();
+</script>
+<title>Grow Fitness 2026</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:#0a0a0a; color:#f0f0f0; }
+
+/* ── HERO ── */
+.hero { background:linear-gradient(160deg,#0f0f1a 0%,#1a0a2e 60%,#0f3460 100%); padding:40px 20px 32px; text-align:center; }
+.hero-label { font-size:11px; letter-spacing:4px; color:#e94560; font-weight:700; text-transform:uppercase; margin-bottom:10px; }
+.hero h1 { font-size:26px; font-weight:900; line-height:1.2; color:#fff; margin-bottom:6px; }
+.hero-sub { font-size:13px; color:#888; }
+
+/* ── SECTION ── */
+.sec { padding:24px 18px; border-bottom:1px solid #161616; }
+.sec-label { font-size:10px; letter-spacing:3px; color:#e94560; font-weight:700; text-transform:uppercase; margin-bottom:6px; }
+.sec-title { font-size:18px; font-weight:800; color:#fff; margin-bottom:14px; }
+
+/* ── BIG NUMBER GRID ── */
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px; }
+.grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:14px; }
+.stat { background:#141414; border-radius:12px; padding:14px 10px; text-align:center; border:1px solid #1e1e1e; }
+.stat .val { font-size:24px; font-weight:900; display:block; line-height:1; margin-bottom:4px; }
+.stat .lbl { font-size:11px; color:#888; line-height:1.3; }
+.red { color:#e94560; } .green { color:#4ade80; } .yellow { color:#fbbf24; } .purple { color:#a78bfa; }
+
+/* ── CASH FLOW BAR ── */
+.cf-row { margin-bottom:10px; }
+.cf-label { display:flex; justify-content:space-between; margin-bottom:4px; }
+.cf-label span:first-child { font-size:13px; color:#ccc; }
+.cf-label span:last-child { font-size:13px; font-weight:700; }
+.cf-bar { height:10px; border-radius:6px; background:#1e1e1e; overflow:hidden; }
+.cf-fill { height:100%; border-radius:6px; transition:width .3s; }
+
+/* ── DONUT CHART (pure CSS) ── */
+.donut-wrap { display:flex; gap:16px; align-items:center; margin:14px 0; }
+.donut { width:90px; height:90px; border-radius:50%; flex-shrink:0; }
+.donut-legend { flex:1; }
+.donut-legend li { list-style:none; font-size:12px; color:#ccc; margin-bottom:5px; display:flex; align-items:center; gap:6px; }
+.dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+
+/* ── SOURCE CARDS ── */
+.src-card { border-radius:14px; padding:18px 16px; margin-bottom:12px; position:relative; overflow:hidden; }
+.src-card .src-num { font-size:11px; letter-spacing:2px; font-weight:700; text-transform:uppercase; margin-bottom:4px; }
+.src-card h3 { font-size:17px; font-weight:800; color:#fff; margin-bottom:8px; }
+.src-card .src-money { font-size:28px; font-weight:900; display:block; line-height:1; margin:10px 0 4px; }
+.src-card .src-sub { font-size:12px; color:#aaa; }
+.src-card ul { list-style:none; margin-top:10px; }
+.src-card ul li { font-size:13px; color:#ccc; margin-bottom:4px; display:flex; gap:6px; }
+.src-card ul li::before { content:"→"; color:inherit; flex-shrink:0; }
+
+.card-red { background:linear-gradient(135deg,#1a0508,#200c10); border:1px solid #e94560; }
+.card-purple { background:linear-gradient(135deg,#0d0718,#130f2a); border:1px solid #7c3aed; }
+.card-yellow { background:linear-gradient(135deg,#18120a,#201808); border:1px solid #d97706; }
+
+/* ── VALUE STACK BARS ── */
+.vstack { margin:14px 0; }
+.vs-item { margin-bottom:8px; }
+.vs-head { display:flex; justify-content:space-between; margin-bottom:3px; }
+.vs-name { font-size:13px; color:#ddd; }
+.vs-val { font-size:13px; font-weight:700; color:#4ade80; }
+.vs-bar { height:8px; border-radius:4px; background:#1e1e1e; }
+.vs-fill { height:100%; border-radius:4px; }
+
+/* ── SCRIPT STEPS ── */
+.script-step { background:#111; border-radius:12px; padding:16px; margin-bottom:10px; border-left:3px solid; }
+.step-tag { font-size:10px; letter-spacing:2px; font-weight:700; text-transform:uppercase; margin-bottom:6px; }
+.step-quote { font-size:13px; color:#ccc; font-style:italic; line-height:1.5; margin-bottom:6px; }
+.step-why { font-size:11px; color:#666; }
+
+/* ── OBJECTION ── */
+.obj { background:#111; border-radius:10px; padding:14px; margin-bottom:8px; }
+.obj-q { font-size:13px; color:#fbbf24; font-weight:600; margin-bottom:6px; }
+.obj-a { font-size:13px; color:#ccc; font-style:italic; line-height:1.5; }
+
+/* ── TIMELINE ── */
+.tl { position:relative; padding-left:28px; }
+.tl::before { content:''; position:absolute; left:8px; top:0; bottom:0; width:2px; background:#1e1e1e; }
+.tl-item { position:relative; margin-bottom:18px; }
+.tl-item::before { content:''; position:absolute; left:-24px; top:4px; width:12px; height:12px; border-radius:50%; border:2px solid #0a0a0a; }
+.tl-time { font-size:10px; letter-spacing:1px; text-transform:uppercase; font-weight:700; margin-bottom:2px; }
+.tl-event { font-size:14px; color:#fff; font-weight:600; margin-bottom:2px; }
+.tl-detail { font-size:12px; color:#888; }
+
+/* ── HORMOZI EQUATION ── */
+.eq { background:#141414; border-radius:14px; padding:18px; margin:14px 0; }
+.eq-row { display:flex; gap:10px; margin-bottom:8px; }
+.eq-box { flex:1; border-radius:10px; padding:12px 10px; text-align:center; }
+.eq-label { font-size:11px; color:#aaa; margin-bottom:4px; }
+.eq-value { font-size:13px; font-weight:700; }
+.eq-divider { text-align:center; font-size:22px; color:#555; margin:4px 0; }
+.eq-result { text-align:center; font-size:20px; font-weight:900; color:#4ade80; margin-top:12px; }
+
+/* ── TOTAL BOX ── */
+.total { background:linear-gradient(135deg,#061a06,#0a200a); border:1px solid #4ade80; border-radius:14px; padding:24px 16px; text-align:center; margin:14px 0; }
+.total-num { font-size:40px; font-weight:900; color:#4ade80; display:block; }
+.total-lbl { font-size:13px; color:#aaa; margin-top:4px; }
+
+/* ── FOOTER ── */
+.footer { padding:28px; text-align:center; }
+.footer p { font-size:11px; color:#333; letter-spacing:2px; text-transform:uppercase; }
+
+/* ── DIVIDER ── */
+.div { height:1px; background:linear-gradient(to right,transparent,#e94560,transparent); }
+
+/* ── AI COACH CARD ── */
+.ai-card { background:linear-gradient(135deg,#0d0d20,#13103a); border:1px solid #7c3aed; border-radius:14px; padding:18px 16px; margin-top:14px; }
+.ai-top { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+.ai-icon { width:40px; height:40px; background:#7c3aed; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; }
+.ai-title { font-size:16px; font-weight:800; color:#fff; }
+.ai-sub { font-size:12px; color:#888; margin-top:2px; }
+.ai-features { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:12px; }
+.ai-feat { background:#1a1535; border-radius:8px; padding:10px 8px; text-align:center; }
+.ai-feat-icon { font-size:20px; display:block; margin-bottom:4px; }
+.ai-feat-text { font-size:11px; color:#ccc; line-height:1.3; }
+
+/* ── SAVE BOX ── */
+.save-box { background:linear-gradient(135deg,#1a0508,#200c10); border:1px solid #e94560; border-radius:12px; padding:18px; text-align:center; margin-top:14px; }
+.save-strike { font-size:13px; color:#666; text-decoration:line-through; margin-bottom:4px; }
+.save-price { font-size:36px; font-weight:900; color:#e94560; }
+.save-diff { font-size:13px; color:#aaa; margin-top:4px; }
+
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">Grow Fitness · Kế Hoạch 2026</div>
+  <h1>Nâng cấp · Gom vốn<br>Sống qua mùa đông</h1>
+  <div class="hero-sub">Nội bộ · Tháng 7/2026</div>
+</div>
+
+<!-- BỐI CẢNH -->
+<div class="sec">
+  <div class="sec-label">Bối cảnh</div>
+  <div class="sec-title">Số thật hiện tại</div>
+
+  <div class="grid2">
+    <div class="stat"><span class="val red">200tr</span><span class="lbl">Toàn bộ vốn đầu tư</span></div>
+    <div class="stat"><span class="val red">0đ</span><span class="lbl">Buffer sau khi đầu tư</span></div>
+  </div>
+  <div class="grid3">
+    <div class="stat"><span class="val yellow">55tr</span><span class="lbl">Chi phí / tháng</span></div>
+    <div class="stat"><span class="val yellow">8</span><span class="lbl">Tháng mùa thấp</span></div>
+    <div class="stat"><span class="val red">440tr</span><span class="lbl">Cần sống qua</span></div>
+  </div>
+
+  <!-- Allocation donut visual -->
+  <div style="background:#111;border-radius:12px;padding:14px;margin-top:4px">
+    <div style="font-size:12px;color:#888;margin-bottom:10px">Phân bổ 200 triệu vốn</div>
+    <div class="cf-row">
+      <div class="cf-label"><span>🏗 Nâng cấp phòng</span><span class="yellow">80tr · 40%</span></div>
+      <div class="cf-bar"><div class="cf-fill" style="width:40%;background:#d97706"></div></div>
+    </div>
+    <div class="cf-row">
+      <div class="cf-label"><span>🏋 Máy móc thiết bị</span><span class="yellow">130tr · 65%</span></div>
+      <div class="cf-bar"><div class="cf-fill" style="width:65%;background:#f59e0b"></div></div>
+    </div>
+    <div class="cf-row" style="margin-bottom:0">
+      <div class="cf-label"><span>🆘 Dự phòng còn lại</span><span class="red">0tr · 0%</span></div>
+      <div class="cf-bar"><div class="cf-fill" style="width:1%;background:#e94560"></div></div>
+    </div>
+  </div>
+
+  <div style="background:#1a0508;border-left:3px solid #e94560;border-radius:0 10px 10px 0;padding:12px 14px;margin-top:12px;font-size:13px;color:#ccc">
+    ⚠️ Rủi ro không phải là đầu tư 200 triệu — mà là <strong style="color:#e94560">không có tiền chạy bộ máy 8 tháng sau đó.</strong>
+  </div>
+</div>
+
+<div class="div"></div>
+
+<!-- 3 NGUỒN TIỀN -->
+<div class="sec">
+  <div class="sec-label">Giải pháp</div>
+  <div class="sec-title">Gom đủ từ 3 nguồn song song</div>
+
+  <!-- NGUỒN 1 -->
+  <div class="src-card card-red">
+    <div class="src-num" style="color:#e94560">Nguồn 1 · Nhanh nhất</div>
+    <h3>Founder's Club</h3>
+    <div style="font-size:13px;color:#ccc">30 khách cũ trung thành · Bán trước khi xây xong</div>
+    <span class="src-money red">270 triệu</span>
+    <div class="src-sub">15 suất × 18 triệu · Thu ngay</div>
+
+    <!-- Cọc + điều kiện -->
+    <div style="background:#300a10;border-radius:10px;padding:12px;margin-top:12px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <div style="text-align:center">
+          <div style="font-size:22px;font-weight:900;color:#e94560">2tr</div>
+          <div style="font-size:11px;color:#888">Cọc giữ chỗ</div>
+        </div>
+        <div style="text-align:center">
+          <div style="font-size:22px;font-weight:900;color:#e94560">15</div>
+          <div style="font-size:11px;color:#888">Suất giới hạn</div>
+        </div>
+      </div>
+    </div>
+
+    <ul>
+      <li style="color:#f87171">Tập không giới hạn 12 tháng</li>
+      <li style="color:#f87171">Lock giá vĩnh viễn · Không tăng</li>
+      <li style="color:#f87171">AI Coach riêng 24/7</li>
+      <li style="color:#f87171">Tên trên Bảng Sáng Lập</li>
+    </ul>
+  </div>
+
+  <!-- AI COACH HIGHLIGHT -->
+  <div class="ai-card">
+    <div class="ai-top">
+      <div class="ai-icon">🤖</div>
+      <div>
+        <div class="ai-title">AI Coach Cá Nhân</div>
+        <div class="ai-sub">Mỗi Founder 1 con AI riêng · Không phải AI chung</div>
+      </div>
+    </div>
+    <div class="ai-features">
+      <div class="ai-feat"><span class="ai-feat-icon">🎯</span><span class="ai-feat-text">Biết mục tiêu & chỉ số cơ thể</span></div>
+      <div class="ai-feat"><span class="ai-feat-icon">💬</span><span class="ai-feat-text">Chat 24/7 về ăn uống & tập</span></div>
+      <div class="ai-feat"><span class="ai-feat-icon">📊</span><span class="ai-feat-text">Theo dõi tiến độ từng tuần</span></div>
+      <div class="ai-feat"><span class="ai-feat-icon">🌙</span><span class="ai-feat-text">Hỏi được lúc 11 giờ đêm</span></div>
+    </div>
+    <div style="text-align:center;margin-top:12px;font-size:12px;color:#888;font-style:italic">
+      "HLV 1-1 bình thường: 4–6 triệu/tháng riêng · Gói này đã bao gộp sẵn"
+    </div>
+  </div>
+
+  <!-- NGUỒN 2 -->
+  <div class="src-card card-purple" style="margin-top:14px">
+    <div class="src-num" style="color:#a78bfa">Nguồn 2 · Vốn ngoài</div>
+    <h3>BCC Đồng Hành</h3>
+    <div style="font-size:13px;color:#ccc">1–2 người trong network · Không bán cổ phần</div>
+    <span class="src-money purple">100–150 triệu</span>
+    <div class="src-sub">Ký hợp đồng BCC · Có ngày thoát rõ ràng</div>
+
+    <div style="background:#160e2a;border-radius:10px;padding:12px;margin-top:12px">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;text-align:center">
+        <div><div style="font-size:16px;font-weight:900;color:#a78bfa">15%</div><div style="font-size:10px;color:#888">Doanh thu/tháng</div></div>
+        <div><div style="font-size:16px;font-weight:900;color:#a78bfa">1.5x</div><div style="font-size:10px;color:#888">Trần hoàn vốn</div></div>
+        <div><div style="font-size:16px;font-weight:900;color:#a78bfa">24th</div><div style="font-size:10px;color:#888">Buyback option</div></div>
+      </div>
+    </div>
+
+    <ul>
+      <li style="color:#c4b5fd">Gói A: nhận % doanh thu hàng tháng</li>
+      <li style="color:#c4b5fd">Gói C: cho vay → nhận 2 thẻ VIP gia đình</li>
+      <li style="color:#c4b5fd">Bảo vệ 2 bên bằng hợp đồng công chứng</li>
+    </ul>
+  </div>
+
+  <!-- NGUỒN 3 -->
+  <div class="src-card card-yellow" style="margin-top:14px">
+    <div class="src-num" style="color:#fbbf24">Nguồn 3 · Mùa đông</div>
+    <h3>Thử Thách 8 Tuần</h3>
+    <div style="font-size:13px;color:#ccc">Khách mới · Cam kết kết quả hoặc hoàn 50%</div>
+    <span class="src-money yellow">140 triệu</span>
+    <div class="src-sub">2 đợt × 20 người × 3.5 triệu</div>
+
+    <div style="background:#1a1205;border-radius:10px;padding:12px;margin-top:12px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;text-align:center">
+        <div><div style="font-size:18px;font-weight:900;color:#fbbf24">Tháng 8</div><div style="font-size:11px;color:#888">Đợt 1</div></div>
+        <div><div style="font-size:18px;font-weight:900;color:#fbbf24">Tháng 11</div><div style="font-size:11px;color:#888">Đợt 2</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="div"></div>
+
+<!-- TỔNG DÒNG TIỀN -->
+<div class="sec">
+  <div class="sec-label">Tổng hợp</div>
+  <div class="sec-title">Dòng tiền kỳ vọng</div>
+
+  <div class="cf-row">
+    <div class="cf-label"><span>🔴 Founder's Club</span><span class="green">+270tr</span></div>
+    <div class="cf-bar"><div class="cf-fill" style="width:85%;background:#4ade80"></div></div>
+  </div>
+  <div class="cf-row">
+    <div class="cf-label"><span>🟣 BCC Đồng Hành</span><span class="green">+150tr</span></div>
+    <div class="cf-bar"><div class="cf-fill" style="width:48%;background:#a78bfa"></div></div>
+  </div>
+  <div class="cf-row">
+    <div class="cf-label"><span>🟡 Thử Thách 8 Tuần</span><span class="green">+140tr</span></div>
+    <div class="cf-bar"><div class="cf-fill" style="width:44%;background:#fbbf24"></div></div>
+  </div>
+  <div class="cf-row" style="margin-bottom:0">
+    <div class="cf-label"><span>⚪ Monthly thông thường</span><span class="green">+200tr</span></div>
+    <div class="cf-bar"><div class="cf-fill" style="width:63%;background:#60a5fa"></div></div>
+  </div>
+
+  <div class="total">
+    <span class="total-num">~760 triệu</span>
+    <span class="total-lbl">Thu vào 8 tháng mùa thấp</span>
+  </div>
+
+  <div style="background:#111;border-radius:12px;padding:14px;font-size:13px;color:#ccc;line-height:1.8">
+    <div style="display:flex;justify-content:space-between"><span>Đầu tư phòng + máy</span><span class="red">-210tr</span></div>
+    <div style="display:flex;justify-content:space-between"><span>Vận hành 8 tháng</span><span class="red">-440tr</span></div>
+    <div style="height:1px;background:#222;margin:8px 0"></div>
+    <div style="display:flex;justify-content:space-between;font-weight:700"><span>Còn dư buffer</span><span class="green">+110tr</span></div>
+  </div>
+</div>
+
+<div class="div"></div>
+
+<!-- VALUE STACK -->
+<div class="sec">
+  <div class="sec-label">Sức mạnh gói</div>
+  <div class="sec-title">Giá trị vs Giá bán</div>
+  <div style="font-size:13px;color:#888;margin-bottom:14px">Khách nhận được tổng cộng</div>
+
+  <div class="vstack">
+    <div class="vs-item">
+      <div class="vs-head"><span class="vs-name">🏋 Tập không giới hạn 12 tháng</span><span class="vs-val">36tr</span></div>
+      <div class="vs-bar"><div class="vs-fill" style="width:100%;background:#4ade80"></div></div>
+    </div>
+    <div class="vs-item">
+      <div class="vs-head"><span class="vs-name">🤖 AI Coach cá nhân 24/7</span><span class="vs-val">48–72tr</span></div>
+      <div class="vs-bar"><div class="vs-fill" style="width:90%;background:#a78bfa"></div></div>
+    </div>
+    <div class="vs-item">
+      <div class="vs-head"><span class="vs-name">📋 Roadmap cá nhân 12 tháng</span><span class="vs-val">5tr</span></div>
+      <div class="vs-bar"><div class="vs-fill" style="width:14%;background:#60a5fa"></div></div>
+    </div>
+    <div class="vs-item">
+      <div class="vs-head"><span class="vs-name">📊 Check-in tiến độ hàng tháng</span><span class="vs-val">6tr</span></div>
+      <div class="vs-bar"><div class="vs-fill" style="width:17%;background:#60a5fa"></div></div>
+    </div>
+    <div class="vs-item">
+      <div class="vs-head"><span class="vs-name">👑 Hội Founder VIP</span><span class="vs-val">3tr</span></div>
+      <div class="vs-bar"><div class="vs-fill" style="width:8%;background:#fbbf24"></div></div>
+    </div>
+  </div>
+
+  <div class="save-box">
+    <div class="save-strike">Tổng giá trị: 98–122 triệu</div>
+    <div class="save-price">18 triệu</div>
+    <div class="save-diff">Khách tiết kiệm <strong style="color:#4ade80">80–104 triệu</strong> · Giảm hơn 80%</div>
+  </div>
+</div>
+
+<div class="div"></div>
+
+<!-- SCRIPT BÁN HÀNG -->
+<div class="sec">
+  <div class="sec-label">Công cụ sale</div>
+  <div class="sec-title">Script cho chị Liên</div>
+
+  <div class="script-step" style="border-color:#4ade80">
+    <div class="step-tag" style="color:#4ade80">Bước 1 · Mở đầu</div>
+    <div class="step-quote">"Chị ơi em có tin hay muốn chia sẻ trước khi ra mắt rộng. Mình sắp nâng cấp phòng lớn — chỉ mở 15 suất cho khách thân thiết trước, chị thuộc nhóm đó."</div>
+    <div class="step-why">→ Tạo cảm giác được chọn · Không phải ai cũng có</div>
+  </div>
+
+  <div class="script-step" style="border-color:#a78bfa">
+    <div class="step-tag" style="color:#a78bfa">Bước 2 · Trình bày</div>
+    <div class="step-quote">"Gói bao gồm tập 12 tháng + AI Coach riêng của chị — nó biết mục tiêu, chỉ số của chị, chat bất cứ lúc nào. HLV 1-1 thường 4–6 triệu/tháng riêng. Gói này bao gộp hết, chỉ 18 triệu cả năm."</div>
+    <div class="step-why">→ So sánh giá trị thật vs giá bán · Số tự nói</div>
+  </div>
+
+  <div class="script-step" style="border-color:#fbbf24">
+    <div class="step-tag" style="color:#fbbf24">Bước 3 · Chốt</div>
+    <div class="step-quote">"Chỉ còn [X] suất. Giá này không bán ra ngoài. Chị đặt cọc 2 triệu giữ chỗ, còn lại thanh toán sau."</div>
+    <div class="step-why">→ Scarcity + Easy first step (chỉ cọc 2 triệu)</div>
+  </div>
+
+  <div style="margin-top:16px">
+    <div style="font-size:11px;letter-spacing:2px;color:#e94560;font-weight:700;margin-bottom:10px">XỬ LÝ PHẢN ĐỐI</div>
+
+    <div class="obj">
+      <div class="obj-q">❓ "Đắt quá"</div>
+      <div class="obj-a">"Tập lẻ 1 năm đã là 36 triệu rồi chị ơi. Gói này 18 triệu, lại còn có AI Coach riêng. Thực ra rẻ hơn nhiều so với bình thường."</div>
+    </div>
+    <div class="obj">
+      <div class="obj-q">❓ "Không chắc tập đủ 12 tháng"</div>
+      <div class="obj-a">"Đó là lý do mình có AI Coach — nó nhắc, theo dõi theo lịch của chị. Không cần tự tìm động lực một mình nữa."</div>
+    </div>
+    <div class="obj">
+      <div class="obj-q">❓ "Phòng chưa xong sao mua?"</div>
+      <div class="obj-a">"Mở sớm để cảm ơn khách cũ, chị được giá tốt nhất đúng vì mua trước. Xây xong thì giá Founder không còn nữa — chị xem ảnh 3D này nè."</div>
+    </div>
+  </div>
+</div>
+
+<div class="div"></div>
+
+<!-- TIMELINE -->
+<div class="sec">
+  <div class="sec-label">Lộ trình</div>
+  <div class="sec-title">Làm gì · Khi nào</div>
+
+  <div class="tl">
+    <div class="tl-item">
+      <div style="position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;background:#e94560;border:2px solid #0a0a0a"></div>
+      <div class="tl-time" style="color:#e94560">Tuần này</div>
+      <div class="tl-event">Chốt giá FC · Gửi quà detox 30 khách</div>
+      <div class="tl-detail">Cọc 2 triệu · Pitch bằng 3D phòng mới</div>
+    </div>
+    <div class="tl-item">
+      <div style="position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;background:#e94560;border:2px solid #0a0a0a"></div>
+      <div class="tl-time" style="color:#e94560">T7 · Tuần 4</div>
+      <div class="tl-event">Mở cọc · Đóng khi đủ 15 suất</div>
+      <div class="tl-detail">Ai không đặt cọc mất chỗ</div>
+    </div>
+    <div class="tl-item">
+      <div style="position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;background:#a78bfa;border:2px solid #0a0a0a"></div>
+      <div class="tl-time" style="color:#a78bfa">Tháng 8</div>
+      <div class="tl-event">Pitch BCC · Ký hợp đồng</div>
+      <div class="tl-detail">1–2 người trong network</div>
+    </div>
+    <div class="tl-item">
+      <div style="position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;background:#4ade80;border:2px solid #0a0a0a"></div>
+      <div class="tl-time" style="color:#4ade80">T8 · Cuối tháng</div>
+      <div class="tl-event">Khai trương VIP + Đợt 1 Thử Thách</div>
+      <div class="tl-detail">Founder được mời trước · 20 khách mới</div>
+    </div>
+    <div class="tl-item" style="margin-bottom:0">
+      <div style="position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;background:#fbbf24;border:2px solid #0a0a0a"></div>
+      <div class="tl-time" style="color:#fbbf24">Tháng 11</div>
+      <div class="tl-event">Đợt 2 Thử Thách · Mở FC đợt 2</div>
+      <div class="tl-detail">Convert khách mới thành Founder</div>
+    </div>
+  </div>
+</div>
+
+<div class="div"></div>
+
+<!-- TẠI SAO WORK -->
+<div class="sec">
+  <div class="sec-label">Nền tảng</div>
+  <div class="sec-title">Tại sao sẽ chạy được?</div>
+
+  <!-- LTV:CAC -->
+  <div style="background:#141414;border-radius:14px;padding:16px;margin-bottom:12px">
+    <div style="font-size:12px;color:#888;margin-bottom:10px">Unit Economics của Grow Fitness</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;text-align:center">
+      <div>
+        <div style="font-size:22px;font-weight:900;color:#e94560">1.65tr</div>
+        <div style="font-size:11px;color:#888">CAC<br>Chi phí/khách</div>
+      </div>
+      <div>
+        <div style="font-size:22px;font-weight:900;color:#4ade80">38tr</div>
+        <div style="font-size:11px;color:#888">LTV<br>Giá trị/khách</div>
+      </div>
+      <div>
+        <div style="font-size:22px;font-weight:900;color:#a78bfa">13.6x</div>
+        <div style="font-size:11px;color:#888">LTV:CAC<br>Top ngành</div>
+      </div>
+    </div>
+    <div style="margin-top:12px;font-size:12px;color:#888;text-align:center;border-top:1px solid #1e1e1e;padding-top:10px">
+      Bỏ 1 đồng kiếm khách → thu về 13 đồng<br>Vấn đề không phải sản phẩm — là thiếu vốn để scale
+    </div>
+  </div>
+
+  <!-- Hormozi equation simplified -->
+  <div class="eq">
+    <div style="font-size:12px;color:#888;margin-bottom:10px">Hormozi Value Equation</div>
+    <div style="display:flex;gap:8px;margin-bottom:6px">
+      <div style="flex:1;background:#0a200a;border-radius:8px;padding:10px;text-align:center">
+        <div style="font-size:10px;color:#888;margin-bottom:2px">Kết quả mơ ước</div>
+        <div style="font-size:20px">🏆</div>
+        <div style="font-size:11px;color:#4ade80">Roadmap rõ ràng</div>
+      </div>
+      <div style="display:flex;align-items:center;font-size:20px;color:#555">×</div>
+      <div style="flex:1;background:#0a200a;border-radius:8px;padding:10px;text-align:center">
+        <div style="font-size:10px;color:#888;margin-bottom:2px">Niềm tin đạt được</div>
+        <div style="font-size:20px">💪</div>
+        <div style="font-size:11px;color:#4ade80">AI theo sát</div>
+      </div>
+    </div>
+    <div style="text-align:center;color:#555;font-size:16px;margin:4px 0">÷</div>
+    <div style="display:flex;gap:8px;margin-bottom:10px">
+      <div style="flex:1;background:#1a0508;border-radius:8px;padding:10px;text-align:center">
+        <div style="font-size:10px;color:#888;margin-bottom:2px">Thời gian chờ</div>
+        <div style="font-size:20px">⏱</div>
+        <div style="font-size:11px;color:#e94560">8 tuần thấy kết quả</div>
+      </div>
+      <div style="display:flex;align-items:center;font-size:20px;color:#555">×</div>
+      <div style="flex:1;background:#1a0508;border-radius:8px;padding:10px;text-align:center">
+        <div style="font-size:10px;color:#888;margin-bottom:2px">Công sức bỏ ra</div>
+        <div style="font-size:20px">😤</div>
+        <div style="font-size:11px;color:#e94560">AI lo phần thinking</div>
+      </div>
+    </div>
+    <div style="text-align:center;font-size:18px;font-weight:900;color:#4ade80">= Giá trị cảm nhận RẤT CAO</div>
+    <div style="text-align:center;font-size:12px;color:#888;margin-top:4px">→ 18 triệu cảm giác rất hời so với những gì nhận được</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>Grow Fitness · Nội bộ · Tháng 7 · 2026</p>
+</div>
+
+</body>
+</html>
