@@ -1,94 +1,142 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import Features from '~/components/widgets/Features.astro';
 import LeadForm from '~/components/LeadForm.astro';
 
 const metadata = {
-  title: 'Góp Vốn Mở Cơ Sở Grow Fitness — Chia Doanh Thu Rõ Ràng',
+  title: 'Đồng Hành Cùng Grow — Câu Chuyện Làm Chủ & Cách Chúng Tôi Vận Hành',
   description:
-    'Mỗi suất góp vốn 200 triệu cho một cơ sở cụ thể. Nhà đầu tư nhận phần chia doanh thu và có điều khoản mua lại rõ ràng.',
+    'Grow Fitness vận hành như một doanh nghiệp có kỷ luật: sổ sách chốt mỗi tuần, hệ thống thay ý chí, không hứa hẹn con số. Đọc cách chúng tôi nghĩ trước khi quyết định đồng hành.',
 };
+
+const principles = [
+  {
+    num: '01',
+    title: 'Sổ sách chốt mỗi tuần',
+    detail:
+      'Tối Chủ nhật hàng tuần, những con số thật được đặt lên bàn: chi bao nhiêu, thu bao nhiêu, khách đến vì đâu. Không có tuần nào được phép trôi qua trong cảm giác "chắc là ổn".',
+  },
+  {
+    num: '02',
+    title: 'Hệ thống thay ý chí',
+    detail:
+      'Chúng tôi không tin vào cảm hứng — của khách tập lẫn của chính mình. Lịch nhắc tự động, quy trình cho từng vị trí, trợ lý AI làm phần việc lặp lại. Con người chỉ giữ phần con người làm tốt nhất.',
+  },
+  {
+    num: '03',
+    title: 'Người xây không tự chấm điểm mình',
+    detail:
+      'Mọi thứ quan trọng ở Grow đều được một bên độc lập kiểm lại trước khi tính là xong. Chúng tôi áp dụng luật này cho cả phần mềm, sổ sách lẫn chất lượng buổi tập.',
+  },
+  {
+    num: '04',
+    title: 'Không hứa con số với bất kỳ ai',
+    detail:
+      'Bạn sẽ không thấy một lời cam kết lợi nhuận nào trên website này. Mọi con số chỉ được nói trong buổi gặp trực tiếp — kèm giấy tờ, và kèm cả phần rủi ro.',
+  },
+  {
+    num: '05',
+    title: 'Dữ liệu thật mới được lên bàn',
+    detail:
+      'Quyết định ở Grow dựa trên số đo được, không dựa trên "cảm giác dạo này đông khách". Cái gì chưa đo được thì chưa được dùng để quyết định.',
+  },
+];
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero ************************** -->
+  <!-- Khối 1 — Lá thư Founder ******** -->
 
-  <Hero
-    actions={[
+  <section class="px-4 pt-16 pb-8 sm:px-6 mx-auto max-w-3xl">
+    <p class="text-sm font-semibold uppercase tracking-widest text-primary mb-6 text-center">Thư ngỏ từ Founder</p>
+    <h1 class="font-heading text-3xl md:text-5xl font-bold tracking-tight text-white text-center leading-tight mb-12">
+      Chúng tôi không mời gọi vốn.<br />Chúng tôi mở sổ cho bạn xem cách mình làm.
+    </h1>
+
+    <div class="space-y-6 text-lg leading-relaxed text-default">
+      <p>
+        Năm 2022, Grow bắt đầu trong một căn phòng nhỏ ở chung cư. Vợ tôi đứng lớp, tôi lo mọi thứ còn lại. Chúng tôi
+        làm bằng sức người — và nhanh chóng hiểu ra giới hạn của sức người: mình chỉ khoẻ được đến thế, nhớ được đến
+        thế, chiều khách được đến thế.
+      </p>
+      <p>
+        Từ đó đến nay, câu hỏi chúng tôi theo đuổi không phải là <em>"làm sao đông khách hơn"</em> mà là
+        <em>"làm sao để việc đúng vẫn diễn ra kể cả khi mình mệt, mình quên, mình vắng mặt"</em>. Câu trả lời là những
+        thứ ít ai đưa lên trang quảng cáo: quy trình, sổ sách, kỷ luật hàng tuần, và một trợ lý AI làm những việc lặp
+        lại thay con người.
+      </p>
+      <p>
+        Chúng tôi coi Grow như một cái cây. Khách tập, đội ngũ hay người đồng hành vốn — tất cả đều đang hưởng quả từ
+        cùng một cây. Việc của chúng tôi là chăm cái cây: gốc rễ là kỷ luật vận hành, thân là hệ thống, cành lá là đội
+        ngũ. <strong class="text-white">Quả ngọt hay héo phụ thuộc vào cái cây — không phụ thuộc vào lời hứa.</strong>
+      </p>
+      <p>
+        Vì vậy trang này không có bảng giá, không có lời chào mời. Nếu cách nghĩ này khiến bạn muốn tìm hiểu sâu hơn —
+        về bộ máy, về những con số thật — chúng tôi sẵn lòng ngồi xuống kể, bằng giấy tờ, trong một buổi cà phê.
+      </p>
+      <p class="pt-4 text-right">
+        <span class="font-heading text-xl text-white">Phạm Giang</span><br />
+        <span class="text-muted text-base">Founder, Grow Fitness — Ocean Park 1, Hà Nội</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Khối 2 — 5 nguyên tắc vận hành ** -->
+
+  <section class="px-4 py-16 sm:px-6 mx-auto max-w-4xl border-t border-line">
+    <div class="mb-12 text-center">
+      <p class="text-sm font-semibold uppercase tracking-widest text-primary mb-2">Cách chúng tôi vận hành</p>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold tracking-tight text-white">
+        5 Nguyên Tắc Không Thoả Hiệp
+      </h2>
+    </div>
+    <div class="space-y-8">
       {
-        variant: 'primary',
-        text: 'Nhận Hồ Sơ Đầu Tư',
-        href: '#form-spv',
-        icon: 'tabler:file-analytics',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=2070&q=80',
-      alt: 'Cơ hội góp vốn mở cơ sở Grow Fitness',
-    }}
-  >
-    <Fragment slot="title">
-      Góp Vốn Mở <span class="text-accent">Cơ Sở Grow Fitness</span> — Tiền Đi Đúng Nơi, Doanh Thu Chia Rõ
-    </Fragment>
+        principles.map((p) => (
+          <div class="flex gap-6 items-start">
+            <span class="font-heading text-3xl font-bold text-primary/60 shrink-0 w-12">{p.num}</span>
+            <div>
+              <h3 class="font-heading text-xl text-white mb-2">{p.title}</h3>
+              <p class="text-muted leading-relaxed">{p.detail}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
 
-    <Fragment slot="subtitle">
-      Mỗi suất 200 triệu gắn với một cơ sở cụ thể. Bạn biết tiền dùng vào đâu,
-      <span class="font-semibold text-white">nhận bao nhiêu và khi nào có thể rút.</span>
-    </Fragment>
-  </Hero>
+  <!-- Khối 3 — Thư viện Thư Tháng ***** -->
 
-  <!-- 3 module hạ tầng ************** -->
+  <section class="px-4 py-16 sm:px-6 mx-auto max-w-3xl border-t border-line text-center">
+    <p class="text-sm font-semibold uppercase tracking-widest text-primary mb-2">Thư Làm Chủ</p>
+    <h2 class="font-heading text-3xl font-bold tracking-tight text-white mb-4">
+      Chúng Tôi Viết Cả Khi Không Cần Gì Ở Ai
+    </h2>
+    <p class="text-muted max-w-xl mx-auto mb-8 leading-relaxed">
+      Mỗi tháng một lá thư: một bài học vận hành thật, một con số kỷ luật, một sai lầm đã trả học phí. Không kêu gọi
+      điều gì — chỉ ghi lại cách chúng tôi nghĩ.
+    </p>
+    <a href="/category/thu-lam-chu" class="btn-secondary inline-flex">📜 Đọc các lá thư</a>
+  </section>
 
-  <Features
-    tagline="Cách dòng tiền vận hành"
-    title="3 Điều Nhà Đầu Tư Cần Biết"
-    subtitle="Hiểu rõ tiền đi đâu, lợi nhuận đến từ đâu và cách rút vốn."
-    columns={3}
-    items={[
-      {
-        title: '🏢 Góp vốn theo từng cơ sở',
-        description:
-          'Mỗi suất 200 triệu chỉ dùng cho một cơ sở. Nhà đầu tư nhận phần chia trực tiếp từ doanh thu của cơ sở đó.',
-        icon: 'tabler:building-bank',
-      },
-      {
-        title: '🔄 Có điều khoản mua lại',
-        description: 'Hồ sơ ghi rõ khi nào Grow được mua lại phần góp vốn và cách tính số tiền.',
-        icon: 'tabler:refresh',
-      },
-      {
-        title: '📈 Nhiều nguồn doanh thu',
-        description: 'Phòng tập, tư vấn dinh dưỡng và nội dung trực tuyến cùng tạo doanh thu để cơ sở bền hơn.',
-        icon: 'tabler:chart-arrows-vertical',
-      },
-    ]}
-  />
-
-  <!-- Form SPV ******************* -->
+  <!-- Khối 4 — CTA cà phê ************ -->
 
   <section id="form-spv" class="px-4 py-16 sm:px-6 mx-auto max-w-3xl border-t border-line">
     <div class="mb-10 text-center">
-      <p class="text-base font-semibold uppercase tracking-wide text-primary mb-2">Hồ sơ tài chính minh bạch</p>
-      <h2 class="font-heading text-3xl font-bold tracking-tight text-white mb-2">Đăng Ký Nhận Hồ Sơ Đầu Tư</h2>
-      <p class="text-gray-400 text-sm">Điền thông tin để nhận số liệu tài chính và lịch trao đổi trực tiếp.</p>
+      <p class="text-sm font-semibold uppercase tracking-widest text-primary mb-2">Nếu bạn muốn nghe kỹ hơn</p>
+      <h2 class="font-heading text-3xl font-bold tracking-tight text-white mb-2">Một Buổi Cà Phê Với Founder</h2>
+      <p class="text-muted text-sm max-w-md mx-auto">
+        Để lại tên và số điện thoại. Chúng tôi sẽ hẹn lịch, mang theo sổ sách thật — và bạn cứ hỏi thẳng.
+      </p>
     </div>
 
     <LeadForm
       id="form-invest-spv"
       formType="invest-spv"
-      button="Nhận Hồ Sơ Đầu Tư"
+      button="Hẹn Một Buổi Cà Phê"
       fields={[
         { name: 'ho_ten', label: 'Họ và Tên', placeholder: 'VD: Lê Hoàng Nam' },
         { name: 'so_dien_thoai', label: 'Số Điện Thoại (Zalo)', type: 'tel', placeholder: 'VD: 0903 111 222' },
-        {
-          name: 'so_suat',
-          label: 'Số suất bạn quan tâm',
-          type: 'select',
-          options: ['1 suất (200 triệu)', '2-3 suất (400 - 600 triệu)', 'Trên 3 suất (Đầu tư cả cơ sở)'],
-        },
       ]}
-      disclaimer="Bằng việc gửi yêu cầu, bạn đồng ý nhận hồ sơ thẩm định tài chính bảo mật từ Grow."
+      disclaimer="Bằng việc gửi thông tin, bạn đồng ý để Grow Fitness liên hệ hẹn lịch trao đổi trực tiếp."
     />
   </section>
 </Layout>

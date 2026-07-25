@@ -1,7 +1,7 @@
 ---
 publishDate: 2026-07-24T17:55:00Z
 title: "Đau vai gáy & Thường xuyên mệt mỏi? Đừng cố tập tạ nặng, hãy học cách 'thả lỏng'!"
-excerpt: "Cơ thể bạn giống như một chiếc dây thun bị kéo căng. Khi bị đau vai gáy và hết pin, lao vào tập tạ nặng chỉ làm cơ thể mệt mỏi hơn."
+excerpt: 'Cơ thể bạn giống như một chiếc dây thun bị kéo căng. Khi bị đau vai gáy và hết pin, lao vào tập tạ nặng chỉ làm cơ thể mệt mỏi hơn.'
 image: https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=2070&q=80
 category: Sức khỏe & Phục hồi
 tags:

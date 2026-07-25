@@ -1,7 +1,7 @@
 ---
 publishDate: 2026-07-24T23:46:00Z
 title: "Chuyện Về Người 'Bạn Đồng Hành' — Nơi Mỗi Chiều Đến Phòng Tập Đều Ấm Áp Như Về Nhà"
-excerpt: "Không chiêu trò, không ép mua thẻ đắt đỏ. Chuyện nghề của những cô gái tư vấn tại Grow Fitness: Nhẹ nhàng lắng nghe, chụp ảnh calo giùm hội viên và cùng nhau khỏe đẹp mỗi ngày."
+excerpt: 'Không chiêu trò, không ép mua thẻ đắt đỏ. Chuyện nghề của những cô gái tư vấn tại Grow Fitness: Nhẹ nhàng lắng nghe, chụp ảnh calo giùm hội viên và cùng nhau khỏe đẹp mỗi ngày.'
 image: https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=2070&q=80
 category: Tâm sự & Tuyển dụng
 tags:
@@ -15,7 +15,7 @@ metadata:
   canonical: https://luongdieulien.com/chuyen-co-gai-dong-hanh-cung-chi-em-phong-tap-grow
 ---
 
-Chiều thứ Ba tuần trước, có một chị hội viên mới tên Hà lần đầu bước chân vào phòng tập **Grow Fitness tại S109 Ocean Park 1**. 
+Chiều thứ Ba tuần trước, có một chị hội viên mới tên Hà lần đầu bước chân vào phòng tập **Grow Fitness tại S109 Ocean Park 1**.
 
 Chị đứng ngập ngừng ngoài cửa, tay cứ vén đi vén lại chiếc gấu áo. Hỏi ra mới biết, chị làm nghề chốt đơn online, ngồi máy tính cả ngày nên cổ vai gáy nhức mỏi dai dẳng, bụng dưới tích mỡ. Chị bảo: _"Chị ngại đi tập lắm, sợ vào phòng tập đông đúc người ta nhìn mỡ bụng của mình, rồi sợ người ta gạ mua gói tập mấy chục triệu..."_
 

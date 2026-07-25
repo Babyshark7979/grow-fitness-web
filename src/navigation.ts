@@ -15,7 +15,7 @@ export const headerData = {
       href: getPermalink('/careers'),
     },
     {
-      text: 'Cơ hội đầu tư',
+      text: 'Đồng hành cùng Grow',
       href: getPermalink('/invest'),
     },
     {
@@ -44,7 +44,7 @@ export const footerData = {
       title: 'Cùng Grow phát triển',
       links: [
         { text: 'Tuyển quản lý phòng tập', href: getPermalink('/careers') },
-        { text: 'Góp vốn mở cơ sở', href: getPermalink('/invest') },
+        { text: 'Đồng hành cùng Grow', href: getPermalink('/invest') },
         { text: 'Liên hệ', href: getPermalink('/contact') },
       ],
     },
