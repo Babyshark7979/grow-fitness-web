@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>Bánh Đà Lưu Luồng Flagship Villa — Grow Fitness 2026</title>
+  <script>
+    !function(){
+      if("678999"!==sessionStorage.getItem("gf_auth")){
+        if("678999"!==prompt("🔒 MẬT KHẨU TÀI LIỆU CHIẾN LƯỢC GROW FITNESS\nNhập mật khẩu để truy cập:")){
+          return void(document.documentElement.innerHTML='<body style="background:#0a0a0c;color:#fff;font-family:system-ui,-apple-system,sans-serif;display:flex;height:100vh;align-items:center;justify-content:center;text-align:center"><div><div style="font-size:56px;margin-bottom:16px">🔒</div><div style="font-size:20px;font-weight:700;color:#ef4444">Truy cập bị từ chối</div><div style="margin-top:8px;font-size:14px;color:#888">Mật khẩu không chính xác. Vui lòng tải lại trang để thử lại.</div></div></body>');
+        }
+        sessionStorage.setItem("gf_auth","678999");
+      }
+    }();
+  </script>
+  <style>
+    :root {
+      --bg: #070709;
+      --card-bg: #111116;
+      --border: #1f1f28;
+      --primary: #f59e0b;
+      --accent: #e94560;
+      --purple: #8b5cf6;
+      --green: #10b981;
+      --cyan: #06b6d4;
+      --text: #f3f4f6;
+      --text-muted: #9ca3af;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+    body { background: var(--bg); color: var(--text); line-height: 1.6; padding-bottom: 60px; }
+    
+    .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+    
+    /* Header */
+    header {
+      background: linear-gradient(180deg, rgba(245,158,11,0.12) 0%, rgba(7,7,9,0) 100%);
+      padding: 48px 0 32px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .badge {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(245,158,11,0.15);
+      border: 1px solid rgba(245,158,11,0.3);
+      color: var(--primary);
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    h1 { font-size: 28px; font-weight: 900; color: #fff; line-height: 1.3; margin-bottom: 10px; }
+    .subtitle { font-size: 15px; color: var(--text-muted); max-width: 650px; margin: 0 auto; }
+    
+    /* Key Stats Grid */
+    .stats-section { padding: 32px 0; border-bottom: 1px solid var(--border); }
+    .section-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--primary); font-weight: 800; margin-bottom: 8px; }
+    .section-title { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 20px; }
+    
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .stat-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+    .stat-val { font-size: 28px; font-weight: 900; display: block; margin-bottom: 4px; }
+    .stat-lbl { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+
+    .val-yellow { color: var(--primary); }
+    .val-green { color: var(--green); }
+    .val-purple { color: var(--purple); }
+    .val-red { color: var(--accent); }
+    
+    /* Flywheel Section */
+    .flywheel-section { padding: 40px 0; border-bottom: 1px solid var(--border); }
+    
+    .flow-container { display: flex; flex-direction: column; gap: 20px; margin-top: 24px; position: relative; }
+    
+    .node-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .node-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+    .node-step { font-size: 11px; font-weight: 800; letter-spacing: 1.5px; padding: 4px 12px; border-radius: 30px; text-transform: uppercase; }
+    .step-1 { background: rgba(6,182,212,0.15); color: var(--cyan); border: 1px solid rgba(6,182,212,0.3); }
+    .step-2 { background: rgba(139,92,246,0.15); color: var(--purple); border: 1px solid rgba(139,92,246,0.3); }
+    .step-3 { background: rgba(245,158,11,0.15); color: var(--primary); border: 1px solid rgba(245,158,11,0.3); }
+    .step-4 { background: rgba(16,185,129,0.15); color: var(--green); border: 1px solid rgba(16,185,129,0.3); }
+    
+    .node-title { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+    .node-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 14px; line-height: 1.5; }
+    
+    .bullet-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .bullet-list li { font-size: 13px; color: var(--text); display: flex; align-items: flex-start; gap: 8px; }
+    .bullet-list li::before { content: "⚡"; flex-shrink: 0; font-size: 12px; }
+    
+    .connector {
+      text-align: center;
+      padding: 8px 0;
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .connector-line { height: 24px; width: 2px; background: linear-gradient(180deg, var(--primary) 0%, transparent 100%); margin: 0 auto; }
+    
+    /* Cascading Logic Table */
+    .logic-section { padding: 40px 0; border-bottom: 1px solid var(--border); }
+    .logic-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    @media(min-width: 768px) { .logic-grid { grid-template-columns: 1fr 1fr; } }
+    
+    .logic-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+    }
+    .logic-card h3 { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    .logic-card p { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+    
+    /* Audit Box */
+    .audit-section { padding: 40px 0; }
+    .audit-card {
+      background: linear-gradient(135deg, #130e20 0%, #1c1535 100%);
+      border: 1px solid rgba(139,92,246,0.4);
+      border-radius: 20px;
+      padding: 28px;
+    }
+    .audit-title { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+    .audit-text { font-size: 14px; color: #c4b5fd; margin-bottom: 16px; }
+    
+    .audit-checklist { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .audit-checklist li {
+      background: rgba(139,92,246,0.1);
+      border-left: 3px solid var(--purple);
+      padding: 10px 14px;
+      border-radius: 0 8px 8px 0;
+      font-size: 13px;
+      color: #e9d5ff;
+    }
+
+    footer { text-align: center; padding: 24px; font-size: 12px; color: #4b5563; border-top: 1px solid var(--border); }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <span class="badge">GROW FITNESS · FLAGSHIP VILLA 2026</span>
+      <h1>BÁNH ĐÀ LƯU LUỒNG 4 NẤC<br/>CHIẾN DỊCH TÁI ĐỊNH VỊ & NHÂN BẢN</h1>
+      <p class="subtitle">Kế hoạch truyền thông đa phễu tự kích đà đòn bẩy · Không loãng thông điệp · Khống chế chi phí cố định tối đa ~20tr/tháng</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Key Financial Parameters -->
+    <section class="stats-section">
+      <div class="section-label">Thông Số Cốt Lõi Khống Chế</div>
+      <div class="section-title">2 Cột Mốc Tài Chính Nền Tảng</div>
+      
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-val val-green">~20 Tr/th</span>
+          <span class="stat-lbl">Mặt Bằng Thuê Villa (Giới hạn tối đa, bằng/thấp hơn vị trí cũ)</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-val val-purple">200–300 Tr</span>
+          <span class="stat-lbl">Tổng Chi Phí Capex Setup Villa 5★ (Huy động Cổ đông SPV)</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-val val-yellow">75% / 25%</span>
+          <span class="stat-lbl">Cơ Chế Thuê Ghế Salon Tóc (75% HLV PT · 25% Sàn Grow)</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-val val-red">55 Tr/th</span>
+          <span class="stat-lbl">Chi Phí Sinh Tồn Cố Định (Chủ tự gánh bươn trải)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Flywheel Architecture -->
+    <section class="flywheel-section">
+      <div class="section-label">Cơ Chế Tự Sinh Trưởng</div>
+      <div class="section-title">Sơ Đồ Lưu Luồng Kích Đà 4 Nấc</div>
+
+      <div class="flow-container">
+        
+        <!-- Step 1 -->
+        <div class="node-card" style="border-left: 4px solid var(--cyan);">
+          <div class="node-header">
+            <span class="node-step step-1">Nấc 1 · Phễu Tìm Mặt Bằng</span>
+            <span style="font-size:12px; color:var(--cyan); font-weight:700;">Đòn bẩy Vị Thế VIP</span>
+          </div>
+          <div class="node-title">🏡 Biệt Thự / Liền Kề 5★ (Thuê ~20tr/tháng)</div>
+          <div class="node-desc">Chạy truyền thông tìm kiếm Villa/Liền kề giá 20tr có sân vườn, không gian sang trọng và chỗ đỗ Ô TÔ cho khách VIP.</div>
+          <ul class="bullet-list">
+            <li>Tạo vị thế cao cấp vượt trội so với các phòng gym chung cư/ngõ hẹp.</li>
+            <li>Làm ngòi nổ kích đà thu hút HLV PT tài năng đang tìm nơi dạy khách giá cao.</li>
+          </ul>
+        </div>
+
+        <div class="connector">
+          <span>↓ (Đòn bẩy Vị thế 5★ & Chỗ đỗ Ô tô kích đà Tuyển dụng) ↓</span>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="node-card" style="border-left: 4px solid var(--purple);">
+          <div class="node-header">
+            <span class="node-step step-2">Nấc 2 · Phễu Tuyển HLV & Sales</span>
+            <span style="font-size:12px; color:var(--purple); font-weight:700;">Mô Hình Ghế Salon Tóc</span>
+          </div>
+          <div class="node-title">✂️ Chiêu Mộ HLV PT Freelancer (Hưởng 75% · Cọc 5-10M)</div>
+          <div class="node-desc">Tuyển HLV PT dựa trên lợi thế Villa 5★. HLV không bị bóc lột 50/50, được giữ 75% doanh thu dạy và tự tin thu gói VIP 1-2tr/buổi.</div>
+          <ul class="bullet-list">
+            <li>HLV nộp Cọc 5–10tr bảo vệ thiết bị (Tạo dòng tiền tươi ngay lập tức).</li>
+            <li>HLV tự dắt khách về dạy ➔ Sàn tập luôn nhộn nhịp, Grow thu 25% nền tảng mà <strong>0đ Lương cứng</strong>.</li>
+          </ul>
+        </div>
+
+        <div class="connector">
+          <span>↓ (Đòn bẩy Sàn Đông + Stream 25% + 0đ Lương cứng kích đà Gọi vốn) ↓</span>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="node-card" style="border-left: 4px solid var(--primary);">
+          <div class="node-header">
+            <span class="node-step step-3">Nấc 3 · Phễu Gọi Cổ Đông SPV</span>
+            <span style="font-size:12px; color:var(--primary); font-weight:700;">Huy Động Capex 200M/Suất</span>
+          </div>
+          <div class="node-title">🏛️ Gọi Cổ Đông SPV 200M (Rót Vốn Setup Villa 200-300M)</div>
+          <div class="node-desc">Đưa Nhà đầu tư tham quan sàn tập nhộn nhịp, chứng minh dòng tiền 25% minh bạch qua App Bé Dứa và cơ chế 0đ chi phí lương cứng.</div>
+          <ul class="bullet-list">
+            <li>NĐT xuống tiền 200M/suất để làm nguồn vốn Capex 200-300M hoàn thiện hạ tầng.</li>
+            <li>Chia sẻ lợi nhuận: 70% NĐT / 30% Đội vận hành cho đến khi hoàn vốn 100%.</li>
+          </ul>
+        </div>
+
+        <div class="connector">
+          <span>↓ (Đòn bẩy Hạ tầng 300M + Công nghệ Bé Dứa hoàn thiện hệ thống) ↓</span>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="node-card" style="border-left: 4px solid var(--green);">
+          <div class="node-header">
+            <span class="node-step step-4">Nấc 4 · Bánh Đà Vận Hành & Nhân Bản</span>
+            <span style="font-size:12px; color:var(--green); font-weight:700;">Khóa Dữ Liệu & Thâu Mua</span>
+          </div>
+          <div class="node-title">👑 App Bé Dứa Giữ Chân Khách & Mua Đứt Cổ Phần</div>
+          <div class="node-desc">Hạ tầng 300M giúp HLV chốt khách dễ hơn; App Bé Dứa khóa chặt lịch sử ăn tập hội viên (HLV nghỉ không mang khách đi được).</div>
+          <ul class="bullet-list">
+            <li>Tích lũy lợi nhuận ròng ➔ Grow dội tiền về <strong>Mua đứt 100% cổ phần</strong> của NĐT ở Năm 3-5.</li>
+            <li>Vòng xoay hoàn tất và tiếp tục đẻ ra cơ sở Flagship tiếp theo.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Cascading Logic Table -->
+    <section class="logic-section">
+      <div class="section-label">Giải Trình Logic</div>
+      <div class="section-title">Tại Sao Lưu Luồng Này Chắc Chắn Thắng?</div>
+
+      <div class="logic-grid">
+        <div class="logic-card">
+          <h3>🎯 Giải quyết triệt để bài toán Vốn</h3>
+          <p>Mặt bằng mới thuê 20tr/tháng giữ nguyên chi phí cố định an toàn. Tiền Capex 200-300M không lấy từ tiền túi của Giang & Diệu Liên mà được đòn bẩy 100% từ tiền Cọc HLV (Nhóm 1) và Vốn Cổ Đông SPV (Nhóm 4).</p>
+        </div>
+        <div class="logic-card">
+          <h3>🛡️ Lưới lọc Kỷ Luật & Khóa Dữ Liệu</h3>
+          <p>Mọi HLV đều phải cọc 5-10M trước khi lên sàn. Toàn bộ lịch sử hội viên nằm trong App Bé Dứa, HLV nghỉ việc không thể cuỗm khách đi, triệt hạ nguy cơ chảy máu tài sản.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Audit Specification for Agent Tieu Linh -->
+    <section class="audit-section">
+      <div class="audit-card">
+        <div class="audit-title">
+          <span>🤖 BÀN GIAO AGENT TIỂU LINH AUDIT (YÊU CẦU CỦA SẾP GIANG)</span>
+        </div>
+        <div class="audit-text">File này được khởi tạo để Tiểu Linh tự động rà soát và kiểm tra chất lượng (Audit Protocol) theo đúng chỉ thị của sếp Giang:</div>
+        
+        <ul class="audit-checklist">
+          <li><strong>Checklist 1:</strong> Xác nhận thông số tiền thuê mặt bằng khống chế dưới 20 triệu/tháng.</li>
+          <li><strong>Checklist 2:</strong> Kiểm tra tính nhất quán giữa sơ đồ Bánh đà 4 Nấc trên web và note Vault <code>business-concept-banh-da-luu-luong-flagship-grow-fitness.md</code>.</li>
+          <li><strong>Checklist 3:</strong> Audit mã nguồn HTML/JS bảo mật mật khẩu (678999) trên domain <code>luongdieulien.com</code>.</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>GROW FITNESS · BÁNH ĐÀ LƯU LUỒNG FLAGSHIP VILLA 2026 · TÀI LIỆU QUẢN TRỊ NỘI BỘ</p>
+    </div>
+  </footer>
+
+</body>
+</html>
