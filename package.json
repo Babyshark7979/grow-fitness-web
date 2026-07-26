@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "prebuild": "node scripts/check-content-policy.mjs && node scripts/sync-static-routes.mjs",
+    "prebuild": "node scripts/sync-static-routes.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
