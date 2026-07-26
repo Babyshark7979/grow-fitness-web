@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta content="width=device-width,initial-scale=1" name="viewport"/>
-  <title>Tháp Giá Trị 7 Level & Hệ Sinh Thái Grow Fitness 2026</title>
+  <title>Tháp Giá Trị 7 Tầng & Hệ Sinh Thái Grow Fitness 2026</title>
   <script>
     !function(){
       if("678999"!==sessionStorage.getItem("gf_auth")){
@@ -33,9 +33,9 @@
     body { background: var(--bg); color: var(--text); line-height: 1.6; padding-bottom: 80px; }
     .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
     
-    /* Hero */
+    /* Header */
     header {
-      background: radial-gradient(circle at top, rgba(245,158,11,0.15) 0%, rgba(7,7,10,0) 70%);
+      background: radial-gradient(circle at top, rgba(245,158,11,0.18) 0%, rgba(7,7,10,0) 70%);
       padding: 56px 0 36px;
       text-align: center;
       border-bottom: 1px solid var(--border);
@@ -53,41 +53,65 @@
       text-transform: uppercase;
       margin-bottom: 16px;
     }
-    h1 { font-size: 32px; font-weight: 900; color: #fff; line-height: 1.25; margin-bottom: 12px; }
-    .subtitle { font-size: 15px; color: var(--text-muted); max-width: 720px; margin: 0 auto; }
+    h1 { font-size: 32px; font-weight: 900; color: #fff; line-height: 1.25; margin-bottom: 14px; }
+    .subtitle { font-size: 16px; color: #d1d5db; max-width: 760px; margin: 0 auto; line-height: 1.6; }
     
     /* Section */
     .sec { padding: 40px 0; border-bottom: 1px solid var(--border); }
     .sec-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 800; margin-bottom: 8px; }
     .sec-title { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 24px; }
     
-    /* Pyramid Stack */
-    .pyramid-container { display: flex; flex-direction: column; gap: 10px; margin: 24px 0; }
-    .pyr-card {
-      border-radius: 16px;
-      padding: 20px 24px;
+    /* VISUAL PYRAMID STACK (KIM TỰ THÁP TRỰC QUAN THỰC SỰ) */
+    .pyramid-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin: 32px 0;
+    }
+    
+    .pyr-step {
+      border-radius: 14px;
+      padding: 18px 22px;
       position: relative;
       transition: transform 0.2s, box-shadow 0.2s;
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-sizing: border-box;
+      text-align: center;
     }
-    .pyr-card:hover { transform: scale(1.01); }
+    .pyr-step:hover { transform: scale(1.02); z-index: 10; }
     
-    .l7 { background: linear-gradient(135deg, #2b1803, #452405); border-color: var(--gold); box-shadow: 0 0 20px rgba(245,158,11,0.2); }
-    .l6 { background: linear-gradient(135deg, #1c0d2b, #33164d); border-color: var(--purple); }
-    .l5 { background: linear-gradient(135deg, #09202a, #0f3747); border-color: var(--cyan); }
-    .divider-tag { text-align: center; font-size: 12px; font-weight: 800; letter-spacing: 3px; color: #ef4444; padding: 12px 0; background: rgba(239,68,68,0.1); border: 1px dashed #ef4444; border-radius: 10px; margin: 10px 0; }
-    .l4 { background: linear-gradient(135deg, #09261a, #0e3d2b); border-color: var(--green); }
-    .l3 { background: linear-gradient(135deg, #111a2e, #1a2845); border-color: var(--blue); }
-    .l2 { background: linear-gradient(135deg, #2a0b12, #42111d); border-color: var(--red); }
-    .l1 { background: linear-gradient(135deg, #18181f, #22222d); border-color: #4b5563; }
+    /* Width proportions to form a true visual pyramid */
+    .w-l7 { width: 48%; background: linear-gradient(135deg, #3d2203, #613407); border-color: var(--gold); box-shadow: 0 0 25px rgba(245,158,11,0.3); }
+    .w-l6 { width: 56%; background: linear-gradient(135deg, #241138, #3d1b5e); border-color: var(--purple); }
+    .w-l5 { width: 64%; background: linear-gradient(135deg, #0b2b38, #13495e); border-color: var(--cyan); }
     
-    .pyr-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-    .pyr-level { font-size: 11px; font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; background: rgba(255,255,255,0.15); color: #fff; }
-    .pyr-price { font-size: 16px; font-weight: 900; color: #fff; }
-    .pyr-title { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 6px; }
-    .pyr-desc { font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.5; }
-    .pyr-metrics { display: flex; gap: 16px; margin-top: 10px; font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.9); }
-    .pyr-metrics span { background: rgba(0,0,0,0.3); padding: 4px 10px; border-radius: 6px; }
+    .divider-tag {
+      width: 72%;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      color: #f87171;
+      padding: 10px 0;
+      background: rgba(239,68,68,0.12);
+      border: 1px dashed #ef4444;
+      border-radius: 10px;
+      margin: 6px 0;
+    }
+    
+    .w-l4 { width: 72%; background: linear-gradient(135deg, #0b3323, #13523a); border-color: var(--green); }
+    .w-l3 { width: 81%; background: linear-gradient(135deg, #15223d, #20355c); border-color: var(--blue); }
+    .w-l2 { width: 90%; background: linear-gradient(135deg, #360e17, #571625); border-color: var(--red); }
+    .w-l1 { width: 100%; background: linear-gradient(135deg, #1c1c24, #2a2a38); border-color: #6b7280; }
+    
+    .pyr-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+    .pyr-badge { font-size: 11px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; background: rgba(0,0,0,0.35); color: #fff; }
+    .pyr-price { font-size: 14px; font-weight: 900; color: #fff; }
+    .pyr-h3 { font-size: 17px; font-weight: 800; color: #fff; margin-bottom: 4px; }
+    .pyr-p { font-size: 13px; color: rgba(255,255,255,0.85); line-height: 1.4; }
+    .pyr-tags { display: flex; justify-content: center; gap: 12px; margin-top: 8px; font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.9); }
+    .pyr-tags span { background: rgba(0,0,0,0.4); padding: 3px 8px; border-radius: 6px; }
 
     /* Grid Details */
     .grid2 { display: grid; grid-template-columns: 1fr; gap: 16px; }
@@ -97,10 +121,10 @@
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 20px;
+      padding: 22px;
     }
     .card-detail h3 { font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
-    .card-detail p { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+    .card-detail p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
 
     /* Audit Section */
     .audit-box {
@@ -120,9 +144,9 @@
 
   <header>
     <div class="container">
-      <span class="badge">GROW FITNESS · TÀI LIỆU QUẢN TRỊ NỘI BỘ</span>
-      <h1>THÁP GIÁ TRỊ 7 LEVEL<br/>& HỆ SINH THÁI CHUYỂN ĐỔI B2C-TO-B2B</h1>
-      <p class="subtitle">Bức tranh tổng thể tái định vị phòng tập Villa làm Flagship Lab · Tối đa hóa giá trị trọn đời (LTV) & Xây đế chế tài chính công nghệ thụ động</p>
+      <span class="badge">GROW FITNESS · BẢN QUYỀN VẬN HÀNH 2026</span>
+      <h1>THÁP GIÁ TRỊ 7 TẦNG<br/>& HỆ SINH THÁI CHUYỂN ĐỔI BẠN ĐỒNG HÀNH</h1>
+      <p class="subtitle">Tái định vị phòng tập Villa 5★ làm Phòng Thực Nghiệm Mẫu · Tối ưu hóa giá trị đồng hành trọn đời cùng hội viên nữ & Đội ngũ hợp tác</p>
     </div>
   </header>
 
@@ -131,123 +155,123 @@
     <!-- Overview Stats -->
     <section class="sec">
       <div class="sec-label">Tổng Quan Mô Hình</div>
-      <div class="sec-title">3 Điểm Tựa Đột Phá Cho Chị Diệu Liên</div>
+      <div class="sec-title">3 Điểm Tựa Đột Phá Đồng Hành Cùng Chị Diệu Liên</div>
       <div class="grid2">
         <div class="card-detail" style="border-left: 4px solid var(--gold);">
-          <h3>🏛️ Phòng tập Villa là Flagship Showroom</h3>
-          <p>Phòng tập vật lý không phải để nhặt tiền lẻ mỗi tháng. Nó là xưởng sản xuất Video, làm truyền thông uy tín để bán Khóa đào tạo (L5), Nhượng quyền (L6) và Công nghệ AI (L7).</p>
+          <h3>🏛️ Phòng Tập Villa Là Cơ Sở Mẫu Trải Nghiệm</h3>
+          <p>Phòng tập vật lý không phải để thu tiền lẻ mỗi tháng. Nơi đây đóng vai trò là không gian thực tế để quay video hướng dẫn, xây dựng uy tín và làm hình mẫu bán Khóa Đào Tạo HLV (Tầng 5), Nhượng Quyền Cơ Sở (Tầng 6) và Trợ Lý AI (Tầng 7).</p>
         </div>
         <div class="card-detail" style="border-left: 4px solid var(--green);">
-          <h3>🛡️ Triệt hạ 100% Nợ Thẻ Khách Cũ</h3>
-          <p>Dùng Level 1 (Group X) & Level 2 (Gym Nhóm MCT 30 phút) để chuyển đổi 30-40 khách cũ của chị Liên vào tập 0đ chi phí phát sinh, đồng thời biến họ thành kênh truyền thông tự nhiên.</p>
+          <h3>🛡️ Giải Quyết Trọn Vẹn Quyền Lợi 30–40 Hội Viên Thân Thiết</h3>
+          <p>Dùng Tầng 1 (Lớp Nhóm Vui Vẻ) & Tầng 2 (Tập Gym Nhóm 30 Phút) để phục vụ 30–40 hội viên thân thiết của chị Liên mà không tốn thêm chi phí phát sinh, đồng thời lan tỏa tình yêu tập luyện đến bạn bè xung quanh.</p>
         </div>
       </div>
     </section>
 
-    <!-- 7 Level Stack -->
+    <!-- Visual Pyramid Stack (Đúng mô hình Kim Tự Tháp Ánh Xạ Vật Lý) -->
     <section class="sec">
-      <div class="sec-label">Chi Tiết Hành Trình Khách Hàng</div>
-      <div class="sec-title">Tháp Sản Phẩm & Doanh Thu 7 Level</div>
+      <div class="sec-label">Cấu Trúc Trực Quan</div>
+      <div class="sec-title">Mô Hình Kim Tự Tháp Tháp Giá Trị 7 Tầng</div>
 
-      <div class="pyramid-container">
+      <div class="pyramid-wrapper">
 
-        <!-- L7 -->
-        <div class="pyr-card l7">
-          <div class="pyr-header">
-            <span class="pyr-level">Level 7 · B2B Infrastructure</span>
-            <span class="pyr-price" style="color:var(--gold)">3M – 5M / cơ sở / tháng</span>
+        <!-- Level 7 (Đỉnh Tháp Vàng) -->
+        <div class="pyr-step w-l7">
+          <div class="pyr-top">
+            <span class="pyr-badge">Tầng 7 · Hạ Tầng Công Nghệ</span>
+            <span class="pyr-price" style="color:var(--gold)">3M – 5M / tháng</span>
           </div>
-          <div class="pyr-title">👑 Đế Chế Hạ Tầng Công Nghệ AI, SaaS & Marketing System</div>
-          <div class="pyr-desc">Cung cấp Trợ lý AI Bé Dứa (lưu ký dữ liệu sinh học hội viên), App Quản trị POS 75/25, Kịch bản Ads & Bếp Dinh Dưỡng nhượng quyền cho toàn bộ hệ thống.</div>
-          <div class="pyr-metrics">
+          <div class="pyr-h3">👑 Hệ Sinh Thái Hạ Tầng Công Nghệ AI & Trợ Lý Bé Dứa</div>
+          <div class="pyr-p">Cung cấp Trợ lý AI Bé Dứa (nhật ký sức khỏe sinh học), Ứng dụng Quản lý 75/25, Bộ kịch bản tư vấn & Bếp Dinh Dưỡng Grow cho toàn hệ thống.</div>
+          <div class="pyr-tags">
             <span>Biên Lợi Nhuận: >90%</span>
-            <span>Dòng Tiền: Thụ động hàng tháng</span>
+            <span>Dòng Tiền: Thụ động vĩnh viễn</span>
           </div>
         </div>
 
-        <!-- L6 -->
-        <div class="pyr-card l6">
-          <div class="pyr-header">
-            <span class="pyr-level">Level 6 · Franchise</span>
-            <span class="pyr-price" style="color:var(--purple)">100M Phí NQ + 5% Doanh Thu</span>
+        <!-- Level 6 -->
+        <div class="pyr-step w-l6">
+          <div class="pyr-top">
+            <span class="pyr-badge">Tầng 6 · Mở Rộng Cơ Sở</span>
+            <span class="pyr-price" style="color:var(--purple)">100M Phí NQ + 5% D.Thu</span>
           </div>
-          <div class="pyr-title">🏛️ Nhượng Quyền Thương Hiệu Grow Franchise Flagship Villa</div>
-          <div class="pyr-desc">Chuyển giao mô hình phòng tập Villa 5★ chìa khóa trao tay (dàn 10 máy MCT + quy trình HLV Salon Tóc 75/25). Capex 200-300M gọi từ Cổ đông SPV.</div>
-          <div class="pyr-metrics">
-            <span>Vốn Setup: 200-300M (SPV)</span>
+          <div class="pyr-h3">🏛️ Nhượng Quyền Thương Hiệu Phòng Tập Villa 5★</div>
+          <div class="pyr-p">Chuyển giao mô hình phòng tập biệt thự 5 sao chìa khóa trao tay (gồm dàn 10 máy tập nhóm + quy trình HLV Ghế Salon Tóc 75/25).</div>
+          <div class="pyr-tags">
+            <span>Vốn Setup: 200-300M (Cổ đông SPV)</span>
             <span>Quy Mô: Chuỗi đa điểm</span>
           </div>
         </div>
 
-        <!-- L5 -->
-        <div class="pyr-card l5">
-          <div class="pyr-header">
-            <span class="pyr-level">Level 5 · Academy</span>
+        <!-- Level 5 -->
+        <div class="pyr-step w-l5">
+          <div class="pyr-top">
+            <span class="pyr-badge">Tầng 5 · Đào Tạo Nghề</span>
             <span class="pyr-price" style="color:var(--cyan)">15M – 25M / học viên</span>
           </div>
-          <div class="pyr-title">🎓 Đào Tạo Nghề HLV & Quản Lý Vận Hành Phòng Tập</div>
-          <div class="pyr-desc">Khóa học 6 tuần "Chuyên Gia Vận Hành Phòng Tập & PT Salon Tóc". Đào tạo lực lượng HLV trẻ và Trưởng nhóm vận hành cho các cơ sở nhượng quyền.</div>
-          <div class="pyr-metrics">
+          <div class="pyr-h3">🎓 Học Viện Đào Tạo Nghề HLV & Quản Lý Phòng Tập</div>
+          <div class="pyr-p">Khóa đào tạo 6 tuần "Chuyên Gia Vận Hành Phòng Tập & PT Salon Tóc". Đào tạo đội ngũ HLV trẻ và Quản lý đồng hành cùng hệ thống.</div>
+          <div class="pyr-tags">
             <span>Biên Lợi Nhuận: >80%</span>
-            <span>Đòn bẩy: Dùng Villa làm Xưởng thực hành</span>
+            <span>Đòn bẩy: Dùng Villa làm Thực địa</span>
           </div>
         </div>
 
-        <div class="divider-tag">⚡ ĐIỂM CHUYỂN ĐỔI TỪ KHÁCH HÀNG B2C ➔ ĐỐI TÁC B2B ⚡</div>
+        <div class="divider-tag">⚡ ĐIỂM CHUYỂN ĐỔI: TỪ HỘI VIÊN TẬP LUYỆN ➔ ĐỐI TÁC ĐỒNG HÀNH ⚡</div>
 
-        <!-- L4 -->
-        <div class="pyr-card l4">
-          <div class="pyr-header">
-            <span class="pyr-level">Level 4 · High-Ticket Coaching</span>
+        <!-- Level 4 -->
+        <div class="pyr-step w-l4">
+          <div class="pyr-top">
+            <span class="pyr-badge">Tầng 4 · Chăm Sóc VIP</span>
             <span class="pyr-price" style="color:var(--green)">12M – 18M / 3 tháng</span>
           </div>
-          <div class="pyr-title">💎 High-Ticket Coaching 1:1 "Tái Sinh Vóc Dáng"</div>
-          <div class="pyr-desc">Gói may đo VIP 12 tuần (PT 1-1 + Bếp Dinh Dưỡng Grow + AI Coach Bé Dứa 24/7 + Cam kết hoàn tiền 50% nếu không đạt chỉ số).</div>
-          <div class="pyr-metrics">
-            <span>Biên Lợi Nhuận Ròng: 45%</span>
-            <span>Tệp: Nữ VIP</span>
+          <div class="pyr-h3">💎 Chương Trình Chăm Sóc VIP "Tái Sinh Vóc Dáng"</div>
+          <div class="pyr-p">Gói đồng hành 12 tuần may đo riêng (HLV 1-1 + Bếp Dinh Dưỡng Grow + AI Coach Bé Dứa 24/7 + Cam kết đồng hành rõ ràng).</div>
+          <div class="pyr-tags">
+            <span>Biên Lợi Nhuận: 45%</span>
+            <span>Dành cho: Chị em VIP</span>
           </div>
         </div>
 
-        <!-- L3 -->
-        <div class="pyr-card l3">
-          <div class="pyr-header">
-            <span class="pyr-level">Level 3 · PT Personal Training</span>
+        <!-- Level 3 -->
+        <div class="pyr-step w-l3">
+          <div class="pyr-top">
+            <span class="pyr-badge">Tầng 3 · HLV Cá Nhân</span>
             <span class="pyr-price" style="color:var(--blue)">3.5M – 5M / tháng</span>
           </div>
-          <div class="pyr-title">🏋️ Huấn Luyện Viên Cá Nhân PT 1-1 (Salon Tóc Model)</div>
-          <div class="pyr-desc">Dành cho khách có chấn thương cũ hoặc muốn sửa tư thế bài bản. Áp dụng cơ chế HLV Thuê ghế Salon Tóc (HLV nhận 75%, Grow thu 25% hạ tầng, cọc 5-10M, 0đ lương cứng).</div>
-          <div class="pyr-metrics">
+          <div class="pyr-h3">🏋️ Huấn Luyện Viên Cá Nhân 1-1 (Mô Hình Thuê Ghế Salon Tóc)</div>
+          <div class="pyr-p">Dành cho hội viên có nhu cầu sửa tư thế riêng. HLV tự do mang khách về dạy (HLV giữ 75%, Grow thu 25% hạ tầng, HLV cọc 5-10M, 0đ lương cứng).</div>
+          <div class="pyr-tags">
             <span>Grow thu: 25%</span>
-            <span>HLV cọc: 5-10M</span>
+            <span>HLV nộp Cọc: 5-10M</span>
           </div>
         </div>
 
-        <!-- L2 -->
-        <div class="pyr-card l2">
-          <div class="pyr-header">
-            <span class="pyr-level">Level 2 · Machine Circuit Training</span>
+        <!-- Level 2 -->
+        <div class="pyr-step w-l2">
+          <div class="pyr-top">
+            <span class="pyr-badge">Tầng 2 · Tập Gym Nhóm 30 Phút</span>
             <span class="pyr-price" style="color:var(--red)">590k – 890k / tháng</span>
           </div>
-          <div class="pyr-title">✂️ Tập Gym Nhóm Grow MCT (30 Phút Xoay Vòng)</div>
-          <div class="pyr-desc">Vòng tập 20 trạm (10 Máy tạ khối + 10 Trạm Cardio Step), 60s tập / 30s nghỉ. 1 HLV điều phối nhóm 15-20 người, âm nhạc năng lượng xả stress.</div>
-          <div class="pyr-metrics">
+          <div class="pyr-h3">✂️ Tập Gym Nhóm Grow MCT (30 Phút Xoay Vòng)</div>
+          <div class="pyr-p">Vòng tập 20 trạm (10 Máy tạ khối + 10 Trạm Cardio Step), 60s tập / 30s nghỉ. 1 HLV điều phối lớp nhóm 15-20 người, nhạc năng lượng xả stress.</div>
+          <div class="pyr-tags">
             <span>Doanh thu/giờ HLV: 1.2M - 1.6M/h</span>
             <span>Biên Lợi Nhuận Gộp: 73%</span>
           </div>
         </div>
 
-        <!-- L1 -->
-        <div class="pyr-card l1">
-          <div class="pyr-header">
-            <span class="pyr-level">Level 1 · Phễu Nhập Môn Group X</span>
+        <!-- Level 1 (Đáy Kim Tự Tháp Rộng Nhất) -->
+        <div class="pyr-step w-l1">
+          <div class="pyr-top">
+            <span class="pyr-badge">Tầng 1 · Phễu Nhập Môn Lớp Nhóm</span>
             <span class="pyr-price" style="color:#aaa">199k – 299k / tháng</span>
           </div>
-          <div class="pyr-title">🌸 Lớp Group X (Aerobic / Step Cardio Nhẹ Nhàng)</div>
-          <div class="pyr-desc">Phễu đầu vào cho người mới bắt đầu. Bài tập đơn giản, không áp lực. Phá vỡ rào cản sợ hãi và kéo số lượng lớn khách hàng nữ vào hệ thống.</div>
-          <div class="pyr-metrics">
+          <div class="pyr-h3">🌸 Lớp Nhóm Vui Vẻ (Aerobic / Step Cardio Nhẹ Nhàng)</div>
+          <div class="pyr-p">Phễu đầu vào cho người mới bắt đầu. Bài tập đơn giản, không áp lực. Phá vỡ rào cản sợ hãi, kéo đông đảo chị em vào phòng tập và chăm sóc 30-40 hội viên cũ.</div>
+          <div class="pyr-tags">
             <span>Biên Lợi Nhuận Gộp: 62.5%</span>
-            <span>Chuyển đổi 30-40 khách cũ 0đ</span>
+            <span>Chăm sóc 30-40 hội viên thân thiết</span>
           </div>
         </div>
 
@@ -278,7 +302,7 @@ Anh Giang giao nhiệm vụ Audit toàn bộ Kế hoạch Tháp Giá Trị 7 Lev
 
   <footer>
     <div class="container">
-      <p>GROW FITNESS · THÁP GIÁ TRỊ 7 LEVEL · BẢN QUYỀN NỘI BỘ 2026</p>
+      <p>GROW FITNESS · THÁP GIÁ TRỊ 7 TẦNG · BẢN QUYỀN NỘI BỘ 2026</p>
     </div>
   </footer>
 
