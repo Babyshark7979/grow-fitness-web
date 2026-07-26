@@ -1,0 +1,1205 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        var stored = sessionStorage.getItem('gf_auth');
+        if (stored !== '678999') {
+          var pw = prompt('🔒 Tài liệu nội bộ Grow Fitness\nNhập mật khẩu để tiếp tục:');
+          if (pw !== '678999') {
+            document.documentElement.innerHTML =
+              '<body style="background:#000;color:#fff;font-family:sans-serif;display:flex;height:100vh;align-items:center;justify-content:center;text-align:center"><div><div style="font-size:48px">🔒</div><div style="margin-top:12px;font-size:16px;color:#888">Sai mật khẩu. Vui lòng thử lại.</div></div></body>';
+            return;
+          }
+          sessionStorage.setItem('gf_auth', '678999');
+        }
+      })();
+    </script>
+    <title>Kế Hoạch 3 Quý Mùa Đông — Grow Fitness</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: #0a0a0a;
+        color: #f0f0f0;
+      }
+
+      /* ── HERO ── */
+      .hero {
+        background: linear-gradient(160deg, #0f0f1a 0%, #1a0a2e 60%, #0f3460 100%);
+        padding: 40px 20px 32px;
+        text-align: center;
+      }
+      .hero-label {
+        font-size: 11px;
+        letter-spacing: 4px;
+        color: #e94560;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+      .hero h1 {
+        font-size: 26px;
+        font-weight: 900;
+        line-height: 1.2;
+        color: #fff;
+        margin-bottom: 6px;
+      }
+      .hero-sub {
+        font-size: 13px;
+        color: #888;
+      }
+
+      /* ── SECTION ── */
+      .sec {
+        padding: 24px 18px;
+        border-bottom: 1px solid #161616;
+      }
+      .sec-label {
+        font-size: 10px;
+        letter-spacing: 3px;
+        color: #e94560;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+      }
+      .sec-title {
+        font-size: 18px;
+        font-weight: 800;
+        color: #fff;
+        margin-bottom: 14px;
+      }
+
+      /* ── BIG NUMBER GRID ── */
+      .grid2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+      .grid3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        margin-bottom: 14px;
+      }
+      .stat {
+        background: #141414;
+        border-radius: 12px;
+        padding: 14px 10px;
+        text-align: center;
+        border: 1px solid #1e1e1e;
+      }
+      .stat .val {
+        font-size: 24px;
+        font-weight: 900;
+        display: block;
+        line-height: 1;
+        margin-bottom: 4px;
+      }
+      .stat .lbl {
+        font-size: 11px;
+        color: #888;
+        line-height: 1.3;
+      }
+      .red {
+        color: #e94560;
+      }
+      .green {
+        color: #4ade80;
+      }
+      .yellow {
+        color: #fbbf24;
+      }
+      .purple {
+        color: #a78bfa;
+      }
+
+      /* ── CASH FLOW BAR ── */
+      .cf-row {
+        margin-bottom: 10px;
+      }
+      .cf-label {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 4px;
+      }
+      .cf-label span:first-child {
+        font-size: 13px;
+        color: #ccc;
+      }
+      .cf-label span:last-child {
+        font-size: 13px;
+        font-weight: 700;
+      }
+      .cf-bar {
+        height: 10px;
+        border-radius: 6px;
+        background: #1e1e1e;
+        overflow: hidden;
+      }
+      .cf-fill {
+        height: 100%;
+        border-radius: 6px;
+        transition: width 0.3s;
+      }
+
+      /* ── DONUT CHART (pure CSS) ── */
+      .donut-wrap {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        margin: 14px 0;
+      }
+      .donut {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+      .donut-legend {
+        flex: 1;
+      }
+      .donut-legend li {
+        list-style: none;
+        font-size: 12px;
+        color: #ccc;
+        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+
+      /* ── SOURCE CARDS ── */
+      .src-card {
+        border-radius: 14px;
+        padding: 18px 16px;
+        margin-bottom: 12px;
+        position: relative;
+        overflow: hidden;
+      }
+      .src-card .src-num {
+        font-size: 11px;
+        letter-spacing: 2px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+      }
+      .src-card h3 {
+        font-size: 17px;
+        font-weight: 800;
+        color: #fff;
+        margin-bottom: 8px;
+      }
+      .src-card .src-money {
+        font-size: 28px;
+        font-weight: 900;
+        display: block;
+        line-height: 1;
+        margin: 10px 0 4px;
+      }
+      .src-card .src-sub {
+        font-size: 12px;
+        color: #aaa;
+      }
+      .src-card ul {
+        list-style: none;
+        margin-top: 10px;
+      }
+      .src-card ul li {
+        font-size: 13px;
+        color: #ccc;
+        margin-bottom: 4px;
+        display: flex;
+        gap: 6px;
+      }
+      .src-card ul li::before {
+        content: '→';
+        color: inherit;
+        flex-shrink: 0;
+      }
+
+      .card-red {
+        background: linear-gradient(135deg, #1a0508, #200c10);
+        border: 1px solid #e94560;
+      }
+      .card-purple {
+        background: linear-gradient(135deg, #0d0718, #130f2a);
+        border: 1px solid #7c3aed;
+      }
+      .card-yellow {
+        background: linear-gradient(135deg, #18120a, #201808);
+        border: 1px solid #d97706;
+      }
+
+      /* ── VALUE STACK BARS ── */
+      .vstack {
+        margin: 14px 0;
+      }
+      .vs-item {
+        margin-bottom: 8px;
+      }
+      .vs-head {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 3px;
+      }
+      .vs-name {
+        font-size: 13px;
+        color: #ddd;
+      }
+      .vs-val {
+        font-size: 13px;
+        font-weight: 700;
+        color: #4ade80;
+      }
+      .vs-bar {
+        height: 8px;
+        border-radius: 4px;
+        background: #1e1e1e;
+      }
+      .vs-fill {
+        height: 100%;
+        border-radius: 4px;
+      }
+
+      /* ── SCRIPT STEPS ── */
+      .script-step {
+        background: #111;
+        border-radius: 12px;
+        padding: 16px;
+        margin-bottom: 10px;
+        border-left: 3px solid;
+      }
+      .step-tag {
+        font-size: 10px;
+        letter-spacing: 2px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+      }
+      .step-quote {
+        font-size: 13px;
+        color: #ccc;
+        font-style: italic;
+        line-height: 1.5;
+        margin-bottom: 6px;
+      }
+      .step-why {
+        font-size: 11px;
+        color: #666;
+      }
+
+      /* ── OBJECTION ── */
+      .obj {
+        background: #111;
+        border-radius: 10px;
+        padding: 14px;
+        margin-bottom: 8px;
+      }
+      .obj-q {
+        font-size: 13px;
+        color: #fbbf24;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+      .obj-a {
+        font-size: 13px;
+        color: #ccc;
+        font-style: italic;
+        line-height: 1.5;
+      }
+
+      /* ── TIMELINE ── */
+      .tl {
+        position: relative;
+        padding-left: 28px;
+      }
+      .tl::before {
+        content: '';
+        position: absolute;
+        left: 8px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: #1e1e1e;
+      }
+      .tl-item {
+        position: relative;
+        margin-bottom: 18px;
+      }
+      .tl-item::before {
+        content: '';
+        position: absolute;
+        left: -24px;
+        top: 4px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        border: 2px solid #0a0a0a;
+      }
+      .tl-time {
+        font-size: 10px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-bottom: 2px;
+      }
+      .tl-event {
+        font-size: 14px;
+        color: #fff;
+        font-weight: 600;
+        margin-bottom: 2px;
+      }
+      .tl-detail {
+        font-size: 12px;
+        color: #888;
+      }
+
+      /* ── HORMOZI EQUATION ── */
+      .eq {
+        background: #141414;
+        border-radius: 14px;
+        padding: 18px;
+        margin: 14px 0;
+      }
+      .eq-row {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 8px;
+      }
+      .eq-box {
+        flex: 1;
+        border-radius: 10px;
+        padding: 12px 10px;
+        text-align: center;
+      }
+      .eq-label {
+        font-size: 11px;
+        color: #aaa;
+        margin-bottom: 4px;
+      }
+      .eq-value {
+        font-size: 13px;
+        font-weight: 700;
+      }
+      .eq-divider {
+        text-align: center;
+        font-size: 22px;
+        color: #555;
+        margin: 4px 0;
+      }
+      .eq-result {
+        text-align: center;
+        font-size: 20px;
+        font-weight: 900;
+        color: #4ade80;
+        margin-top: 12px;
+      }
+
+      /* ── TOTAL BOX ── */
+      .total {
+        background: linear-gradient(135deg, #061a06, #0a200a);
+        border: 1px solid #4ade80;
+        border-radius: 14px;
+        padding: 24px 16px;
+        text-align: center;
+        margin: 14px 0;
+      }
+      .total-num {
+        font-size: 40px;
+        font-weight: 900;
+        color: #4ade80;
+        display: block;
+      }
+      .total-lbl {
+        font-size: 13px;
+        color: #aaa;
+        margin-top: 4px;
+      }
+
+      /* ── FOOTER ── */
+      .footer {
+        padding: 28px;
+        text-align: center;
+      }
+      .footer p {
+        font-size: 11px;
+        color: #333;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      /* ── DIVIDER ── */
+      .div {
+        height: 1px;
+        background: linear-gradient(to right, transparent, #e94560, transparent);
+      }
+
+      /* ── AI COACH CARD ── */
+      .ai-card {
+        background: linear-gradient(135deg, #0d0d20, #13103a);
+        border: 1px solid #7c3aed;
+        border-radius: 14px;
+        padding: 18px 16px;
+        margin-top: 14px;
+      }
+      .ai-top {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+      .ai-icon {
+        width: 40px;
+        height: 40px;
+        background: #7c3aed;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        flex-shrink: 0;
+      }
+      .ai-title {
+        font-size: 16px;
+        font-weight: 800;
+        color: #fff;
+      }
+      .ai-sub {
+        font-size: 12px;
+        color: #888;
+        margin-top: 2px;
+      }
+      .ai-features {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-top: 12px;
+      }
+      .ai-feat {
+        background: #1a1535;
+        border-radius: 8px;
+        padding: 10px 8px;
+        text-align: center;
+      }
+      .ai-feat-icon {
+        font-size: 20px;
+        display: block;
+        margin-bottom: 4px;
+      }
+      .ai-feat-text {
+        font-size: 11px;
+        color: #ccc;
+        line-height: 1.3;
+      }
+
+      /* ── SAVE BOX ── */
+      .save-box {
+        background: linear-gradient(135deg, #1a0508, #200c10);
+        border: 1px solid #e94560;
+        border-radius: 12px;
+        padding: 18px;
+        text-align: center;
+        margin-top: 14px;
+      }
+      .save-strike {
+        font-size: 13px;
+        color: #666;
+        text-decoration: line-through;
+        margin-bottom: 4px;
+      }
+      .save-price {
+        font-size: 36px;
+        font-weight: 900;
+        color: #e94560;
+      }
+      .save-diff {
+        font-size: 13px;
+        color: #aaa;
+        margin-top: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-label">Grow Fitness · Nội Bộ 2026</div>
+      <h1>Kế Hoạch 3 Quý<br />Mùa Đông</h1>
+      <div class="hero-sub">T7/2026 — T3/2027 · Tài liệu nội bộ</div>
+    </div>
+
+    <!-- BỐI CẢNH -->
+    <div class="sec">
+      <div class="sec-label">Bối cảnh</div>
+      <div class="sec-title">Số thật hiện tại</div>
+
+      <div class="grid2">
+        <div class="stat"><span class="val red">200tr</span><span class="lbl">Toàn bộ vốn đầu tư</span></div>
+        <div class="stat"><span class="val red">0đ</span><span class="lbl">Tiền dự phòng sau khi đầu tư</span></div>
+      </div>
+      <div class="grid3">
+        <div class="stat"><span class="val yellow">55tr</span><span class="lbl">Chi phí / tháng</span></div>
+        <div class="stat"><span class="val yellow">8</span><span class="lbl">Tháng mùa thấp</span></div>
+        <div class="stat"><span class="val red">440tr</span><span class="lbl">Cần sống qua</span></div>
+      </div>
+
+      <!-- SƠ ĐỒ THÁC NƯỚC DÒNG TIỀN PHÂN BỔ VỐN (CASH FLOW WATERFALL DIAGRAM) -->
+      <div style="background: #111; border: 1px solid #222; border-radius: 14px; padding: 16px; margin-top: 8px">
+        <div style="font-size: 11px; letter-spacing: 2px; color: #e94560; font-weight: 800; margin-bottom: 12px">💧 SƠ ĐỒ THÁC NƯỚC DÒNG TIỀN (VỐN ĐẦU TƯ 200 TRIỆU)</div>
+        
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <!-- TẦNG 1: NGUỒN VỐN THU VÀO -->
+          <div style="background: rgba(233, 69, 96, 0.15); border-left: 4px solid #e94560; padding: 10px; border-radius: 0 8px 8px 0; display: flex; justify-content: space-between; align-items: center">
+            <span style="font-size: 12px; font-weight: 800; color: #fff">💰 Tầng 1: Tổng Vốn Đầu Tư Đầu Vào</span>
+            <span style="font-size: 14px; font-weight: 900; color: #e94560">200.000.000đ</span>
+          </div>
+
+          <div style="text-align: center; font-size: 14px; color: #666; margin: -4px 0">↓ (Rót qua màng lọc thiết bị)</div>
+
+          <!-- TẦNG 2: XẢ THIẾT BỊ -->
+          <div style="background: rgba(245, 158, 11, 0.15); border-left: 4px solid #f59e0b; padding: 10px; border-radius: 0 8px 8px 0; display: flex; justify-content: space-between; align-items: center">
+            <span style="font-size: 12px; font-weight: 700; color: #ddd">🏋️ Tầng 2: Mua Máy Móc Thiết Bị (65%)</span>
+            <span style="font-size: 13px; font-weight: 800; color: #f59e0b">-130.000.000đ</span>
+          </div>
+
+          <div style="text-align: center; font-size: 14px; color: #666; margin: -4px 0">↓ (Rót qua màng lọc sửa sang)</div>
+
+          <!-- TẦNG 3: XẢ NÂNG CẤP -->
+          <div style="background: rgba(217, 119, 6, 0.15); border-left: 4px solid #d97706; padding: 10px; border-radius: 0 8px 8px 0; display: flex; justify-content: space-between; align-items: center">
+            <span style="font-size: 12px; font-weight: 700; color: #ddd">🏗️ Tầng 3: Nâng Cấp Mặt Bằng Phòng (35%)</span>
+            <span style="font-size: 13px; font-weight: 800; color: #d97706">-70.000.000đ</span>
+          </div>
+
+          <div style="text-align: center; font-size: 14px; color: #666; margin: -4px 0">↓ (Đổ về đáy bể dự phòng)</div>
+
+          <!-- TẦNG 4: CẠN KHÔ DỰ PHÒNG -->
+          <div style="background: rgba(239, 68, 68, 0.25); border: 1px dashed #ef4444; padding: 10px; border-radius: 8px; text-align: center">
+            <span style="font-size: 12px; font-weight: 900; color: #f87171">🆘 Tầng 4: Đáy Bể Tiền Dự Phòng Sinh Tồn ➔ KHÔ CẠN VỀ 0Đ (0%)</span>
+          </div>
+        </div>
+      </div>
+
+      <div
+        style="
+          background: #1a0508;
+          border-left: 3px solid #e94560;
+          border-radius: 0 10px 10px 0;
+          padding: 12px 14px;
+          margin-top: 12px;
+          font-size: 13px;
+          color: #ccc;
+        "
+      >
+        ⚠️ Rủi ro không phải là đầu tư 200 triệu — mà là
+        <strong style="color: #e94560">không có tiền chạy bộ máy 8 tháng sau đó.</strong>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- 3 NGUỒN TIỀN -->
+    <div class="sec">
+      <div class="sec-label">Giải pháp</div>
+      <div class="sec-title">Gom đủ từ 3 nguồn song song</div>
+
+      <!-- NGUỒN 1 -->
+      <div class="src-card card-red">
+        <div class="src-num" style="color: #e94560">Nguồn 1 · Nhanh nhất</div>
+        <h3>Founder's Club</h3>
+        <div style="font-size: 13px; color: #ccc">30 khách cũ trung thành · Bán trước khi xây xong</div>
+        <span class="src-money red">270 triệu</span>
+        <div class="src-sub">15 suất × 18 triệu · Thu ngay</div>
+
+        <!-- Cọc + điều kiện -->
+        <div style="background: #300a10; border-radius: 10px; padding: 12px; margin-top: 12px">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px">
+            <div style="text-align: center">
+              <div style="font-size: 22px; font-weight: 900; color: #e94560">2tr</div>
+              <div style="font-size: 11px; color: #888">Cọc giữ chỗ</div>
+            </div>
+            <div style="text-align: center">
+              <div style="font-size: 22px; font-weight: 900; color: #e94560">15</div>
+              <div style="font-size: 11px; color: #888">Suất giới hạn</div>
+            </div>
+          </div>
+        </div>
+
+        <ul>
+          <li style="color: #f87171">Tập không giới hạn 12 tháng</li>
+          <li style="color: #f87171">Lock giá vĩnh viễn · Không tăng</li>
+          <li style="color: #f87171">AI Coach riêng 24/7</li>
+          <li style="color: #f87171">Tên trên Bảng Sáng Lập</li>
+        </ul>
+      </div>
+
+      <!-- AI COACH HIGHLIGHT -->
+      <div class="ai-card">
+        <div class="ai-top">
+          <div class="ai-icon">🤖</div>
+          <div>
+            <div class="ai-title">AI Coach Cá Nhân</div>
+            <div class="ai-sub">Mỗi Founder 1 con AI riêng · Không phải AI chung</div>
+          </div>
+        </div>
+        <div class="ai-features">
+          <div class="ai-feat">
+            <span class="ai-feat-icon">🎯</span><span class="ai-feat-text">Biết mục tiêu & chỉ số cơ thể</span>
+          </div>
+          <div class="ai-feat">
+            <span class="ai-feat-icon">💬</span><span class="ai-feat-text">Chat 24/7 về ăn uống & tập</span>
+          </div>
+          <div class="ai-feat">
+            <span class="ai-feat-icon">📊</span><span class="ai-feat-text">Theo dõi tiến độ từng tuần</span>
+          </div>
+          <div class="ai-feat">
+            <span class="ai-feat-icon">🌙</span><span class="ai-feat-text">Hỏi được lúc 11 giờ đêm</span>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 12px; font-size: 12px; color: #888; font-style: italic">
+          "HLV 1-1 bình thường: 4–6 triệu/tháng riêng · Gói này đã bao gộp sẵn"
+        </div>
+      </div>
+
+      <!-- NGUỒN 2 -->
+      <div class="src-card card-purple" style="margin-top: 14px">
+        <div class="src-num" style="color: #a78bfa">Nguồn 2 · Vốn ngoài</div>
+        <h3>BCC Đồng Hành</h3>
+        <div style="font-size: 13px; color: #ccc">1–2 người trong network · Không bán cổ phần</div>
+        <span class="src-money purple">100–150 triệu</span>
+        <div class="src-sub">Ký hợp đồng BCC · Có ngày thoát rõ ràng</div>
+
+        <div style="background: #160e2a; border-radius: 10px; padding: 12px; margin-top: 12px">
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; text-align: center">
+            <div>
+              <div style="font-size: 16px; font-weight: 900; color: #a78bfa">15%</div>
+              <div style="font-size: 10px; color: #888">Doanh thu/tháng</div>
+            </div>
+            <div>
+              <div style="font-size: 16px; font-weight: 900; color: #a78bfa">1.5x</div>
+              <div style="font-size: 10px; color: #888">Trần hoàn vốn</div>
+            </div>
+            <div>
+              <div style="font-size: 16px; font-weight: 900; color: #a78bfa">24th</div>
+              <div style="font-size: 10px; color: #888">Quyền mua lại cổ phần</div>
+            </div>
+          </div>
+        </div>
+
+        <ul>
+          <li style="color: #c4b5fd">Gói A: nhận % doanh thu hàng tháng</li>
+          <li style="color: #c4b5fd">Gói C: cho vay → nhận 2 thẻ VIP gia đình</li>
+          <li style="color: #c4b5fd">Bảo vệ 2 bên bằng hợp đồng công chứng</li>
+        </ul>
+      </div>
+
+      <!-- NGUỒN 3 -->
+      <div class="src-card card-yellow" style="margin-top: 14px">
+        <div class="src-num" style="color: #fbbf24">Nguồn 3 · Mùa đông</div>
+        <h3>Thử Thách 8 Tuần</h3>
+        <div style="font-size: 13px; color: #ccc">Khách mới · Cam kết kết quả hoặc hoàn 50%</div>
+        <span class="src-money yellow">140 triệu</span>
+        <div class="src-sub">2 đợt × 20 người × 3.5 triệu</div>
+
+        <div style="background: #1a1205; border-radius: 10px; padding: 12px; margin-top: 12px">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; text-align: center">
+            <div>
+              <div style="font-size: 18px; font-weight: 900; color: #fbbf24">Tháng 8</div>
+              <div style="font-size: 11px; color: #888">Đợt 1</div>
+            </div>
+            <div>
+              <div style="font-size: 18px; font-weight: 900; color: #fbbf24">Tháng 11</div>
+              <div style="font-size: 11px; color: #888">Đợt 2</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- TỔNG DÒNG TIỀN -->
+    <div class="sec">
+      <div class="sec-label">Tổng hợp</div>
+      <div class="sec-title">Dòng tiền kỳ vọng</div>
+
+      <div class="cf-row">
+        <div class="cf-label"><span>🔴 Founder's Club</span><span class="green">+270tr</span></div>
+        <div class="cf-bar"><div class="cf-fill" style="width: 85%; background: #4ade80"></div></div>
+      </div>
+      <div class="cf-row">
+        <div class="cf-label"><span>🟣 BCC Đồng Hành</span><span class="green">+150tr</span></div>
+        <div class="cf-bar"><div class="cf-fill" style="width: 48%; background: #a78bfa"></div></div>
+      </div>
+      <div class="cf-row">
+        <div class="cf-label"><span>🟡 Thử Thách 8 Tuần</span><span class="green">+140tr</span></div>
+        <div class="cf-bar"><div class="cf-fill" style="width: 44%; background: #fbbf24"></div></div>
+      </div>
+      <div class="cf-row" style="margin-bottom: 0">
+        <div class="cf-label"><span>⚪ Monthly thông thường</span><span class="green">+200tr</span></div>
+        <div class="cf-bar"><div class="cf-fill" style="width: 63%; background: #60a5fa"></div></div>
+      </div>
+
+      <div class="total">
+        <span class="total-num">~760 triệu</span>
+        <span class="total-lbl">Thu vào 8 tháng mùa thấp</span>
+      </div>
+
+      <div style="background: #111; border-radius: 12px; padding: 14px; font-size: 13px; color: #ccc; line-height: 1.8">
+        <div style="display: flex; justify-content: space-between">
+          <span>Đầu tư phòng + máy</span><span class="red">-210tr</span>
+        </div>
+        <div style="display: flex; justify-content: space-between">
+          <span>Vận hành 8 tháng</span><span class="red">-440tr</span>
+        </div>
+        <div style="height: 1px; background: #222; margin: 8px 0"></div>
+        <div style="display: flex; justify-content: space-between; font-weight: 700">
+          <span>Còn dư khoản dự phòng</span><span class="green">+110tr</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- SỨC MẠNH GÓI (MÔ HÌNH KIM TỰ THÁP GIÁ TRỊ - VALUE STACK PYRAMID) -->
+    <div class="sec">
+      <div class="sec-label">Sức mạnh gói</div>
+      <div class="sec-title">🔺 Mô Hình Kim Tự Tháp Giá Trị Gói Founder</div>
+      <div style="font-size: 13px; color: #888; margin-bottom: 14px">Tháp chồng 5 tầng giá trị độc quyền dành cho hội viên sáng lập</div>
+
+      <!-- PYRAMID CONTAINER -->
+      <div style="display: flex; flex-direction: column; gap: 6px; align-items: center; margin: 16px 0">
+        
+        <!-- TẦNG 5: ĐỈNH THÁP (ĐỘC QUYỀN) -->
+        <div style="width: 50%; background: linear-gradient(135deg, #451a03, #78350f); border: 1px solid #fbbf24; border-radius: 8px; padding: 8px; text-align: center; box-shadow: 0 0 10px rgba(251, 191, 36, 0.2)">
+          <span style="font-size: 10px; font-weight: 800; color: #fbbf24; display: block">👑 TẦNG 5 · ĐÍCH ĐẾN ĐỘC QUYỀN</span>
+          <span style="font-size: 11px; font-weight: 700; color: #fff">Quyền lợi Hội Viên Sáng Lập (3.000.000đ)</span>
+        </div>
+
+        <!-- TẦNG 4: ĐÁNH GIÁ TIẾN ĐỘ -->
+        <div style="width: 62%; background: linear-gradient(135deg, #1e1b4b, #312e81); border: 1px solid #818cf8; border-radius: 8px; padding: 8px; text-align: center">
+          <span style="font-size: 10px; font-weight: 800; color: #818cf8; display: block">📊 TẦNG 4 · KIỂM SOÁT TIẾN ĐỘ</span>
+          <span style="font-size: 11px; font-weight: 700; color: #fff">Đánh giá &amp; theo dõi tiến độ hàng tháng (6.000.000đ)</span>
+        </div>
+
+        <!-- TẦNG 3: LỘ TRÌNH THIẾT KẾ -->
+        <div style="width: 74%; background: linear-gradient(135deg, #064e3b, #047857); border: 1px solid #34d399; border-radius: 8px; padding: 8px; text-align: center">
+          <span style="font-size: 10px; font-weight: 800; color: #34d399; display: block">📋 TẦNG 3 · THIẾT KẾ LỘ TRÌNH</span>
+          <span style="font-size: 11px; font-weight: 700; color: #fff">Lộ trình tập luyện cá nhân 12 tháng (5.000.000đ)</span>
+        </div>
+
+        <!-- TẦNG 2: TRỢ LÝ TRÍ TUỆ NHÂN TẠO -->
+        <div style="width: 86%; background: linear-gradient(135deg, #2e1065, #4c1d95); border: 1px solid #a78bfa; border-radius: 8px; padding: 10px; text-align: center; box-shadow: 0 0 15px rgba(167, 139, 250, 0.2)">
+          <span style="font-size: 10px; font-weight: 800; color: #a78bfa; display: block">🤖 TẦNG 2 · ĐÒN BẨY CÔNG NGHỆ</span>
+          <span style="font-size: 12px; font-weight: 800; color: #fff">Trợ lý Trí tuệ Nhân tạo Coach cá nhân 24/7 (24.000.000đ – 36.000.000đ)</span>
+        </div>
+
+        <!-- TẦNG 1: ĐÁY THÁP NỀN TẢNG -->
+        <div style="width: 100%; background: linear-gradient(135deg, #14532d, #166534); border: 2px solid #4ade80; border-radius: 10px; padding: 12px; text-align: center; box-shadow: 0 0 20px rgba(74, 222, 128, 0.25)">
+          <span style="font-size: 11px; font-weight: 900; color: #4ade80; display: block">🏋️ TẦNG 1 · NỀN TẢNG CƠ SỞ CHÍNH</span>
+          <span style="font-size: 14px; font-weight: 900; color: #fff">Tập không giới hạn 12 tháng tại phòng 5 sao (36.000.000đ)</span>
+        </div>
+
+      </div>
+
+      <div class="save-box">
+        <div class="save-strike">Tổng giá trị tháp Kim Tự Tháp: 74–86 triệu</div>
+        <div class="save-price">18 triệu</div>
+        <div class="save-diff">Khách tiết kiệm <strong style="color: #4ade80">56–68 triệu</strong> · Ưu đãi đợt Sáng Lập</div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- SCRIPT BÁN HÀNG -->
+    <div class="sec">
+      <div class="sec-label">Công cụ tư vấn</div>
+      <div class="sec-title">Kịch bản cho chị Liên</div>
+
+      <div class="script-step" style="border-color: #4ade80">
+        <div class="step-tag" style="color: #4ade80">Bước 1 · Mở đầu</div>
+        <div class="step-quote">
+          "Chị ơi em có tin hay muốn chia sẻ trước khi ra mắt rộng. Mình sắp nâng cấp phòng lớn — chỉ mở 15 suất cho
+          khách thân thiết trước, chị thuộc nhóm đó."
+        </div>
+        <div class="step-why">→ Tạo cảm giác được trân trọng · Quyền lợi ưu tiên</div>
+      </div>
+
+      <div class="script-step" style="border-color: #a78bfa">
+        <div class="step-tag" style="color: #a78bfa">Bước 2 · Trình bày</div>
+        <div class="step-quote">
+          "Gói bao gồm tập 12 tháng + AI Coach riêng của chị — nó biết mục tiêu, chỉ số của chị, chat bất cứ lúc nào.
+          HLV 1-1 thường 4–6 triệu/tháng riêng. Gói này bao gộp hết, chỉ 18 triệu cả năm."
+        </div>
+        <div class="step-why">→ So sánh giá trị thực tế vs giá bán · Rõ ràng minh bạch</div>
+      </div>
+
+      <div class="script-step" style="border-color: #fbbf24">
+        <div class="step-tag" style="color: #fbbf24">Bước 3 · Chốt</div>
+        <div class="step-quote">
+          "Chỉ còn [X] suất. Giá này không bán ra ngoài. Chị đặt cọc 2 triệu giữ chỗ, còn lại thanh toán sau."
+        </div>
+        <div class="step-why">→ Khơi gợi ưu tiên + Cọc nhẹ 2 triệu dễ quyết định</div>
+      </div>
+
+      <div style="margin-top: 16px">
+        <div style="font-size: 11px; letter-spacing: 2px; color: #e94560; font-weight: 700; margin-bottom: 10px">
+          XỬ LÝ PHẢN ĐỐI
+        </div>
+
+        <div class="obj">
+          <div class="obj-q">❓ "Đắt quá"</div>
+          <div class="obj-a">
+            "Tập lẻ 1 năm đã là 36 triệu rồi chị ơi. Gói này 18 triệu, lại còn có AI Coach riêng. Thực ra rẻ hơn nhiều
+            so với bình thường."
+          </div>
+        </div>
+        <div class="obj">
+          <div class="obj-q">❓ "Không chắc tập đủ 12 tháng"</div>
+          <div class="obj-a">
+            "Đó là lý do mình có AI Coach — nó nhắc, theo dõi theo lịch của chị. Không cần tự tìm động lực một mình
+            nữa."
+          </div>
+        </div>
+        <div class="obj">
+          <div class="obj-q">❓ "Phòng chưa xong sao mua?"</div>
+          <div class="obj-a">
+            "Mở sớm để cảm ơn khách cũ, chị được giá tốt nhất đúng vì mua trước. Xây xong thì giá Founder không còn nữa
+            — chị xem ảnh 3D này nè."
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- TIMELINE -->
+    <div class="sec">
+      <div class="sec-label">Lộ trình</div>
+      <div class="sec-title">Làm gì · Khi nào</div>
+
+      <div class="tl">
+        <div class="tl-item">
+          <div
+            style="
+              position: absolute;
+              left: -24px;
+              top: 4px;
+              width: 12px;
+              height: 12px;
+              border-radius: 50%;
+              background: #e94560;
+              border: 2px solid #0a0a0a;
+            "
+          ></div>
+          <div class="tl-time" style="color: #e94560">Tuần này</div>
+          <div class="tl-event">Chốt giá FC · Gửi quà detox 30 khách</div>
+          <div class="tl-detail">Cọc 2 triệu · Pitch bằng 3D phòng mới</div>
+        </div>
+        <div class="tl-item">
+          <div
+            style="
+              position: absolute;
+              left: -24px;
+              top: 4px;
+              width: 12px;
+              height: 12px;
+              border-radius: 50%;
+              background: #e94560;
+              border: 2px solid #0a0a0a;
+            "
+          ></div>
+          <div class="tl-time" style="color: #e94560">T7 · Tuần 4</div>
+          <div class="tl-event">Mở cọc · Đóng khi đủ 15 suất</div>
+          <div class="tl-detail">Ai không đặt cọc mất chỗ</div>
+        </div>
+        <div class="tl-item">
+          <div
+            style="
+              position: absolute;
+              left: -24px;
+              top: 4px;
+              width: 12px;
+              height: 12px;
+              border-radius: 50%;
+              background: #a78bfa;
+              border: 2px solid #0a0a0a;
+            "
+          ></div>
+          <div class="tl-time" style="color: #a78bfa">Tháng 8</div>
+          <div class="tl-event">Pitch BCC · Ký hợp đồng</div>
+          <div class="tl-detail">1–2 người trong network</div>
+        </div>
+        <div class="tl-item">
+          <div
+            style="
+              position: absolute;
+              left: -24px;
+              top: 4px;
+              width: 12px;
+              height: 12px;
+              border-radius: 50%;
+              background: #4ade80;
+              border: 2px solid #0a0a0a;
+            "
+          ></div>
+          <div class="tl-time" style="color: #4ade80">T8 · Cuối tháng</div>
+          <div class="tl-event">Khai trương VIP + Đợt 1 Thử Thách</div>
+          <div class="tl-detail">Founder được mời trước · 20 khách mới</div>
+        </div>
+        <div class="tl-item" style="margin-bottom: 0">
+          <div
+            style="
+              position: absolute;
+              left: -24px;
+              top: 4px;
+              width: 12px;
+              height: 12px;
+              border-radius: 50%;
+              background: #fbbf24;
+              border: 2px solid #0a0a0a;
+            "
+          ></div>
+          <div class="tl-time" style="color: #fbbf24">Tháng 11</div>
+          <div class="tl-event">Đợt 2 Thử Thách · Mở FC đợt 2</div>
+          <div class="tl-detail">Convert khách mới thành Founder</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- TẠI SAO WORK -->
+    <div class="sec">
+      <div class="sec-label">Nền tảng</div>
+      <div class="sec-title">Tại sao sẽ chạy được?</div>
+
+      <!-- CHỈ SỐ VẬN HÀNH -->
+      <div style="background: #141414; border-radius: 14px; padding: 16px; margin-bottom: 12px">
+        <div style="font-size: 12px; color: #888; margin-bottom: 10px">Chỉ Số Hiệu Quả Kinh Tế Cơ Sở của Grow Fitness</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; text-align: center">
+          <div>
+            <div style="font-size: 22px; font-weight: 900; color: #e94560">1.65tr</div>
+            <div style="font-size: 11px; color: #888">Chi Phí Tìm Khách<br />Chi phí/khách</div>
+          </div>
+          <div>
+            <div style="font-size: 22px; font-weight: 900; color: #4ade80">38tr</div>
+            <div style="font-size: 11px; color: #888">Giá Trị Khách Trả<br />Tổng đóng góp</div>
+          </div>
+          <div>
+            <div style="font-size: 22px; font-weight: 900; color: #a78bfa">13.6x</div>
+            <div style="font-size: 11px; color: #888">Hiệu Quả Thu Hồi Vốn<br />Tỷ lệ sinh lời</div>
+          </div>
+        </div>
+        <div
+          style="
+            margin-top: 12px;
+            font-size: 12px;
+            color: #888;
+            text-align: center;
+            border-top: 1px solid #1e1e1e;
+            padding-top: 10px;
+          "
+        >
+          Bỏ 1 đồng kiếm khách → thu về 13 đồng<br />Vấn đề không phải sản phẩm — là thiếu vốn để mở rộng
+        </div>
+      </div>
+
+      <!-- CÔNG THỨC GIÁ TRỊ THỰC NHẬN -->
+      <div class="eq">
+        <div style="font-size: 12px; color: #888; margin-bottom: 10px">Công Thức Giá Trị Thực Nhận Cho Hội Viên</div>
+        <div style="display: flex; gap: 8px; margin-bottom: 6px">
+          <div style="flex: 1; background: #0a200a; border-radius: 8px; padding: 10px; text-align: center">
+            <div style="font-size: 10px; color: #888; margin-bottom: 2px">Kết quả mơ ước</div>
+            <div style="font-size: 20px">🏆</div>
+            <div style="font-size: 11px; color: #4ade80">Lộ trình rõ ràng</div>
+          </div>
+          <div style="display: flex; align-items: center; font-size: 20px; color: #555">×</div>
+          <div style="flex: 1; background: #0a200a; border-radius: 8px; padding: 10px; text-align: center">
+            <div style="font-size: 10px; color: #888; margin-bottom: 2px">Niềm tin đạt được</div>
+            <div style="font-size: 20px">💪</div>
+            <div style="font-size: 11px; color: #4ade80">Trợ lý AI theo sát</div>
+          </div>
+        </div>
+        <div style="text-align: center; color: #555; font-size: 16px; margin: 4px 0">÷</div>
+        <div style="display: flex; gap: 8px; margin-bottom: 10px">
+          <div style="flex: 1; background: #1a0508; border-radius: 8px; padding: 10px; text-align: center">
+            <div style="font-size: 10px; color: #888; margin-bottom: 2px">Thời gian chờ</div>
+            <div style="font-size: 20px">⏱</div>
+            <div style="font-size: 11px; color: #e94560">8 tuần thấy kết quả</div>
+          </div>
+          <div style="display: flex; align-items: center; font-size: 20px; color: #555">×</div>
+          <div style="flex: 1; background: #1a0508; border-radius: 8px; padding: 10px; text-align: center">
+            <div style="font-size: 10px; color: #888; margin-bottom: 2px">Công sức bỏ ra</div>
+            <div style="font-size: 20px">😤</div>
+            <div style="font-size: 11px; color: #e94560">Hệ thống lo tính toán</div>
+          </div>
+        </div>
+        <div style="text-align: center; font-size: 18px; font-weight: 900; color: #4ade80">
+          = Giá Trị Thực Nhận VƯỢT TRỘI
+        </div>
+        <div style="text-align: center; font-size: 12px; color: #888; margin-top: 4px">
+          → 18 triệu là mức đầu tư rất hợp lý và xứng đáng cho cả năm
+        </div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- BẢN ĐỒ CHIẾN LƯỢC 10 NĂM (CLEAN HIGH-CONTRAST UI) -->
+    <div class="sec">
+      <div class="sec-label">Tầm nhìn &amp; Định vị</div>
+      <div class="sec-title">🗺️ Lộ Trình Phát Triển Chiến Lược 10 Năm Grow Fitness</div>
+      <div style="font-size: 13px; color: #888; margin-bottom: 16px">Bức tranh tổng quan dành cho chị Liên: <strong>Gốc rễ sinh tồn · Thân cành đóng gói · Trái ngọt Ngân Hàng Sức Khỏe Số · Quản trị rủi ro</strong></div>
+
+      <div style="display: flex; flex-direction: column; gap: 14px">
+        
+        <!-- ☀️ MÔI TRƯỜNG DINH DƯỠNG & ĐẤT MẸ -->
+        <div style="background: linear-gradient(135deg, #1c1917, #292524); border: 1px dashed #78716c; border-radius: 14px; padding: 14px">
+          <div style="font-size: 10px; letter-spacing: 2px; color: #fbbf24; font-weight: 800">☀️ MÔI TRƯỜNG DINH DƯỠNG &amp; ĐẤT MẸ XUNG QUANH</div>
+          <div style="font-size: 12px; color: #e7e5e4; margin-top: 4px; line-height: 1.5">
+            • <strong>Đất nuôi dưỡng:</strong> Nhu cầu phục hồi vóc dáng phụ nữ cao cấp Ocean Park + Thương hiệu cá nhân chị Liên.<br/>
+            • <strong>Nguồn nước tưới:</strong> Dòng vốn hợp tác 200M/cơ sở nuôi sống giai đoạn đầu.
+          </div>
+        </div>
+
+        <!-- 🌱 TẦNG 1: GỐC RỄ SINH TỒN (NĂM 1–2) -->
+        <div style="background: linear-gradient(135deg, #18090c, #2a0b12); border: 2px solid #e94560; border-radius: 16px; padding: 16px; box-shadow: 0 0 20px rgba(233, 69, 96, 0.15)">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px">
+            <span style="font-size: 10px; font-weight: 900; color: #e94560; background: #3d0c14; padding: 3px 10px; border-radius: 20px">🌱 NĂM 1 – 2 · GỐC RỄ BÁM SÂU ĐẤT</span>
+            <span style="font-size: 11px; color: #f87171; font-weight: 700">NỀN TẢNG SINH TỒN</span>
+          </div>
+          <div style="font-size: 16px; font-weight: 900; color: #fff; margin-bottom: 6px">🏋️ Vỏ Phòng Gym 5 Sao (Bánh Răng Mồi &amp; Nền Tảng Hợp Tác)</div>
+          <div style="font-size: 12px; color: #ddd; line-height: 1.6">
+            • ⚓ <strong>Mốc sinh tồn 55M/tháng:</strong> Chi phí vận hành mặt bằng/điện nước cố định do Chủ phòng tập (Giang &amp; Diệu Liên) tự gánh chịu bươn trải.<br/>
+            • 🌾 <strong>Mô hình "Thuê Ghế Salon Tóc" cho PT Freelancer:</strong> HLV PT tự do mang khách đến phòng 5 sao dạy ➔ <strong>HLV PT hưởng trọn 75%</strong> doanh thu mà không tốn chi phí mặt bằng; Grow Fitness thu <strong>25%</strong> phí hạ tầng nền tảng.<br/>
+            • 🛡️ <strong>Vỏ rễ bảo vệ:</strong> Gom Dữ Liệu Hội Viên/Đối Tác &amp; Gọi vốn chuỗi dự án mở rộng 200M không tốn vốn tự có.
+          </div>
+        </div>
+
+        <!-- 🌿 TẦNG 2: THÂN CÂY ĐÓNG GÓI & THÂU MUA CỔ PHẦN (NĂM 3–5) -->
+        <div style="background: linear-gradient(135deg, #130a24, #221045); border: 2px solid #a78bfa; border-radius: 16px; padding: 16px; box-shadow: 0 0 20px rgba(167, 139, 250, 0.15)">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px">
+            <span style="font-size: 10px; font-weight: 900; color: #a78bfa; background: #261547; padding: 3px 10px; border-radius: 20px">🌿 NĂM 3 – 5 · THÂN CÂY VƯƠN CAO</span>
+            <span style="font-size: 11px; color: #c4b5fd; font-weight: 700">ĐÓNG GÓI TRÍ TUỆ &amp; THÂU MUA CỔ PHẦN</span>
+          </div>
+          <div style="font-size: 16px; font-weight: 900; color: #fff; margin-bottom: 6px">⚙️ Bán Hệ Thống Đào Tạo &amp; Mua Đứt 100% Cổ Phần Phòng Tập</div>
+          <div style="font-size: 12px; color: #ddd; line-height: 1.6">
+            • 🎓 <strong>Cành 1:</strong> Đào Tạo HLV &amp; Chuyển giao bí quyết mô hình Nền tảng Salon Tóc 75/25 cho các chủ phòng tập khác.<br/>
+            • 🎥 <strong>Cành 2:</strong> Đào Tạo Truyền Thông &amp; Nhượng Quyền Xưởng quay Video 5 sao.<br/>
+            • 🏆 <strong>Thu hoạch cổ phần (Thâu mua cổ phần):</strong> Dội siêu lợi nhuận mảng Trực tuyến về <strong>Mua đứt 100% cổ phần phòng tập</strong> từ nhà đầu tư dự án mở rộng ngay trong giai đoạn này!
+          </div>
+        </div>
+
+        <!-- 🍎 TẦNG 3: TRÁI NGỌT NGÂN HÀNG SỨC KHỎE SỐ (NĂM 5–10) -->
+        <div style="background: linear-gradient(135deg, #2a1b04, #453005); border: 2px solid #fbbf24; border-radius: 16px; padding: 16px; box-shadow: 0 0 25px rgba(251, 191, 36, 0.25)">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px">
+            <span style="font-size: 10px; font-weight: 900; color: #fbbf24; background: #423008; padding: 3px 10px; border-radius: 20px">🍎 NĂM 5 – 10 · TRÁI NGỌT SUM SÊ</span>
+            <span style="font-size: 10px; background: linear-gradient(135deg, #f59e0b, #fbbf24); color: #000; font-weight: 900; padding: 3px 10px; border-radius: 10px; box-shadow: 0 0 10px #fbbf24">🐔 CON GÀ ĐẺ TRỨNG VÀNG LÕI</span>
+          </div>
+          <div style="font-size: 16px; font-weight: 900; color: #fff; margin-bottom: 6px">👑 Đế Chế Tài Chính Công Nghệ &amp; Ngân Hàng Sức Khỏe Số</div>
+          <div style="font-size: 12px; color: #fde047; line-height: 1.6">
+            • 🏦 <strong>Ngân Hàng Sức Khỏe Số là gì?</strong> Nền tảng định lượng &amp; lưu trữ toàn bộ chỉ số sinh học (vạch pin năng lượng, lượng mỡ/cơ, lịch sử ăn tập) của hàng vạn phụ nữ.<br/>
+            • 💰 <strong>Khai thác làm giàu ra sao?</strong> Tự động thu phí gia hạn gia đình, bán thực phẩm dinh dưỡng cá nhân hóa, nhượng quyền dữ liệu cho các hãng y tế/bảo hiểm ➔ <strong>Dòng tiền thụ động biên 90%</strong>.<br/>
+            • 👑 <strong>Sở hữu vĩnh cửu:</strong> Giang &amp; Diệu Liên làm chủ 100% Đế chế Ngân Hàng Sức Khỏe Số mà không cần lo vận hành cơ sở vật lý.
+          </div>
+        </div>
+
+        <!-- 🐛 THUỐC DIỆT SÂU BỆNH & THÚ PHÁ HOẠI -->
+        <div style="background: rgba(127, 29, 29, 0.4); border: 1px dashed #ef4444; border-radius: 14px; padding: 12px">
+          <div style="font-size: 11px; font-weight: 900; color: #f87171; margin-bottom: 4px">🐛 PHÒNG TRỪ SÂU BỆNH &amp; THÚ PHÁ HOẠI CÂY (QUẢN TRỊ RỦI RO):</div>
+          <div style="font-size: 11px; color: #fca5a5; line-height: 1.5">
+            🐛 <strong>Sâu 1 (Khách lười đòi hoàn 50%):</strong> 🛡️ <em>Thuốc diệt sâu:</em> Ràng buộc kỷ luật (Điểm danh chuyên cần 3 buổi/tuần + Báo cơm 5 ngày/tuần trên Trợ lý Trí tuệ Nhân tạo).<br/>
+            🐛 <strong>Sâu 2 (HLV lười/nghỉ cướp khách):</strong> 🛡️ <em>Thuốc diệt sâu:</em> Thưởng cổ phần thưởng cống hiến 12 tháng + Dữ liệu hội viên kẹt vĩnh cửu trong Bé Dứa.<br/>
+            🐛 <strong>Thú phá 3 (Suy thoái/Vắng khách):</strong> 🛡️ <em>Thuốc diệt sâu:</em> Khóa van tự động tại màng lọc Chi phí Vận hành Sinh tồn 55M do chủ tự quản + Quỹ dự phòng 15%.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- THỦ THUẬT & HỆ THỐNG TUYỂN DỤNG NHÂN SỰ TINH HOA (BRAIN2 SOURCE) -->
+    <div class="div"></div>
+
+    <!-- BẢNG CƠ CHẾ TÀI CHÍNH & VẬN HÀNH 4 NHÓM ĐỐI TƯỢNG (BRAIN2 ROOT SOURCE) -->
+    <div class="sec">
+      <div class="sec-label">Bộ máy đối tác</div>
+      <div class="sec-title">👥 Cơ Chế Vận Hành &amp; Phân Tầng Lợi Nhuận 4 Nhóm Đối Tượng</div>
+      <div style="font-size: 13px; color: #888; margin-bottom: 16px">Trích từ note gốc bộ não: <code>co-che-tai-chinh-grow-fitness.md</code> — Tư duy Tổng thầu: Minh bạch tài chính, bảo vệ công ty mẹ</div>
+
+      <div style="display: flex; flex-direction: column; gap: 14px">
+        
+        <!-- NHÓM 1: HUẤN LUYỆN VIÊN TỰ DO (SALON TÓC 75/25) -->
+        <div style="background: linear-gradient(135deg, #0f172a, #1e293b); border: 2px solid #38bdf8; border-radius: 16px; padding: 16px; box-shadow: 0 0 20px rgba(56, 189, 248, 0.15)">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px">
+            <span style="font-size: 10px; font-weight: 900; color: #38bdf8; background: #0c4a6e; padding: 3px 10px; border-radius: 20px">✂️ NHÓM 1 · HUẤN LUYỆN VIÊN TỰ DO</span>
+            <span style="font-size: 11px; color: #7dd3fc; font-weight: 700">MÔ HÌNH THUÊ GHẾ SALON TÓC</span>
+          </div>
+          <div style="font-size: 16px; font-weight: 900; color: #fff; margin-bottom: 6px">📢 Dẫn Khách Về Phòng 5 Sao — Hưởng Trọn 75% Tiền Dạy</div>
+          <div style="font-size: 12px; color: #e0f2fe; line-height: 1.6">
+            • <strong>Cơ chế chia sẻ:</strong> Huấn luyện viên tự do mang tệp khách đến sàn 5 sao dạy ➔ <strong>Huấn luyện viên giữ 75%</strong> tiền gói tập (không chịu chi phí mặt bằng/máy móc). Grow Fitness thu <strong>25%</strong> phí hạ tầng.<br/>
+            • <strong>Lưới bảo vệ:</strong> Đặt cọc 5–10 triệu bảo vệ thiết bị + Khóa dữ liệu ăn tập vào Ứng dụng Bé Dứa ➔ Nghỉ việc không dắt khách đi được.
+          </div>
+        </div>
+
+        <!-- NHÓM 2: HUẤN LUYỆN VIÊN VẮNG LAI (BÁN GÓI SỈ) -->
+        <div style="background: linear-gradient(135deg, #18090c, #2a0b12); border: 2px solid #e94560; border-radius: 16px; padding: 16px; box-shadow: 0 0 20px rgba(233, 69, 96, 0.15)">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px">
+            <span style="font-size: 10px; font-weight: 900; color: #e94560; background: #3d0c14; padding: 3px 10px; border-radius: 20px">🎫 NHÓM 2 · HUẤN LUYỆN VIÊN VẮNG LAI</span>
+            <span style="font-size: 11px; color: #f87171; font-weight: 700">PHỄU TIẾP THỊ LƯỢT TẬP SỈ</span>
+          </div>
+          <div style="font-size: 16px; font-weight: 900; color: #fff; margin-bottom: 6px">🎟️ Bán Gói Lượt Tập Sỉ — Làm Đông Đúc Sàn Tập</div>
+          <div style="font-size: 12px; color: #fecdd3; line-height: 1.6">
+            • <strong>Cơ chế bán lượt:</strong> Gói lượt sỉ 2–3 triệu/tháng (~100k/lượt) hoặc vé lẻ 150k–200k/lượt (gồm cả HLV + Khách).<br/>
+            • <strong>Chuyển đổi:</strong> Lọc nhân tố có thái độ tốt, dẫn >10 khách/tháng ➔ Cho nâng cấp ký Hợp đồng sang Nhóm 1 (Đóng cọc) để hưởng 75%.
+          </div>
+        </div>
+
+        <!-- NHÓM 3: TRƯỞNG NHÓM HLV / CỔ ĐÔNG VẬN HÀNH -->
+        <div style="background: linear-gradient(135deg, #130a24, #221045); border: 2px solid #a78bfa; border-radius: 16px; padding: 16px; box-shadow: 0 0 20px rgba(167, 139, 250, 0.15)">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px">
+            <span style="font-size: 10px; font-weight: 900; color: #a78bfa; background: #261547; padding: 3px 10px; border-radius: 20px">👑 NHÓM 3 · TRƯỞNG NHÓM HLV / CỔ ĐÔNG VẬN HÀNH</span>
+            <span style="font-size: 11px; color: #c4b5fd; font-weight: 700">CỔ ĐÔNG ĐỒNG VẬN HÀNH (KHOÁN TỰ QUẢN)</span>
+          </div>
+          <div style="font-size: 16px; font-weight: 900; color: #fff; margin-bottom: 6px">🤝 Góp Vốn Nhỏ (50–200M) — Quản Lý Team Đàn Em &amp; Hưởng Lợi Nhuận Dôi Dư</div>
+          <div style="font-size: 12px; color: #ddd; line-height: 1.6">
+            • <strong>Cơ chế khoán dôi dư:</strong> Nộp mức khoán cố định về sàn. Phần vượt mức khoán ➔ Team Huấn luyện viên hưởng <strong>75% – 90%</strong> phần dôi dư.<br/>
+            • <strong>Ràng buộc:</strong> Vi phạm kỷ luật hoặc chống phá hệ thống ➔ Trục xuất &amp; bắt buộc bán lại cổ phần bằng giá gốc.
+          </div>
+        </div>
+
+        <!-- NHÓM 4: CỔ ĐÔNG CHỈ ĐẦU TƯ (NHÀ ĐẦU TƯ DỰ ÁN 200M) -->
+        <div style="background: linear-gradient(135deg, #2a1b04, #453005); border: 2px solid #fbbf24; border-radius: 16px; padding: 16px; box-shadow: 0 0 25px rgba(251, 191, 36, 0.25)">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px">
+            <span style="font-size: 10px; font-weight: 900; color: #fbbf24; background: #423008; padding: 3px 10px; border-radius: 20px">💰 NHÓM 4 · CỔ ĐÔNG CHỈ ĐẦU TƯ</span>
+            <span style="font-size: 11px; color: #fde047; font-weight: 700">NHÀ ĐẦU TƯ DỰ ÁN MỞ RỘNG (200M/SUẤT)</span>
+          </div>
+          <div style="font-size: 16px; font-weight: 900; color: #fff; margin-bottom: 6px">🏛️ Chìa Khóa Trao Tay — Hưởng Lợi Nhuận Ròng &amp; Được Mua Đứt Cổ Phần</div>
+          <div style="font-size: 12px; color: #fde047; line-height: 1.6">
+            • <strong>Phân chia lợi nhuận ròng:</strong> Chưa hoàn vốn hưởng 70% ➔ Đã hoàn vốn hưởng 50%.<br/>
+            • <strong>Thâu mua cổ phần (Năm 3–5):</strong> Grow dội lợi nhuận mảng Trực tuyến về mua đứt 100% cổ phần.<br/>
+            • <strong>Giám sát:</strong> Chỉ giám sát tài chính qua Ứng dụng. Tuyệt đối không can thiệp vận hành chuyên môn.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <p>Grow Fitness · Nội bộ · Tháng 7 · 2026</p>
+    </div>
+  </body>
+</html>
