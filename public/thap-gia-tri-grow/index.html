@@ -1,328 +1,495 @@
 <!doctype html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8"/>
-  <meta content="width=device-width,initial-scale=1" name="viewport"/>
-  <title>Tháp Giá Trị 7 Tầng & Hệ Sinh Thái Grow Fitness 2026</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Tháp giá trị 7 tầng Grow Fitness: từ lớp nhập môn nhẹ nhàng đến đào tạo, chuyển giao cơ sở và bộ công cụ vận hành." />
+  <title>Tháp Giá Trị 7 Tầng Grow Fitness</title>
   <script>
-    !function(){
-      if("678999"!==sessionStorage.getItem("gf_auth")){
-        if("678999"!==prompt("🔒 MẬT KHẨU TÀI LIỆU NỘI BỘ GROW FITNESS\nNhập mật khẩu truy cập:")){
-          return void(document.documentElement.innerHTML='<body style="background:#08080a;color:#fff;font-family:system-ui,-apple-system,sans-serif;display:flex;height:100vh;align-items:center;justify-content:center;text-align:center"><div><div style="font-size:56px;margin-bottom:16px">🔒</div><div style="font-size:20px;font-weight:700;color:#ef4444">Truy cập bị từ chối</div><div style="margin-top:8px;font-size:14px;color:#888">Sai mật khẩu. Vui lòng thử lại.</div></div></body>');
-        }
-        sessionStorage.setItem("gf_auth","678999");
+    (() => {
+      if (sessionStorage.getItem('gf_auth') === '678999') return;
+      const password = prompt('🔒 TÀI LIỆU NỘI BỘ GROW FITNESS\nNhập mật khẩu để xem:');
+      if (password === '678999') {
+        sessionStorage.setItem('gf_auth', '678999');
+        return;
       }
-    }();
+      document.documentElement.innerHTML =
+        '<body style="margin:0;background:#120c16;color:#fff;font-family:system-ui,-apple-system,sans-serif;display:grid;min-height:100vh;place-items:center;text-align:center"><main><div style="font-size:52px">🔒</div><h1 style="font-size:22px">Chưa thể mở tài liệu</h1><p style="color:#c4b5c6">Mật khẩu chưa đúng. Chị vui lòng tải lại trang và thử lại nhé.</p></main></body>';
+    })();
   </script>
   <style>
     :root {
-      --bg: #07070a;
-      --card-bg: #121218;
-      --border: #1e1e2a;
-      --gold: #f59e0b;
-      --red: #e94560;
-      --purple: #8b5cf6;
-      --green: #10b981;
-      --cyan: #06b6d4;
-      --blue: #3b82f6;
-      --text: #f3f4f6;
-      --text-muted: #9ca3af;
+      color-scheme: dark;
+      --bg: #120c16;
+      --surface: #1d1422;
+      --surface-soft: #25182b;
+      --line: rgba(255, 255, 255, 0.1);
+      --text: #fff9fb;
+      --muted: #d5c7d8;
+      --rose: #ff4f87;
+      --gold: #ffc65c;
+      --mint: #6ee7b7;
+      --shadow: 0 22px 60px rgba(0, 0, 0, 0.34);
     }
-    * { margin:0; padding:0; box-sizing:border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-    body { background: var(--bg); color: var(--text); line-height: 1.6; padding-bottom: 80px; }
-    .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
-    
-    /* Header */
-    header {
-      background: radial-gradient(circle at top, rgba(245,158,11,0.2) 0%, rgba(7,7,10,0) 70%);
-      padding: 56px 0 36px;
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 50% -10%, rgba(255, 79, 135, 0.2), transparent 34rem),
+        radial-gradient(circle at 90% 30%, rgba(255, 198, 92, 0.08), transparent 26rem),
+        var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      line-height: 1.65;
+    }
+
+    a { color: inherit; }
+
+    .wrap {
+      width: min(1100px, calc(100% - 32px));
+      margin-inline: auto;
+    }
+
+    .hero {
+      position: relative;
+      padding: 76px 0 54px;
       text-align: center;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--line);
     }
-    .badge {
-      display: inline-block;
-      padding: 6px 18px;
-      background: rgba(245,158,11,0.15);
-      border: 1px solid rgba(245,158,11,0.35);
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      padding: 7px 14px;
+      border: 1px solid rgba(255, 198, 92, 0.35);
+      border-radius: 999px;
+      background: rgba(255, 198, 92, 0.08);
       color: var(--gold);
-      border-radius: 50px;
       font-size: 12px;
       font-weight: 800;
-      letter-spacing: 2px;
+      letter-spacing: 0.11em;
       text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-    h1 { font-size: 32px; font-weight: 900; color: #fff; line-height: 1.25; margin-bottom: 14px; }
-    .subtitle { font-size: 16px; color: #d1d5db; max-width: 760px; margin: 0 auto; line-height: 1.6; }
-    
-    /* Section */
-    .sec { padding: 40px 0; border-bottom: 1px solid var(--border); }
-    .sec-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 800; margin-bottom: 8px; }
-    .sec-title { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 24px; }
-
-    /* SVG REAL VISUAL PYRAMID DIAGRAM */
-    .pyramid-svg-container {
-      width: 100%;
-      max-width: 860px;
-      margin: 24px auto;
-      background: rgba(18,18,24,0.6);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 24px 16px;
-      box-shadow: 0 0 35px rgba(0,0,0,0.5);
-    }
-    .pyramid-svg {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    
-    .pyr-polygon {
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-    .pyr-polygon:hover {
-      filter: brightness(1.25);
-      transform: scale(1.005);
     }
 
-    /* Grid Details */
-    .grid2 { display: grid; grid-template-columns: 1fr; gap: 16px; }
-    @media(min-width: 768px) { .grid2 { grid-template-columns: 1fr 1fr; } }
-    
-    .card-detail {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 16px;
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 880px;
+      margin: 0 auto 18px;
+      font-size: clamp(36px, 6vw, 68px);
+      line-height: 1.07;
+      letter-spacing: -0.04em;
+    }
+
+    .hero strong {
+      background: linear-gradient(90deg, #ff78a3, var(--gold));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: clamp(16px, 2.2vw, 20px);
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding: 34px 0 12px;
+    }
+
+    .intro article,
+    .level-card,
+    .note {
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018));
+      box-shadow: 0 10px 34px rgba(0, 0, 0, 0.16);
+    }
+
+    .intro article {
       padding: 22px;
+      border-radius: 18px;
     }
-    .card-detail h3 { font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
-    .card-detail p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
 
-    /* Detailed Breakdown Cards */
-    .breakdown-grid { display: flex; flex-direction: column; gap: 14px; margin-top: 24px; }
-    .b-card {
-      background: var(--card-bg);
+    .intro .icon { font-size: 27px; }
+    .intro h2 { margin: 10px 0 8px; font-size: 17px; line-height: 1.35; }
+    .intro p { margin-bottom: 0; color: var(--muted); font-size: 14px; }
+
+    .pyramid-section { padding: 72px 0 42px; }
+
+    .section-heading {
+      max-width: 760px;
+      margin: 0 auto 30px;
+      text-align: center;
+    }
+
+    .section-heading span {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      margin: 8px 0 10px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.15;
+    }
+
+    .section-heading p { margin-bottom: 0; color: var(--muted); }
+
+    .pyramid-shell {
+      position: relative;
+      overflow: hidden;
+      padding: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 50% 34%, rgba(255, 198, 92, 0.12), transparent 32%),
+        rgba(29, 20, 34, 0.78);
+      box-shadow: var(--shadow);
+    }
+
+    .pyramid-shell::after {
+      position: absolute;
+      right: -8%;
+      bottom: -32%;
+      width: 44%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: rgba(255, 79, 135, 0.08);
+      content: "";
+      filter: blur(30px);
+      pointer-events: none;
+    }
+
+    .pyramid {
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: min(760px, 100%);
+      height: auto;
+      margin: 0 auto;
+      filter: drop-shadow(0 22px 24px rgba(0, 0, 0, 0.35));
+    }
+
+    .pyramid .floor {
+      transition: filter 180ms ease, opacity 180ms ease;
+    }
+
+    .pyramid .floor:hover { filter: brightness(1.14); }
+
+    .pyramid .number {
+      fill: #fff;
+      font-size: 30px;
+      font-weight: 900;
+      paint-order: stroke;
+      stroke: rgba(42, 13, 38, 0.22);
+      stroke-width: 4px;
+      text-anchor: middle;
+    }
+
+    .pyramid-key {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .key-item {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      min-height: 58px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
       border-radius: 14px;
-      padding: 18px 20px;
-      border-left: 4px solid;
+      background: rgba(10, 6, 12, 0.38);
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
     }
-    .b-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
-    .b-title { font-size: 16px; font-weight: 800; color: #fff; }
-    .b-price { font-size: 14px; font-weight: 800; }
-    .b-desc { font-size: 13px; color: #9ca3af; line-height: 1.5; }
 
-    /* Audit Section */
-    .audit-box {
-      background: linear-gradient(135deg, #130d22 0%, #1e1338 100%);
-      border: 1px solid rgba(139,92,246,0.4);
+    .key-item b {
+      display: grid;
+      flex: 0 0 30px;
+      height: 30px;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--rose), var(--gold));
+      color: #25101d;
+      font-size: 14px;
+    }
+
+    .journey-note {
+      max-width: 760px;
+      margin: 22px auto 0;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .levels { padding: 46px 0 30px; }
+
+    .levels-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .level-card {
+      position: relative;
+      overflow: hidden;
+      padding: 24px;
       border-radius: 20px;
-      padding: 28px;
-      margin-top: 40px;
     }
-    .audit-title { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
-    .audit-code { background: #0a0814; border: 1px solid #2e1d52; border-radius: 12px; padding: 16px; font-family: monospace; font-size: 12px; color: #a78bfa; overflow-x: auto; white-space: pre-wrap; margin-top: 12px; }
 
-    footer { text-align: center; padding: 32px 0; font-size: 12px; color: #4b5563; }
+    .level-card::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: var(--accent);
+      content: "";
+    }
+
+    .level-top {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .level-card h3 { margin-bottom: 0; font-size: 19px; line-height: 1.35; }
+
+    .price {
+      flex: 0 0 auto;
+      padding: 5px 9px;
+      border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--accent) 12%, transparent);
+      color: color-mix(in srgb, var(--accent) 82%, white);
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .level-card p { margin-bottom: 10px; color: var(--muted); font-size: 14px; }
+    .level-card p:last-child { margin-bottom: 0; }
+    .level-card strong { color: var(--text); }
+
+    .notes {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 16px;
+      padding: 36px 0 72px;
+    }
+
+    .note {
+      padding: 25px;
+      border-radius: 20px;
+    }
+
+    .note h2 { margin-bottom: 10px; font-size: 21px; }
+    .note p { margin-bottom: 0; color: var(--muted); }
+    .note.caution { border-color: rgba(255, 198, 92, 0.3); }
+    .note.care { border-color: rgba(110, 231, 183, 0.3); }
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+      color: #a995ad;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 780px) {
+      .intro { grid-template-columns: 1fr; }
+      .pyramid-key { grid-template-columns: repeat(2, 1fr); }
+      .levels-grid, .notes { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 520px) {
+      .wrap { width: min(100% - 22px, 1100px); }
+      .hero { padding: 54px 0 40px; }
+      .pyramid-section { padding-top: 54px; }
+      .pyramid-shell { padding: 12px 8px 16px; border-radius: 20px; }
+      .pyramid .number { font-size: 36px; }
+      .pyramid-key { grid-template-columns: 1fr; gap: 7px; }
+      .key-item { min-height: 48px; }
+      .level-card { padding: 20px 18px 20px 22px; }
+      .level-top { display: block; }
+      .price { display: inline-block; margin-top: 8px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .pyramid .floor { transition: none; }
+    }
   </style>
 </head>
 <body>
-
-  <header>
-    <div class="container">
-      <span class="badge">GROW FITNESS · BẢN QUYỀN VẬN HÀNH 2026</span>
-      <h1>THÁP GIÁ TRỊ 7 TẦNG<br/>& HỆ SINH THÁI CHUYỂN ĐỔI BẠN ĐỒNG HÀNH</h1>
-      <p class="subtitle">Tái định vị phòng tập Villa 5★ làm Phòng Thực Nghiệm Mẫu · Tối ưu hóa giá trị đồng hành trọn đời cùng hội viên nữ & Đội ngũ hợp tác</p>
+  <header class="hero">
+    <div class="wrap">
+      <div class="eyebrow">🌷 Grow Fitness · Kế hoạch 2026</div>
+      <h1>Một hành trình lớn lên qua <strong>7 tầng giá trị</strong></h1>
+      <p class="lead">Từ buổi tập đầu tiên thật nhẹ nhàng đến khi một người có thể trở thành huấn luyện viên, người quản lý hoặc người đồng hành mở cơ sở cùng Grow Fitness.</p>
     </div>
   </header>
 
-  <main class="container">
-
-    <!-- Overview Stats -->
-    <section class="sec">
-      <div class="sec-label">Tổng Quan Mô Hình</div>
-      <div class="sec-title">3 Điểm Tựa Đột Phá Đồng Hành Cùng Chị Diệu Liên</div>
-      <div class="grid2">
-        <div class="card-detail" style="border-left: 4px solid var(--gold);">
-          <h3>🏛️ Phòng Tập Villa Là Cơ Sở Mẫu Trải Nghiệm</h3>
-          <p>Phòng tập vật lý không phải để thu tiền lẻ mỗi tháng. Nơi đây đóng vai trò là không gian thực tế để quay video hướng dẫn, xây dựng uy tín và làm hình mẫu bán Khóa Đào Tạo HLV (Tầng 5), Nhượng Quyền Cơ Sở (Tầng 6) và Trợ Lý AI (Tầng 7).</p>
-        </div>
-        <div class="card-detail" style="border-left: 4px solid var(--green);">
-          <h3>🛡️ Giải Quyết Trọn Vẹn Quyền Lợi 30–40 Hội Viên Thân Thiết</h3>
-          <p>Dùng Tầng 1 (Lớp Nhóm Vui Vẻ) & Tầng 2 (Tập Gym Nhóm 30 Phút) để phục vụ 30–40 hội viên thân thiết của chị Liên mà không tốn thêm chi phí phát sinh, đồng thời lan tỏa tình yêu tập luyện đến bạn bè xung quanh.</p>
-        </div>
-      </div>
+  <main class="wrap">
+    <section class="intro" aria-label="Ba nguyên tắc của mô hình">
+      <article>
+        <div class="icon">🤝</div>
+        <h2>Bắt đầu từ nhu cầu thật</h2>
+        <p>Người mới có chỗ tập dễ chịu. Người cần chăm sâu có lộ trình riêng. Không ép ai đi nhanh hơn điều họ cần.</p>
+      </article>
+      <article>
+        <div class="icon">🏡</div>
+        <h2>Cơ sở mẫu là nơi làm thật</h2>
+        <p>Phòng tập biệt thự vừa chăm hội viên, vừa đào tạo huấn luyện viên và hoàn thiện cách vận hành có thể chuyển giao.</p>
+      </article>
+      <article>
+        <div class="icon">🌱</div>
+        <h2>Mỗi tầng nâng đỡ tầng sau</h2>
+        <p>Mối quan hệ đi từ tập luyện đến đồng hành nghề nghiệp một cách tự nhiên, rõ quyền lợi và rõ trách nhiệm.</p>
+      </article>
     </section>
 
-    <!-- REAL VISUAL SVG PYRAMID DIAGRAM (HÌNH KIM TỰ THÁP NGUYÊN BẢN) -->
-    <section class="sec">
-      <div class="sec-label">Sơ Đồ Hình Học Trực Quan</div>
-      <div class="sec-title">🔺 Sơ Đồ Kim Tự Tháp Tháp Giá Trị 7 Tầng</div>
+    <section class="pyramid-section">
+      <div class="section-heading">
+        <span>Mô hình trực quan</span>
+        <h2>Kim tự tháp 7 tầng hoàn chỉnh</h2>
+        <p>Nền móng rộng dành cho đông đảo chị em. Càng lên cao, mức chăm sóc và trách nhiệm đồng hành càng sâu.</p>
+      </div>
 
-      <div class="pyramid-svg-container">
-        <svg viewBox="0 0 840 520" class="pyramid-svg">
+      <div class="pyramid-shell">
+        <svg class="pyramid" viewBox="0 0 800 590" role="img" aria-labelledby="pyramid-title pyramid-desc">
+          <title id="pyramid-title">Kim tự tháp giá trị 7 tầng Grow Fitness</title>
+          <desc id="pyramid-desc">Bảy tầng xếp thành một kim tự tháp hoàn chỉnh, từ lớp vận động nhập môn ở đáy đến bộ công cụ vận hành và Bé Dứa ở đỉnh.</desc>
           <defs>
-            <linearGradient id="g7" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#452405" />
-              <stop offset="100%" stop-color="#f59e0b" />
-            </linearGradient>
-            <linearGradient id="g6" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#241138" />
-              <stop offset="100%" stop-color="#8b5cf6" />
-            </linearGradient>
-            <linearGradient id="g5" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#0b2b38" />
-              <stop offset="100%" stop-color="#06b6d4" />
-            </linearGradient>
-            <linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#0b3323" />
-              <stop offset="100%" stop-color="#10b981" />
-            </linearGradient>
-            <linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#15223d" />
-              <stop offset="100%" stop-color="#3b82f6" />
-            </linearGradient>
-            <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#360e17" />
-              <stop offset="100%" stop-color="#e94560" />
-            </linearGradient>
-            <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#1c1c24" />
-              <stop offset="100%" stop-color="#4b5563" />
-            </linearGradient>
-            <filter id="glowGold" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="6" result="blur" />
-              <feComposite in="SourceGraphic" in2="blur" operator="over" />
-            </filter>
+            <linearGradient id="floor7" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffd977"/><stop offset="1" stop-color="#f59e0b"/></linearGradient>
+            <linearGradient id="floor6" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff9b65"/><stop offset="1" stop-color="#f97316"/></linearGradient>
+            <linearGradient id="floor5" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff6f8f"/><stop offset="1" stop-color="#e83e72"/></linearGradient>
+            <linearGradient id="floor4" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e879f9"/><stop offset="1" stop-color="#a855f7"/></linearGradient>
+            <linearGradient id="floor3" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c084fc"/><stop offset="1" stop-color="#7c3aed"/></linearGradient>
+            <linearGradient id="floor2" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#a78bfa"/><stop offset="1" stop-color="#5b4bc4"/></linearGradient>
+            <linearGradient id="floor1" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8b7de8"/><stop offset="1" stop-color="#4338a8"/></linearGradient>
+            <filter id="topGlow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="9" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
           </defs>
 
-          <!-- TẦNG 7: ĐỈNH THÁP (TAM GIÁC VÀNG) -->
-          <polygon class="pyr-polygon" points="420,15 480,85 360,85" fill="url(#g7)" stroke="#f59e0b" stroke-width="2" filter="url(#glowGold)"/>
-          <text x="420" y="65" text-anchor="middle" fill="#fff" font-weight="900" font-size="13">TẦNG 7 · HẠ TẦNG AI BÉ DỨA (3M–5M/th)</text>
+          <polygon class="floor" points="400,18 450,96 350,96" fill="url(#floor7)" stroke="#ffe9a9" stroke-width="3" filter="url(#topGlow)" />
+          <polygon class="floor" points="348,102 452,102 502,176 298,176" fill="url(#floor6)" stroke="#ffc09e" stroke-width="3" />
+          <polygon class="floor" points="296,182 504,182 554,256 246,256" fill="url(#floor5)" stroke="#ffabc0" stroke-width="3" />
+          <polygon class="floor" points="244,262 556,262 606,336 194,336" fill="url(#floor4)" stroke="#efb3fa" stroke-width="3" />
+          <polygon class="floor" points="192,342 608,342 658,416 142,416" fill="url(#floor3)" stroke="#d4b5ff" stroke-width="3" />
+          <polygon class="floor" points="140,422 660,422 710,496 90,496" fill="url(#floor2)" stroke="#c8bbff" stroke-width="3" />
+          <polygon class="floor" points="88,502 712,502 762,576 38,576" fill="url(#floor1)" stroke="#b8afff" stroke-width="3" />
 
-          <!-- TẦNG 6: HÌNH THANG PURPLE -->
-          <polygon class="pyr-polygon" points="355,90 485,90 540,155 300,155" fill="url(#g6)" stroke="#8b5cf6" stroke-width="2"/>
-          <text x="420" y="128" text-anchor="middle" fill="#fff" font-weight="800" font-size="13">TẦNG 6 · NHƯỢNG QUYỀN VILLA 5★ (100M NQ + 5% D.Thu)</text>
-
-          <!-- TẦNG 5: HÌNH THANG CYAN -->
-          <polygon class="pyr-polygon" points="295,160 545,160 600,225 240,225" fill="url(#g5)" stroke="#06b6d4" stroke-width="2"/>
-          <text x="420" y="198" text-anchor="middle" fill="#fff" font-weight="800" font-size="13">TẦNG 5 · ĐÀO TẠO NGHỀ HLV & QUẢN LÝ (15M–25M/HV)</text>
-
-          <!-- RANH GIỚI B2C -> B2B -->
-          <line x1="120" y1="233" x2="720" y2="233" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="7,5"/>
-          <rect x="250" y="224" width="340" height="18" rx="9" fill="#2a080c" stroke="#ef4444" stroke-width="1"/>
-          <text x="420" y="237" text-anchor="middle" fill="#f87171" font-weight="900" font-size="10" letter-spacing="1">⚡ RANH GIỚI TỪ HỘI VIÊN TẬP ➔ ĐỐI TÁC B2B ⚡</text>
-
-          <!-- TẦNG 4: HÌNH THANG GREEN -->
-          <polygon class="pyr-polygon" points="233,245 607,245 660,310 180,310" fill="url(#g4)" stroke="#10b981" stroke-width="2"/>
-          <text x="420" y="283" text-anchor="middle" fill="#fff" font-weight="800" font-size="13">TẦNG 4 · GÓI VIP "TÁI SINH VÓC DÁNG" (12M–18M/3 tháng)</text>
-
-          <!-- TẦNG 3: HÌNH THANG BLUE -->
-          <polygon class="pyr-polygon" points="175,315 665,315 720,380 120,380" fill="url(#g3)" stroke="#3b82f6" stroke-width="2"/>
-          <text x="420" y="353" text-anchor="middle" fill="#fff" font-weight="800" font-size="13">TẦNG 3 · PT CÁ NHÂN 1-1 (MÔ HÌNH SALON TÓC 75/25)</text>
-
-          <!-- TẦNG 2: HÌNH THANG RED -->
-          <polygon class="pyr-polygon" points="115,385 725,385 780,450 60,450" fill="url(#g2)" stroke="#e94560" stroke-width="2"/>
-          <text x="420" y="423" text-anchor="middle" fill="#fff" font-weight="800" font-size="13">TẬNG 2 · TẬP GYM NHÓM GROW MCT 30 PHÚT (590k–890k/tháng)</text>
-
-          <!-- TẦNG 1: HÌNH THANG ĐÁY RỘNG NHẤT -->
-          <polygon class="pyr-polygon" points="55,455 785,455 835,515 5,515" fill="url(#g1)" stroke="#6b7280" stroke-width="2"/>
-          <text x="420" y="490" text-anchor="middle" fill="#fff" font-weight="800" font-size="13">TẦNG 1 · PHỄU LỚP NHÓM VUI VẺ (199k–299k/tháng · Phục vụ 30–40 hội viên cũ)</text>
+          <text class="number" x="400" y="82">7</text>
+          <text class="number" x="400" y="153">6</text>
+          <text class="number" x="400" y="233">5</text>
+          <text class="number" x="400" y="313">4</text>
+          <text class="number" x="400" y="393">3</text>
+          <text class="number" x="400" y="473">2</text>
+          <text class="number" x="400" y="553">1</text>
         </svg>
+
+        <div class="pyramid-key" aria-label="Chú giải bảy tầng">
+          <div class="key-item"><b>7</b><span>Bộ công cụ vận hành & Bé Dứa</span></div>
+          <div class="key-item"><b>6</b><span>Chuyển giao cơ sở mẫu</span></div>
+          <div class="key-item"><b>5</b><span>Đào tạo HLV & quản lý</span></div>
+          <div class="key-item"><b>4</b><span>Chăm sóc vóc dáng 12 tuần</span></div>
+          <div class="key-item"><b>3</b><span>HLV cá nhân 1 kèm 1</span></div>
+          <div class="key-item"><b>2</b><span>Vòng tập máy nhóm 30 phút</span></div>
+          <div class="key-item"><b>1</b><span>Lớp vận động theo nhạc nhập môn</span></div>
+        </div>
+      </div>
+
+      <p class="journey-note">Đây không phải bảy món hàng rời rạc. Đó là một con đường để mỗi người chọn đúng mức đồng hành với mình, rồi có thể đi xa hơn khi đã sẵn sàng.</p>
+    </section>
+
+    <section class="levels" aria-labelledby="levels-title">
+      <div class="section-heading">
+        <span>Chi tiết vận hành</span>
+        <h2 id="levels-title">Mỗi tầng mang lại điều gì?</h2>
+      </div>
+
+      <div class="levels-grid">
+        <article class="level-card" style="--accent:#f59e0b">
+          <div class="level-top"><h3>Tầng 7 · Bộ công cụ vận hành và Bé Dứa</h3><span class="price">3–5 triệu/cơ sở/tháng</span></div>
+          <p><strong>Dành cho:</strong> Các cơ sở Grow và chủ phòng tập cùng đồng hành.</p>
+          <p>Bé Dứa hỗ trợ theo dõi hành trình sức khỏe, cùng bộ công cụ quản lý thu chi, chia doanh thu và kết nối bếp dinh dưỡng.</p>
+        </article>
+
+        <article class="level-card" style="--accent:#f97316">
+          <div class="level-top"><h3>Tầng 6 · Chuyển giao cơ sở mẫu</h3><span class="price">100 triệu + 5% doanh thu</span></div>
+          <p><strong>Dành cho:</strong> Người có mặt bằng phù hợp và muốn mở một cơ sở tập luyện tử tế.</p>
+          <p>Chuyển giao 10 máy tập vòng, nhận diện thương hiệu và quy trình hợp tác với huấn luyện viên. Chi phí đầu tư ban đầu dự kiến 200–300 triệu đồng.</p>
+        </article>
+
+        <article class="level-card" style="--accent:#e83e72">
+          <div class="level-top"><h3>Tầng 5 · Đào tạo HLV và quản lý</h3><span class="price">15–25 triệu/học viên</span></div>
+          <p><strong>Dành cho:</strong> Người yêu nghề tập luyện, huấn luyện viên trẻ hoặc người muốn quản lý một cơ sở nhỏ.</p>
+          <p>Khóa học 6 tuần về chuyên môn, chăm sóc hội viên và cách hợp tác chia doanh thu 75/25.</p>
+        </article>
+
+        <article class="level-card" style="--accent:#a855f7">
+          <div class="level-top"><h3>Tầng 4 · Chăm sóc vóc dáng 12 tuần</h3><span class="price">12–18 triệu/3 tháng</span></div>
+          <p><strong>Dành cho:</strong> Phụ nữ cần một lộ trình rõ ràng trước sự kiện quan trọng hoặc sau sinh.</p>
+          <p>Gồm huấn luyện 1 kèm 1, bếp dinh dưỡng Grow và Bé Dứa đồng hành hằng ngày.</p>
+        </article>
+
+        <article class="level-card" style="--accent:#7c3aed">
+          <div class="level-top"><h3>Tầng 3 · Huấn luyện cá nhân 1 kèm 1</h3><span class="price">3,5–5 triệu/tháng</span></div>
+          <p><strong>Dành cho:</strong> Người có chấn thương cũ, lệch tư thế rõ hoặc muốn có không gian riêng tư.</p>
+          <p>Huấn luyện viên nhận 75% doanh thu; Grow nhận 25% để cung cấp không gian và thiết bị. Phòng tập không gánh lương cứng.</p>
+        </article>
+
+        <article class="level-card" style="--accent:#6658d4">
+          <div class="level-top"><h3>Tầng 2 · Vòng tập máy nhóm 30 phút</h3><span class="price">590–890 nghìn/tháng</span></div>
+          <p><strong>Dành cho:</strong> Người muốn tăng cơ, giảm mỡ nhưng chưa cần gói tập riêng.</p>
+          <p>Một huấn luyện viên chăm sóc 15–20 người/ca. Doanh thu theo giờ dự kiến 1,2–1,6 triệu đồng; lợi nhuận sẽ được chốt sau khi đủ bảng chi phí.</p>
+        </article>
+
+        <article class="level-card" style="--accent:#8b7de8">
+          <div class="level-top"><h3>Tầng 1 · Lớp vận động theo nhạc nhập môn</h3><span class="price">199–299 nghìn/tháng</span></div>
+          <p><strong>Dành cho:</strong> Người mới hoàn toàn, ít vận động hoặc còn ngại bước vào phòng tập.</p>
+          <p>Một cánh cửa dễ chịu để chị em làm quen với vận động và để Grow tiếp tục chăm sóc những hội viên thân thiết.</p>
+        </article>
       </div>
     </section>
 
-    <!-- Detailed List Section -->
-    <section class="sec">
-      <div class="sec-label">Bảng Chi Tiết Vận Hành</div>
-      <div class="sec-title">Giải Trình Lợi Nhuận Từng Tầng</div>
-
-      <div class="breakdown-grid">
-        <div class="b-card" style="border-color: var(--gold);">
-          <div class="b-top">
-            <span class="b-title">Tầng 7: Hạ Tầng Công Nghệ AI Bé Dứa & SaaS</span>
-            <span class="b-price" style="color:var(--gold)">3M – 5M / tháng</span>
-          </div>
-          <div class="b-desc">Dòng tiền thụ động biên lợi nhuận >90%. Cung cấp Trợ lý AI Bé Dứa (lưu trữ nhật ký sinh học) + App POS 75/25 + Bếp Dinh Dưỡng cho hệ thống nhượng quyền.</div>
-        </div>
-
-        <div class="b-card" style="border-color: var(--purple);">
-          <div class="b-top">
-            <span class="b-title">Tầng 6: Nhượng Quyền Phòng Tập Villa 5★</span>
-            <span class="b-price" style="color:var(--purple)">100M Phí NQ + 5% D.Thu</span>
-          </div>
-          <div class="b-desc">Chuyển giao chìa khóa trao tay (dàn 10 máy tập nhóm MCT + nhận diện thương hiệu). Capex setup 200-300M huy động từ Cổ đông SPV.</div>
-        </div>
-
-        <div class="b-card" style="border-color: var(--cyan);">
-          <div class="b-top">
-            <span class="b-title">Tầng 5: Đào Tạo Nghề HLV & Quản Lý Phòng Tập</span>
-            <span class="b-price" style="color:var(--cyan)">15M – 25M / học viên</span>
-          </div>
-          <div class="b-desc">Khóa học 6 tuần chuyển giao nghề HLV & Quản lý. Biên lợi nhuận >80% nhờ dùng trực tiếp phòng Villa làm xưởng thực tế.</div>
-        </div>
-
-        <div class="b-card" style="border-color: var(--green);">
-          <div class="b-top">
-            <span class="b-title">Tầng 4: Gói Chăm Sóc VIP "Tái Sinh Vóc Dáng"</span>
-            <span class="b-price" style="color:var(--green)">12M – 18M / 3 tháng</span>
-          </div>
-          <div class="b-desc">Gói đồng hành 12 tuần may đo (HLV 1-1 + Bếp Dinh Dưỡng + AI Coach Bé Dứa 24/7 + Cam kết đồng hành rõ ràng).</div>
-        </div>
-
-        <div class="b-card" style="border-color: var(--blue);">
-          <div class="b-top">
-            <span class="b-title">Tầng 3: PT Cá Nhân 1-1 (Thuê Ghế Salon Tóc)</span>
-            <span class="b-price" style="color:var(--blue)">3.5M – 5M / tháng</span>
-          </div>
-          <div class="b-desc">Mô hình Salon Tóc (HLV nhận 75%, Grow thu 25% hạ tầng, HLV cọc 5-10M bảo vệ thiết bị, 0đ chi phí lương cứng).</div>
-        </div>
-
-        <div class="b-card" style="border-color: var(--red);">
-          <div class="b-top">
-            <span class="b-title">Tầng 2: Tập Gym Nhóm Grow MCT (30 Phút)</span>
-            <span class="b-price" style="color:var(--red)">590k – 890k / tháng</span>
-          </div>
-          <div class="b-desc">Vòng 20 trạm xoay 60s/30s. 1 HLV gánh 15-20 người/ca ➔ Doanh thu/giờ HLV đạt 1.2M - 1.6M/h. Biên lợi nhuận gộp 73%.</div>
-        </div>
-
-        <div class="b-card" style="border-color: #6b7280;">
-          <div class="b-top">
-            <span class="b-title">Tầng 1: Lớp Nhóm Vui Vẻ Nhập Môn</span>
-            <span class="b-price" style="color:#aaa">199k – 299k / tháng</span>
-          </div>
-          <div class="b-desc">Phễu kéo đông đảo chị em vào tập nhẹ nhàng, xả stress và phục vụ trọn vẹn 30-40 hội viên cũ của chị Diệu Liên.</div>
-        </div>
-      </div>
+    <section class="notes" aria-label="Lưu ý của kế hoạch">
+      <article class="note caution">
+        <h2>📌 Con số cần kiểm chứng trước khi cam kết</h2>
+        <p>Mức lợi nhuận gộp 73% của vòng tập máy và mục tiêu lợi nhuận trên 90% của bộ công cụ vận hành chỉ là kế hoạch. Cần đối chiếu đủ tiền công, điện, hao mòn thiết bị và chi phí phục vụ thực tế.</p>
+      </article>
+      <article class="note care">
+        <h2>💗 Điều không thay đổi</h2>
+        <p>Mỗi tầng phải giúp người tham gia khỏe hơn, tự tin hơn và được đối xử tử tế. Doanh thu là kết quả của giá trị thật, không phải của lời hứa phô trương.</p>
+      </article>
     </section>
-
-    <!-- Prompt for Claude Audit -->
-    <section class="audit-box">
-      <div class="audit-title">
-        <span>🤖 PROMPT BÀN GIAO CHO CLAUDE CODE AUDIT (THEO LỆNH SẾP GIANG)</span>
-      </div>
-      <p style="font-size:13px; color:#c4b5fd;">Sếp copy nguyên đoạn prompt bên dưới dán vào tab Claude Code để Claude tự động đọc Vault, rà soát lại toàn bộ tính chính xác của các con số và tự sửa trực tiếp nếu có sai lệch:</p>
-      
-      <div class="audit-code">
-Anh Giang giao nhiệm vụ Audit toàn bộ Kế hoạch Tháp Giá Trị 7 Level Grow Fitness:
-
-1. Hãy đọc file Vault tại đường dẫn:
-   `1-BRAIN/01-Atomic/Concepts/business-concept-thap-gia-tri-7-level-grow-fitness.md`
-   và file web `public/thap-gia-tri-grow.html` trong repo `grow-fitness-web`.
-
-2. Kiểm tra chi tiết các chỉ số tài chính, biên lợi nhuận ca tập MCT (Level 2), mô hình Salon Tóc 75/25 (Level 3), học phí Academy (Level 5), phí Nhượng quyền SPV 200M (Level 6) và SaaS AI Bé Dứa (Level 7).
-
-3. Rà soát xem Antigravity đã làm đúng chuẩn 100% chỉ thị của Anh Giang chưa. Nếu phát hiện thiếu sót hoặc có con số nào chưa tối ưu, hãy TỰ ĐỘNG SỬA VÀ COMMIT TRỰC TIẾP VÀO VAULT & WEB ngay lập tức!
-      </div>
-    </section>
-
   </main>
 
   <footer>
-    <div class="container">
-      <p>GROW FITNESS · THÁP GIÁ TRỊ 7 TẦNG · BẢN QUYỀN NỘI BỘ 2026</p>
-    </div>
+    <div class="wrap">Grow Fitness · Tháp giá trị 7 tầng · Tài liệu nội bộ 2026</div>
   </footer>
-
 </body>
 </html>
