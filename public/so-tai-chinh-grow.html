@@ -190,12 +190,12 @@
       <div class="percap-card">
         <div class="role-title">2. Chuyên Viên Sale <span class="head-cnt" id="cntSaleTag">2 Người</span></div>
         <div class="income-val" id="perCapSale" style="color:var(--cyan)">2.96 Tr/người</div>
-        <div class="income-desc">Thưởng 7% gói mới + 3% gia hạn (chia theo doanh số)</div>
+        <div class="income-desc">7% doanh thu mới đang giả lập, chia đều theo định biên Sale</div>
       </div>
       <div class="percap-card">
         <div class="role-title">3. HLV Gym Nhóm MCT <span class="head-cnt" id="cntTrainerTag">2 HLV</span></div>
         <div class="income-val" id="perCapTrainer" style="color:var(--warm)">9.90 Tr/người</div>
-        <div class="income-desc">Khoán 150k-200k/ca (trung bình 55 ca/HLV/tháng)</div>
+        <div class="income-desc" id="perCapTrainerDesc">Quỹ 110 ca × 180k, chia cho 2 HLV</div>
       </div>
       <div class="percap-card">
         <div class="role-title">4. HLV Lớp Group X <span class="head-cnt">1 HLV</span></div>
@@ -224,22 +224,22 @@
       <div class="pnl-row">
         <div class="pnl-name">1. Lớp Nhóm Vui Vẻ (Group X)<small>Phễu kéo khách & chăm sóc 30-40 khách cũ</small></div>
         <div class="pnl-val" id="pnlRevGroupX">11.88 Tr</div>
-        <div class="pnl-note">12 khách x 0.99M</div>
+        <div class="pnl-note" id="pnlRevGroupXNote">12 khách x 0.99M</div>
       </div>
       <div class="pnl-row">
         <div class="pnl-name">2. Gym Nhóm Grow MCT 30 Phút<small>Xoay vòng 20 trạm tạ khối + cardio</small></div>
         <div class="pnl-val" id="pnlRevGymMct">24.00 Tr</div>
-        <div class="pnl-note">8 khách x 3M</div>
+        <div class="pnl-note" id="pnlRevGymMctNote">8 khách x 3M</div>
       </div>
       <div class="pnl-row">
         <div class="pnl-name">3. Gói Đồng Hành VIP 12 Tháng<small>Tái sinh vóc dáng + dinh dưỡng</small></div>
         <div class="pnl-val" id="pnlRevGoi12M">36.00 Tr</div>
-        <div class="pnl-note">2 gói x 18M</div>
+        <div class="pnl-note" id="pnlRevGoi12MNote">2 gói x 18M</div>
       </div>
       <div class="pnl-row">
         <div class="pnl-name">4. HLV Cá Nhân PT 1-1<small>Grow thu 25% hạ tầng (HLV giữ 75%)</small></div>
         <div class="pnl-val" id="pnlRevPt">12.50 Tr</div>
-        <div class="pnl-note">100 buổi x 0.5M x 25%</div>
+        <div class="pnl-note" id="pnlRevPtNote">100 buổi x 0.5M x 25%</div>
       </div>
 
       <!-- CHI PHÍ -->
@@ -301,19 +301,19 @@
         <h3>💲 Đơn Giá Gói Tập (Chốt 27/07)</h3>
         <div class="inp-group">
           <label>Giá Group X (Tr/tháng):</label>
-          <input type="number" id="priceGroupX" value="0.99" step="0.01" onchange="updateCalculations()">
+          <input type="number" id="priceGroupX" value="0.99" min="0" step="0.01" oninput="updateCalculations()">
         </div>
         <div class="inp-group">
           <label>Giá Gym Nhóm MCT (Tr/tháng):</label>
-          <input type="number" id="priceGymMct" value="3.00" step="0.1" onchange="updateCalculations()">
+          <input type="number" id="priceGymMct" value="3.00" min="0" step="0.1" oninput="updateCalculations()">
         </div>
         <div class="inp-group">
           <label>Gói VIP 12 Tháng (Tr/gói):</label>
-          <input type="number" id="priceGoi12M" value="18.00" step="0.5" onchange="updateCalculations()">
+          <input type="number" id="priceGoi12M" value="18.00" min="0" step="0.5" oninput="updateCalculations()">
         </div>
         <div class="inp-group">
           <label>Buổi PT 1-1 (Tr/buổi):</label>
-          <input type="number" id="pricePt" value="0.50" step="0.05" onchange="updateCalculations()">
+          <input type="number" id="pricePt" value="0.50" min="0" step="0.05" oninput="updateCalculations()">
         </div>
       </div>
 
@@ -321,27 +321,27 @@
         <h3>👥 Định Biên Nhân Sự & Số Lượng Khách</h3>
         <div class="inp-group">
           <label>Số lượng Sale (Người):</label>
-          <input type="number" id="cntSaleStaff" value="2" min="1" onchange="updateCalculations()">
+          <input type="number" id="cntSaleStaff" value="2" min="1" step="1" oninput="updateCalculations()">
         </div>
         <div class="inp-group">
           <label>Số lượng HLV Gym Nhóm (HLV):</label>
-          <input type="number" id="cntTrainerStaff" value="2" min="1" onchange="updateCalculations()">
+          <input type="number" id="cntTrainerStaff" value="2" min="1" step="1" oninput="updateCalculations()">
         </div>
         <div class="inp-group">
           <label>Khách Group X (Người):</label>
-          <input type="number" id="cntGroupX" value="12" min="0" onchange="updateCalculations()">
+          <input type="number" id="cntGroupX" value="12" min="0" step="1" oninput="updateCalculations()">
         </div>
         <div class="inp-group">
           <label>Khách Gym Nhóm MCT (Người):</label>
-          <input type="number" id="cntGymMct" value="8" min="0" onchange="updateCalculations()">
+          <input type="number" id="cntGymMct" value="8" min="0" step="1" oninput="updateCalculations()">
         </div>
         <div class="inp-group">
           <label>Khách Gói VIP 12M mới (Gói):</label>
-          <input type="number" id="cntGoi12M" value="2" min="0" onchange="updateCalculations()">
+          <input type="number" id="cntGoi12M" value="2" min="0" step="1" oninput="updateCalculations()">
         </div>
         <div class="inp-group">
           <label>Buổi dạy PT 1-1 / tháng (Buổi):</label>
-          <input type="number" id="cntPt" value="100" min="0" onchange="updateCalculations()">
+          <input type="number" id="cntPt" value="100" min="0" step="1" oninput="updateCalculations()">
         </div>
       </div>
     </div>
@@ -364,19 +364,23 @@
 
   <script>
     function updateCalculations() {
+      const readNonNegative = (id) => Math.max(0, Number.parseFloat(document.getElementById(id).value) || 0);
+      const readCount = (id) => Math.max(0, Number.parseInt(document.getElementById(id).value, 10) || 0);
+      const readHeadcount = (id) => Math.max(1, Number.parseInt(document.getElementById(id).value, 10) || 1);
+
       // Inputs
-      const pGroupX = parseFloat(document.getElementById('priceGroupX').value) || 0;
-      const pGymMct = parseFloat(document.getElementById('priceGymMct').value) || 0;
-      const pGoi12M = parseFloat(document.getElementById('priceGoi12M').value) || 0;
-      const pPt = parseFloat(document.getElementById('pricePt').value) || 0;
+      const pGroupX = readNonNegative('priceGroupX');
+      const pGymMct = readNonNegative('priceGymMct');
+      const pGoi12M = readNonNegative('priceGoi12M');
+      const pPt = readNonNegative('pricePt');
 
-      const cntSaleStaff = parseInt(document.getElementById('cntSaleStaff').value) || 1;
-      const cntTrainerStaff = parseInt(document.getElementById('cntTrainerStaff').value) || 1;
+      const cntSaleStaff = readHeadcount('cntSaleStaff');
+      const cntTrainerStaff = readHeadcount('cntTrainerStaff');
 
-      const cGroupX = parseInt(document.getElementById('cntGroupX').value) || 0;
-      const cGymMct = parseInt(document.getElementById('cntGymMct').value) || 0;
-      const cGoi12M = parseInt(document.getElementById('cntGoi12M').value) || 0;
-      const cPt = parseInt(document.getElementById('cntPt').value) || 0;
+      const cGroupX = readCount('cntGroupX');
+      const cGymMct = readCount('cntGymMct');
+      const cGoi12M = readCount('cntGoi12M');
+      const cPt = readCount('cntPt');
 
       // Calculate Revenues
       const revGroupX = pGroupX * cGroupX;
@@ -391,6 +395,10 @@
       document.getElementById('pnlRevGymMct').innerText = revGymMct.toFixed(2) + ' Tr';
       document.getElementById('pnlRevGoi12M').innerText = revGoi12M.toFixed(2) + ' Tr';
       document.getElementById('pnlRevPt').innerText = revPt.toFixed(2) + ' Tr';
+      document.getElementById('pnlRevGroupXNote').innerText = `${cGroupX} khách × ${pGroupX.toFixed(2)}M`;
+      document.getElementById('pnlRevGymMctNote').innerText = `${cGymMct} khách × ${pGymMct.toFixed(2)}M`;
+      document.getElementById('pnlRevGoi12MNote').innerText = `${cGoi12M} gói × ${pGoi12M.toFixed(2)}M`;
+      document.getElementById('pnlRevPtNote').innerText = `${cPt} buổi × ${pPt.toFixed(2)}M × 25%`;
 
       // Costs & Payroll
       const costFixed = 55.0;
@@ -415,6 +423,7 @@
       const perTrainer = payMctTrainer / cntTrainerStaff;
       document.getElementById('perCapTrainer').innerText = perTrainer.toFixed(2) + ' Tr/người';
       document.getElementById('cntTrainerTag').innerText = cntTrainerStaff + ' HLV';
+      document.getElementById('perCapTrainerDesc').innerText = `Quỹ 110 ca × 180k, chia cho ${cntTrainerStaff} HLV`;
 
       document.getElementById('perCapGroupTrainer').innerText = payGroupTrainer.toFixed(2) + ' Tr/tháng';
 
