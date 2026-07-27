@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "prebuild": "node scripts/check-content-policy.mjs && node scripts/check-canonical-routes.mjs && node scripts/sync-static-routes.mjs && node scripts/test-fintech-dashboard.mjs",
+    "prebuild": "node scripts/check-content-policy.mjs && node scripts/check-canonical-routes.mjs && node scripts/sync-static-routes.mjs && node scripts/test-fintech-dashboard.mjs && node scripts/test-grow-operations-dashboard.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
@@ -21,6 +21,7 @@
     "check:eslint": "eslint .",
     "check:prettier": "prettier --check .",
     "audit:fintech": "node scripts/test-fintech-dashboard.mjs",
+    "audit:grow-ops": "node scripts/test-grow-operations-dashboard.mjs",
     "fix": "npm run fix:eslint && npm run fix:prettier",
     "fix:eslint": "eslint --fix .",
     "fix:prettier": "prettier -w ."

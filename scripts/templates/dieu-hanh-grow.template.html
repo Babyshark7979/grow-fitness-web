@@ -1,0 +1,1400 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Điều Hành Grow Fitness</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0d080c;
+        --surface: #171015;
+        --surface-2: #20151c;
+        --surface-3: #2a1822;
+        --line: #49303e;
+        --line-soft: #34222d;
+        --text: #fff7fb;
+        --muted: #c7aeb9;
+        --muted-2: #927b86;
+        --brand: #ff2e88;
+        --brand-soft: rgba(255, 46, 136, 0.14);
+        --green: #44db9a;
+        --green-soft: rgba(68, 219, 154, 0.12);
+        --amber: #ffc15b;
+        --amber-soft: rgba(255, 193, 91, 0.13);
+        --red: #ff7188;
+        --red-soft: rgba(255, 113, 136, 0.12);
+        --blue: #70a8ff;
+        --radius: 18px;
+        --shadow: 0 22px 70px rgba(0, 0, 0, 0.28);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: radial-gradient(circle at 20% -10%, rgba(255, 46, 136, 0.15), transparent 30rem), var(--bg);
+        color: var(--text);
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          'Segoe UI',
+          sans-serif;
+        font-size: 14px;
+      }
+
+      button,
+      select,
+      a {
+        font: inherit;
+      }
+
+      button,
+      select {
+        color: var(--text);
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .shell {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        position: sticky;
+        z-index: 20;
+        top: 0;
+        border-bottom: 1px solid var(--line-soft);
+        background: rgba(13, 8, 12, 0.9);
+        backdrop-filter: blur(18px);
+      }
+
+      .topbar-inner {
+        min-height: 66px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+      }
+
+      .mark {
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        border-radius: 12px;
+        background: linear-gradient(145deg, var(--brand), #a60c51);
+        font-weight: 950;
+        box-shadow: 0 10px 28px rgba(255, 46, 136, 0.25);
+      }
+
+      .brand strong {
+        display: block;
+        letter-spacing: -0.02em;
+      }
+
+      .brand small {
+        display: block;
+        margin-top: 2px;
+        color: var(--muted);
+        font-size: 11px;
+      }
+
+      .top-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .button,
+      .icon-button {
+        min-height: 38px;
+        border: 1px solid var(--line);
+        border-radius: 11px;
+        background: var(--surface);
+        color: var(--text);
+        font-weight: 760;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 14px;
+      }
+
+      .button.primary {
+        border-color: var(--brand);
+        background: var(--brand);
+      }
+
+      .icon-button {
+        width: 38px;
+        padding: 0;
+      }
+
+      main {
+        padding: 30px 0 70px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: end;
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+
+      .eyebrow {
+        margin: 0 0 8px;
+        color: #ff8abd;
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        margin-bottom: 8px;
+        font-size: clamp(26px, 4vw, 42px);
+        line-height: 1.04;
+        letter-spacing: -0.045em;
+      }
+
+      .hero p {
+        max-width: 720px;
+        margin-bottom: 0;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .live-state {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        white-space: nowrap;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--amber);
+        box-shadow: 0 0 0 5px var(--amber-soft);
+      }
+
+      .dot.ready {
+        background: var(--green);
+        box-shadow: 0 0 0 5px var(--green-soft);
+      }
+
+      .controlbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        margin-bottom: 16px;
+        padding: 10px;
+        border: 1px solid var(--line-soft);
+        border-radius: 15px;
+        background: var(--surface);
+      }
+
+      .tabs {
+        display: flex;
+        gap: 4px;
+      }
+
+      .tab {
+        min-height: 38px;
+        padding: 0 16px;
+        border: 0;
+        border-radius: 10px;
+        background: transparent;
+        color: var(--muted);
+        font-weight: 820;
+      }
+
+      .tab.active {
+        background: var(--brand-soft);
+        color: #ff85b9;
+      }
+
+      .period-picker {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+      }
+
+      .period-picker label {
+        color: var(--muted-2);
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      select {
+        min-height: 38px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        outline: 0;
+        padding: 0 34px 0 12px;
+        background: #100a0e;
+        font-weight: 760;
+      }
+
+      .health {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: 13px;
+        margin-bottom: 18px;
+        padding: 14px 16px;
+        border: 1px solid rgba(255, 193, 91, 0.34);
+        border-radius: 15px;
+        background: var(--amber-soft);
+      }
+
+      .health-icon {
+        width: 34px;
+        height: 34px;
+        display: grid;
+        place-items: center;
+        border-radius: 10px;
+        background: rgba(255, 193, 91, 0.16);
+        color: var(--amber);
+        font-weight: 950;
+      }
+
+      .health strong {
+        display: block;
+        margin-bottom: 3px;
+      }
+
+      .health small {
+        color: var(--muted);
+        line-height: 1.45;
+      }
+
+      .health-status {
+        padding: 6px 9px;
+        border-radius: 999px;
+        background: rgba(255, 193, 91, 0.16);
+        color: var(--amber);
+        font-size: 10px;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+      }
+
+      .kpis {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        margin-bottom: 18px;
+      }
+
+      .card {
+        border: 1px solid var(--line-soft);
+        border-radius: var(--radius);
+        background: linear-gradient(145deg, rgba(34, 22, 30, 0.95), rgba(21, 14, 19, 0.98));
+        box-shadow: var(--shadow);
+      }
+
+      .kpi {
+        min-height: 142px;
+        padding: 18px;
+      }
+
+      .kpi-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 850;
+        text-transform: uppercase;
+      }
+
+      .tag {
+        padding: 4px 7px;
+        border-radius: 999px;
+        background: var(--green-soft);
+        color: var(--green);
+        font-size: 9px;
+        font-weight: 900;
+      }
+
+      .tag.partial {
+        background: var(--amber-soft);
+        color: var(--amber);
+      }
+
+      .tag.unknown {
+        background: var(--red-soft);
+        color: var(--red);
+      }
+
+      .kpi-value {
+        margin: 20px 0 7px;
+        font-size: clamp(26px, 3vw, 36px);
+        font-weight: 950;
+        letter-spacing: -0.045em;
+      }
+
+      .kpi-note {
+        color: var(--muted-2);
+        font-size: 11px;
+        line-height: 1.4;
+      }
+
+      .content-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.6fr) minmax(310px, 0.9fr);
+        gap: 14px;
+        margin-bottom: 18px;
+      }
+
+      .section {
+        padding: 20px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 18px;
+      }
+
+      .section h2 {
+        margin-bottom: 5px;
+        font-size: 18px;
+        letter-spacing: -0.025em;
+      }
+
+      .section-head p {
+        margin-bottom: 0;
+        color: var(--muted);
+        font-size: 11px;
+      }
+
+      .funnel {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 8px;
+      }
+
+      .funnel-step {
+        position: relative;
+        min-width: 0;
+        padding: 14px 10px;
+        border: 1px solid var(--line-soft);
+        border-radius: 13px;
+        background: rgba(10, 7, 9, 0.36);
+        text-align: center;
+      }
+
+      .funnel-step:not(:last-child)::after {
+        content: '›';
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        right: -8px;
+        color: var(--muted-2);
+        font-size: 20px;
+        transform: translateY(-56%);
+      }
+
+      .funnel-step small {
+        display: block;
+        min-height: 30px;
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 750;
+        line-height: 1.35;
+      }
+
+      .funnel-step strong {
+        display: block;
+        margin-top: 8px;
+        font-size: 24px;
+      }
+
+      .funnel-step em {
+        display: block;
+        margin-top: 4px;
+        color: var(--muted-2);
+        font-size: 9px;
+        font-style: normal;
+      }
+
+      .unknown-box {
+        display: grid;
+        place-items: center;
+        min-height: 210px;
+        border: 1px dashed var(--line);
+        border-radius: 14px;
+        background: rgba(10, 7, 9, 0.25);
+        text-align: center;
+      }
+
+      .unknown-box strong {
+        display: block;
+        font-size: 27px;
+      }
+
+      .unknown-box p {
+        max-width: 270px;
+        margin: 8px auto 0;
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.5;
+      }
+
+      .trend {
+        min-height: 190px;
+        display: flex;
+        align-items: flex-end;
+        gap: 8px;
+        padding-top: 10px;
+      }
+
+      .trend-col {
+        min-width: 0;
+        flex: 1;
+        text-align: center;
+      }
+
+      .trend-value {
+        margin-bottom: 7px;
+        color: var(--muted);
+        font-size: 9px;
+        font-weight: 800;
+      }
+
+      .trend-bar-wrap {
+        height: 120px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .trend-bar {
+        width: min(42px, 70%);
+        min-height: 3px;
+        border-radius: 8px 8px 2px 2px;
+        background: linear-gradient(180deg, var(--brand), rgba(255, 46, 136, 0.35));
+        transition: height 0.35s ease;
+      }
+
+      .trend-label {
+        margin-top: 8px;
+        overflow: hidden;
+        color: var(--muted-2);
+        font-size: 9px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .owner-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-bottom: 18px;
+      }
+
+      .owner-card {
+        padding: 18px;
+      }
+
+      .owner-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 15px;
+      }
+
+      .owner-name {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        font-weight: 900;
+      }
+
+      .avatar {
+        width: 34px;
+        height: 34px;
+        display: grid;
+        place-items: center;
+        border-radius: 10px;
+        background: var(--brand-soft);
+        color: #ff83b8;
+        font-size: 12px;
+      }
+
+      .owner-count {
+        color: var(--muted-2);
+        font-size: 10px;
+      }
+
+      .task-list {
+        display: grid;
+        gap: 9px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .task {
+        display: grid;
+        grid-template-columns: 18px 1fr;
+        gap: 9px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.42;
+      }
+
+      .task-check {
+        width: 17px;
+        height: 17px;
+        display: grid;
+        place-items: center;
+        margin-top: 1px;
+        border: 1px solid var(--line);
+        border-radius: 5px;
+        color: var(--brand);
+        font-size: 9px;
+      }
+
+      .task strong {
+        color: var(--text);
+      }
+
+      details {
+        border: 1px solid var(--line-soft);
+        border-radius: 15px;
+        background: rgba(23, 16, 21, 0.78);
+      }
+
+      summary {
+        padding: 15px 17px;
+        cursor: pointer;
+        font-weight: 850;
+      }
+
+      .details-body {
+        padding: 0 17px 17px;
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.6;
+      }
+
+      .details-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+
+      .detail-item {
+        padding: 12px;
+        border-radius: 11px;
+        background: rgba(10, 7, 9, 0.36);
+      }
+
+      .detail-item strong {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--text);
+      }
+
+      .modal {
+        position: fixed;
+        z-index: 50;
+        inset: 0;
+        display: none;
+        place-items: center;
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(8px);
+      }
+
+      .modal.open {
+        display: grid;
+      }
+
+      .modal-box {
+        width: min(100%, 560px);
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: var(--surface);
+        box-shadow: var(--shadow);
+      }
+
+      .modal-box h2 {
+        margin-bottom: 8px;
+      }
+
+      .modal-box p,
+      .modal-box li {
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .modal-box ol {
+        padding-left: 20px;
+      }
+
+      .modal-actions {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 18px;
+      }
+
+      .skeleton {
+        color: transparent !important;
+        border-radius: 6px;
+        background: linear-gradient(90deg, #241820 25%, #32212b 50%, #241820 75%);
+        background-size: 200% 100%;
+        animation: pulse 1.3s infinite linear;
+      }
+
+      @keyframes pulse {
+        to {
+          background-position: -200% 0;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .kpis {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .content-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .owner-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .shell {
+          width: min(100% - 22px, 1180px);
+        }
+
+        .topbar-inner {
+          min-height: 58px;
+        }
+
+        .brand small,
+        .top-actions .button {
+          display: none;
+        }
+
+        main {
+          padding-top: 22px;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+
+        .controlbar {
+          align-items: stretch;
+          flex-direction: column;
+        }
+
+        .tabs {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .period-picker {
+          justify-content: space-between;
+        }
+
+        .period-picker select {
+          flex: 1;
+        }
+
+        .health {
+          grid-template-columns: auto 1fr;
+        }
+
+        .health-status {
+          grid-column: 2;
+          justify-self: start;
+        }
+
+        .kpis {
+          grid-template-columns: 1fr 1fr;
+          gap: 9px;
+        }
+
+        .kpi {
+          min-height: 128px;
+          padding: 14px;
+        }
+
+        .kpi-value {
+          font-size: 26px;
+        }
+
+        .funnel {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .funnel-step:not(:last-child)::after {
+          display: none;
+        }
+
+        .details-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="shell topbar-inner">
+        <a class="brand" href="#top" aria-label="Điều Hành Grow">
+          <span class="mark">G</span>
+          <span>
+            <strong>Điều Hành Grow</strong>
+            <small>Số thực tế · Việc cần làm · Không bịa số</small>
+          </span>
+        </a>
+        <div class="top-actions">
+          <a class="button" href="/so-tai-chinh-grow">Sổ dự toán</a>
+          <button class="button" id="helpButton" type="button">Cách dùng</button>
+          <button class="icon-button" id="refreshButton" type="button" aria-label="Làm mới dữ liệu">↻</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="shell" id="top">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Bảng điều hành thực tế</p>
+          <h1 id="pageTitle">Tuần này đang có gì?</h1>
+          <p id="pageSubtitle">Đang lấy số tổng hợp từ Sheet. Không tải tên hoặc số điện thoại khách lên trang này.</p>
+        </div>
+        <div class="live-state"><span class="dot" id="liveDot"></span><span id="updatedAt">Đang đồng bộ…</span></div>
+      </section>
+
+      <section class="controlbar" aria-label="Chọn kỳ báo cáo">
+        <div class="tabs" role="tablist">
+          <button class="tab active" type="button" data-view="week">Tuần</button>
+          <button class="tab" type="button" data-view="month">Tháng</button>
+          <button class="tab" type="button" data-view="quarter">Quý</button>
+        </div>
+        <div class="period-picker">
+          <label for="periodSelect">Kỳ xem</label>
+          <select id="periodSelect" aria-label="Chọn kỳ"></select>
+        </div>
+      </section>
+
+      <section class="health" id="healthBanner">
+        <div class="health-icon">!</div>
+        <div>
+          <strong id="healthTitle">Đang kiểm tra độ đầy đủ dữ liệu</strong>
+          <small id="healthMessage">Từng chỉ số sẽ được gắn nhãn Số thật, Một phần hoặc Chưa có.</small>
+        </div>
+        <span class="health-status" id="healthStatus">ĐANG TẢI</span>
+      </section>
+
+      <section class="kpis" aria-label="Các số chính">
+        <article class="card kpi">
+          <div class="kpi-head"><span>Khách Sale đã ghi</span><span class="tag" id="contactsTag">SỐ THẬT</span></div>
+          <div class="kpi-value skeleton" id="contactsValue">000</div>
+          <div class="kpi-note" id="contactsNote">Mỗi dòng khách trong kỳ, không lộ thông tin cá nhân.</div>
+        </article>
+        <article class="card kpi">
+          <div class="kpi-head"><span>Khách mua</span><span class="tag" id="wonTag">SỐ THẬT</span></div>
+          <div class="kpi-value skeleton" id="wonValue">000</div>
+          <div class="kpi-note" id="wonNote">Trạng thái Chốt trong Sheet Sale.</div>
+        </article>
+        <article class="card kpi">
+          <div class="kpi-head"><span>Doanh thu ghi Sheet</span><span class="tag" id="revenueTag">SỐ THẬT</span></div>
+          <div class="kpi-value skeleton" id="revenueValue">00,00M</div>
+          <div class="kpi-note">Chưa đồng nghĩa với tiền đã thực thu.</div>
+        </article>
+        <article class="card kpi">
+          <div class="kpi-head"><span>Tiền thực thu</span><span class="tag unknown">CHƯA CÓ</span></div>
+          <div class="kpi-value">—</div>
+          <div class="kpi-note">Chờ tạo và xác nhận Cash Ledger.</div>
+        </article>
+        <article class="card kpi">
+          <div class="kpi-head"><span>Chi Ads</span><span class="tag partial" id="adsTag">MỘT PHẦN</span></div>
+          <div class="kpi-value skeleton" id="adsValue">00,00M</div>
+          <div class="kpi-note" id="adsNote">Chỉ dùng snapshot đã xác minh.</div>
+        </article>
+        <article class="card kpi">
+          <div class="kpi-head">
+            <span>Người nhắn mới</span><span class="tag partial" id="newContactsTag">MỘT PHẦN</span>
+          </div>
+          <div class="kpi-value skeleton" id="newContactsValue">000</div>
+          <div class="kpi-note" id="newContactsNote">Định nghĩa Meta New Messaging Contacts.</div>
+        </article>
+        <article class="card kpi">
+          <div class="kpi-head"><span>Tổng chi phí</span><span class="tag unknown">CHƯA CÓ</span></div>
+          <div class="kpi-value">—</div>
+          <div class="kpi-note">Chờ Cost Ledger có bằng chứng và người xác nhận.</div>
+        </article>
+        <article class="card kpi">
+          <div class="kpi-head"><span>Lợi nhuận thật</span><span class="tag unknown">CHƯA TÍNH</span></div>
+          <div class="kpi-value">—</div>
+          <div class="kpi-note">Không lấy doanh thu trừ riêng Ads để gọi là lợi nhuận.</div>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <article class="card section">
+          <div class="section-head">
+            <div>
+              <h2>Phễu Sale</h2>
+              <p>Từ khách được ghi nhận đến khách mua.</p>
+            </div>
+            <span class="tag" id="funnelTag">SỐ THẬT</span>
+          </div>
+          <div class="funnel">
+            <div class="funnel-step">
+              <small>Khách đã ghi</small><strong id="funnelContacts">0</strong><em>đầu vào Sheet</em>
+            </div>
+            <div class="funnel-step">
+              <small>Đang chăm</small><strong id="funnelFollowing">0</strong><em id="followingRate">0%</em>
+            </div>
+            <div class="funnel-step">
+              <small>Có lịch</small><strong id="funnelAppointments">0</strong><em id="appointmentRate">0%</em>
+            </div>
+            <div class="funnel-step">
+              <small>Đã đến</small><strong id="funnelShowed">—</strong><em>chưa có cột chuẩn</em>
+            </div>
+            <div class="funnel-step">
+              <small>Khách mua</small><strong id="funnelWon">0</strong><em id="wonRate">0%</em>
+            </div>
+          </div>
+        </article>
+
+        <article class="card section">
+          <div class="section-head">
+            <div>
+              <h2>Dòng tiền & chi phí</h2>
+              <p>Chỉ mở kết luận khi ledger đầy đủ.</p>
+            </div>
+            <span class="tag unknown">UNKNOWN</span>
+          </div>
+          <div class="unknown-box">
+            <div>
+              <strong>Chưa đủ nguồn</strong>
+              <p>Giang cần chốt người giữ sổ thu và sổ chi. Sau đó dashboard mới tính được tiền ròng và lợi nhuận.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="card section" style="margin-bottom: 18px">
+        <div class="section-head">
+          <div>
+            <h2>Biến động theo tuần</h2>
+            <p>Doanh thu ghi trong Sheet Sale; không gọi là tiền thực thu.</p>
+          </div>
+          <span class="tag" id="trendTag">SỐ THẬT</span>
+        </div>
+        <div class="trend" id="trendChart" aria-label="Biểu đồ doanh thu theo tuần"></div>
+      </section>
+
+      <section class="owner-grid" aria-label="Việc cần làm theo người">
+        <article class="card owner-card">
+          <div class="owner-title">
+            <div class="owner-name"><span class="avatar">L</span><span>Chị Liên</span></div>
+            <span class="owner-count">Vận hành Sale</span>
+          </div>
+          <ul class="task-list" id="lienTasks"></ul>
+        </article>
+        <article class="card owner-card">
+          <div class="owner-title">
+            <div class="owner-name"><span class="avatar">G</span><span>Anh Giang</span></div>
+            <span class="owner-count">Quyết định</span>
+          </div>
+          <ul class="task-list" id="giangTasks"></ul>
+        </article>
+        <article class="card owner-card">
+          <div class="owner-title">
+            <div class="owner-name"><span class="avatar">TL</span><span>Tiểu Linh</span></div>
+            <span class="owner-count">Đối soát & báo cáo</span>
+          </div>
+          <ul class="task-list" id="tieuLinhTasks"></ul>
+        </article>
+      </section>
+
+      <details>
+        <summary>Nguồn số, định nghĩa và giới hạn</summary>
+        <div class="details-body">
+          <div class="details-grid">
+            <div class="detail-item">
+              <strong>Sale</strong>
+              Chỉ tải ngày, nguồn, phân loại, trạng thái, gói, lịch, doanh thu và owner. Không tải tên hoặc số điện
+              thoại.
+            </div>
+            <div class="detail-item">
+              <strong>Ads</strong>
+              Snapshot 13–19/07 đã đối soát. Các kỳ chưa có file Meta chuẩn được ghi là Chưa có hoặc Một phần.
+            </div>
+            <div class="detail-item">
+              <strong>Tài chính</strong>
+              Doanh thu ghi Sheet khác tiền thực thu. Lợi nhuận, CAC đầy đủ và dòng tiền bị khóa khi Cash/Cost Ledger
+              còn thiếu.
+            </div>
+          </div>
+        </div>
+      </details>
+    </main>
+
+    <div class="modal" id="helpModal" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
+      <div class="modal-box">
+        <h2 id="helpTitle">Dùng trang này trong 3 bước</h2>
+        <ol>
+          <li>Chọn Tuần, Tháng hoặc Quý và kỳ muốn xem.</li>
+          <li>Đọc banner dữ liệu trước: số Một phần hoặc Chưa có không được dùng để kết luận.</li>
+          <li>Làm đúng danh sách việc theo tên. Thứ Hai review và chốt owner + hạn.</li>
+        </ol>
+        <p>Muốn thử giá bán hoặc kịch bản chi phí thì sang “Sổ dự toán”, không sửa số thực tế tại đây.</p>
+        <div class="modal-actions"><button class="button primary" id="closeHelp" type="button">Đã hiểu</button></div>
+      </div>
+    </div>
+
+    <script>
+      const SHEET_ID = '__SHEET_ID__';
+      const TODAY = new Date('2026-07-27T22:30:00+07:00');
+      const SOURCE_GIDS = {
+        salesJune: '1106865265',
+        salesJuly: '786417705',
+      };
+      const VERIFIED_ADS = [
+        {
+          start: '2026-07-13',
+          end: '2026-07-19',
+          spend: 1103380,
+          reach: 9091,
+          newContacts: 13,
+          status: 'ACTUAL',
+          source: 'P0 reconciliation 13–19/07',
+        },
+      ];
+      const state = {
+        view: 'week',
+        sales: [],
+        loadErrors: [],
+      };
+
+      const number = new Intl.NumberFormat('vi-VN');
+      const moneyCompact = (value) => {
+        if (value == null) return '—';
+        if (Math.abs(value) >= 1000000)
+          return `${(value / 1000000).toLocaleString('vi-VN', { maximumFractionDigits: 2 })}M`;
+        return `${number.format(value)}đ`;
+      };
+      const pct = (value, total) => (total ? `${Math.round((value / total) * 100)}%` : '0%');
+      const parseMoney = (value) => {
+        if (value == null || value === '') return 0;
+        if (typeof value === 'number') return value;
+        return Number(String(value).replace(/[^\d-]/g, '')) || 0;
+      };
+      const iso = (date) => date.toISOString().slice(0, 10);
+      const startOfWeek = (date) => {
+        const copy = new Date(date);
+        const day = copy.getDay() || 7;
+        copy.setDate(copy.getDate() - day + 1);
+        copy.setHours(0, 0, 0, 0);
+        return copy;
+      };
+      const addDays = (date, days) => {
+        const copy = new Date(date);
+        copy.setDate(copy.getDate() + days);
+        return copy;
+      };
+      const formatShort = (date) =>
+        `${String(date.getDate()).padStart(2, '0')}/${String(date.getMonth() + 1).padStart(2, '0')}`;
+      const parseGvizDate = (value) => {
+        if (value instanceof Date) return value;
+        if (typeof value === 'string' && value.startsWith('Date(')) {
+          const [year, month, day] = value.slice(5, -1).split(',').map(Number);
+          return new Date(year, month, day);
+        }
+        return value ? new Date(value) : null;
+      };
+      const cellValue = (cell) => {
+        if (!cell) return null;
+        if (typeof cell.v === 'string' && cell.v.startsWith('Date(')) return parseGvizDate(cell.v);
+        return cell.v ?? cell.f ?? null;
+      };
+
+      function loadSheet(gid, query) {
+        return new Promise((resolve, reject) => {
+          const callback = `growSheet_${gid}_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+          const script = document.createElement('script');
+          const timeout = setTimeout(() => {
+            cleanup();
+            reject(new Error(`Hết thời gian tải nguồn ${gid}`));
+          }, 15000);
+          const cleanup = () => {
+            clearTimeout(timeout);
+            delete window[callback];
+            script.remove();
+          };
+          window[callback] = (response) => {
+            cleanup();
+            if (response.status !== 'ok') {
+              reject(new Error(response.errors?.[0]?.detailed_message || `Nguồn ${gid} trả lỗi`));
+              return;
+            }
+            resolve(response.table);
+          };
+          const params = new URLSearchParams({
+            tqx: `responseHandler:${callback}`,
+            gid,
+            headers: '1',
+            tq: query,
+          });
+          script.src = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?${params}`;
+          script.onerror = () => {
+            cleanup();
+            reject(new Error(`Không tải được nguồn ${gid}`));
+          };
+          document.head.appendChild(script);
+        });
+      }
+
+      function normalizeSales(table, year, month) {
+        return table.rows
+          .map((row) => {
+            const values = (row.c || []).map(cellValue);
+            const rawDate = values[0];
+            let date = rawDate instanceof Date ? rawDate : null;
+            if (!date && typeof rawDate === 'string') {
+              const match = rawDate.match(/(\d{1,2})\/(\d{1,2})/);
+              if (match) date = new Date(year, Number(match[2]) - 1, Number(match[1]));
+            }
+            return {
+              date,
+              source: String(values[1] || '').trim(),
+              classification: String(values[2] || '').trim(),
+              status: String(values[3] || '').trim(),
+              package: String(values[4] || '').trim(),
+              appointment: values[5] || null,
+              recordedRevenue: parseMoney(values[6]),
+              owner: String(values[7] || '').trim(),
+            };
+          })
+          .filter((row) => row.date && row.date.getFullYear() === year && row.date.getMonth() === month - 1);
+      }
+
+      function buildPeriods(view) {
+        if (view === 'week') {
+          const periods = [];
+          let end = addDays(startOfWeek(TODAY), -1);
+          for (let index = 0; index < 8; index += 1) {
+            const start = addDays(end, -6);
+            periods.push({
+              key: `${iso(start)}_${iso(end)}`,
+              start,
+              end,
+              label: `${formatShort(start)}–${formatShort(end)}`,
+            });
+            end = addDays(start, -1);
+          }
+          return periods;
+        }
+        if (view === 'month') {
+          return [
+            { key: '2026-07', start: new Date(2026, 6, 1), end: new Date(2026, 6, 31), label: 'Tháng 07/2026' },
+            { key: '2026-06', start: new Date(2026, 5, 1), end: new Date(2026, 5, 30), label: 'Tháng 06/2026' },
+          ];
+        }
+        return [
+          { key: '2026-Q3', start: new Date(2026, 6, 1), end: new Date(2026, 8, 30), label: 'Quý 3/2026' },
+          { key: '2026-Q2', start: new Date(2026, 3, 1), end: new Date(2026, 5, 30), label: 'Quý 2/2026' },
+        ];
+      }
+
+      function inPeriod(date, period) {
+        if (!date) return false;
+        const time = new Date(date.getFullYear(), date.getMonth(), date.getDate()).getTime();
+        return time >= period.start.getTime() && time <= period.end.getTime();
+      }
+
+      function summarizeSales(rows) {
+        const textIncludes = (value, words) => words.some((word) => value.toLocaleLowerCase('vi').includes(word));
+        const following = rows.filter((row) =>
+          textIncludes(`${row.classification} ${row.status}`, ['follow', 'ấm', 'nóng'])
+        ).length;
+        const appointments = rows.filter(
+          (row) => row.appointment || textIncludes(row.status, ['đặt lịch', 'có lịch'])
+        ).length;
+        const won = rows.filter((row) => textIncludes(row.status, ['chốt', 'won']) || row.recordedRevenue > 0).length;
+        const lost = rows.filter((row) => textIncludes(row.status, ['rớt', 'lost', 'không phù hợp'])).length;
+        const missingStatus = rows.filter((row) => !row.status && !row.classification).length;
+        const revenue = rows.reduce((sum, row) => sum + row.recordedRevenue, 0);
+        return { contacts: rows.length, following, appointments, won, lost, missingStatus, revenue };
+      }
+
+      function summarizeAds(period) {
+        const covered = VERIFIED_ADS.filter((item) => {
+          const itemStart = new Date(`${item.start}T00:00:00+07:00`);
+          const itemEnd = new Date(`${item.end}T00:00:00+07:00`);
+          return itemStart >= period.start && itemEnd <= period.end;
+        });
+        if (!covered.length) return { spend: null, newContacts: null, status: 'UNKNOWN', covered: 0 };
+        const daysInPeriod = Math.round((period.end - period.start) / 86400000) + 1;
+        const coveredDays = covered.reduce(
+          (sum, item) => sum + Math.round((new Date(item.end) - new Date(item.start)) / 86400000) + 1,
+          0
+        );
+        return {
+          spend: covered.reduce((sum, item) => sum + item.spend, 0),
+          newContacts: covered.reduce((sum, item) => sum + item.newContacts, 0),
+          status: coveredDays >= daysInPeriod ? 'ACTUAL' : 'PARTIAL',
+          covered: coveredDays,
+        };
+      }
+
+      function renderTag(element, status) {
+        element.className = 'tag';
+        if (status === 'ACTUAL') {
+          element.textContent = 'SỐ THẬT';
+        } else if (status === 'PARTIAL') {
+          element.classList.add('partial');
+          element.textContent = 'MỘT PHẦN';
+        } else {
+          element.classList.add('unknown');
+          element.textContent = 'CHƯA CÓ';
+        }
+      }
+
+      function setText(id, text) {
+        const element = document.getElementById(id);
+        element.textContent = text;
+        element.classList.remove('skeleton');
+      }
+
+      function task(text, strong = '') {
+        return `<li class="task"><span class="task-check">→</span><span>${strong ? `<strong>${strong}</strong> ` : ''}${text}</span></li>`;
+      }
+
+      function renderTasks(summary, ads, period) {
+        const periodLabel = `${formatShort(period.start)}–${formatShort(period.end)}`;
+        const lien = [
+          summary.missingStatus
+            ? task(`bổ sung trạng thái cho ${summary.missingStatus} khách đang thiếu.`, 'Trước 21:00:')
+            : task('rà lại các khách đang chăm và chốt lịch tiếp theo.', 'Trước 21:00:'),
+          task(`đối soát ${summary.appointments} lịch hẹn trong kỳ, đánh dấu rõ khách đã đến hay chưa.`, 'Trong kỳ:'),
+          task('xác nhận khách mua nào đã thanh toán; không sửa số tổng.', 'Khi có tiền về:'),
+        ];
+        const giang = [
+          task('chốt một người xác nhận Cash Ledger và một người xác nhận Cost Ledger.', 'Quyết định P0:'),
+          ads.status === 'UNKNOWN'
+            ? task(`giao xuất Meta Ads đúng kỳ ${periodLabel}; chưa đổi ngân sách khi còn thiếu số.`, 'Dữ liệu Ads:')
+            : task('chỉ đổi ngân sách khi số Ads và Sale đã đối soát cùng kỳ.', 'Ngân sách:'),
+          task('thu hẹp quyền Sheet chứa dữ liệu khách; không để chế độ ai có link cũng xem.', 'Bảo mật:'),
+        ];
+        const tieuLinh = [
+          ads.status !== 'ACTUAL'
+            ? task(`lấy và kiểm tra snapshot Meta Ads kỳ ${periodLabel}.`, 'Đối soát:')
+            : task('đối soát Meta Ads với số Sale ghi trong Sheet.', 'Đối soát:'),
+          task('báo trùng, thiếu trạng thái, thiếu lịch đến và thiếu bằng chứng tiền.', 'Data Health:'),
+          task('sau review, ghi owner + hạn và đóng kỳ CLOSED hoặc REVISED.', 'Thứ Ba 12:00:'),
+        ];
+        document.getElementById('lienTasks').innerHTML = lien.join('');
+        document.getElementById('giangTasks').innerHTML = giang.join('');
+        document.getElementById('tieuLinhTasks').innerHTML = tieuLinh.join('');
+      }
+
+      function weeklyBuckets() {
+        return buildPeriods('week')
+          .slice()
+          .reverse()
+          .map((period) => {
+            const rows = state.sales.filter((row) => inPeriod(row.date, period));
+            return { period, ...summarizeSales(rows) };
+          });
+      }
+
+      function renderTrend() {
+        const buckets = weeklyBuckets();
+        const max = Math.max(...buckets.map((item) => item.revenue), 1);
+        document.getElementById('trendChart').innerHTML = buckets
+          .map((item) => {
+            const height = Math.max((item.revenue / max) * 100, item.contacts ? 4 : 2);
+            return `<div class="trend-col">
+              <div class="trend-value">${item.revenue ? moneyCompact(item.revenue) : '0'}</div>
+              <div class="trend-bar-wrap"><div class="trend-bar" style="height:${height}%"></div></div>
+              <div class="trend-label">${item.period.label}</div>
+            </div>`;
+          })
+          .join('');
+      }
+
+      function render() {
+        const periods = buildPeriods(state.view);
+        const select = document.getElementById('periodSelect');
+        const currentKey = select.value;
+        select.innerHTML = periods.map((period) => `<option value="${period.key}">${period.label}</option>`).join('');
+        if (periods.some((period) => period.key === currentKey)) select.value = currentKey;
+        const period = periods.find((item) => item.key === select.value) || periods[0];
+        select.value = period.key;
+
+        const rows = state.sales.filter((row) => inPeriod(row.date, period));
+        const summary = summarizeSales(rows);
+        const ads = summarizeAds(period);
+        const viewName = state.view === 'week' ? 'Tuần' : state.view === 'month' ? 'Tháng' : 'Quý';
+
+        const periodTitle = period.label.startsWith(viewName) ? period.label : `${viewName} ${period.label}`;
+        document.getElementById('pageTitle').textContent = `${periodTitle}: đang có gì?`;
+        document.getElementById('pageSubtitle').textContent =
+          'Số Sale lấy từ các cột tổng hợp an toàn. Cash, Cost và lợi nhuận bị khóa cho tới khi có ledger thật.';
+
+        setText('contactsValue', number.format(summary.contacts));
+        setText('wonValue', number.format(summary.won));
+        setText('revenueValue', moneyCompact(summary.revenue));
+        setText('adsValue', moneyCompact(ads.spend));
+        setText('newContactsValue', ads.newContacts == null ? '—' : number.format(ads.newContacts));
+
+        document.getElementById('contactsNote').textContent =
+          summary.missingStatus > 0
+            ? `${summary.missingStatus} khách chưa có trạng thái đủ rõ.`
+            : 'Mỗi dòng khách trong kỳ, không lộ thông tin cá nhân.';
+        document.getElementById('wonNote').textContent =
+          `${summary.won} khách có trạng thái Chốt hoặc có doanh thu ghi nhận.`;
+        document.getElementById('adsNote').textContent =
+          ads.status === 'UNKNOWN'
+            ? 'Chưa có snapshot Meta Ads đúng kỳ.'
+            : ads.status === 'PARTIAL'
+              ? `Mới có ${ads.covered} ngày đã xác minh trong kỳ.`
+              : 'Snapshot Ads đã xác minh đủ kỳ.';
+        document.getElementById('newContactsNote').textContent =
+          ads.status === 'UNKNOWN'
+            ? 'Chưa có dữ liệu Meta đúng kỳ.'
+            : 'Meta New Messaging Contacts trong phần đã xác minh.';
+
+        renderTag(document.getElementById('adsTag'), ads.status);
+        renderTag(document.getElementById('newContactsTag'), ads.status);
+
+        setText('funnelContacts', summary.contacts);
+        setText('funnelFollowing', summary.following);
+        setText('funnelAppointments', summary.appointments);
+        setText('funnelWon', summary.won);
+        setText('followingRate', pct(summary.following, summary.contacts));
+        setText('appointmentRate', pct(summary.appointments, summary.contacts));
+        setText('wonRate', pct(summary.won, summary.contacts));
+
+        const healthIssues = [
+          summary.missingStatus ? `${summary.missingStatus} khách thiếu trạng thái` : null,
+          ads.status !== 'ACTUAL' ? 'Ads chưa đủ kỳ' : null,
+          'chưa có Cash Ledger',
+          'chưa có Cost Ledger',
+          'chưa có cột Đã đến chuẩn',
+        ].filter(Boolean);
+        document.getElementById('healthTitle').textContent =
+          `${healthIssues.length} khoảng trống đang chặn kết luận tài chính`;
+        document.getElementById('healthMessage').textContent = healthIssues.join(' · ');
+        document.getElementById('healthStatus').textContent = healthIssues.length ? 'CHỜ BỔ SUNG' : 'ĐÃ CHỐT';
+
+        renderTasks(summary, ads, period);
+        renderTrend();
+      }
+
+      async function refreshData() {
+        const refreshButton = document.getElementById('refreshButton');
+        refreshButton.disabled = true;
+        document.getElementById('updatedAt').textContent = 'Đang đồng bộ…';
+        document.getElementById('liveDot').classList.remove('ready');
+        state.loadErrors = [];
+        const sources = [
+          { gid: SOURCE_GIDS.salesJune, year: 2026, month: 6 },
+          { gid: SOURCE_GIDS.salesJuly, year: 2026, month: 7 },
+        ];
+        const results = await Promise.allSettled(
+          sources.map((source) =>
+            loadSheet(source.gid, 'select A,D,E,F,G,H,I,J').then((table) =>
+              normalizeSales(table, source.year, source.month)
+            )
+          )
+        );
+        state.sales = results.flatMap((result, index) => {
+          if (result.status === 'fulfilled') return result.value;
+          state.loadErrors.push(`${sources[index].month}/${sources[index].year}`);
+          return [];
+        });
+        document.getElementById('updatedAt').textContent = state.loadErrors.length
+          ? `Thiếu nguồn ${state.loadErrors.join(', ')}`
+          : `Đã đồng bộ ${new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' })}`;
+        document.getElementById('liveDot').classList.toggle('ready', state.loadErrors.length === 0);
+        refreshButton.disabled = false;
+        render();
+      }
+
+      document.querySelectorAll('.tab').forEach((button) => {
+        button.addEventListener('click', () => {
+          document.querySelectorAll('.tab').forEach((item) => item.classList.remove('active'));
+          button.classList.add('active');
+          state.view = button.dataset.view;
+          document.getElementById('periodSelect').value = '';
+          render();
+        });
+      });
+      document.getElementById('periodSelect').addEventListener('change', render);
+      document.getElementById('refreshButton').addEventListener('click', refreshData);
+      document
+        .getElementById('helpButton')
+        .addEventListener('click', () => document.getElementById('helpModal').classList.add('open'));
+      document
+        .getElementById('closeHelp')
+        .addEventListener('click', () => document.getElementById('helpModal').classList.remove('open'));
+      document.getElementById('helpModal').addEventListener('click', (event) => {
+        if (event.target.id === 'helpModal') event.currentTarget.classList.remove('open');
+      });
+
+      refreshData();
+    </script>
+  </body>
+</html>

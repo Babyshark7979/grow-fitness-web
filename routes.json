@@ -15,6 +15,12 @@
       "status": "active"
     },
     {
+      "path": "/dieu-hanh-grow",
+      "file": "public/dieu-hanh-grow.html",
+      "owner": "Giang & Codex",
+      "status": "trial"
+    },
+    {
       "path": "/banh-da-luu-luong-flagship",
       "file": "public/banh-da-luu-luong-flagship.html",
       "owner": "Giang & Cowork",
