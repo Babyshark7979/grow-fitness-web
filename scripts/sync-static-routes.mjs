@@ -9,7 +9,7 @@ if (fs.existsSync(publicDir)) {
   for (const file of files) {
     const fullPath = path.join(publicDir, file);
     const stat = fs.statSync(fullPath);
-    
+
     if (stat.isFile() && file.endsWith('.html') && !file.startsWith('_')) {
       const name = path.basename(file, '.html');
       if (name === 'index' || name === '404') continue;

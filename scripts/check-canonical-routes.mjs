@@ -10,7 +10,7 @@ if (!fs.existsSync(routesPath)) {
 }
 
 const registry = JSON.parse(fs.readFileSync(routesPath, 'utf-8'));
-const allowedFiles = new Set(registry.canonical_routes.map(r => path.basename(r.file)));
+const allowedFiles = new Set(registry.canonical_routes.map((r) => path.basename(r.file)));
 
 if (fs.existsSync(publicDir)) {
   const files = fs.readdirSync(publicDir);
@@ -24,8 +24,13 @@ if (fs.existsSync(publicDir)) {
     }
   }
   if (unregistered.length > 0) {
-    console.error(`[ROUTE CANONICAL GUARD] ❌ REJECT BUILD! Found ${unregistered.length} unregistered/legacy route files:`, unregistered);
-    console.error('All routes MUST be registered in routes.json or redirected via vercel.json. Unauthorized route files are forbidden!');
+    console.error(
+      `[ROUTE CANONICAL GUARD] ❌ REJECT BUILD! Found ${unregistered.length} unregistered/legacy route files:`,
+      unregistered
+    );
+    console.error(
+      'All routes MUST be registered in routes.json or redirected via vercel.json. Unauthorized route files are forbidden!'
+    );
     process.exit(1);
   }
 }

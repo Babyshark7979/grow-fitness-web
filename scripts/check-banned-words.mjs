@@ -34,7 +34,7 @@ for (const sourceFile of sourceFiles) {
     lines.forEach((line, index) => {
       if (line.includes(normalizedTerm)) {
         violations.push(
-          `${path.relative(root, sourceFile)}:${index + 1} chứa từ cấm "${term}" → thay bằng: "${alternative}"`,
+          `${path.relative(root, sourceFile)}:${index + 1} chứa từ cấm "${term}" → thay bằng: "${alternative}"`
         );
       }
     });
