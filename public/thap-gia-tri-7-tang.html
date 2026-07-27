@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tháp Giá Trị 7 Tầng — Grow Fitness</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: #0a0a0a;
+        color: #f0f0f0;
+      }
+
+      /* ── HERO ── */
+      .hero {
+        background: linear-gradient(160deg, #0f0f1a 0%, #1a0a2e 60%, #0f3460 100%);
+        padding: 48px 20px 36px;
+        text-align: center;
+      }
+      .hero-label {
+        font-size: 11px;
+        letter-spacing: 4px;
+        color: #e94560;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+      .hero h1 {
+        font-size: 28px;
+        font-weight: 900;
+        line-height: 1.2;
+        color: #fff;
+        margin-bottom: 8px;
+      }
+      .hero-sub {
+        font-size: 13px;
+        color: #888;
+        max-width: 320px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+
+      /* ── PYRAMID ── */
+      .pyramid {
+        padding: 32px 20px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+      }
+      .py-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        padding: 10px 16px;
+        text-align: center;
+        cursor: pointer;
+        transition: filter 0.2s;
+      }
+      .py-row:hover { filter: brightness(1.15); }
+      .py-row .py-num {
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        opacity: 0.6;
+        margin-right: 10px;
+        min-width: 18px;
+      }
+      .py-row .py-title {
+        font-size: 13px;
+        font-weight: 700;
+        color: #fff;
+      }
+      .py-row .py-sub {
+        font-size: 11px;
+        color: rgba(255,255,255,0.6);
+        margin-top: 2px;
+      }
+      .py7 { background: #7c3aed; width: 100%; max-width: 360px; }
+      .py6 { background: #2563eb; width: 90%; max-width: 320px; }
+      .py5 { background: #0891b2; width: 82%; max-width: 290px; }
+      .py4 { background: #059669; width: 74%; max-width: 260px; }
+      .py3 { background: #d97706; width: 66%; max-width: 235px; }
+      .py2 { background: #dc2626; width: 58%; max-width: 210px; }
+      .py1 { background: #e94560; width: 50%; max-width: 180px; }
+
+      /* ── TẦNG CARDS ── */
+      .tang-section { padding: 8px 0 40px; }
+      .tang-card {
+        margin: 0 16px 12px;
+        background: #141414;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid #1e1e1e;
+      }
+      .tang-header {
+        display: flex;
+        align-items: center;
+        padding: 14px 16px;
+        gap: 12px;
+      }
+      .tang-badge {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        flex-shrink: 0;
+      }
+      .tang-info { flex: 1; }
+      .tang-label {
+        font-size: 10px;
+        letter-spacing: 2px;
+        font-weight: 700;
+        opacity: 0.5;
+        text-transform: uppercase;
+      }
+      .tang-name {
+        font-size: 15px;
+        font-weight: 800;
+        color: #fff;
+        line-height: 1.3;
+      }
+      .tang-body { padding: 0 16px 16px; }
+      .tang-row {
+        font-size: 13px;
+        color: #aaa;
+        line-height: 1.7;
+        padding: 3px 0;
+      }
+      .tang-row strong { color: #f0f0f0; }
+      .tang-price {
+        display: inline-block;
+        background: #1e1e1e;
+        border-radius: 6px;
+        padding: 2px 8px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #fff;
+        margin-top: 4px;
+      }
+      .tang-pending {
+        font-size: 11px;
+        color: #555;
+        font-style: italic;
+      }
+      .divider { height: 1px; background: #1e1e1e; margin: 10px 0; }
+
+      /* ── NOTE BOX ── */
+      .note-box {
+        margin: 0 16px 24px;
+        background: #0d1a0d;
+        border: 1px solid #1a3a1a;
+        border-radius: 10px;
+        padding: 14px;
+        font-size: 12px;
+        color: #6b9e6b;
+        line-height: 1.7;
+      }
+      .note-box strong { color: #8bc88b; }
+
+      /* ── FOOTER ── */
+      .footer {
+        padding: 24px 20px;
+        text-align: center;
+        border-top: 1px solid #161616;
+      }
+      .footer a {
+        display: inline-block;
+        background: #e94560;
+        color: #fff;
+        text-decoration: none;
+        padding: 12px 28px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 700;
+        margin-bottom: 12px;
+      }
+      .footer p { font-size: 12px; color: #555; }
+    </style>
+  </head>
+  <body>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-label">Hệ sinh thái · Grow Fitness 2026</div>
+      <h1>Tháp Giá Trị<br>7 Tầng</h1>
+      <p class="hero-sub">Một hành trình từ bước đầu tiên đến cơ hội làm chủ — dành riêng cho nữ</p>
+    </div>
+
+    <!-- PYRAMID -->
+    <div class="pyramid">
+      <div class="py-row py7">
+        <span class="py-num">T7</span>
+        <div><div class="py-title">Bộ Công Cụ Vận Hành & Bé Dứa</div></div>
+      </div>
+      <div class="py-row py6">
+        <span class="py-num">T6</span>
+        <div><div class="py-title">Chuyển Giao Cơ Sở Mẫu</div></div>
+      </div>
+      <div class="py-row py5">
+        <span class="py-num">T5</span>
+        <div><div class="py-title">Đào Tạo HLV & Quản Lý</div></div>
+      </div>
+      <div class="py-row py4">
+        <span class="py-num">T4</span>
+        <div><div class="py-title">Chăm Sóc Vóc Dáng 12 Tuần</div></div>
+      </div>
+      <div class="py-row py3">
+        <span class="py-num">T3</span>
+        <div><div class="py-title">HLV Cá Nhân 1 Kèm 1</div></div>
+      </div>
+      <div class="py-row py2">
+        <span class="py-num">T2</span>
+        <div><div class="py-title">Vòng Tập Máy Nhóm 30 Phút</div></div>
+      </div>
+      <div class="py-row py1">
+        <span class="py-num">T1</span>
+        <div><div class="py-title">Làm Quen & Phễu 99K</div></div>
+      </div>
+    </div>
+
+    <!-- TANG CARDS -->
+    <div class="tang-section">
+
+      <!-- T1 -->
+      <div class="tang-card">
+        <div class="tang-header">
+          <div class="tang-badge" style="background:#e9456020;">🏃</div>
+          <div class="tang-info">
+            <div class="tang-label">Tầng 1 · Nền móng</div>
+            <div class="tang-name">Làm Quen Vận Động & Phễu 99K</div>
+          </div>
+        </div>
+        <div class="tang-body">
+          <div class="tang-row"><strong>Dành cho:</strong> Người mới hoàn toàn, còn ngại bước vào phòng tập</div>
+          <div class="divider"></div>
+          <div class="tang-row">🎯 Gói Khám Phá <span class="tang-price">99.000đ / 3 ngày</span></div>
+          <div class="tang-row">Đo chỉ số cơ thể · Tập nhóm nữ · HLV sửa động tác</div>
+          <div class="tang-row" style="margin-top:6px">🧘 Lớp xả stress <span class="tang-price">từ 599.000đ / 21 ngày</span></div>
+        </div>
+      </div>
+
+      <!-- T2 -->
+      <div class="tang-card">
+        <div class="tang-header">
+          <div class="tang-badge" style="background:#dc262620;">💪</div>
+          <div class="tang-info">
+            <div class="tang-label">Tầng 2</div>
+            <div class="tang-name">Vòng Tập Máy Nhóm 30 Phút</div>
+          </div>
+        </div>
+        <div class="tang-body">
+          <div class="tang-row"><strong>Dành cho:</strong> Người muốn tăng cơ, giảm mỡ, chưa cần gói cá nhân</div>
+          <div class="divider"></div>
+          <div class="tang-row">20 trạm · 60 giây tập / 30 giây đổi trạm · HLV điều phối</div>
+          <div class="tang-row" style="margin-top:6px">Vé lượt dẫn khách: <span class="tang-price">150–200K/lượt</span></div>
+        </div>
+      </div>
+
+      <!-- T3 -->
+      <div class="tang-card">
+        <div class="tang-header">
+          <div class="tang-badge" style="background:#d9770620;">🎽</div>
+          <div class="tang-info">
+            <div class="tang-label">Tầng 3</div>
+            <div class="tang-name">Huấn Luyện Viên Cá Nhân 1 Kèm 1</div>
+          </div>
+        </div>
+        <div class="tang-body">
+          <div class="tang-row"><strong>Dành cho:</strong> Chấn thương cũ, lệch tư thế hoặc cần không gian riêng tư</div>
+          <div class="divider"></div>
+          <div class="tang-row">Tập 1-1 riêng tư <span class="tang-price">từ 500.000đ/buổi</span></div>
+          <div class="tang-row tang-pending" style="margin-top:4px">HLV nhận 75% · Grow nhận 25% cho không gian & thiết bị</div>
+        </div>
+      </div>
+
+      <!-- T4 -->
+      <div class="tang-card">
+        <div class="tang-header">
+          <div class="tang-badge" style="background:#05996920;">✨</div>
+          <div class="tang-info">
+            <div class="tang-label">Tầng 4</div>
+            <div class="tang-name">Chăm Sóc Vóc Dáng 12 Tuần</div>
+          </div>
+        </div>
+        <div class="tang-body">
+          <div class="tang-row"><strong>Dành cho:</strong> Lộ trình rõ ràng cho sự kiện quan trọng, phục hồi sau sinh</div>
+          <div class="divider"></div>
+          <div class="tang-row">🍱 Bếp Grow dinh dưỡng <span class="tang-price">từ 1.999.000đ/tháng</span></div>
+          <div class="tang-row" style="margin-top:4px">🤝 Nhóm + Dinh dưỡng <span class="tang-price">từ 2.999.000đ/tháng</span></div>
+          <div class="tang-row tang-pending" style="margin-top:6px">Gói 12 tuần kèm 1-1 · Liên hệ để nhận báo giá riêng</div>
+        </div>
+      </div>
+
+      <!-- T5 -->
+      <div class="tang-card">
+        <div class="tang-header">
+          <div class="tang-badge" style="background:#0891b220;">🎓</div>
+          <div class="tang-info">
+            <div class="tang-label">Tầng 5</div>
+            <div class="tang-name">Đào Tạo HLV & Quản Lý Phòng Tập</div>
+          </div>
+        </div>
+        <div class="tang-body">
+          <div class="tang-row"><strong>Dành cho:</strong> Hội viên yêu nghề, HLV trẻ muốn nâng tầm, người muốn học vận hành</div>
+          <div class="divider"></div>
+          <div class="tang-row">🎯 Mục tiêu thu nhập <span class="tang-price">15–30 triệu/tháng</span></div>
+          <div class="tang-row tang-pending">Sau 3 tháng đào tạo · tùy kết quả thực tế</div>
+        </div>
+      </div>
+
+      <!-- T6 -->
+      <div class="tang-card">
+        <div class="tang-header">
+          <div class="tang-badge" style="background:#2563eb20;">🏛️</div>
+          <div class="tang-info">
+            <div class="tang-label">Tầng 6</div>
+            <div class="tang-name">Chuyển Giao Cơ Sở Mẫu Grow Fitness</div>
+          </div>
+        </div>
+        <div class="tang-body">
+          <div class="tang-row"><strong>Dành cho:</strong> Người học xong T5 hoặc có sẵn mặt bằng biệt thự / nhà liền kề</div>
+          <div class="divider"></div>
+          <div class="tang-row">Suất đồng hành đầu tư <span class="tang-price">200 triệu/suất</span></div>
+          <div class="tang-row tang-pending" style="margin-top:4px">Chia lợi nhuận 70/30 → đảo về 50/50 sau hoàn vốn</div>
+          <div class="tang-row tang-pending">Chi phí mặt bằng khống chế ~20 triệu/tháng</div>
+        </div>
+      </div>
+
+      <!-- T7 -->
+      <div class="tang-card">
+        <div class="tang-header">
+          <div class="tang-badge" style="background:#7c3aed20;">🍍</div>
+          <div class="tang-info">
+            <div class="tang-label">Tầng 7</div>
+            <div class="tang-name">Bộ Công Cụ Vận Hành & Trợ Lý Bé Dứa</div>
+          </div>
+        </div>
+        <div class="tang-body">
+          <div class="tang-row"><strong>Dành cho:</strong> Các cơ sở Grow Fitness và chủ phòng tập đồng hành</div>
+          <div class="divider"></div>
+          <div class="tang-row">🤖 Bé Dứa theo dõi hành trình sức khỏe hội viên mỗi ngày</div>
+          <div class="tang-row">📊 Công cụ quản lý thu chi & chia doanh thu 75/25</div>
+          <div class="tang-row">🍱 Kết nối bếp dinh dưỡng Grow cho từng cơ sở</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- NOTE -->
+    <div class="note-box">
+      <strong>⚖️ Nguyên tắc số liệu:</strong> Mọi con số đều có nguồn thật từ dữ liệu đã kiểm chứng. Chúng tôi không hứa con số với bất kỳ ai — sổ sách đối chiếu hàng tuần, nhà đầu tư gặp trực tiếp mới xem tài liệu tài chính.
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <a href="/join">Bắt đầu từ Tầng 1 — 99K thử 3 ngày</a>
+      <p>Zalo chị Liên: 0962 468 222 · T2–T6 · Ocean Park 1, Gia Lâm</p>
+    </div>
+
+  </body>
+</html>
