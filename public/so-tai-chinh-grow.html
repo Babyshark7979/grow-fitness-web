@@ -84,6 +84,14 @@
     .pnl-val { font-weight: 800; text-align: right; color: var(--warm); font-size: 15px; }
     .pnl-note { text-align: right; font-size: 12px; color: var(--muted); }
 
+    /* Per-Capita Income Cards (THU NHẬP ƯỚC TÍNH TRÊN MỖI ĐẦU NGƯỜI TỪNG VỊ TRÍ) */
+    .percap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 36px; }
+    .percap-card { background: linear-gradient(145deg, var(--card) 0%, var(--card-hi) 100%); border: 1px solid var(--line); border-radius: 18px; padding: 18px; }
+    .percap-card .role-title { font-size: 14px; font-weight: 800; color: var(--heading); display: flex; justify-content: space-between; align-items: center; }
+    .percap-card .head-cnt { font-size: 11px; background: rgba(255,46,136,0.2); color: var(--secondary); padding: 2px 8px; border-radius: 99px; }
+    .percap-card .income-val { font-size: 24px; font-weight: 900; color: var(--green); margin: 10px 0 4px; }
+    .percap-card .income-desc { font-size: 12px; color: var(--muted); line-height: 1.4; }
+
     /* Inputs Grid */
     .input-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-bottom: 36px; }
     @media(min-width: 768px) { .input-grid { grid-template-columns: 1fr 1fr; } }
@@ -110,7 +118,7 @@
     <div class="container">
       <span class="badge">GROW FITNESS 2026 · CAUSAL.APP & FINMODELS LAB BENCHMARK</span>
       <h1>SỔ TÀI CHÍNH VẬN HÀNH<br/><span>& BẢN ĐIỀU KHIỂN DỰ TOÁN GROW</span></h1>
-      <p>Mô hình Bảng tính Kế toán Tương tác 2 Chiều · Thay đổi 1 biến số, toàn bộ Báo cáo P&L, Lương thưởng Khoán & Dòng tiền nẩy tức thì.</p>
+      <p>Mô hình Bảng tính Kế toán Tương tác 2 Chiều · Thay đổi 1 biến số, toàn bộ Báo cáo P&L, Lương thưởng Khoán & Thu nhập từng người nẩy tức thì.</p>
     </div>
   </header>
 
@@ -129,8 +137,8 @@
           <div class="txt">Xem ngay <strong>Báo cáo Kế toán P&L</strong> tự động nẩy Doanh Thu, Chi Phí & Quỹ Lương Khoán từng vị trí.</div>
         </div>
         <div class="g-step">
-          <div class="num">Bước 3 · Kiểm Tra Lãi Ròng</div>
-          <div class="txt">Xem dòng <strong>Lợi Nhuận Ròng Thực Bỏ Túi</strong> và Biểu đồ dòng tiền 12 tháng tự động cập nhật.</div>
+          <div class="num">Bước 3 · So Thu Nhập Đầu Người</div>
+          <div class="txt">Xem thẻ <strong>Thu Nhập Ước Tính Mỗi Nhân Sự/Tháng</strong> để biết đội ngũ sống khỏe hay yếu.</div>
         </div>
       </div>
     </div>
@@ -164,6 +172,35 @@
           <div class="val" id="resTargetTrainer" style="color:var(--green)">18.5 Tr/tháng</div>
           <div class="note">150k-200k/ca</div>
         </div>
+      </div>
+    </div>
+
+    <!-- THU NHẬP ƯỚC TÍNH MỖI NHÂN SỰ TỪNG VỊ TRÍ (PER-CAPITA EARNINGS MATRIX) -->
+    <div class="sec-head">
+      <div class="sec-tag">Định Mức Thu Nhập Nhân Sự</div>
+      <div class="sec-title">👤 Thu Nhập Ước Tính Trên Mỗi Đầu Người / Tháng</div>
+    </div>
+
+    <div class="percap-grid">
+      <div class="percap-card">
+        <div class="role-title">1. Quản Lý Vận Hành <span class="head-cnt">1 Người</span></div>
+        <div class="income-val" id="perCapManager">9.69 Tr/tháng</div>
+        <div class="income-desc">8M cứng + 2% thưởng doanh thu thực thu</div>
+      </div>
+      <div class="percap-card">
+        <div class="role-title">2. Chuyên Viên Sale <span class="head-cnt" id="cntSaleTag">2 Người</span></div>
+        <div class="income-val" id="perCapSale" style="color:var(--cyan)">2.96 Tr/người</div>
+        <div class="income-desc">Thưởng 7% gói mới + 3% gia hạn (chia theo doanh số)</div>
+      </div>
+      <div class="percap-card">
+        <div class="role-title">3. HLV Gym Nhóm MCT <span class="head-cnt" id="cntTrainerTag">2 HLV</span></div>
+        <div class="income-val" id="perCapTrainer" style="color:var(--warm)">9.90 Tr/người</div>
+        <div class="income-desc">Khoán 150k-200k/ca (trung bình 55 ca/HLV/tháng)</div>
+      </div>
+      <div class="percap-card">
+        <div class="role-title">4. HLV Lớp Group X <span class="head-cnt">1 HLV</span></div>
+        <div class="income-val" id="perCapGroupTrainer" style="color:var(--secondary)">3.30 Tr/tháng</div>
+        <div class="income-desc">Khoán 150k/ca (22 ca lớp nhóm 3 buổi/tuần)</div>
       </div>
     </div>
 
@@ -256,7 +293,7 @@
     <!-- KHỐI NHẬP BIẾN SỐ ĐẦU VÀO (INPUT DRIVERS GRID) -->
     <div class="sec-head">
       <div class="sec-tag">Bảng Giả Lập Biến Số</div>
-      <div class="sec-title">⚙️ Điều Chỉnh Giá Vé & Số Lượng Khách</div>
+      <div class="sec-title">⚙️ Điều Chỉnh Đơn Giá, Số Lượng Khách & Định Biên Nhân Sự</div>
     </div>
 
     <div class="input-grid">
@@ -281,7 +318,15 @@
       </div>
 
       <div class="inp-card">
-        <h3>👥 Số Lượng Khách Hàng Giả Lập</h3>
+        <h3>👥 Định Biên Nhân Sự & Số Lượng Khách</h3>
+        <div class="inp-group">
+          <label>Số lượng Sale (Người):</label>
+          <input type="number" id="cntSaleStaff" value="2" min="1" onchange="updateCalculations()">
+        </div>
+        <div class="inp-group">
+          <label>Số lượng HLV Gym Nhóm (HLV):</label>
+          <input type="number" id="cntTrainerStaff" value="2" min="1" onchange="updateCalculations()">
+        </div>
         <div class="inp-group">
           <label>Khách Group X (Người):</label>
           <input type="number" id="cntGroupX" value="12" min="0" onchange="updateCalculations()">
@@ -325,6 +370,9 @@
       const pGoi12M = parseFloat(document.getElementById('priceGoi12M').value) || 0;
       const pPt = parseFloat(document.getElementById('pricePt').value) || 0;
 
+      const cntSaleStaff = parseInt(document.getElementById('cntSaleStaff').value) || 1;
+      const cntTrainerStaff = parseInt(document.getElementById('cntTrainerStaff').value) || 1;
+
       const cGroupX = parseInt(document.getElementById('cntGroupX').value) || 0;
       const cGymMct = parseInt(document.getElementById('cntGymMct').value) || 0;
       const cGoi12M = parseInt(document.getElementById('cntGoi12M').value) || 0;
@@ -356,6 +404,19 @@
       const totalCosts = costFixed + costAds + payManager + payGroupTrainer + payMctTrainer + paySale;
       const netProfit = totalRev - totalCosts;
       const marginPct = totalRev > 0 ? ((netProfit / totalRev) * 100).toFixed(1) : 0;
+
+      // Update Per-Capita Income Cards
+      document.getElementById('perCapManager').innerText = payManager.toFixed(2) + ' Tr/tháng';
+      
+      const perSale = paySale / cntSaleStaff;
+      document.getElementById('perCapSale').innerText = perSale.toFixed(2) + ' Tr/người';
+      document.getElementById('cntSaleTag').innerText = cntSaleStaff + ' Người';
+
+      const perTrainer = payMctTrainer / cntTrainerStaff;
+      document.getElementById('perCapTrainer').innerText = perTrainer.toFixed(2) + ' Tr/người';
+      document.getElementById('cntTrainerTag').innerText = cntTrainerStaff + ' HLV';
+
+      document.getElementById('perCapGroupTrainer').innerText = payGroupTrainer.toFixed(2) + ' Tr/tháng';
 
       // Update P&L Costs & Net
       document.getElementById('pnlCostFixed').innerText = costFixed.toFixed(2) + ' Tr';
