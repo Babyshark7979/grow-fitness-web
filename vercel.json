@@ -1,6 +1,18 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/thap-gia-tri-7-tang",
+      "destination": "/thap-gia-tri-grow",
+      "permanent": true
+    },
+    {
+      "source": "/thap-gia-tri-7-tang.html",
+      "destination": "/thap-gia-tri-grow",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/_astro/(.*)",

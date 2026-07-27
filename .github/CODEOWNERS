@@ -1,0 +1,7 @@
+# Chủ sở hữu nội dung Grow Fitness. File này giúp GitHub tự mời đúng người
+# kiểm tra khi bài viết, cổng nội dung hoặc cấu hình triển khai thay đổi.
+/src/data/post/ @Babyshark7979
+/src/content.config.ts @Babyshark7979
+/scripts/check-content-policy.mjs @Babyshark7979
+/.github/ @Babyshark7979
+/vercel.json @Babyshark7979

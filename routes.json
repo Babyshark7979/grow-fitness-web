@@ -1,0 +1,30 @@
+{
+  "$schema": "Canonical Route Registry for Grow Fitness Web",
+  "version": "1.0.0",
+  "canonical_routes": [
+    {
+      "path": "/thap-gia-tri-grow",
+      "file": "public/thap-gia-tri-grow.html",
+      "owner": "Giang & Cowork",
+      "status": "active"
+    },
+    {
+      "path": "/so-tai-chinh-grow",
+      "file": "public/so-tai-chinh-grow.html",
+      "owner": "Giang & Cowork",
+      "status": "active"
+    },
+    {
+      "path": "/banh-da-luu-luong-flagship",
+      "file": "public/banh-da-luu-luong-flagship.html",
+      "owner": "Giang & Cowork",
+      "status": "active"
+    },
+    {
+      "path": "/ke-hoach-3-quy-mua-dong",
+      "file": "public/ke-hoach-3-quy-mua-dong.html",
+      "owner": "Giang & Cowork",
+      "status": "active"
+    }
+  ]
+}
