@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tháp Giá Trị 7 Tầng — Grow Fitness</title>
+<meta name="description" content="Hành trình 7 tầng tại Grow Fitness: bắt đầu nhẹ nhàng với Gói Khám Phá 99K, được chăm sóc sâu hơn khi cần, rồi trở thành huấn luyện viên, người quản lý hoặc người đồng hành mở cơ sở." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* Bảng màu chuẩn lấy từ CSS variables thật của luongdieulien.com (đọc 27/07/2026) */
+    --bg:#0F090E;            /* --aw-color-bg-page */
+    --card:#1D111B;          /* --aw-color-card */
+    --card-hi:#2F1627;       /* --aw-color-card-highlight */
+    --line:#533046;          /* --aw-color-line */
+    --plum:#3A122D;          /* --aw-color-plum */
+    --primary:#FF2E88;       /* --aw-color-primary */
+    --secondary:#FF75AE;     /* --aw-color-secondary */
+    --warm:#F4B942;          /* --aw-color-warm / accent */
+    --blush:#FFE4EF;         /* --aw-color-blush */
+    --text:#FFF4F9;          /* --aw-color-text-default */
+    --heading:#FFF8FB;       /* --aw-color-text-heading */
+    --muted:rgba(235,211,224,.78); /* --aw-color-text-muted */
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans','Inter Variable',ui-sans-serif,system-ui,sans-serif;line-height:1.65}
+  .wrap{max-width:1060px;margin:0 auto;padding:24px 20px 72px}
+
+  header.hero{text-align:center;padding:60px 16px 26px}
+  .hero .badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--card);color:var(--secondary);border-radius:9999px;padding:6px 16px;font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:22px}
+  .hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.15;font-weight:800;color:var(--heading);letter-spacing:-.02em}
+  .hero h1 span{color:var(--primary)}
+  .hero p{color:var(--muted);max-width:700px;margin:18px auto 0;font-size:1.05rem}
+
+  /* ── KIM TỰ THÁP 7 TẦNG: đáy 100% thu dần lên đỉnh 40% ── */
+  .pyramid{max-width:860px;margin:44px auto 6px}
+  .tier{position:relative;margin:0 auto 4px;text-align:center;padding:15px 12% 16px}
+  .tier .t-num{display:block;font-size:clamp(.58rem,1.4vw,.7rem);font-weight:800;letter-spacing:.24em;text-transform:uppercase;opacity:.8;margin-bottom:2px}
+  .tier .t-name{font-weight:800;font-size:clamp(.72rem,1.9vw,1.02rem);color:#fff;letter-spacing:-.01em}
+  .tier .t-fact{display:block;font-size:clamp(.6rem,1.55vw,.84rem);margin-top:3px;color:var(--blush)}
+  .t7{width:40%;clip-path:polygon(12.5% 0,87.5% 0,100% 100%,0 100%);background:linear-gradient(180deg,#FF75AE,#FF2E88)}
+  .t6{width:50%;clip-path:polygon(10% 0,90% 0,100% 100%,0 100%);background:linear-gradient(180deg,#FF2E88,#E32677)}
+  .t5{width:60%;clip-path:polygon(8.33% 0,91.67% 0,100% 100%,0 100%);background:linear-gradient(180deg,#C92368,#AD1F59)}
+  .t4{width:70%;clip-path:polygon(7.14% 0,92.86% 0,100% 100%,0 100%);background:linear-gradient(180deg,#921B4B,#78173E)}
+  .t3{width:80%;clip-path:polygon(6.25% 0,93.75% 0,100% 100%,0 100%);background:linear-gradient(180deg,#611534,#4E122B)}
+  .t2{width:90%;clip-path:polygon(5.56% 0,94.44% 0,100% 100%,0 100%);background:linear-gradient(180deg,#3F1024,#33101F)}
+  .t1{width:100%;clip-path:polygon(5% 0,95% 0,100% 100%,0 100%);background:linear-gradient(180deg,#2A0F1C,#1D111B)}
+  .t7 .t-num,.t6 .t-num{color:#3A122D;opacity:.9}
+  .t7 .t-fact,.t6 .t-fact{color:#2A0A1B}
+
+  .moc{max-width:860px;margin:2px auto;display:flex;align-items:center;gap:12px;color:var(--warm);font-size:.74rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+  .moc::before,.moc::after{content:"";flex:1;border-top:1px dashed rgba(244,185,66,.5)}
+  .chuthich{text-align:center;color:var(--muted);font-size:.88rem;margin-top:14px}
+
+  section{margin-top:58px}
+  section>h2{font-size:clamp(1.4rem,3vw,2rem);margin-bottom:8px;font-weight:800;color:var(--heading);letter-spacing:-.02em}
+  section>h2 em{color:var(--primary);font-style:normal}
+  section>.lead{color:var(--muted);margin-bottom:20px;max-width:760px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px 26px;margin-bottom:14px}
+  .card h3{color:var(--secondary);font-size:1.06rem;margin-bottom:8px;font-weight:700}
+  .card p{margin-bottom:8px;color:var(--muted)}
+  .card p b,.card li b{color:var(--text)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:14px}
+  .stat{background:var(--card-hi);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+  .stat .v{font-size:1.3rem;color:var(--warm);font-weight:800}
+  .stat .k{color:var(--muted);font-size:.84rem;margin-top:2px}
+  ul.clean{list-style:none;margin-top:6px}
+  ul.clean li{padding:6px 0 6px 26px;position:relative;color:var(--muted)}
+  ul.clean li::before{content:"❤";position:absolute;left:0;color:var(--primary);font-size:.8rem;top:9px}
+  .note{color:var(--muted);font-size:.85rem;margin-top:10px;font-style:italic}
+
+  .cta-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:20px}
+  .cta{display:block;text-align:center;border-radius:9999px;padding:15px 22px;font-weight:700;text-decoration:none;font-size:.95rem;transition:filter .2s}
+  .cta:hover{filter:brightness(1.08)}
+  .cta.chinh{background:var(--primary);color:#fff;box-shadow:0 8px 28px rgba(255,46,136,.35)}
+  .cta.vien{border:1.5px solid var(--primary);color:var(--primary);background:transparent}
+  footer{margin-top:64px;text-align:center;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line);padding-top:26px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="badge">Grow Fitness · Hành trình của bạn</div>
+    <h1>Tháp Giá Trị <span>7 Tầng</span><br/>Từ Người Tập Trở Thành Người Làm Chủ</h1>
+    <p>Ở Grow Fitness, bạn không chỉ đến để tập. Bạn bắt đầu thật nhẹ nhàng, được chăm sóc sâu hơn khi cần, và nếu yêu nghề — có hẳn một con đường để trở thành huấn luyện viên, người quản lý hay người đồng hành mở cơ sở cùng chúng tôi.</p>
+  </header>
+
+  <!-- KIM TỰ THÁP: đáy 100% ➔ đỉnh 40% -->
+  <div class="pyramid" aria-label="Sơ đồ tháp giá trị 7 tầng">
+    <div class="tier t7"><span class="t-num">Tầng 7</span><span class="t-name">Bộ Công Cụ Vận Hành &amp; Bé Dứa</span><span class="t-fact">đồng hành cùng từng cơ sở</span></div>
+    <div class="tier t6"><span class="t-num">Tầng 6</span><span class="t-name">Chuyển Giao Cơ Sở Mẫu</span><span class="t-fact">gặp trực tiếp, xem tài liệu thật — không hứa con số trên web</span></div>
+    <div class="tier t5"><span class="t-num">Tầng 5</span><span class="t-name">Đào Tạo HLV &amp; Quản Lý Phòng Tập</span><span class="t-fact">mục tiêu 15–30 triệu/tháng sau 3 tháng đào tạo</span></div>
+    <div class="moc">Từ đây, người tập trở thành người làm chủ</div>
+    <div class="tier t4"><span class="t-num">Tầng 4</span><span class="t-name">Chăm Sóc Vóc Dáng &amp; Dinh Dưỡng</span><span class="t-fact">12 triệu/6 tháng · 18 triệu/12 tháng — kèm ăn, tập &amp; Bé Dứa 24/7</span></div>
+    <div class="tier t3"><span class="t-num">Tầng 3</span><span class="t-name">Huấn Luyện Viên Cá Nhân 1 Kèm 1</span><span class="t-fact">tập riêng từ 500.000đ/buổi</span></div>
+    <div class="tier t2"><span class="t-num">Tầng 2</span><span class="t-name">Vòng Tập Máy Nhóm 30 Phút</span><span class="t-fact">3 triệu/tháng · mua dài hạn có ưu đãi &amp; quà tặng</span></div>
+    <div class="tier t1"><span class="t-num">Tầng 1 · Nền móng</span><span class="t-name">Làm Quen Vận Động — Bắt Đầu Nhẹ Nhàng</span><span class="t-fact">Gói Khám Phá 99K / 3 ngày · thẻ tháng lớp nhóm 990K</span></div>
+  </div>
+  <p class="chuthich">Đáy tháp rộng cho tất cả mọi người; càng lên cao, mức chăm sóc càng sâu và cơ hội càng lớn.</p>
+
+  <section>
+    <h2>Bảy tầng — <em>một hành trình</em></h2>
+    <p class="lead">Mỗi tầng đều có chỗ đứng riêng. Bạn dừng ở tầng nào cũng trọn vẹn; muốn đi tiếp, luôn có người của Grow đồng hành. Đúng như lời hứa của chị Liên: <b style="color:var(--text)">không chèo kéo mua thẻ</b>.</p>
+
+    <div class="card">
+      <h3>Tầng 1 — Làm quen vận động, bắt đầu thật nhẹ nhàng</h3>
+      <p>Dành cho người mới hoàn toàn, ít vận động hoặc còn ngại bước vào phòng tập. Bạn bắt đầu với <b>Gói Khám Phá 99.000đ cho 3 ngày</b>: đo chỉ số cơ thể, tập nhóm toàn nữ và được huấn luyện viên sửa từng động tác. Hợp rồi thì đi tiếp cùng <b>lớp tập xả stress từ 599.000đ / 21 ngày</b> hoặc <b>thẻ tháng lớp nhóm 990.000đ</b>. Gói 99K đã bao gồm trợ lý Bé Dứa đồng hành nhắc nhở mỗi ngày.</p>
+    </div>
+
+    <div class="card">
+      <h3>Tầng 2 — Vòng tập máy nhóm 30 phút</h3>
+      <p>Khi đã quen vận động, bạn bước vào vòng tập <b>20 trạm</b> gồm 10 máy tạ khối và 10 trạm bước bục, luân phiên <b>60 giây tập – 30 giây đổi trạm</b>, có huấn luyện viên điều phối nhạc và sửa tư thế. Ba mươi phút gọn gàng, đủ mệt, đủ vui — lớp nhỏ chỉ 10–15 chị em mỗi ca, tập được các ngày thứ 2 đến thứ 6. Mức phí <b>3.000.000đ/tháng</b>; mua nhiều tháng có ưu đãi và quà tặng riêng.</p>
+    </div>
+
+    <div class="card">
+      <h3>Tầng 3 — Huấn luyện viên cá nhân 1 kèm 1</h3>
+      <p>Dành cho người có chấn thương cũ, lệch tư thế rõ hoặc muốn không gian riêng tư hoàn toàn. Gói tập riêng 1-1 <b>từ 500.000đ/buổi</b>, lộ trình cá nhân hóa theo thể trạng của bạn, và hành trình sức khỏe được Bé Dứa ghi nhớ trọn vẹn — đổi huấn luyện viên vẫn không mất dữ liệu.</p>
+    </div>
+
+    <div class="card">
+      <h3>Tầng 4 — Chăm sóc vóc dáng &amp; dinh dưỡng chuyên sâu</h3>
+      <p>Dành cho chị em cần lộ trình rõ ràng trước sự kiện quan trọng hoặc muốn phục hồi vóc dáng sau sinh.</p>
+      <div class="grid">
+        <div class="stat"><div class="v">từ 1.999k</div><div class="k">Đồng hành dinh dưỡng Bếp Grow / tháng</div></div>
+        <div class="stat"><div class="v">từ 2.999k</div><div class="k">Tập nhóm + Dinh dưỡng / tháng</div></div>
+      </div>
+      <div class="grid"><div class="stat"><div class="v">12 triệu</div><div class="k">gói đồng hành 6 tháng — ăn, tập, Bé Dứa 24/7, tập cả lớp nhóm lẫn vòng máy</div></div><div class="stat"><div class="v">18 triệu</div><div class="k">gói đồng hành 12 tháng — trọn vẹn nhất, đáng giá nhất</div></div></div><p class="note">Lộ trình chi tiết được thiết kế riêng sau buổi phân tích thể trạng — vì mỗi cơ thể mỗi khác.</p>
+    </div>
+
+    <div class="card">
+      <h3>Tầng 5 — Học nghề huấn luyện viên &amp; quản lý phòng tập</h3>
+      <p>Nhiều hội viên yêu nơi này đến mức muốn biến nó thành nghề nghiệp. Không cần kinh nghiệm — chỉ cần bạn thích kiếm tiền và dám học. Grow đào tạo từ đầu để bạn biết chăm khách, xây đội ngũ và quản lý một phòng tập dành riêng cho nữ.</p>
+      <div class="grid">
+        <div class="stat"><div class="v">15–30 triệu</div><div class="k">mục tiêu thu nhập mỗi tháng sau 3 tháng đào tạo, tùy kết quả thực tế</div></div>
+        <div class="stat"><div class="v">3 bước</div><div class="k">nhắn tin → phỏng vấn → bắt đầu</div></div><div class="stat"><div class="v">Khóa đầu</div><div class="k">học phí ưu đãi cho khóa khai giảng đầu tiên — nhắn Zalo để giữ chỗ</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Tầng 6 — Chuyển giao cơ sở mẫu</h3>
+      <p>Dành cho người đã học xong tầng 5 hoặc người có sẵn mặt bằng và muốn mở một cơ sở tập luyện tử tế. Đúng nguyên tắc của Grow: <b>bạn sẽ không thấy một lời cam kết lợi nhuận nào trên website này</b> — mời bạn một buổi cà phê, gặp trực tiếp và xem tài liệu tài chính thật, sổ sách đối chiếu hàng tuần.</p>
+    </div>
+
+    <div class="card">
+      <h3>Tầng 7 — Bộ công cụ vận hành &amp; trợ lý Bé Dứa</h3>
+      <p>Đỉnh tháp là thứ gắn kết tất cả: trợ lý Bé Dứa theo dõi hành trình sức khỏe của từng hội viên 24/7, bộ công cụ quản lý minh bạch và quy trình kết nối bếp dinh dưỡng Grow. Mỗi cơ sở mới mở đều được trao trọn bộ công cụ này để vận hành nhàn hơn và minh bạch hơn.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Bạn muốn bắt đầu từ <em>tầng nào</em>?</h2>
+    <p class="lead">Dừng ở đâu cũng được — quan trọng là bắt đầu.</p>
+    <div class="cta-row">
+      <a class="cta chinh" href="/join">Khám Phá Gói 99K</a>
+      <a class="cta vien" href="/careers">Tôi muốn học nghề &amp; làm quản lý</a>
+      <a class="cta vien" href="/invest">Tôi muốn đồng hành mở cơ sở</a>
+    </div>
+    <p class="chuthich" style="margin-top:16px">Hoặc nhắn Zalo chị Diệu Liên: <b style="color:var(--secondary)">0962 468 222</b> · Tòa S109 - 01S10, Vinhomes Ocean Park 1, Gia Lâm, Hà Nội · Thứ 2 – Thứ 6</p>
+  </section>
+
+  <footer>
+    © 2026 Grow Fitness — Tháp Giá Trị 7 Tầng.<br/>
+    Mọi con số trên trang đều là số đang công bố chính thức của Grow Fitness (đối chiếu 27/07/2026).
+  </footer>
+</div>
+</body>
+</html>
