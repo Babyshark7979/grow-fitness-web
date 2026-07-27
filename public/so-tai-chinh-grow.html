@@ -1,261 +1,414 @@
 <!doctype html>
 <html lang="vi">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<meta name="robots" content="noindex,nofollow"/>
-<title>Sổ Tài Chính Vận Hành — Grow Fitness (Nội bộ)</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#0F090E;--card:#1D111B;--card2:#2F1627;--line:#533046;--pink:#FF2E88;--pink2:#FF75AE;--gold:#F4B942;--goldchart:#B8811C;--blush:#FFE4EF;--text:#FFF4F9;--muted:rgba(235,211,224,.78)}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',ui-sans-serif,system-ui,sans-serif;line-height:1.55}
-.wrap{max-width:1180px;margin:0 auto;padding:20px 18px 70px}
-h1{font-size:clamp(1.4rem,3vw,2.1rem);font-weight:800;letter-spacing:-.02em}
-h1 span{color:var(--pink)}
-.sub{color:var(--muted);font-size:.92rem;margin-top:4px}
-h2{font-size:1.05rem;font-weight:800;margin:26px 0 10px;color:var(--pink2);text-transform:uppercase;letter-spacing:.08em}
-.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
-.grid{display:grid;gap:12px}
-.g4{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
-.g2{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
-.tile{background:var(--card2);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
-.tile .v{font-size:1.5rem;font-weight:800;color:var(--gold)}
-.tile .v.pink{color:var(--pink)}
-.tile .k{color:var(--muted);font-size:.82rem;margin-top:2px}
-.inp{display:grid;grid-template-columns:1fr 92px;gap:8px;align-items:center;margin:7px 0}
-.inp label{font-size:.86rem;color:var(--muted)}
-.inp label b{color:var(--text)}
-.inp input[type=number]{width:100%;background:#170D14;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:6px 8px;font-family:inherit;font-size:.9rem}
-.inp.mo input{background:#3d3413;border-color:#8a7a1e}
-.tag{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:99px;border:1px solid var(--line);color:var(--pink2)}
-.tag.mo{color:#F4B942;border-color:#8a7a1e}
-svg{width:100%;height:auto;display:block}
-.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.8rem;color:var(--muted);margin-top:6px}
-.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
-table{width:100%;border-collapse:collapse;font-size:.86rem}
-th{background:var(--card2);color:var(--pink2);text-align:left;padding:8px;border:1px solid var(--line);font-size:.78rem;text-transform:uppercase;letter-spacing:.06em}
-td{padding:8px;border:1px solid var(--line);color:var(--muted);vertical-align:top}
-td b{color:var(--text)}
-.tt{position:fixed;pointer-events:none;background:#170D14;border:1px solid var(--pink);border-radius:8px;padding:6px 10px;font-size:.8rem;display:none;z-index:50}
-#gate{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:99}
-#gate .box{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:34px;text-align:center;max-width:340px}
-#gate input{width:100%;margin:14px 0;background:#170D14;border:1px solid var(--line);color:var(--text);border-radius:99px;padding:11px 16px;text-align:center;font-size:1.1rem;letter-spacing:.3em}
-#gate button{width:100%;background:var(--pink);color:#fff;border:0;border-radius:99px;padding:12px;font-weight:700;font-family:inherit;font-size:.95rem;cursor:pointer}
-.note{color:var(--muted);font-size:.8rem;font-style:italic;margin-top:8px}
-.bench{margin:10px 0}
-.bench .row{display:grid;grid-template-columns:210px 1fr 130px;gap:10px;align-items:center;margin:8px 0;font-size:.84rem}
-.bench .bar{position:relative;height:16px;background:#170D14;border-radius:8px;overflow:visible}
-.bench .fill{position:absolute;left:0;top:2px;bottom:2px;border-radius:6px;background:var(--goldchart)}
-.bench .zone{position:absolute;top:-3px;bottom:-3px;border-left:2px dashed var(--muted);opacity:.7}
-.ok{color:#7CC97C;font-weight:700}.bad{color:#FF7575;font-weight:700}
-</style></head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sổ Tài Chính Vận Hành & Dự Toán Grow Fitness 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <script>
+    !function(){
+      if("678999"!==sessionStorage.getItem("gf_fin_auth")){
+        if("678999"!==prompt("🔒 BẢO MẬT SỔ TÀI CHÍNH NỘI BỘ GROW FITNESS\nNhập mật khẩu truy cập:")){
+          return void(document.documentElement.innerHTML='<body style="background:#0F090E;color:#fff;font-family:system-ui,-apple-system,sans-serif;display:flex;height:100vh;align-items:center;justify-content:center;text-align:center"><div><div style="font-size:56px;margin-bottom:16px">🔒</div><div style="font-size:20px;font-weight:700;color:#FF2E88">Truy cập bị từ chối</div><div style="margin-top:8px;font-size:14px;color:#888">Sai mật khẩu bảo vệ tài chính.</div></div></body>');
+        }
+        sessionStorage.setItem("gf_fin_auth","678999");
+      }
+    }();
+  </script>
+  <style>
+    :root {
+      --bg: #0F090E;
+      --card: #1D111B;
+      --card-hi: #2F1627;
+      --line: #533046;
+      --primary: #FF2E88;
+      --secondary: #FF75AE;
+      --warm: #F4B942;
+      --green: #10B981;
+      --cyan: #06B6D4;
+      --blue: #3B82F6;
+      --blush: #FFE4EF;
+      --text: #FFF4F9;
+      --heading: #FFF8FB;
+      --muted: rgba(235,211,224,.78);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.6; padding-bottom: 80px; }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+    /* Header */
+    header.hero { text-align: center; padding: 50px 16px 30px; border-bottom: 1px solid var(--line); }
+    .badge { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); background: var(--card); color: var(--secondary); border-radius: 9999px; padding: 6px 18px; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 18px; }
+    h1 { font-size: clamp(1.8rem, 4.5vw, 3rem); font-weight: 900; color: var(--heading); letter-spacing: -0.02em; line-height: 1.2; }
+    h1 span { color: var(--primary); }
+    .hero p { color: var(--muted); max-width: 780px; margin: 14px auto 0; font-size: 1rem; }
+
+    /* Guide Box */
+    .guide-box { background: linear-gradient(135deg, rgba(255,46,136,0.12) 0%, rgba(244,185,66,0.08) 100%); border: 1px solid var(--line); border-radius: 20px; padding: 22px 26px; margin: 30px 0; }
+    .guide-title { font-size: 16px; font-weight: 800; color: var(--warm); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    .guide-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+    @media(min-width: 768px) { .guide-grid { grid-template-columns: 1fr 1fr 1fr; } }
+    .g-step { background: rgba(29,17,27,0.7); border: 1px solid rgba(83,48,70,0.5); border-radius: 12px; padding: 14px; }
+    .g-step .num { font-size: 11px; font-weight: 900; color: var(--primary); text-transform: uppercase; letter-spacing: 1.5px; }
+    .g-step .txt { font-size: 13px; color: var(--text); margin-top: 4px; line-height: 1.4; }
+
+    /* Section Headers */
+    .sec-head { margin: 40px 0 20px; }
+    .sec-tag { font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--primary); }
+    .sec-title { font-size: 22px; font-weight: 800; color: var(--heading); }
+
+    /* Interactive Target Slider Box */
+    .slider-box { background: var(--card-hi); border: 2px solid var(--primary); border-radius: 24px; padding: 28px; box-shadow: 0 0 35px rgba(255,46,136,0.25); margin-bottom: 36px; }
+    .slider-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px; }
+    .slider-header label { font-size: 17px; font-weight: 800; color: var(--heading); }
+    .slider-val { font-size: 28px; font-weight: 900; color: var(--warm); background: rgba(0,0,0,0.4); padding: 4px 18px; border-radius: 12px; border: 1px solid var(--warm); }
+    .target-slider { width: 100%; height: 12px; border-radius: 6px; background: var(--line); outline: none; accent-color: var(--primary); cursor: pointer; }
+    
+    .target-results { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-top: 22px; }
+    .tr-card { background: rgba(15,9,14,0.7); border: 1px solid var(--line); border-radius: 14px; padding: 14px; text-align: center; }
+    .tr-card .lbl { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; }
+    .tr-card .val { font-size: 20px; font-weight: 900; color: var(--secondary); margin-top: 4px; }
+    .tr-card .note { font-size: 11px; color: #a78bfa; margin-top: 2px; }
+
+    /* Financial P&L Line-Item Statement Matrix (BẢNG KẾ TOÁN VẬN HÀNH DẠNG CỘT) */
+    .pnl-matrix { background: var(--card); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; margin-bottom: 36px; }
+    .pnl-row { display: grid; grid-template-columns: 2.2fr 1fr 1.2fr; border-bottom: 1px solid rgba(83,48,70,0.4); padding: 14px 20px; align-items: center; }
+    @media(max-width: 640px) { .pnl-row { grid-template-columns: 1.8fr 1fr 1.2fr; padding: 12px 14px; font-size: 13px; } }
+    .pnl-row.header { background: rgba(47,22,39,0.9); font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--warm); border-bottom: 2px solid var(--line); }
+    .pnl-row.section-head { background: rgba(255,46,136,0.1); font-weight: 800; color: var(--secondary); }
+    .pnl-row.total { background: rgba(16,185,129,0.15); font-weight: 900; border-top: 2px solid var(--green); border-bottom: none; }
+    .pnl-name { font-weight: 700; color: var(--heading); }
+    .pnl-name small { display: block; font-weight: 400; font-size: 12px; color: var(--muted); }
+    .pnl-val { font-weight: 800; text-align: right; color: var(--warm); font-size: 15px; }
+    .pnl-note { text-align: right; font-size: 12px; color: var(--muted); }
+
+    /* Inputs Grid */
+    .input-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-bottom: 36px; }
+    @media(min-width: 768px) { .input-grid { grid-template-columns: 1fr 1fr; } }
+    .inp-card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 22px; }
+    .inp-card h3 { font-size: 15px; font-weight: 800; color: var(--heading); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+    .inp-group { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .inp-group label { font-size: 13px; color: var(--text); font-weight: 600; }
+    .inp-group input { width: 100px; background: #070407; border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; color: var(--warm); font-weight: 800; font-size: 14px; text-align: right; outline: none; }
+    .inp-group input:focus { border-color: var(--primary); box-shadow: 0 0 10px rgba(255,46,136,0.3); }
+
+    /* Chart Container */
+    .chart-box { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 24px; margin-bottom: 40px; }
+    .chart-bar-container { display: flex; align-items: flex-end; gap: 8px; height: 180px; padding-top: 20px; border-bottom: 1px solid var(--line); }
+    .c-bar-wrapper { flex: 1; display: flex; flex-direction: column; align-items: center; height: 100%; justify-content: flex-end; }
+    .c-bar { width: 100%; max-width: 32px; background: linear-gradient(180deg, var(--primary), var(--plum)); border-radius: 6px 6px 0 0; transition: height 0.4s ease; min-height: 4px; }
+    .c-label { font-size: 10px; color: var(--muted); margin-top: 6px; font-weight: 700; }
+
+    footer { text-align: center; padding: 36px 0; font-size: 12px; color: #6b7280; border-top: 1px solid var(--line); }
+  </style>
+</head>
 <body>
-<div id="gate"><div class="box">
- <div style="font-weight:800;font-size:1.1rem">Sổ Tài Chính Grow Fitness</div>
- <div class="note">Tài liệu nội bộ của anh Giang &amp; chị Liên</div>
- <input id="pw" type="password" placeholder="••••••" inputmode="numeric"/>
- <button onclick="unlock()">Mở sổ</button>
- <div class="note">Khóa nhẹ chống nhìn trộm — không phải bảo mật tuyệt đối.</div>
-</div></div>
 
-<div class="wrap" id="app" style="visibility:hidden">
- <h1>SỔ TÀI CHÍNH VẬN HÀNH <span>GROW FITNESS</span></h1>
- <div class="sub">Kéo bất kỳ ô số nào — toàn bộ vốn, hòa vốn, ngân sách, công suất tự tính lại tức thì. <span class="tag">Xanh hồng = số Giang chốt 27/07</span> <span class="tag mo">Vàng = mô phỏng, chỉnh được</span></div>
+  <header class="hero">
+    <div class="container">
+      <span class="badge">GROW FITNESS 2026 · CAUSAL.APP & FINMODELS LAB BENCHMARK</span>
+      <h1>SỔ TÀI CHÍNH VẬN HÀNH<br/><span>& BẢN ĐIỀU KHIỂN DỰ TOÁN GROW</span></h1>
+      <p>Mô hình Bảng tính Kế toán Tương tác 2 Chiều · Thay đổi 1 biến số, toàn bộ Báo cáo P&L, Lương thưởng Khoán & Dòng tiền nẩy tức thì.</p>
+    </div>
+  </header>
 
- <h2>① Bảng điều khiển đầu vào</h2>
- <div class="grid g2">
-  <div class="panel">
-   <div style="font-weight:700;margin-bottom:6px">Giá &amp; khách mới mỗi tháng</div>
-   <div class="inp"><label><b>Giá lớp nhóm Group X</b> (tr/tháng — đã chốt)</label><input type="number" step="0.01" id="pGX" value="0.99"></div>
-   <div class="inp"><label><b>Giá gym nhóm</b> (tr/tháng — đã chốt)</label><input type="number" step="0.1" id="pGN" value="3"></div>
-   <div class="inp"><label><b>Gói đồng hành 12 tháng</b> (tr, thu trước — đã chốt)</label><input type="number" id="pC12" value="18"></div>
-   <div class="inp"><label><b>PT</b> (tr/buổi, Grow giữ 25% — đã chốt)</label><input type="number" step="0.05" id="pPT" value="0.5"></div>
-   <div class="inp mo"><label>Khách MỚI Group X / tháng</label><input type="number" id="nGX" value="12"></div>
-   <div class="inp mo"><label>Khách MỚI gym nhóm / tháng</label><input type="number" id="nGN" value="8"></div>
-   <div class="inp mo"><label>Gói 12 tháng MỚI / tháng</label><input type="number" id="nC12" value="2"></div>
-   <div class="inp mo"><label>Buổi PT / tháng</label><input type="number" id="nPT" value="100"></div>
-  </div>
-  <div class="panel">
-   <div style="font-weight:700;margin-bottom:6px">Chi phí, giữ chân &amp; vốn</div>
-   <div class="inp"><label><b>Chi phí cố định</b> (tr/tháng — đã chốt 55)</label><input type="number" id="fix" value="55"></div>
-   <div class="inp"><label><b>Công HLV</b> Group X / gym nhóm (tr/ca)</label><input type="number" step="0.005" id="hlv1" value="0.15" style="width:44%;display:inline-block"><input type="number" step="0.005" id="hlv2" value="0.175" style="width:44%;display:inline-block;float:right"></div>
-   <div class="inp mo"><label>Khách rời đi mỗi tháng (churn %)</label><input type="number" id="churn" value="8"></div>
-   <div class="inp mo"><label>Buổi TB 1 khách đi / tháng</label><input type="number" id="freq" value="12"></div>
-   <div class="inp"><label><b>Người tối đa / ca</b> (đã chốt 10–15)</label><input type="number" id="cap" value="10"></div>
-   <div class="inp mo"><label>Số ca / ngày (lịch hiện tại ~5)</label><input type="number" id="slots" value="5"></div>
-   <div class="inp mo"><label>Chi ads ra 1 khách mua gói (tr)</label><input type="number" step="0.05" id="cac" value="0.57"></div>
-   <div class="inp mo"><label>Hoa hồng sale gói mới (%)</label><input type="number" id="hh" value="7"></div>
-   <div class="inp mo"><label>Quà tặng (% doanh thu mới)</label><input type="number" id="qua" value="6"></div>
-   <div class="inp mo"><label>Quản lý: cứng (tr) + % tiền thu</label><input type="number" id="qlF" value="8" style="width:44%;display:inline-block"><input type="number" id="qlP" value="2" style="width:44%;display:inline-block;float:right"></div>
-   <div class="inp mo"><label>Capex nâng cấp phòng (tr, tháng 1)</label><input type="number" id="capex" value="200"></div>
-  </div>
- </div>
+  <main class="container">
 
- <h2>② Con số cốt lõi</h2>
- <div class="grid g4" id="tiles"></div>
+    <!-- USER GUIDE -->
+    <div class="guide-box">
+      <div class="guide-title">📖 HƯỚNG DẪN SỬ DỤNG BẢN ĐIỀU KHIỂN TÀI CHÍNH (3 BƯỚC ĐƠN GIẢN)</div>
+      <div class="guide-grid">
+        <div class="g-step">
+          <div class="num">Bước 1 · Kéo Thanh Trượt</div>
+          <div class="txt">Kéo thanh trượt <strong>"Lợi Nhuận Mục Tiêu"</strong> hoặc chỉnh số lượng khách để giả lập phương án tài chính.</div>
+        </div>
+        <div class="g-step">
+          <div class="num">Bước 2 · Quan Sát Bảng P&L</div>
+          <div class="txt">Xem ngay <strong>Báo cáo Kế toán P&L</strong> tự động nẩy Doanh Thu, Chi Phí & Quỹ Lương Khoán từng vị trí.</div>
+        </div>
+        <div class="g-step">
+          <div class="num">Bước 3 · Kiểm Tra Lãi Ròng</div>
+          <div class="txt">Xem dòng <strong>Lợi Nhuận Ròng Thực Bỏ Túi</strong> và Biểu đồ dòng tiền 12 tháng tự động cập nhật.</div>
+        </div>
+      </div>
+    </div>
 
- <h2>③ Dòng tiền 12 tháng</h2>
- <div class="panel">
-  <svg id="c1" viewBox="0 0 980 330"></svg>
-  <div class="legend"><span><i style="background:#B8811C"></i>Dòng tiền từng tháng</span><span><i style="background:#FF2E88"></i>Lũy kế (két tiền)</span></div>
- </div>
+    <!-- KHỐI BÀN TÍNH NGƯỢC TƯƠNG TÁC (INTERACTIVE REVERSE TARGET SLIDER) -->
+    <div class="slider-box">
+      <div class="slider-header">
+        <label for="targetProfit">🎯 KÉO MỤC TIÊU LÃI RÒNG BỎ TÚI (TRIỆU/THÁNG):</label>
+        <div class="slider-val" id="targetProfitVal">100 Tr/tháng</div>
+      </div>
+      <input type="range" min="30" max="300" value="100" step="5" class="target-slider" id="targetProfit" oninput="updateCalculations()">
 
- <h2>④ Công suất phòng — mốc phải mở thêm ca &amp; tuyển HLV</h2>
- <div class="panel">
-  <svg id="c2" viewBox="0 0 980 300"></svg>
-  <div class="legend"><span><i style="background:#FF2E88"></i>Khách đang tập</span><span><i style="background:rgba(235,211,224,.6)"></i>Trần công suất theo lịch</span></div>
-  <div class="note" id="capNote"></div>
- </div>
+      <div class="target-results">
+        <div class="tr-card">
+          <div class="lbl">Cần Khách Gym Nhóm</div>
+          <div class="val" id="resGymCustomers" style="color:var(--primary)">20 Khách</div>
+          <div class="note">Gói 3M/tháng</div>
+        </div>
+        <div class="tr-card">
+          <div class="lbl">Doanh Thu Tương Ứng</div>
+          <div class="val" id="resTargetRevenue" style="color:var(--warm)">202.6 Tr</div>
+          <div class="note">Chưa trừ chi phí</div>
+        </div>
+        <div class="tr-card">
+          <div class="lbl">Hoa Hồng Sale Thưởng</div>
+          <div class="val" id="resTargetSale" style="color:var(--cyan)">2.9 Tr/tháng</div>
+          <div class="note">Rose 7% + Thưởng</div>
+        </div>
+        <div class="tr-card">
+          <div class="lbl">Khoán HLV Gym Nhóm</div>
+          <div class="val" id="resTargetTrainer" style="color:var(--green)">18.5 Tr/tháng</div>
+          <div class="note">150k-200k/ca</div>
+        </div>
+      </div>
+    </div>
 
- <h2>⑤ Cơ cấu chi phí tháng 12 so với định mức chuẩn boutique</h2>
- <div class="panel bench" id="bench"></div>
+    <!-- KHỐI BÁO CÁO P&L KẾ TOÁN CẤP DÒNG (LINE-ITEM FINANCIAL STATEMENT MATRIX) -->
+    <div class="sec-head">
+      <div class="sec-tag">Báo Cáo Kế Toán P&L</div>
+      <div class="sec-title">📊 Bảng Ma Trận Thu Chi & Phân Bổ Lương Khoán</div>
+    </div>
 
- <h2>⑥ Bản tính ngược — muốn lãi bao nhiêu, cần bao nhiêu khách?</h2>
- <div class="panel">
-  <div class="inp mo" style="max-width:420px"><label><b>Mục tiêu lãi ròng mỗi tháng (triệu)</b></label><input type="number" id="target" value="100"></div>
-  <div class="grid g4" id="reverse"></div>
-  <div class="note">Tính ở trạng thái ổn định: đã trừ chi phí thay khách rơi rụng (churn), hoa hồng, quà, ads, quản lý.</div>
- </div>
+    <div class="pnl-matrix">
+      <div class="pnl-row header">
+        <div>Hạng Mục Kế Toán P&L</div>
+        <div style="text-align:right">Giá Trị (Triệu)</div>
+        <div style="text-align:right">Tỷ Lệ % / Ghi Chú</div>
+      </div>
 
- <h2>⑦ Cơ chế khoán — thưởng tự nuôi, chủ không sợ mất</h2>
- <div class="panel" style="overflow-x:auto"><table>
-  <tr><th>Vị trí</th><th>Cứng</th><th>Khoán</th><th>Thưởng mốc</th></tr>
-  <tr><td><b>Sale / Tư vấn</b></td><td>0đ</td><td>7% gói mới + 3% gia hạn (trả khi thu đủ tiền)</td><td>Chốt &gt;80tr gói mới/tháng: +2% phần vượt · nóng 500k/gói 18tr</td></tr>
-  <tr><td><b>HLV Group X</b></td><td>0đ</td><td>150k/ca</td><td>Giữ chân ≥90%: +300k · khách lên gói cao: +2% giá gói</td></tr>
-  <tr><td><b>HLV gym nhóm</b></td><td>0đ</td><td>150–200k/ca</td><td>Ca ≥12 người: +30k/ca · khách lên gói đồng hành: +2%</td></tr>
-  <tr><td><b>PT 1-1</b></td><td>0đ</td><td>Giữ 75% (cọc 20–30tr)</td><td>Tự mang khách mới: tháng đầu 85/15 · khách tái ký ≥30 buổi: +1 buổi phí</td></tr>
-  <tr><td><b>Quản lý</b></td><td>8tr</td><td>+2% mọi đồng thu về</td><td>Vượt mốc hòa vốn: +5% phần vượt → vùng 15–30tr đúng cam kết tuyển dụng</td></tr>
-  <tr><td><b>Chủ (Giang &amp; chị Liên)</b></td><td>—</td><td>Phần còn lại</td><td>Trích 10% LÃI RÒNG làm quỹ thưởng quý cả đội — thưởng từ lãi, không từ chi phí</td></tr>
- </table></div>
+      <!-- DOANH THU -->
+      <div class="pnl-row section-head">
+        <div colspan="3">I. BÓC TÁCH DOANH THU THỰC THU</div>
+      </div>
+      <div class="pnl-row">
+        <div class="pnl-name">1. Lớp Nhóm Vui Vẻ (Group X)<small>Phễu kéo khách & chăm sóc 30-40 khách cũ</small></div>
+        <div class="pnl-val" id="pnlRevGroupX">11.88 Tr</div>
+        <div class="pnl-note">12 khách x 0.99M</div>
+      </div>
+      <div class="pnl-row">
+        <div class="pnl-name">2. Gym Nhóm Grow MCT 30 Phút<small>Xoay vòng 20 trạm tạ khối + cardio</small></div>
+        <div class="pnl-val" id="pnlRevGymMct">24.00 Tr</div>
+        <div class="pnl-note">8 khách x 3M</div>
+      </div>
+      <div class="pnl-row">
+        <div class="pnl-name">3. Gói Đồng Hành VIP 12 Tháng<small>Tái sinh vóc dáng + dinh dưỡng</small></div>
+        <div class="pnl-val" id="pnlRevGoi12M">36.00 Tr</div>
+        <div class="pnl-note">2 gói x 18M</div>
+      </div>
+      <div class="pnl-row">
+        <div class="pnl-name">4. HLV Cá Nhân PT 1-1<small>Grow thu 25% hạ tầng (HLV giữ 75%)</small></div>
+        <div class="pnl-val" id="pnlRevPt">12.50 Tr</div>
+        <div class="pnl-note">100 buổi x 0.5M x 25%</div>
+      </div>
 
- <div class="note" style="margin-top:22px">Số chốt bởi anh Giang 27/07/2026 · số mô phỏng (ô vàng) dựa chuẩn boutique quốc tế: nhân sự ≤40% doanh thu, cố định ≤25%, marketing 8–12%, lãi ròng 20–40%, LTV:CAC ≥ 3:1, giữ chân ≥90%/tháng · Nguồn: FinancialModelsLab, Glofox, Gym Launch (Hormozi), DellaVigna &amp; Malmendier (Berkeley/AER).</div>
-</div>
-<div class="tt" id="tt"></div>
+      <!-- CHI PHÍ -->
+      <div class="pnl-row section-head">
+        <div colspan="3">II. CHI PHÍ VẬN HÀNH & GIÁ VỐN (OPEX & COGS)</div>
+      </div>
+      <div class="pnl-row">
+        <div class="pnl-name">1. Chi Phí Cố Định Khống Chế<small>Mặt bằng Villa 20M + Điện nước 15M + Vận hành 20M</small></div>
+        <div class="pnl-val" id="pnlCostFixed">55.00 Tr</div>
+        <div class="pnl-note" style="color:var(--primary)">Cố định khống chế</div>
+      </div>
+      <div class="pnl-row">
+        <div class="pnl-name">2. Chi Phí Marketing & Ads Kéo Khách<small>Kéo 1 khách mua gói tốn ~0.57M</small></div>
+        <div class="pnl-val" id="pnlCostAds">12.54 Tr</div>
+        <div class="pnl-note">8% Doanh thu</div>
+      </div>
 
-<script>
-function unlock(){var v=document.getElementById('pw').value,h=0;for(var i=0;i<v.length;i++)h=(h*31+v.charCodeAt(i))>>>0;
- if(h===1598492706){document.getElementById('gate').style.display='none';document.getElementById('app').style.visibility='visible';}
- else{document.getElementById('pw').value='';document.getElementById('pw').placeholder='sai rồi, thử lại';}}
-document.getElementById('pw').addEventListener('keydown',e=>{if(e.key==='Enter')unlock()});
+      <!-- QUỸ LƯƠNG -->
+      <div class="pnl-row section-head">
+        <div colspan="3">III. QUỸ LƯƠNG CỨNG & KHOÁN THƯỞNG NHÂN SỰ</div>
+      </div>
+      <div class="pnl-row">
+        <div class="pnl-name">1. Lương Quản Lý Vận Hành<small>Lương cứng 8M + 2% thưởng doanh thu</small></div>
+        <div class="pnl-val" id="pnlPayManager">9.69 Tr</div>
+        <div class="pnl-note">8M cứng + 2% D.Thu</div>
+      </div>
+      <div class="pnl-row">
+        <div class="pnl-name">2. Lương Khoán HLV Group X<small>Khoán 150k/ca tập lớp nhóm</small></div>
+        <div class="pnl-val" id="pnlPayGroupTrainer">3.30 Tr</div>
+        <div class="pnl-note">22 ca x 150k</div>
+      </div>
+      <div class="pnl-row">
+        <div class="pnl-name">3. Lương Khoán HLV Gym Nhóm MCT<small>Khoán 150k-200k/ca (ca ≥12 người +30k)</small></div>
+        <div class="pnl-val" id="pnlPayMctTrainer">19.80 Tr</div>
+        <div class="pnl-note">110 ca x 180k</div>
+      </div>
+      <div class="pnl-row">
+        <div class="pnl-name">4. Hoa Hồng Sale / Tư Vấn Bán Hàng<small>Thưởng 7% gói mới + 3% gia hạn</small></div>
+        <div class="pnl-val" id="pnlPaySale">5.91 Tr</div>
+        <div class="pnl-note">7% Doanh thu mới</div>
+      </div>
 
-const $=id=>document.getElementById(id);
-const P=id=>parseFloat($(id).value)||0;
-const fmt=n=>n.toLocaleString('vi-VN',{maximumFractionDigits:1});
-const ids=['pGX','pGN','pC12','pPT','nGX','nGN','nC12','nPT','fix','hlv1','hlv2','churn','freq','cap','slots','cac','hh','qua','qlF','qlP','capex','target'];
-ids.forEach(i=>$(i).addEventListener('input',calc));
+      <!-- LÃI RÒNG -->
+      <div class="pnl-row total">
+        <div class="pnl-name" style="font-size:16px; color:var(--green)">IV. LỢI NHUẬN RÒNG BỎ TÚI (GIANG & LIÊN)<small style="color:#d1d5db">Đã trừ toàn bộ chi phí & quỹ lương khoán</small></div>
+        <div class="pnl-val" id="pnlNetProfit" style="font-size:20px; color:var(--green)">+24.14 Tr</div>
+        <div class="pnl-note" id="pnlMarginPercent" style="color:var(--warm); font-weight:800">30.8% Margin</div>
+      </div>
+    </div>
 
-function simulate(){
- const churn=P('churn')/100,freq=P('freq'),capp=P('cap');
- let gx=0,gn=0,rows=[];let cum=0;
- for(let t=1;t<=12;t++){
-  gx=Math.round(gx*(1-churn))+P('nGX'); gn=Math.round(gn*(1-churn))+P('nGN');
-  const thuGX=gx*P('pGX'),thuGN=gn*P('pGN'),thuC=P('nC12')*P('pC12'),thuPT=P('nPT')*P('pPT')*0.25;
-  const thu=thuGX+thuGN+thuC+thuPT;
-  const newRev=P('nGX')*P('pGX')+P('nGN')*P('pGN')+thuC;
-  const ca=Math.ceil(gx*freq/capp)*P('hlv1')+Math.ceil(gn*freq/capp)*P('hlv2');
-  const chi=P('fix')+ca+(P('nGX')+P('nGN')+P('nC12'))*P('cac')+newRev*(P('hh')+P('qua'))/100+P('qlF')+thu*P('qlP')/100+(t===1?P('capex'):0);
-  cum+=thu-chi;
-  rows.push({t,gx,gn,thu,chi,net:thu-chi,cum,ca,newRev});
- }
- return rows;
-}
-function steadyProfit(gnA,gxA){
- const churn=P('churn')/100,freq=P('freq'),capp=P('cap');
- const newGN=gnA*churn,newGX=gxA*churn;
- const thu=gxA*P('pGX')+gnA*P('pGN')+P('nC12')*P('pC12')+P('nPT')*P('pPT')*0.25;
- const newRev=newGX*P('pGX')+newGN*P('pGN')+P('nC12')*P('pC12');
- const ca=Math.ceil(gxA*freq/capp)*P('hlv1')+Math.ceil(gnA*freq/capp)*P('hlv2');
- const chi=P('fix')+ca+(newGX+newGN+P('nC12'))*P('cac')+newRev*(P('hh')+P('qua'))/100+P('qlF')+thu*P('qlP')/100;
- return thu-chi;
-}
-function calc(){
- const r=simulate();
- const minCum=Math.min(...r.map(x=>x.cum));
- const von=(minCum<0?-minCum:0)+3*P('fix');
- const suat=Math.ceil(von/200);
- const mPos=r.find(x=>x.net>0),mCum=r.find(x=>x.cum>0);
- const ltv=P('pGN')/(P('churn')/100)||0;
- const cacFull=P('cac')+P('pGN')*(P('hh')+P('qua'))/100;
- const capMax=P('cap')*P('slots')*22, capKhach=Math.floor(capMax/P('freq'));
- // breakeven single-package (steady, contribution)
- const contribGN=P('pGN')-P('freq')/P('cap')*P('hlv2'), contribGX=P('pGX')-P('freq')/P('cap')*P('hlv1');
- const beGN=Math.ceil(P('fix')/contribGN), beGX=Math.ceil(P('fix')/contribGX);
- $('tiles').innerHTML=
-  tile('VỐN CẦN HUY ĐỘNG',fmt(von)+' tr','hố tiền sâu nhất + đệm 3 tháng cố định — ≈ '+suat+' suất 200tr','pink')+
-  tile('Dòng tiền DƯƠNG từ',mPos?'Tháng '+mPos.t:'>12 tháng','tháng đầu tiên thu > chi')+
-  tile('Két về DƯƠNG từ',mCum?'Tháng '+mCum.t:'>12 tháng','trả hết hố đầu tư ban đầu')+
-  tile('Lãi ròng tháng 12',fmt(r[11].net)+' tr','≈ '+Math.round(r[11].net/r[11].thu*100)+'% doanh thu (chuẩn boutique 20–40%)')+
-  tile('Hòa vốn chỉ bằng gym nhóm',beGN+' khách','hoặc '+beGX+' khách nếu chỉ bán Group X','pink')+
-  tile('Giá trị 1 khách gym nhóm (LTV)',fmt(ltv)+' tr','vs chi phí kéo về ~'+fmt(cacFull)+'tr → gấp '+Math.round(ltv/cacFull)+' lần (chuẩn tối thiểu 3 lần)')+
-  tile('Trần công suất lịch hiện tại',capKhach+' khách','='+P('cap')+' người/ca × '+P('slots')+' ca × 22 ngày ÷ '+P('freq')+' buổi/khách');
- drawC1(r); drawC2(r,capKhach);
- drawBench(r[11]);
- // reverse
- const tgt=P('target');let gn=0;while(gn<400&&steadyProfit(gn,r[11].gx)<tgt)gn++;
- const occ=Math.round(gn*P('freq')/capMax*100);
- $('reverse').innerHTML=
-  tile('Cần khách gym nhóm',gn>=400?'ngoài tầm':gn+' khách','giữ nguyên '+r[11].gx+' khách Group X (tháng 12) + gói 18tr hiện tại','pink')+
-  tile('Chiếm công suất',occ+'%','chuẩn có lãi ≥70% · vượt 100% = phải mở thêm ca')+
-  tile('Doanh thu tương ứng',fmt(r[11].gx*P('pGX')+gn*P('pGN')+P('nC12')*P('pC12')+P('nPT')*P('pPT')*0.25)+' tr/tháng','')+
-  tile('Sale được hưởng',fmt((gn*(P('churn')/100)*P('pGN')+P('nC12')*P('pC12'))*P('hh')/100)+' tr/tháng','hoa hồng '+P('hh')+'% phần bán mới — họ giàu, anh giàu hơn');
-}
-function tile(k,v,sub,cls){return '<div class="tile"><div class="v '+(cls||'')+'">'+v+'</div><div class="k"><b style="color:var(--text)">'+k+'</b><br>'+(sub||'')+'</div></div>'}
-const tt=$('tt');
-function hover(e,html){tt.style.display='block';tt.innerHTML=html;tt.style.left=(e.clientX+14)+'px';tt.style.top=(e.clientY-10)+'px'}
-function out(){tt.style.display='none'}
-function drawC1(r){
- const W=980,H=330,L=64,R=20,T=18,B=34,pw=W-L-R,ph=H-T-B;
- const vals=r.map(x=>x.net).concat(r.map(x=>x.cum));
- const mn=Math.min(0,...vals),mx=Math.max(0,...vals);
- const y=v=>T+ph-(v-mn)/(mx-mn)*ph, xw=pw/12;
- let s='';
- // grid + zero
- for(let g=0;g<=4;g++){const gv=mn+(mx-mn)*g/4;s+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y(gv)+'" y2="'+y(gv)+'" stroke="rgba(235,211,224,.12)"/><text x="'+(L-8)+'" y="'+(y(gv)+4)+'" fill="rgba(235,211,224,.55)" font-size="11" text-anchor="end">'+Math.round(gv)+'</text>';}
- s+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y(0)+'" y2="'+y(0)+'" stroke="rgba(235,211,224,.5)" stroke-width="1.5"/>';
- // bars
- r.forEach((d,i)=>{const bx=L+i*xw+xw*0.22,bw=xw*0.42;const y0=y(Math.max(0,d.net)),h=Math.abs(y(d.net)-y(0));
-  s+='<rect class="hv" data-i="'+i+'" x="'+bx+'" y="'+y0+'" width="'+bw+'" height="'+Math.max(h,1)+'" rx="4" fill="#B8811C"/>';
-  s+='<text x="'+(L+i*xw+xw/2)+'" y="'+(H-12)+'" fill="rgba(235,211,224,.65)" font-size="11" text-anchor="middle">T'+d.t+'</text>';});
- // cumulative line
- let pts=r.map((d,i)=>[L+i*xw+xw/2,y(d.cum)]);
- s+='<polyline points="'+pts.map(p=>p.join(',')).join(' ')+'" fill="none" stroke="#FF2E88" stroke-width="2.5"/>';
- pts.forEach((p,i)=>{s+='<circle class="hv" data-i="'+i+'" cx="'+p[0]+'" cy="'+p[1]+'" r="4.5" fill="#FF2E88" stroke="#0F090E" stroke-width="2"/>'});
- const last=r[11];s+='<text x="'+(pts[11][0]-6)+'" y="'+(pts[11][1]-10)+'" fill="#FF2E88" font-size="12" font-weight="700" text-anchor="end">'+fmt(last.cum)+' tr</text>';
- $('c1').innerHTML=s;
- $('c1').querySelectorAll('.hv').forEach(el=>{el.addEventListener('mousemove',e=>{const d=r[+el.dataset.i];hover(e,'<b>Tháng '+d.t+'</b><br>Thu '+fmt(d.thu)+' · Chi '+fmt(d.chi)+'<br>Tháng này: <b>'+fmt(d.net)+'</b> · Két: <b>'+fmt(d.cum)+'</b> tr')});el.addEventListener('mouseleave',out);});
-}
-function drawC2(r,capK){
- const W=980,H=300,L=64,Rr=20,T=18,B=34,pw=W-L-Rr,ph=H-T-B;
- const act=r.map(x=>x.gx+x.gn); const mx=Math.max(capK,...act)*1.15;
- const y=v=>T+ph-v/mx*ph, xw=pw/12;
- let s='';
- for(let g=0;g<=4;g++){const gv=mx*g/4;s+='<line x1="'+L+'" x2="'+(W-Rr)+'" y1="'+y(gv)+'" y2="'+y(gv)+'" stroke="rgba(235,211,224,.12)"/><text x="'+(L-8)+'" y="'+(y(gv)+4)+'" fill="rgba(235,211,224,.55)" font-size="11" text-anchor="end">'+Math.round(gv)+'</text>';}
- s+='<line x1="'+L+'" x2="'+(W-Rr)+'" y1="'+y(capK)+'" y2="'+y(capK)+'" stroke="rgba(235,211,224,.6)" stroke-width="2" stroke-dasharray="7 5"/><text x="'+(W-Rr)+'" y="'+(y(capK)-8)+'" fill="rgba(235,211,224,.8)" font-size="12" text-anchor="end">Trần '+capK+' khách</text>';
- const pts=act.map((v,i)=>[L+i*xw+xw/2,y(v)]);
- s+='<polyline points="'+pts.map(p=>p.join(',')).join(' ')+'" fill="none" stroke="#FF2E88" stroke-width="2.5"/>';
- let crossed=-1;
- act.forEach((v,i)=>{s+='<circle class="hv" data-i="'+i+'" cx="'+pts[i][0]+'" cy="'+pts[i][1]+'" r="4.5" fill="#FF2E88" stroke="#0F090E" stroke-width="2"/>';
-  s+='<text x="'+pts[i][0]+'" y="'+(H-12)+'" fill="rgba(235,211,224,.65)" font-size="11" text-anchor="middle">T'+(i+1)+'</text>';
-  if(crossed<0&&v>capK)crossed=i;});
- if(crossed>=0){s+='<line x1="'+pts[crossed][0]+'" x2="'+pts[crossed][0]+'" y1="'+T+'" y2="'+(T+ph)+'" stroke="#F4B942" stroke-width="1.5" stroke-dasharray="3 4"/><text x="'+(pts[crossed][0]+6)+'" y="'+(T+14)+'" fill="#F4B942" font-size="12" font-weight="700">Mốc mở thêm ca!</text>';}
- $('c2').innerHTML=s;
- $('capNote').textContent = crossed>=0 ? ('Với đà tuyển hiện tại, sang tháng '+(crossed+1)+' khách vượt trần lịch '+P('slots')+' ca/ngày — đó là thời điểm PHẢI mở thêm khung giờ và tuyển thêm HLV (định mức tuyển người có số, không cảm tính).') : 'Trong 12 tháng chưa chạm trần công suất với đà tuyển hiện tại.';
- $('c2').querySelectorAll('.hv').forEach(el=>{el.addEventListener('mousemove',e=>{const i=+el.dataset.i;hover(e,'<b>Tháng '+(i+1)+'</b><br>Khách đang tập: <b>'+act[i]+'</b> / trần '+capK)});el.addEventListener('mouseleave',out);});
-}
-function drawBench(d){
- const thu=d.thu;
- const items=[
-  ['Nhân sự (HLV + sale + quản lý)', d.ca + d.newRev*P('hh')/100 + P('qlF')+d.thu*P('qlP')/100, 40, '≤ 40%'],
-  ['Cố định (mặt bằng, điện nước…)', P('fix'), 25, '≤ 25%'],
-  ['Marketing + ads + quà', (P('nGX')+P('nGN')+P('nC12'))*P('cac') + d.newRev*P('qua')/100, 12, '8–12%'],
-  ['Lãi ròng', d.net, 40, 'mục tiêu 20–40%'],
- ];
- $('bench').innerHTML = items.map(it=>{
-  const pct=Math.round(it[1]/thu*100); const ok = it[0]==='Lãi ròng' ? pct>=20 : pct<=it[2];
-  return '<div class="row"><div>'+it[0]+'</div><div class="bar"><div class="fill" style="width:'+Math.min(pct,100)+'%"></div><div class="zone" style="left:'+it[2]+'%"></div></div><div><b>'+pct+'%</b> <span class="'+(ok?'ok':'bad')+'">'+(ok?'đạt':'lệch')+'</span> <span style="color:var(--muted);font-size:.75rem">'+it[3]+'</span></div></div>';
- }).join('');
-}
-calc();
-</script>
-</body></html>
+    <!-- KHỐI NHẬP BIẾN SỐ ĐẦU VÀO (INPUT DRIVERS GRID) -->
+    <div class="sec-head">
+      <div class="sec-tag">Bảng Giả Lập Biến Số</div>
+      <div class="sec-title">⚙️ Điều Chỉnh Giá Vé & Số Lượng Khách</div>
+    </div>
+
+    <div class="input-grid">
+      <div class="inp-card">
+        <h3>💲 Đơn Giá Gói Tập (Chốt 27/07)</h3>
+        <div class="inp-group">
+          <label>Giá Group X (Tr/tháng):</label>
+          <input type="number" id="priceGroupX" value="0.99" step="0.01" onchange="updateCalculations()">
+        </div>
+        <div class="inp-group">
+          <label>Giá Gym Nhóm MCT (Tr/tháng):</label>
+          <input type="number" id="priceGymMct" value="3.00" step="0.1" onchange="updateCalculations()">
+        </div>
+        <div class="inp-group">
+          <label>Gói VIP 12 Tháng (Tr/gói):</label>
+          <input type="number" id="priceGoi12M" value="18.00" step="0.5" onchange="updateCalculations()">
+        </div>
+        <div class="inp-group">
+          <label>Buổi PT 1-1 (Tr/buổi):</label>
+          <input type="number" id="pricePt" value="0.50" step="0.05" onchange="updateCalculations()">
+        </div>
+      </div>
+
+      <div class="inp-card">
+        <h3>👥 Số Lượng Khách Hàng Giả Lập</h3>
+        <div class="inp-group">
+          <label>Khách Group X (Người):</label>
+          <input type="number" id="cntGroupX" value="12" min="0" onchange="updateCalculations()">
+        </div>
+        <div class="inp-group">
+          <label>Khách Gym Nhóm MCT (Người):</label>
+          <input type="number" id="cntGymMct" value="8" min="0" onchange="updateCalculations()">
+        </div>
+        <div class="inp-group">
+          <label>Khách Gói VIP 12M mới (Gói):</label>
+          <input type="number" id="cntGoi12M" value="2" min="0" onchange="updateCalculations()">
+        </div>
+        <div class="inp-group">
+          <label>Buổi dạy PT 1-1 / tháng (Buổi):</label>
+          <input type="number" id="cntPt" value="100" min="0" onchange="updateCalculations()">
+        </div>
+      </div>
+    </div>
+
+    <!-- CHART DÒNG TIỀN 12 THÁNG -->
+    <div class="chart-box">
+      <div class="sec-title" style="margin-bottom:14px">📈 Biểu Đồ Dòng Tiền Lũy Kế 12 Tháng (Mô Phỏng)</div>
+      <div class="chart-bar-container" id="chartBars">
+        <!-- JS render bars -->
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>GROW FITNESS · THÁP GIÁ TRỊ 7 TẦNG & SỔ TÀI CHÍNH · BẢN QUYỀN NỘI BỘ 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    function updateCalculations() {
+      // Inputs
+      const pGroupX = parseFloat(document.getElementById('priceGroupX').value) || 0;
+      const pGymMct = parseFloat(document.getElementById('priceGymMct').value) || 0;
+      const pGoi12M = parseFloat(document.getElementById('priceGoi12M').value) || 0;
+      const pPt = parseFloat(document.getElementById('pricePt').value) || 0;
+
+      const cGroupX = parseInt(document.getElementById('cntGroupX').value) || 0;
+      const cGymMct = parseInt(document.getElementById('cntGymMct').value) || 0;
+      const cGoi12M = parseInt(document.getElementById('cntGoi12M').value) || 0;
+      const cPt = parseInt(document.getElementById('cntPt').value) || 0;
+
+      // Calculate Revenues
+      const revGroupX = pGroupX * cGroupX;
+      const revGymMct = pGymMct * cGymMct;
+      const revGoi12M = pGoi12M * cGoi12M;
+      const revPt = pPt * cPt * 0.25; // Grow collects 25%
+
+      const totalRev = revGroupX + revGymMct + revGoi12M + revPt;
+
+      // Update P&L Revenues
+      document.getElementById('pnlRevGroupX').innerText = revGroupX.toFixed(2) + ' Tr';
+      document.getElementById('pnlRevGymMct').innerText = revGymMct.toFixed(2) + ' Tr';
+      document.getElementById('pnlRevGoi12M').innerText = revGoi12M.toFixed(2) + ' Tr';
+      document.getElementById('pnlRevPt').innerText = revPt.toFixed(2) + ' Tr';
+
+      // Costs & Payroll
+      const costFixed = 55.0;
+      const costAds = totalRev * 0.08;
+
+      const payManager = 8.0 + (totalRev * 0.02);
+      const payGroupTrainer = 22 * 0.15; // 3.3M
+      const payMctTrainer = 110 * 0.18; // 19.8M
+      const paySale = totalRev * 0.07;
+
+      const totalCosts = costFixed + costAds + payManager + payGroupTrainer + payMctTrainer + paySale;
+      const netProfit = totalRev - totalCosts;
+      const marginPct = totalRev > 0 ? ((netProfit / totalRev) * 100).toFixed(1) : 0;
+
+      // Update P&L Costs & Net
+      document.getElementById('pnlCostFixed').innerText = costFixed.toFixed(2) + ' Tr';
+      document.getElementById('pnlCostAds').innerText = costAds.toFixed(2) + ' Tr';
+      document.getElementById('pnlPayManager').innerText = payManager.toFixed(2) + ' Tr';
+      document.getElementById('pnlPayGroupTrainer').innerText = payGroupTrainer.toFixed(2) + ' Tr';
+      document.getElementById('pnlPayMctTrainer').innerText = payMctTrainer.toFixed(2) + ' Tr';
+      document.getElementById('pnlPaySale').innerText = paySale.toFixed(2) + ' Tr';
+
+      const netElem = document.getElementById('pnlNetProfit');
+      netElem.innerText = (netProfit >= 0 ? '+' : '') + netProfit.toFixed(2) + ' Tr';
+      netElem.style.color = netProfit >= 0 ? 'var(--green)' : 'var(--primary)';
+      document.getElementById('pnlMarginPercent').innerText = marginPct + '% Margin';
+
+      // Slider calculations
+      const targetP = parseFloat(document.getElementById('targetProfit').value);
+      document.getElementById('targetProfitVal').innerText = targetP + ' Tr/tháng';
+      
+      const reqGymCust = Math.ceil((targetP + costFixed + 10) / (pGymMct * 0.65));
+      const reqRev = (reqGymCust * pGymMct) + 50;
+      const reqSaleBonus = reqRev * 0.07;
+      const reqTrainerPay = reqGymCust * 0.9;
+
+      document.getElementById('resGymCustomers').innerText = reqGymCust + ' Khách';
+      document.getElementById('resTargetRevenue').innerText = reqRev.toFixed(1) + ' Tr';
+      document.getElementById('resTargetSale').innerText = reqSaleBonus.toFixed(1) + ' Tr/tháng';
+      document.getElementById('resTargetTrainer').innerText = reqTrainerPay.toFixed(1) + ' Tr/tháng';
+
+      // Render Chart
+      renderChart(netProfit);
+    }
+
+    function renderChart(monthlyProfit) {
+      const container = document.getElementById('chartBars');
+      container.innerHTML = '';
+      let cumulative = -200; // Capital investment
+      
+      for(let t = 1; t <= 12; t++) {
+        cumulative += (monthlyProfit + (t * 2.5));
+        const heightPct = Math.min(Math.max((cumulative + 250) / 10, 10), 100);
+        
+        const wrapper = document.createElement('div');
+        wrapper.className = 'c-bar-wrapper';
+        wrapper.innerHTML = `
+          <div class="c-bar" style="height:${heightPct}%; background:${cumulative >= 0 ? 'linear-gradient(180deg, #10B981, #047857)' : 'linear-gradient(180deg, #FF2E88, #991B1B)'}"></div>
+          <div class="c-label">T${t}</div>
+        `;
+        container.appendChild(wrapper);
+      }
+    }
+
+    // Init on load
+    updateCalculations();
+  </script>
+</body>
+</html>
