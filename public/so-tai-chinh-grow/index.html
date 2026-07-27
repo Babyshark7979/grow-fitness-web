@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Sổ Tài Chính Vận Hành — Grow Fitness (Nội bộ)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0F090E;--card:#1D111B;--card2:#2F1627;--line:#533046;--pink:#FF2E88;--pink2:#FF75AE;--gold:#F4B942;--goldchart:#B8811C;--blush:#FFE4EF;--text:#FFF4F9;--muted:rgba(235,211,224,.78)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',ui-sans-serif,system-ui,sans-serif;line-height:1.55}
+.wrap{max-width:1180px;margin:0 auto;padding:20px 18px 70px}
+h1{font-size:clamp(1.4rem,3vw,2.1rem);font-weight:800;letter-spacing:-.02em}
+h1 span{color:var(--pink)}
+.sub{color:var(--muted);font-size:.92rem;margin-top:4px}
+h2{font-size:1.05rem;font-weight:800;margin:26px 0 10px;color:var(--pink2);text-transform:uppercase;letter-spacing:.08em}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+.grid{display:grid;gap:12px}
+.g4{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.g2{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
+.tile{background:var(--card2);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.tile .v{font-size:1.5rem;font-weight:800;color:var(--gold)}
+.tile .v.pink{color:var(--pink)}
+.tile .k{color:var(--muted);font-size:.82rem;margin-top:2px}
+.inp{display:grid;grid-template-columns:1fr 92px;gap:8px;align-items:center;margin:7px 0}
+.inp label{font-size:.86rem;color:var(--muted)}
+.inp label b{color:var(--text)}
+.inp input[type=number]{width:100%;background:#170D14;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:6px 8px;font-family:inherit;font-size:.9rem}
+.inp.mo input{background:#3d3413;border-color:#8a7a1e}
+.tag{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:99px;border:1px solid var(--line);color:var(--pink2)}
+.tag.mo{color:#F4B942;border-color:#8a7a1e}
+svg{width:100%;height:auto;display:block}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.8rem;color:var(--muted);margin-top:6px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+table{width:100%;border-collapse:collapse;font-size:.86rem}
+th{background:var(--card2);color:var(--pink2);text-align:left;padding:8px;border:1px solid var(--line);font-size:.78rem;text-transform:uppercase;letter-spacing:.06em}
+td{padding:8px;border:1px solid var(--line);color:var(--muted);vertical-align:top}
+td b{color:var(--text)}
+.tt{position:fixed;pointer-events:none;background:#170D14;border:1px solid var(--pink);border-radius:8px;padding:6px 10px;font-size:.8rem;display:none;z-index:50}
+#gate{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:99}
+#gate .box{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:34px;text-align:center;max-width:340px}
+#gate input{width:100%;margin:14px 0;background:#170D14;border:1px solid var(--line);color:var(--text);border-radius:99px;padding:11px 16px;text-align:center;font-size:1.1rem;letter-spacing:.3em}
+#gate button{width:100%;background:var(--pink);color:#fff;border:0;border-radius:99px;padding:12px;font-weight:700;font-family:inherit;font-size:.95rem;cursor:pointer}
+.note{color:var(--muted);font-size:.8rem;font-style:italic;margin-top:8px}
+.bench{margin:10px 0}
+.bench .row{display:grid;grid-template-columns:210px 1fr 130px;gap:10px;align-items:center;margin:8px 0;font-size:.84rem}
+.bench .bar{position:relative;height:16px;background:#170D14;border-radius:8px;overflow:visible}
+.bench .fill{position:absolute;left:0;top:2px;bottom:2px;border-radius:6px;background:var(--goldchart)}
+.bench .zone{position:absolute;top:-3px;bottom:-3px;border-left:2px dashed var(--muted);opacity:.7}
+.ok{color:#7CC97C;font-weight:700}.bad{color:#FF7575;font-weight:700}
+</style></head>
+<body>
+<div id="gate"><div class="box">
+ <div style="font-weight:800;font-size:1.1rem">Sổ Tài Chính Grow Fitness</div>
+ <div class="note">Tài liệu nội bộ của anh Giang &amp; chị Liên</div>
+ <input id="pw" type="password" placeholder="••••••" inputmode="numeric"/>
+ <button onclick="unlock()">Mở sổ</button>
+ <div class="note">Khóa nhẹ chống nhìn trộm — không phải bảo mật tuyệt đối.</div>
+</div></div>
+
+<div class="wrap" id="app" style="visibility:hidden">
+ <h1>SỔ TÀI CHÍNH VẬN HÀNH <span>GROW FITNESS</span></h1>
+ <div class="sub">Kéo bất kỳ ô số nào — toàn bộ vốn, hòa vốn, ngân sách, công suất tự tính lại tức thì. <span class="tag">Xanh hồng = số Giang chốt 27/07</span> <span class="tag mo">Vàng = mô phỏng, chỉnh được</span></div>
+
+ <h2>① Bảng điều khiển đầu vào</h2>
+ <div class="grid g2">
+  <div class="panel">
+   <div style="font-weight:700;margin-bottom:6px">Giá &amp; khách mới mỗi tháng</div>
+   <div class="inp"><label><b>Giá lớp nhóm Group X</b> (tr/tháng — đã chốt)</label><input type="number" step="0.01" id="pGX" value="0.99"></div>
+   <div class="inp"><label><b>Giá gym nhóm</b> (tr/tháng — đã chốt)</label><input type="number" step="0.1" id="pGN" value="3"></div>
+   <div class="inp"><label><b>Gói đồng hành 12 tháng</b> (tr, thu trước — đã chốt)</label><input type="number" id="pC12" value="18"></div>
+   <div class="inp"><label><b>PT</b> (tr/buổi, Grow giữ 25% — đã chốt)</label><input type="number" step="0.05" id="pPT" value="0.5"></div>
+   <div class="inp mo"><label>Khách MỚI Group X / tháng</label><input type="number" id="nGX" value="12"></div>
+   <div class="inp mo"><label>Khách MỚI gym nhóm / tháng</label><input type="number" id="nGN" value="8"></div>
+   <div class="inp mo"><label>Gói 12 tháng MỚI / tháng</label><input type="number" id="nC12" value="2"></div>
+   <div class="inp mo"><label>Buổi PT / tháng</label><input type="number" id="nPT" value="100"></div>
+  </div>
+  <div class="panel">
+   <div style="font-weight:700;margin-bottom:6px">Chi phí, giữ chân &amp; vốn</div>
+   <div class="inp"><label><b>Chi phí cố định</b> (tr/tháng — đã chốt 55)</label><input type="number" id="fix" value="55"></div>
+   <div class="inp"><label><b>Công HLV</b> Group X / gym nhóm (tr/ca)</label><input type="number" step="0.005" id="hlv1" value="0.15" style="width:44%;display:inline-block"><input type="number" step="0.005" id="hlv2" value="0.175" style="width:44%;display:inline-block;float:right"></div>
+   <div class="inp mo"><label>Khách rời đi mỗi tháng (churn %)</label><input type="number" id="churn" value="8"></div>
+   <div class="inp mo"><label>Buổi TB 1 khách đi / tháng</label><input type="number" id="freq" value="12"></div>
+   <div class="inp"><label><b>Người tối đa / ca</b> (đã chốt 10–15)</label><input type="number" id="cap" value="10"></div>
+   <div class="inp mo"><label>Số ca / ngày (lịch hiện tại ~5)</label><input type="number" id="slots" value="5"></div>
+   <div class="inp mo"><label>Chi ads ra 1 khách mua gói (tr)</label><input type="number" step="0.05" id="cac" value="0.57"></div>
+   <div class="inp mo"><label>Hoa hồng sale gói mới (%)</label><input type="number" id="hh" value="7"></div>
+   <div class="inp mo"><label>Quà tặng (% doanh thu mới)</label><input type="number" id="qua" value="6"></div>
+   <div class="inp mo"><label>Quản lý: cứng (tr) + % tiền thu</label><input type="number" id="qlF" value="8" style="width:44%;display:inline-block"><input type="number" id="qlP" value="2" style="width:44%;display:inline-block;float:right"></div>
+   <div class="inp mo"><label>Capex nâng cấp phòng (tr, tháng 1)</label><input type="number" id="capex" value="200"></div>
+  </div>
+ </div>
+
+ <h2>② Con số cốt lõi</h2>
+ <div class="grid g4" id="tiles"></div>
+
+ <h2>③ Dòng tiền 12 tháng</h2>
+ <div class="panel">
+  <svg id="c1" viewBox="0 0 980 330"></svg>
+  <div class="legend"><span><i style="background:#B8811C"></i>Dòng tiền từng tháng</span><span><i style="background:#FF2E88"></i>Lũy kế (két tiền)</span></div>
+ </div>
+
+ <h2>④ Công suất phòng — mốc phải mở thêm ca &amp; tuyển HLV</h2>
+ <div class="panel">
+  <svg id="c2" viewBox="0 0 980 300"></svg>
+  <div class="legend"><span><i style="background:#FF2E88"></i>Khách đang tập</span><span><i style="background:rgba(235,211,224,.6)"></i>Trần công suất theo lịch</span></div>
+  <div class="note" id="capNote"></div>
+ </div>
+
+ <h2>⑤ Cơ cấu chi phí tháng 12 so với định mức chuẩn boutique</h2>
+ <div class="panel bench" id="bench"></div>
+
+ <h2>⑥ Bản tính ngược — muốn lãi bao nhiêu, cần bao nhiêu khách?</h2>
+ <div class="panel">
+  <div class="inp mo" style="max-width:420px"><label><b>Mục tiêu lãi ròng mỗi tháng (triệu)</b></label><input type="number" id="target" value="100"></div>
+  <div class="grid g4" id="reverse"></div>
+  <div class="note">Tính ở trạng thái ổn định: đã trừ chi phí thay khách rơi rụng (churn), hoa hồng, quà, ads, quản lý.</div>
+ </div>
+
+ <h2>⑦ Cơ chế khoán — thưởng tự nuôi, chủ không sợ mất</h2>
+ <div class="panel" style="overflow-x:auto"><table>
+  <tr><th>Vị trí</th><th>Cứng</th><th>Khoán</th><th>Thưởng mốc</th></tr>
+  <tr><td><b>Sale / Tư vấn</b></td><td>0đ</td><td>7% gói mới + 3% gia hạn (trả khi thu đủ tiền)</td><td>Chốt &gt;80tr gói mới/tháng: +2% phần vượt · nóng 500k/gói 18tr</td></tr>
+  <tr><td><b>HLV Group X</b></td><td>0đ</td><td>150k/ca</td><td>Giữ chân ≥90%: +300k · khách lên gói cao: +2% giá gói</td></tr>
+  <tr><td><b>HLV gym nhóm</b></td><td>0đ</td><td>150–200k/ca</td><td>Ca ≥12 người: +30k/ca · khách lên gói đồng hành: +2%</td></tr>
+  <tr><td><b>PT 1-1</b></td><td>0đ</td><td>Giữ 75% (cọc 20–30tr)</td><td>Tự mang khách mới: tháng đầu 85/15 · khách tái ký ≥30 buổi: +1 buổi phí</td></tr>
+  <tr><td><b>Quản lý</b></td><td>8tr</td><td>+2% mọi đồng thu về</td><td>Vượt mốc hòa vốn: +5% phần vượt → vùng 15–30tr đúng cam kết tuyển dụng</td></tr>
+  <tr><td><b>Chủ (Giang &amp; chị Liên)</b></td><td>—</td><td>Phần còn lại</td><td>Trích 10% LÃI RÒNG làm quỹ thưởng quý cả đội — thưởng từ lãi, không từ chi phí</td></tr>
+ </table></div>
+
+ <div class="note" style="margin-top:22px">Số chốt bởi anh Giang 27/07/2026 · số mô phỏng (ô vàng) dựa chuẩn boutique quốc tế: nhân sự ≤40% doanh thu, cố định ≤25%, marketing 8–12%, lãi ròng 20–40%, LTV:CAC ≥ 3:1, giữ chân ≥90%/tháng · Nguồn: FinancialModelsLab, Glofox, Gym Launch (Hormozi), DellaVigna &amp; Malmendier (Berkeley/AER).</div>
+</div>
+<div class="tt" id="tt"></div>
+
+<script>
+function unlock(){var v=document.getElementById('pw').value,h=0;for(var i=0;i<v.length;i++)h=(h*31+v.charCodeAt(i))>>>0;
+ if(h===1598492706){document.getElementById('gate').style.display='none';document.getElementById('app').style.visibility='visible';}
+ else{document.getElementById('pw').value='';document.getElementById('pw').placeholder='sai rồi, thử lại';}}
+document.getElementById('pw').addEventListener('keydown',e=>{if(e.key==='Enter')unlock()});
+
+const $=id=>document.getElementById(id);
+const P=id=>parseFloat($(id).value)||0;
+const fmt=n=>n.toLocaleString('vi-VN',{maximumFractionDigits:1});
+const ids=['pGX','pGN','pC12','pPT','nGX','nGN','nC12','nPT','fix','hlv1','hlv2','churn','freq','cap','slots','cac','hh','qua','qlF','qlP','capex','target'];
+ids.forEach(i=>$(i).addEventListener('input',calc));
+
+function simulate(){
+ const churn=P('churn')/100,freq=P('freq'),capp=P('cap');
+ let gx=0,gn=0,rows=[];let cum=0;
+ for(let t=1;t<=12;t++){
+  gx=Math.round(gx*(1-churn))+P('nGX'); gn=Math.round(gn*(1-churn))+P('nGN');
+  const thuGX=gx*P('pGX'),thuGN=gn*P('pGN'),thuC=P('nC12')*P('pC12'),thuPT=P('nPT')*P('pPT')*0.25;
+  const thu=thuGX+thuGN+thuC+thuPT;
+  const newRev=P('nGX')*P('pGX')+P('nGN')*P('pGN')+thuC;
+  const ca=Math.ceil(gx*freq/capp)*P('hlv1')+Math.ceil(gn*freq/capp)*P('hlv2');
+  const chi=P('fix')+ca+(P('nGX')+P('nGN')+P('nC12'))*P('cac')+newRev*(P('hh')+P('qua'))/100+P('qlF')+thu*P('qlP')/100+(t===1?P('capex'):0);
+  cum+=thu-chi;
+  rows.push({t,gx,gn,thu,chi,net:thu-chi,cum,ca,newRev});
+ }
+ return rows;
+}
+function steadyProfit(gnA,gxA){
+ const churn=P('churn')/100,freq=P('freq'),capp=P('cap');
+ const newGN=gnA*churn,newGX=gxA*churn;
+ const thu=gxA*P('pGX')+gnA*P('pGN')+P('nC12')*P('pC12')+P('nPT')*P('pPT')*0.25;
+ const newRev=newGX*P('pGX')+newGN*P('pGN')+P('nC12')*P('pC12');
+ const ca=Math.ceil(gxA*freq/capp)*P('hlv1')+Math.ceil(gnA*freq/capp)*P('hlv2');
+ const chi=P('fix')+ca+(newGX+newGN+P('nC12'))*P('cac')+newRev*(P('hh')+P('qua'))/100+P('qlF')+thu*P('qlP')/100;
+ return thu-chi;
+}
+function calc(){
+ const r=simulate();
+ const minCum=Math.min(...r.map(x=>x.cum));
+ const von=(minCum<0?-minCum:0)+3*P('fix');
+ const suat=Math.ceil(von/200);
+ const mPos=r.find(x=>x.net>0),mCum=r.find(x=>x.cum>0);
+ const ltv=P('pGN')/(P('churn')/100)||0;
+ const cacFull=P('cac')+P('pGN')*(P('hh')+P('qua'))/100;
+ const capMax=P('cap')*P('slots')*22, capKhach=Math.floor(capMax/P('freq'));
+ // breakeven single-package (steady, contribution)
+ const contribGN=P('pGN')-P('freq')/P('cap')*P('hlv2'), contribGX=P('pGX')-P('freq')/P('cap')*P('hlv1');
+ const beGN=Math.ceil(P('fix')/contribGN), beGX=Math.ceil(P('fix')/contribGX);
+ $('tiles').innerHTML=
+  tile('VỐN CẦN HUY ĐỘNG',fmt(von)+' tr','hố tiền sâu nhất + đệm 3 tháng cố định — ≈ '+suat+' suất 200tr','pink')+
+  tile('Dòng tiền DƯƠNG từ',mPos?'Tháng '+mPos.t:'>12 tháng','tháng đầu tiên thu > chi')+
+  tile('Két về DƯƠNG từ',mCum?'Tháng '+mCum.t:'>12 tháng','trả hết hố đầu tư ban đầu')+
+  tile('Lãi ròng tháng 12',fmt(r[11].net)+' tr','≈ '+Math.round(r[11].net/r[11].thu*100)+'% doanh thu (chuẩn boutique 20–40%)')+
+  tile('Hòa vốn chỉ bằng gym nhóm',beGN+' khách','hoặc '+beGX+' khách nếu chỉ bán Group X','pink')+
+  tile('Giá trị 1 khách gym nhóm (LTV)',fmt(ltv)+' tr','vs chi phí kéo về ~'+fmt(cacFull)+'tr → gấp '+Math.round(ltv/cacFull)+' lần (chuẩn tối thiểu 3 lần)')+
+  tile('Trần công suất lịch hiện tại',capKhach+' khách','='+P('cap')+' người/ca × '+P('slots')+' ca × 22 ngày ÷ '+P('freq')+' buổi/khách');
+ drawC1(r); drawC2(r,capKhach);
+ drawBench(r[11]);
+ // reverse
+ const tgt=P('target');let gn=0;while(gn<400&&steadyProfit(gn,r[11].gx)<tgt)gn++;
+ const occ=Math.round(gn*P('freq')/capMax*100);
+ $('reverse').innerHTML=
+  tile('Cần khách gym nhóm',gn>=400?'ngoài tầm':gn+' khách','giữ nguyên '+r[11].gx+' khách Group X (tháng 12) + gói 18tr hiện tại','pink')+
+  tile('Chiếm công suất',occ+'%','chuẩn có lãi ≥70% · vượt 100% = phải mở thêm ca')+
+  tile('Doanh thu tương ứng',fmt(r[11].gx*P('pGX')+gn*P('pGN')+P('nC12')*P('pC12')+P('nPT')*P('pPT')*0.25)+' tr/tháng','')+
+  tile('Sale được hưởng',fmt((gn*(P('churn')/100)*P('pGN')+P('nC12')*P('pC12'))*P('hh')/100)+' tr/tháng','hoa hồng '+P('hh')+'% phần bán mới — họ giàu, anh giàu hơn');
+}
+function tile(k,v,sub,cls){return '<div class="tile"><div class="v '+(cls||'')+'">'+v+'</div><div class="k"><b style="color:var(--text)">'+k+'</b><br>'+(sub||'')+'</div></div>'}
+const tt=$('tt');
+function hover(e,html){tt.style.display='block';tt.innerHTML=html;tt.style.left=(e.clientX+14)+'px';tt.style.top=(e.clientY-10)+'px'}
+function out(){tt.style.display='none'}
+function drawC1(r){
+ const W=980,H=330,L=64,R=20,T=18,B=34,pw=W-L-R,ph=H-T-B;
+ const vals=r.map(x=>x.net).concat(r.map(x=>x.cum));
+ const mn=Math.min(0,...vals),mx=Math.max(0,...vals);
+ const y=v=>T+ph-(v-mn)/(mx-mn)*ph, xw=pw/12;
+ let s='';
+ // grid + zero
+ for(let g=0;g<=4;g++){const gv=mn+(mx-mn)*g/4;s+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y(gv)+'" y2="'+y(gv)+'" stroke="rgba(235,211,224,.12)"/><text x="'+(L-8)+'" y="'+(y(gv)+4)+'" fill="rgba(235,211,224,.55)" font-size="11" text-anchor="end">'+Math.round(gv)+'</text>';}
+ s+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y(0)+'" y2="'+y(0)+'" stroke="rgba(235,211,224,.5)" stroke-width="1.5"/>';
+ // bars
+ r.forEach((d,i)=>{const bx=L+i*xw+xw*0.22,bw=xw*0.42;const y0=y(Math.max(0,d.net)),h=Math.abs(y(d.net)-y(0));
+  s+='<rect class="hv" data-i="'+i+'" x="'+bx+'" y="'+y0+'" width="'+bw+'" height="'+Math.max(h,1)+'" rx="4" fill="#B8811C"/>';
+  s+='<text x="'+(L+i*xw+xw/2)+'" y="'+(H-12)+'" fill="rgba(235,211,224,.65)" font-size="11" text-anchor="middle">T'+d.t+'</text>';});
+ // cumulative line
+ let pts=r.map((d,i)=>[L+i*xw+xw/2,y(d.cum)]);
+ s+='<polyline points="'+pts.map(p=>p.join(',')).join(' ')+'" fill="none" stroke="#FF2E88" stroke-width="2.5"/>';
+ pts.forEach((p,i)=>{s+='<circle class="hv" data-i="'+i+'" cx="'+p[0]+'" cy="'+p[1]+'" r="4.5" fill="#FF2E88" stroke="#0F090E" stroke-width="2"/>'});
+ const last=r[11];s+='<text x="'+(pts[11][0]-6)+'" y="'+(pts[11][1]-10)+'" fill="#FF2E88" font-size="12" font-weight="700" text-anchor="end">'+fmt(last.cum)+' tr</text>';
+ $('c1').innerHTML=s;
+ $('c1').querySelectorAll('.hv').forEach(el=>{el.addEventListener('mousemove',e=>{const d=r[+el.dataset.i];hover(e,'<b>Tháng '+d.t+'</b><br>Thu '+fmt(d.thu)+' · Chi '+fmt(d.chi)+'<br>Tháng này: <b>'+fmt(d.net)+'</b> · Két: <b>'+fmt(d.cum)+'</b> tr')});el.addEventListener('mouseleave',out);});
+}
+function drawC2(r,capK){
+ const W=980,H=300,L=64,Rr=20,T=18,B=34,pw=W-L-Rr,ph=H-T-B;
+ const act=r.map(x=>x.gx+x.gn); const mx=Math.max(capK,...act)*1.15;
+ const y=v=>T+ph-v/mx*ph, xw=pw/12;
+ let s='';
+ for(let g=0;g<=4;g++){const gv=mx*g/4;s+='<line x1="'+L+'" x2="'+(W-Rr)+'" y1="'+y(gv)+'" y2="'+y(gv)+'" stroke="rgba(235,211,224,.12)"/><text x="'+(L-8)+'" y="'+(y(gv)+4)+'" fill="rgba(235,211,224,.55)" font-size="11" text-anchor="end">'+Math.round(gv)+'</text>';}
+ s+='<line x1="'+L+'" x2="'+(W-Rr)+'" y1="'+y(capK)+'" y2="'+y(capK)+'" stroke="rgba(235,211,224,.6)" stroke-width="2" stroke-dasharray="7 5"/><text x="'+(W-Rr)+'" y="'+(y(capK)-8)+'" fill="rgba(235,211,224,.8)" font-size="12" text-anchor="end">Trần '+capK+' khách</text>';
+ const pts=act.map((v,i)=>[L+i*xw+xw/2,y(v)]);
+ s+='<polyline points="'+pts.map(p=>p.join(',')).join(' ')+'" fill="none" stroke="#FF2E88" stroke-width="2.5"/>';
+ let crossed=-1;
+ act.forEach((v,i)=>{s+='<circle class="hv" data-i="'+i+'" cx="'+pts[i][0]+'" cy="'+pts[i][1]+'" r="4.5" fill="#FF2E88" stroke="#0F090E" stroke-width="2"/>';
+  s+='<text x="'+pts[i][0]+'" y="'+(H-12)+'" fill="rgba(235,211,224,.65)" font-size="11" text-anchor="middle">T'+(i+1)+'</text>';
+  if(crossed<0&&v>capK)crossed=i;});
+ if(crossed>=0){s+='<line x1="'+pts[crossed][0]+'" x2="'+pts[crossed][0]+'" y1="'+T+'" y2="'+(T+ph)+'" stroke="#F4B942" stroke-width="1.5" stroke-dasharray="3 4"/><text x="'+(pts[crossed][0]+6)+'" y="'+(T+14)+'" fill="#F4B942" font-size="12" font-weight="700">Mốc mở thêm ca!</text>';}
+ $('c2').innerHTML=s;
+ $('capNote').textContent = crossed>=0 ? ('Với đà tuyển hiện tại, sang tháng '+(crossed+1)+' khách vượt trần lịch '+P('slots')+' ca/ngày — đó là thời điểm PHẢI mở thêm khung giờ và tuyển thêm HLV (định mức tuyển người có số, không cảm tính).') : 'Trong 12 tháng chưa chạm trần công suất với đà tuyển hiện tại.';
+ $('c2').querySelectorAll('.hv').forEach(el=>{el.addEventListener('mousemove',e=>{const i=+el.dataset.i;hover(e,'<b>Tháng '+(i+1)+'</b><br>Khách đang tập: <b>'+act[i]+'</b> / trần '+capK)});el.addEventListener('mouseleave',out);});
+}
+function drawBench(d){
+ const thu=d.thu;
+ const items=[
+  ['Nhân sự (HLV + sale + quản lý)', d.ca + d.newRev*P('hh')/100 + P('qlF')+d.thu*P('qlP')/100, 40, '≤ 40%'],
+  ['Cố định (mặt bằng, điện nước…)', P('fix'), 25, '≤ 25%'],
+  ['Marketing + ads + quà', (P('nGX')+P('nGN')+P('nC12'))*P('cac') + d.newRev*P('qua')/100, 12, '8–12%'],
+  ['Lãi ròng', d.net, 40, 'mục tiêu 20–40%'],
+ ];
+ $('bench').innerHTML = items.map(it=>{
+  const pct=Math.round(it[1]/thu*100); const ok = it[0]==='Lãi ròng' ? pct>=20 : pct<=it[2];
+  return '<div class="row"><div>'+it[0]+'</div><div class="bar"><div class="fill" style="width:'+Math.min(pct,100)+'%"></div><div class="zone" style="left:'+it[2]+'%"></div></div><div><b>'+pct+'%</b> <span class="'+(ok?'ok':'bad')+'">'+(ok?'đạt':'lệch')+'</span> <span style="color:var(--muted);font-size:.75rem">'+it[3]+'</span></div></div>';
+ }).join('');
+}
+calc();
+</script>
+</body></html>
