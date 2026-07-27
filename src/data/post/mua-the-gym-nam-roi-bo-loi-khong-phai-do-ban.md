@@ -10,6 +10,14 @@ tags:
   - ocean park
   - gói 99k
 author: Phạm Giang & Diệu Liên
+fact_sources:
+  - ref: 'vault://2-OPERATION/projects/grow-fitness/tuyen-noi-dung-t7-2026-nu-doanh-nhan.md'
+    scope: 'Chân dung khách hàng và định hướng trải nghiệm tập luyện bền vững'
+reviewer: 'Codex — kiểm tra kỹ thuật, nguồn và giọng văn ngày 27/07/2026'
+review_status: reviewed_pending_owner
+approved_by: null
+approved_at: null
+approval_ref: null
 metadata:
   canonical: https://luongdieulien.com/mua-the-gym-nam-roi-bo-loi-khong-phai-do-ban
 ---

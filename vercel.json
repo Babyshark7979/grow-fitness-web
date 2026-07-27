@@ -11,6 +11,36 @@
       "source": "/thap-gia-tri-7-tang.html",
       "destination": "/thap-gia-tri-grow",
       "permanent": true
+    },
+    {
+      "source": "/dau-tu-phong-gym-mo-hinh-spv-200m",
+      "destination": "/gop-von-mo-co-so-grow-fitness-200-trieu",
+      "permanent": true
+    },
+    {
+      "source": "/mo-hinh-spv-200m-mo-chuoi-khong-mat-co-phan",
+      "destination": "/gop-von-theo-tung-co-so-grow-fitness",
+      "permanent": true
+    },
+    {
+      "source": "/tai-sao-lam-pt-gioi-nhung-van-ngheo",
+      "destination": "/huan-luyen-vien-gioi-xay-thu-nhap-ben-vung",
+      "permanent": true
+    },
+    {
+      "source": "/thu-lam-chu-01-xay-he-thong-thay-vi-ban-mo-hoi",
+      "destination": "/thu-lam-chu-01-xay-he-thong-ben-vung",
+      "permanent": true
+    },
+    {
+      "source": "/tu-duy-lam-chu-phong-gym-vs-cai-thau",
+      "destination": "/trao-quyen-cho-quan-ly-phong-tap",
+      "permanent": true
+    },
+    {
+      "source": "/tuoi-30-cua-huan-luyen-vien-lam-chu-hay-xe-om-cong-nghe",
+      "destination": "/nghe-huan-luyen-vien-tuoi-30-va-con-duong-tu-chu",
+      "permanent": true
     }
   ],
   "headers": [

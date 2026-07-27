@@ -10,6 +10,14 @@ tags:
   - yoga pilates
   - ocean park 99k
 author: Diệu Liên & Bé Dứa AI
+fact_sources:
+  - ref: 'vault://2-OPERATION/projects/grow-fitness/hien-phap-be-dua.md'
+    scope: 'Nguyên tắc an toàn, sàng lọc dấu hiệu cảnh báo và ranh giới tư vấn'
+reviewer: 'Codex — kiểm tra kỹ thuật, nguồn và giọng văn ngày 27/07/2026'
+review_status: reviewed_pending_owner
+approved_by: null
+approved_at: null
+approval_ref: null
 metadata:
   canonical: https://luongdieulien.com/dau-vai-gay-dung-tap-ta-nang-hay-tha-long
 ---

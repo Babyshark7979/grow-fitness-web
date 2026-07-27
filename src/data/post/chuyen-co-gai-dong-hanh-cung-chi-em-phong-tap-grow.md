@@ -11,6 +11,14 @@ tags:
   - gem bé dứa tính calo
   - grow fitness
 author: Diệu Liên & Phạm Giang
+fact_sources:
+  - ref: 'vault://2-OPERATION/projects/grow-fitness/ma-tran-tuyen-noi-dung-3-tep-grow-fitness.md'
+    scope: 'Chân dung khách hàng, vai trò đồng hành và định hướng tuyển dụng'
+reviewer: 'Codex — kiểm tra kỹ thuật, nguồn và giọng văn ngày 27/07/2026'
+review_status: reviewed_pending_owner
+approved_by: null
+approved_at: null
+approval_ref: null
 metadata:
   canonical: https://luongdieulien.com/chuyen-co-gai-dong-hanh-cung-chi-em-phong-tap-grow
 ---
@@ -27,7 +35,7 @@ Những câu chuyện như thế, ở phòng tập Grow Fitness chúng mình g�
 
 Ở nhiều nơi khác, người ta gọi vị trí này là "Tư vấn bán hàng" hay "Nhân viên chốt hợp đồng". Nhưng ở Grow Fitness, chúng mình thích gọi đơn giản là **"Người Bạn Đồng Hành"**.
 
-Một ngày làm việc của bạn ở phòng tập không có cảnh cầm điện thoại gọi điện gạ gẫm dồn dập, cũng chẳng phải đưa tờ hợp đồng đắt đỏ ra ép khách mua. Công việc chỉ nhẹ nhàng thế này thôi:
+Một ngày làm việc của bạn ở phòng tập không có cảnh gọi điện làm phiền dồn dập, cũng chẳng phải đưa tờ hợp đồng đắt đỏ ra ép khách mua. Công việc chỉ nhẹ nhàng thế này thôi:
 
 - ☕ **Pha một ly nước ấm, ngồi lắng nghe:** Lắng nghe chị em tâm sự về nỗi khổ đau vai gáy sau giờ làm, chuyện ăn uống thất thường hay nỗi tự ti về vóc dáng.
 - 📱 **Hướng dẫn dùng Gem Bé Dứa tính calo:** Chỉ cho chị em mở ứng dụng Gemini Gem Bé Dứa trên điện thoại, chụp ảnh tấm hình bát cơm trưa là Gem tự động tính calo giúp chị em ăn ngon mà không lo béo.
@@ -63,4 +71,4 @@ Hãy trở thành một phần của gia đình Grow Fitness cùng chị Diệu 
 _Đọc thêm bài viết liên quan:_
 
 - _[5 Thói quen 'Sạc Pin Năng Lượng' dành riêng cho nữ doanh nhân & Sale BĐS bận rộn](/5-thoi-quen-vang-cho-nguoi-moi-tap-gym)_
-- _[Tuổi 30 của huấn luyện viên: Thần thái làm chủ hay áp lực bán sức lao động?](/tuoi-30-cua-huan-luyen-vien-lam-chu-hay-xe-om-cong-nghe)_
+- _[Nghề huấn luyện viên tuổi 30 và con đường tự chủ](/nghe-huan-luyen-vien-tuoi-30-va-con-duong-tu-chu)_

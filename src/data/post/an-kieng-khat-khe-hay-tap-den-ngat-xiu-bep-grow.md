@@ -10,6 +10,16 @@ tags:
   - bếp grow
   - trợ lý bé dứa
 author: Diệu Liên & Bé Dứa AI
+fact_sources:
+  - ref: 'vault://2-OPERATION/projects/grow-fitness/hien-phap-be-dua.md'
+    scope: 'Nguyên tắc dinh dưỡng, vận động an toàn và ranh giới tư vấn'
+  - ref: 'vault://2-OPERATION/projects/grow-fitness/tuyen-noi-dung-t7-2026-nu-doanh-nhan.md'
+    scope: 'Định hướng Bếp Grow và nội dung ăn đủ, tập vừa sức'
+reviewer: 'Codex — kiểm tra kỹ thuật, nguồn và giọng văn ngày 27/07/2026'
+review_status: reviewed_pending_owner
+approved_by: null
+approved_at: null
+approval_ref: null
 metadata:
   canonical: https://luongdieulien.com/an-kieng-khat-khe-hay-tap-den-ngat-xiu-bep-grow
 ---

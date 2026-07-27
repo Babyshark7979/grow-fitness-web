@@ -11,6 +11,16 @@ tags:
   - sức khỏe phụ nữ
   - grow fitness
 author: Phạm Giang & Diệu Liên
+fact_sources:
+  - ref: 'vault://2-OPERATION/projects/grow-fitness/hien-phap-be-dua.md'
+    scope: 'Ranh giới tư vấn sức khỏe và nguyên tắc chuyển chuyên gia khi cần'
+  - ref: 'vault://2-OPERATION/projects/grow-fitness/tuyen-noi-dung-t7-2026-nu-doanh-nhan.md'
+    scope: 'Định hướng nội dung phục hồi, thở và thư giãn'
+reviewer: 'Codex — kiểm tra kỹ thuật, nguồn và giọng văn ngày 27/07/2026'
+review_status: reviewed_pending_owner
+approved_by: null
+approved_at: null
+approval_ref: null
 metadata:
   canonical: https://luongdieulien.com/suc-manh-hoi-tho-va-thien-dinh-tu-chua-lanh
 ---

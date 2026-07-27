@@ -10,6 +10,14 @@ tags:
   - grow fitness
   - trợ lý bé dứa
 author: Phạm Giang & Diệu Liên
+fact_sources:
+  - ref: 'vault://2-OPERATION/projects/grow-fitness/tuyen-noi-dung-t7-2026-nu-doanh-nhan.md'
+    scope: 'Định hướng xây thói quen vận động bền vững cho khách hàng bận rộn'
+reviewer: 'Codex — kiểm tra kỹ thuật, nguồn và giọng văn ngày 27/07/2026'
+review_status: reviewed_pending_owner
+approved_by: null
+approved_at: null
+approval_ref: null
 metadata:
   canonical: https://luongdieulien.com/he-thong-thay-y-chi-duy-tri-voc-dang
 ---
