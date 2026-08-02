@@ -27,7 +27,11 @@ export const headerData = {
       href: getPermalink('/contact'),
     },
   ],
-  actions: [{ text: 'Khám Phá Gói 99K', href: getPermalink('/join'), variant: 'primary' as const }],
+  actions: [
+    { text: 'Grow Fitness FB', href: 'https://www.facebook.com/Growfitness', target: '_blank', variant: 'secondary' as const },
+    { text: 'Bếp Healthy', href: 'https://www.facebook.com/anngongiudangoceanpark', target: '_blank', variant: 'secondary' as const },
+    { text: 'Khám Phá Gói 99K', href: getPermalink('/join'), variant: 'primary' as const }
+  ],
 };
 
 export const footerData = {
