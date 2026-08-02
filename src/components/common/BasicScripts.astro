@@ -108,7 +108,10 @@ import { UI } from 'astrowind:config';
       newlink.click();
     });
 
-    const screenSize = window.matchMedia('(max-width: 767px)');
+    // Keep the JavaScript menu boundary aligned with Header.astro's `xl`
+    // breakpoint. Tablets use the compact menu so the six links and CTA
+    // never compete for one horizontal row.
+    const screenSize = window.matchMedia('(max-width: 1279px)');
     screenSize.addEventListener('change', function () {
       document.querySelector('[data-aw-toggle-menu]')?.classList.remove('expanded');
       document.body.classList.remove('overflow-hidden');
