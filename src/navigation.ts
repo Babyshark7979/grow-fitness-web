@@ -11,7 +11,7 @@ export const headerData = {
       href: getPermalink('/join'),
     },
     {
-      text: 'Tuyển quản lý phòng tập',
+      text: 'Tuyển quản lý',
       href: getPermalink('/careers'),
     },
     {
@@ -19,20 +19,25 @@ export const headerData = {
       href: getPermalink('/invest'),
     },
     {
-      text: 'Blog',
-      href: getBlogPermalink(),
-    },
-    {
-      text: 'Liên hệ',
-      href: getPermalink('/contact'),
-    },
-    {
-      text: 'Grow Fitness FB',
-      href: 'https://www.facebook.com/Growfitness',
-    },
-    {
-      text: 'Bếp Healthy',
-      href: 'https://www.facebook.com/anngongiudangoceanpark',
+      text: 'Thêm',
+      links: [
+        {
+          text: 'Blog',
+          href: getBlogPermalink(),
+        },
+        {
+          text: 'Grow Fitness FB',
+          href: 'https://www.facebook.com/Growfitness',
+        },
+        {
+          text: 'Bếp Healthy',
+          href: 'https://www.facebook.com/anngongiudangoceanpark',
+        },
+        {
+          text: 'Liên hệ',
+          href: getPermalink('/contact'),
+        },
+      ],
     },
   ],
   actions: [
