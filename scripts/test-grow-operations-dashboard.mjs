@@ -13,7 +13,7 @@ assert.equal(
   'Canonical and clean-route HTML must be byte-identical'
 );
 
-assert.match(publishedHtml, /const\s+BLOB\s*=\s*["'][A-Za-z0-9+/=]+["']/, 'Encrypted payload is missing');
+assert.match(publishedHtml, /const\s+BLOB\s*=\s*["'][A-Za-z0-9+/=_-]+["']/, 'Encrypted payload is missing');
 for (const forbidden of [
   '1A5BQ4WvYu5-izzHvX3V-hz2tZSdt-Qlnrs0Y6o9tXv8',
   'Vân Nguyễn',
