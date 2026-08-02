@@ -19,11 +19,15 @@ export const headerData = {
       href: getPermalink('/invest'),
     },
     {
-      text: 'Thêm',
+      text: 'Khám phá thêm',
       links: [
         {
           text: 'Blog',
           href: getBlogPermalink(),
+        },
+        {
+          text: 'Liên hệ',
+          href: getPermalink('/contact'),
         },
         {
           text: 'Grow Fitness FB',
@@ -32,10 +36,6 @@ export const headerData = {
         {
           text: 'Bếp Healthy',
           href: 'https://www.facebook.com/anngongiudangoceanpark',
-        },
-        {
-          text: 'Liên hệ',
-          href: getPermalink('/contact'),
         },
       ],
     },
