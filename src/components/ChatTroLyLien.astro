@@ -266,6 +266,20 @@ const FANPAGE_URL = 'https://www.facebook.com/share/1DkFspwMnu/';
           }),
           signal: controller.signal,
         });
+        // 429 = chạm hàng rào chống spam của n8n (20 tin/phiên · 60 tin/giờ mỗi
+        // địa chỉ mạng). Đây KHÔNG phải lỗi kết nối — nói "không kết nối được"
+        // là đổ oan cho mạng của khách và làm khách tưởng web hỏng.
+        // Đo 04/08: chính claude-code test 40 lượt là cháy hạn mức cả nhà.
+        // Lưu ý cho người vận hành: nhiều nhà ở chung cư đi chung một địa chỉ
+        // mạng, nên 60 tin/giờ có thể chặn nhầm khách thật — cần theo dõi.
+        if (res.status === 429) {
+          typing.remove();
+          pushBot(
+            'Bạn nhắn hơi nhanh nên hệ thống tạm chặn ít phút. Bạn chờ chút rồi nhắn lại, hoặc nhắn thẳng chị Liên cho nhanh nhé.',
+            kenhNguoiThat()
+          );
+          return;
+        }
         if (!res.ok) throw new Error(String(res.status));
         const data = await res.json();
         typing.remove();
