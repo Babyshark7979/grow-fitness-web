@@ -1,0 +1,360 @@
+---
+// ─── Trợ lý chị Liên — lễ tân AI của Grow Fitness ───
+//
+// Gắn ở MỌI trang qua PageLayout. Hai lõi trong một con:
+//   1. Lễ tân pre-sale: trả lời dịch vụ/giá/lịch từ dữ liệu đã verify, rồi
+//      ĐIỀU PHỐI khách sang Zalo chị Liên / Messenger / form đăng ký.
+//   2. Kế toán calo (lõi Bé Dứa): khách kể món ăn -> bóc calo, cộng dồn trong ngày.
+//
+// Backend: n8n tại env PUBLIC_CHAT_WEBHOOK_URL — TRỐNG thì bong bóng ẩn hoàn
+// toàn. Đó là chốt an toàn: thà không có trợ lý còn hơn có một con câm đứng
+// trước mặt khách (án lệ 31/07: khoá Gemini chết, bot trả đúng một câu dự
+// phòng cho mọi câu hỏi suốt nhiều ngày mà không ai biết).
+//
+// Hợp đồng API: vault 03-MOCs/projects/grow-fitness/chatbot-web-kien-thuc-va-luat.md
+const chatUrl = import.meta.env.PUBLIC_CHAT_WEBHOOK_URL || '';
+const zaloPhone = import.meta.env.PUBLIC_ZALO_PHONE || '';
+const FANPAGE_URL = 'https://www.facebook.com/share/1DkFspwMnu/';
+---
+
+{
+  chatUrl && (
+    <div id="tl-chat" data-chat-url={chatUrl} data-zalo={zaloPhone} data-fanpage={FANPAGE_URL}>
+      <button
+        id="tl-chat-toggle"
+        aria-label="Mở khung chat với trợ lý chị Liên"
+        aria-expanded="false"
+        class="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-white shadow-[0_8px_30px_rgba(255,46,136,0.45)] transition hover:scale-110"
+      >
+        <svg id="tl-icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+        </svg>
+        <span id="tl-cham" class="absolute right-1 top-1 hidden h-3 w-3 rounded-full border-2 border-page bg-emerald-400" />
+      </button>
+
+      <div
+        id="tl-chat-panel"
+        role="dialog"
+        aria-label="Trò chuyện với trợ lý chị Liên"
+        class="fixed bottom-24 right-5 z-50 hidden w-[92vw] max-w-sm flex-col overflow-hidden rounded-2xl border border-line bg-page shadow-2xl"
+      >
+        <div class="flex items-center gap-3 border-b border-line bg-card px-4 py-3">
+          <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary text-lg font-bold text-white">
+            L
+          </div>
+          <div class="min-w-0 flex-1">
+            <p class="font-semibold leading-tight text-white">Trợ lý chị Liên</p>
+            <p id="tl-sub" class="truncate text-xs text-primary">Grow Fitness · trả lời ngay</p>
+          </div>
+          <button id="tl-chat-close" aria-label="Đóng chat" class="text-xl leading-none text-muted hover:text-white">
+            ×
+          </button>
+        </div>
+
+        <div id="tl-chat-msgs" class="flex max-h-[50vh] min-h-[16rem] flex-col gap-2 overflow-y-auto px-3 py-4 text-sm" />
+
+        <div id="tl-chat-chips" class="flex flex-wrap gap-2 px-3 pb-2">
+          <button type="button" class="tl-chip inline-flex min-h-[40px] items-center rounded-full border border-line bg-card px-3.5 text-xs text-white hover:border-primary">
+            Gói 99K gồm gì?
+          </button>
+          <button type="button" class="tl-chip inline-flex min-h-[40px] items-center rounded-full border border-line bg-card px-3.5 text-xs text-white hover:border-primary">
+            Lịch tập &amp; bảng giá
+          </button>
+          <button type="button" class="tl-chip inline-flex min-h-[40px] items-center rounded-full border border-line bg-card px-3.5 text-xs text-white hover:border-primary">
+            1 bát phở bao nhiêu calo?
+          </button>
+          <button type="button" class="tl-chip inline-flex min-h-[40px] items-center rounded-full border border-line bg-card px-3.5 text-xs text-white hover:border-primary">
+            Em muốn gặp chị Liên
+          </button>
+        </div>
+
+        <form id="tl-chat-form" class="flex gap-2 border-t border-line bg-card p-3">
+          <input
+            id="tl-chat-input"
+            type="text"
+            maxlength="500"
+            placeholder="Hỏi về gói tập, hoặc kể món vừa ăn..."
+            autocomplete="off"
+            aria-label="Nhập câu hỏi cho trợ lý chị Liên"
+            class="w-full rounded-lg border border-line bg-page px-3 py-2 text-sm text-white placeholder:text-muted focus:border-primary focus:outline-none"
+          />
+          <button id="tl-chat-send" type="submit" aria-label="Gửi" class="btn-primary !px-4 !py-2 text-sm">
+            Gửi
+          </button>
+        </form>
+      </div>
+    </div>
+  )
+}
+
+<style>
+  @keyframes tl-go {
+    0%,
+    60%,
+    100% {
+      opacity: 0.25;
+      transform: translateY(0);
+    }
+    30% {
+      opacity: 1;
+      transform: translateY(-3px);
+    }
+  }
+  .tl-go {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+    display: inline-block;
+    animation: tl-go 1.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  }
+  .tl-go:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+  .tl-go:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .tl-go {
+      animation: none;
+      opacity: 0.6;
+    }
+  }
+</style>
+
+<script>
+  function initTroLyLien() {
+    const root = document.getElementById('tl-chat');
+    if (!root || root.dataset.bound) return;
+    root.dataset.bound = '1';
+
+    const chatUrl = root.dataset.chatUrl || '';
+    const zalo = root.dataset.zalo || '';
+    const fanpage = root.dataset.fanpage || '';
+    const panel = document.getElementById('tl-chat-panel')!;
+    const toggle = document.getElementById('tl-chat-toggle')!;
+    const closeBtn = document.getElementById('tl-chat-close')!;
+    const msgs = document.getElementById('tl-chat-msgs')!;
+    const sub = document.getElementById('tl-sub')!;
+    const cham = document.getElementById('tl-cham')!;
+    const form = document.getElementById('tl-chat-form') as HTMLFormElement;
+    const input = document.getElementById('tl-chat-input') as HTMLInputElement;
+    const sendBtn = document.getElementById('tl-chat-send') as HTMLButtonElement;
+
+    const SS_KEY = 'tl-chat-history';
+    const CALO_KEY = 'tl-calo-trong-ngay';
+    const sessionId =
+      sessionStorage.getItem('tl-chat-sid') || Math.random().toString(36).slice(2) + Date.now().toString(36);
+    sessionStorage.setItem('tl-chat-sid', sessionId);
+
+    type Msg = { role: 'user' | 'bot'; text: string; actions?: { label: string; href: string }[] };
+
+    /* ─── Sổ calo trong ngày ───
+       Đóng theo NGÀY GIỜ MÁY (không phải UTC — 00:50 giờ Việt Nam thì UTC còn
+       là hôm qua, dùng UTC là xoá sổ oan mỗi tối). Bản ghi mang theo ngày của
+       chính nó; đọc ra khác ngày hôm nay là vứt. Không cần hẹn giờ nửa đêm. */
+    function ngayHomNay() {
+      const d = new Date();
+      const p = (n: number) => String(n).padStart(2, '0');
+      return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+    }
+    function docCalo(): number {
+      try {
+        const raw = localStorage.getItem(CALO_KEY);
+        if (!raw) return 0;
+        const o = JSON.parse(raw);
+        if (!o || o.ngay !== ngayHomNay() || !Number.isFinite(o.calo)) return 0;
+        return o.calo;
+      } catch {
+        return 0;
+      }
+    }
+    function ghiCalo(calo: number) {
+      try {
+        localStorage.setItem(CALO_KEY, JSON.stringify({ ngay: ngayHomNay(), calo }));
+      } catch {
+        /* chặn cookie / ẩn danh / hết chỗ — chạy không trí nhớ, không được sập */
+      }
+    }
+    let totalCalo = docCalo();
+    function veSub() {
+      sub.textContent =
+        totalCalo > 0 ? `Hôm nay bạn đã nạp ${totalCalo} kcal` : 'Grow Fitness · trả lời ngay';
+    }
+
+    let history: Msg[] = [];
+    try {
+      history = JSON.parse(sessionStorage.getItem(SS_KEY) || '[]');
+    } catch {
+      history = [];
+    }
+
+    function track(event: string) {
+      window.dispatchEvent(new CustomEvent('grow:track', { detail: { event } }));
+    }
+
+    function esc(s: string) {
+      const d = document.createElement('div');
+      d.textContent = s;
+      return d.innerHTML;
+    }
+
+    function render() {
+      msgs.innerHTML = history
+        .map((m) => {
+          const bubble =
+            m.role === 'user'
+              ? `<div class="ml-auto max-w-[85%] rounded-2xl rounded-tr-sm bg-primary px-3 py-2 text-white">${esc(m.text)}</div>`
+              : `<div class="max-w-[85%] whitespace-pre-line rounded-2xl rounded-tl-sm border border-line bg-card px-3 py-2 text-white">${esc(m.text)}</div>`;
+          const actions = (m.actions || [])
+            .map(
+              (a) =>
+                `<a href="${esc(a.href)}" target="${a.href.startsWith('/') ? '_self' : '_blank'}" rel="noopener" class="inline-block rounded-full border border-primary px-3 py-1.5 text-xs font-semibold text-primary transition hover:bg-primary hover:text-white">${esc(a.label)}</a>`
+            )
+            .join(' ');
+          return bubble + (actions ? `<div class="mt-1 flex flex-wrap gap-2">${actions}</div>` : '');
+        })
+        .join('');
+      msgs.scrollTop = msgs.scrollHeight;
+      sessionStorage.setItem(SS_KEY, JSON.stringify(history.slice(-30)));
+    }
+
+    function pushBot(text: string, actions?: Msg['actions']) {
+      history.push({ role: 'bot', text, actions });
+      render();
+      if (panel.classList.contains('hidden')) cham.classList.remove('hidden');
+    }
+
+    function kenhNguoiThat(): Msg['actions'] {
+      const acts: Msg['actions'] = [];
+      if (zalo) acts.push({ label: '💬 Nhắn Zalo chị Liên', href: `https://zalo.me/${zalo}` });
+      if (fanpage) acts.push({ label: '📘 Chat Messenger', href: fanpage });
+      return acts;
+    }
+
+    let busy = false;
+    async function send(text: string) {
+      const q = text.trim();
+      if (busy || !q) return;
+      busy = true;
+      sendBtn.disabled = true;
+      history.push({ role: 'user', text: q });
+      render();
+      track('chat_message');
+
+      const typing = document.createElement('div');
+      typing.className =
+        'flex w-fit items-center gap-1.5 rounded-2xl rounded-tl-sm border border-line bg-card px-3 py-3 text-primary';
+      typing.setAttribute('aria-label', 'Trợ lý đang trả lời');
+      typing.innerHTML = '<span class="tl-go"></span><span class="tl-go"></span><span class="tl-go"></span>';
+      msgs.appendChild(typing);
+      msgs.scrollTop = msgs.scrollHeight;
+
+      const controller = new AbortController();
+      // 60 giây: n8n gọi mô hình ngôn ngữ, câu tư vấn dài có khi mất 10-20s.
+      // Mốc 20s cũ cắt oan những câu trả lời tử tế nhất.
+      const timer = setTimeout(() => controller.abort(), 60000);
+      try {
+        const res = await fetch(chatUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            session_id: sessionId,
+            page: location.pathname,
+            message: q,
+            history: history.slice(-8),
+          }),
+          signal: controller.signal,
+        });
+        if (!res.ok) throw new Error(String(res.status));
+        const data = await res.json();
+        typing.remove();
+
+        // Lõi Bé Dứa: n8n bóc được calo thì cộng vào sổ trong ngày.
+        const themCalo = Number(data.addedCalo);
+        if (Number.isFinite(themCalo) && themCalo > 0) {
+          totalCalo += themCalo;
+          ghiCalo(totalCalo);
+          veSub();
+        }
+
+        // ─── LƯỚI AN TOÀN, KHÔNG PHẢI THUỐC ───
+        // Đo 31/07: bộ não n8n hỏng 2/6 lượt (khoá Gemini hết quota) và mỗi lần
+        // hỏng nó trả HTTP 200 kèm câu "hơi chậm một nhịp" — nghe như tạm thời,
+        // thực ra hỏng hẳn, và khách bị bỏ lại giữa đường không có nút nào bấm.
+        // Ở đây chỉ nhận diện câu đó rồi ĐƯA KÊNH NGƯỜI THẬT cho khách.
+        // THUỐC thật nằm ở n8n: đổi khoá Gemini sang vé Claude (đã chạy ổn định
+        // cho webhook be-dua-calo trên chính máy n8n này) — việc của Tiểu Linh.
+        const reply = data.reply || 'Mình chưa nghe rõ, bạn hỏi lại giúp mình nhé.';
+        const naoDangHong = /hơi chậm một nhịp/i.test(reply);
+        pushBot(
+          naoDangHong
+            ? 'Mình đang trục trặc chút, chưa trả lời bạn tử tế được. Bạn nhắn thẳng chị Liên nhé — chị trả lời trong ngày.'
+            : reply,
+          naoDangHong ? kenhNguoiThat() : Array.isArray(data.actions) ? data.actions.slice(0, 3) : undefined
+        );
+      } catch (err) {
+        typing.remove();
+        const quaGio = (err as Error)?.name === 'AbortError';
+        pushBot(
+          quaGio
+            ? 'Mình chờ hơi lâu mà chưa có câu trả lời. Bạn nhắn thẳng chị Liên cho nhanh nhé — chị trả lời trong ngày.'
+            : 'Mình đang không kết nối được. Bạn nhắn thẳng chị Liên qua kênh dưới đây, chị trả lời trong ngày nhé.',
+          kenhNguoiThat()
+        );
+      } finally {
+        clearTimeout(timer);
+        busy = false;
+        sendBtn.disabled = false;
+      }
+    }
+
+    function moPanel(mo: boolean) {
+      panel.classList.toggle('hidden', !mo);
+      panel.classList.toggle('flex', mo);
+      toggle.setAttribute('aria-expanded', String(mo));
+      // Panel đóng phải rời khỏi cả phím Tab lẫn trình đọc màn hình — giấu bằng
+      // mắt thôi thì người dùng bàn phím vẫn nhảy vào một ô nhập vô hình.
+      panel.toggleAttribute('inert', !mo);
+      panel.setAttribute('aria-hidden', String(!mo));
+      if (mo) {
+        cham.classList.add('hidden');
+        track('chat_open');
+        if (history.length === 0) {
+          pushBot(
+            'Chào bạn, mình là trợ lý của chị Liên bên Grow Fitness.\n' +
+              'Bạn đang muốn tìm hiểu lịch tập và bảng giá, hay muốn mình tính giúp calo bữa vừa ăn?'
+          );
+        }
+        input.focus();
+      }
+    }
+
+    toggle.addEventListener('click', () => moPanel(panel.classList.contains('hidden')));
+    closeBtn.addEventListener('click', () => moPanel(false));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !panel.classList.contains('hidden')) moPanel(false);
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const v = input.value;
+      input.value = '';
+      send(v);
+    });
+
+    document.querySelectorAll<HTMLButtonElement>('.tl-chip').forEach((chip) => {
+      chip.addEventListener('click', () => {
+        if (panel.classList.contains('hidden')) moPanel(true);
+        send(chip.textContent?.trim() || '');
+      });
+    });
+
+    moPanel(false);
+    veSub();
+    render();
+  }
+
+  initTroLyLien();
+  document.addEventListener('astro:page-load', initTroLyLien);
+</script>
